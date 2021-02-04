@@ -1,6 +1,13 @@
 - file: README
   numbered: false
 
+- part: Laboratoria
+  chapters:
+  - file: laboratoria/lab1-przygotowanie-srodowiska.ipynb
+  - file: laboratoria/lab2-podstawowe-biblioteki.ipynb
+  - file: laboratoria/lab3-tworzenie-modeli.ipynb
+
+
 - part: Chapters
   chapters:
   - file: chapters/chapter1-basics
