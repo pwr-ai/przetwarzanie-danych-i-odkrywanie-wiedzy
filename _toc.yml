@@ -6,27 +6,9 @@
   - file: laboratoria/lab1-przygotowanie-srodowiska.ipynb
   - file: laboratoria/lab2-podstawowe-biblioteki.ipynb
   - file: laboratoria/lab3-tworzenie-modeli.ipynb
-
-
-- part: Chapters
-  chapters:
-  - file: chapters/chapter1-basics
-  - file: chapters/chapter2-loops-functions
-  - file: chapters/chapter3-tests-classes
-  - file: chapters/chapter4-style-scripts-imports
-  - file: chapters/chapter5-numpy
-  - file: chapters/chapter6-numpy-addendum
-  - file: chapters/chapter7-pandas
-  - file: chapters/chapter8-wrangling-basics
-  - file: chapters/chapter9-wrangling-advanced
-
-- part: Practice Exercises
-  chapters:
-  - file: practice-exercises/chapter1-basics-practice.ipynb
-  - file: practice-exercises/chapter2-loops-functions-practice.ipynb
-  - file: practice-exercises/chapter3-tests-classes-practice.ipynb
-  - file: practice-exercises/chapter4-style-scripts-imports-practice.ipynb
-  - file: practice-exercises/chapter5-numpy-practice.ipynb
-  - file: practice-exercises/chapter7-pandas-practice.ipynb
-  - file: practice-exercises/chapter8-wrangling-basics-practice.ipynb
-  - file: practice-exercises/chapter9-wrangling-advanced-practice.ipynb
+  - file: laboratoria/lab4-manipulacja-datasetem.ipynb
+  - file: laboratoria/lab5-zarzadzanie-eksperymentami.ipynb
+  - file: laboratoria/lab6-produktyzacja.ipynb
+  - file: laboratoria/lab7-rozwiazywanie-problemu-1.ipynb
+  - file: laboratoria/lab8-rozwiazywanie-problemu-2.ipynb
+  
