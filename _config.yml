@@ -1,11 +1,11 @@
 # Book settings
-title: Python Programming for Data Science
-author: Tomas Beuzen
+title: Przetwarzanie danych i odkrywanie wiedzy
+author: Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda
 logo: docs/logo.png
 exclude_patterns: ["cache"]
 
 repository:
-  url: https://github.com/TomasBeuzen/python-programming-for-data-science
+  url: https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy
 
 latex:
   latex_documents:
@@ -20,11 +20,11 @@ execute:
 html:
   favicon                   : "docs/favicon.png"  # A path to a favicon image
   navbar_number_sections    : false  # Add a number to each section in your left navbar
-  use_edit_page_button      : true  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
   use_repository_button     : true  # Whether to add a link to your repository button
   use_issues_button         : true  # Whether to add an "open an issue" button
-  extra_navbar              : Tomas Beuzen <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
+  extra_navbar              : <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
   extra_footer              : ""  # Will be displayed underneath the footer.
   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
-  baseurl                   : "https://www.tomasbeuzen.com/python-programming-for-data-science/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  baseurl                   : ''  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
