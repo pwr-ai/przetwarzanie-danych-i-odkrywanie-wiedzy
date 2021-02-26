@@ -1,33 +1,51 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Chapter 5: Introduction to NumPy &#8212; Python Programming for Data Science</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 5: Introduction to NumPy &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -36,25 +54,13 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://www.tomasbeuzen.com/python-programming-for-data-science/chapters/chapter5-numpy.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 6: NumPy Implementation Details" href="chapter6-numpy-addendum.html" />
-    <link rel="prev" title="Chapter 4: Style Guides, Scripts, Imports" href="chapter4-style-scripts-imports.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://www.tomasbeuzen.com/python-programming-for-data-science/chapters/chapter5-numpy.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Chapter 5: Introduction to NumPy" />
-<meta property="og:description" content="Chapter 5: Introduction to NumPy  &lt;h2&gt;Chapter Outline&lt;span class=&#34;tocSkip&#34;&gt;&lt;/span&gt;&lt;/h2&gt; &lt;hr&gt; &lt;div class=&#34;toc&#34;&gt;&lt;ul class=&#34;toc-item&#34;&gt;&lt;li&gt;&lt;span&gt;&lt;a href=&#34;#1.-Introd" />
-<meta property="og:image"       content="https://www.tomasbeuzen.com/python-programming-for-data-science/_static/logo.png" />
-
-<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -72,130 +78,25 @@
   <img src="../_static/logo.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   Python Programming for Data Science
+   Przetwarzanie Danych i Odkrywanie Wiedzy
   </a>
  </li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Chapters
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter1-basics.html">
-   Chapter 1: Python Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter2-loops-functions.html">
-   Chapter 2: Loops &amp; Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter3-tests-classes.html">
-   Chapter 3: Unit Tests &amp; Classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter4-style-scripts-imports.html">
-   Chapter 4: Style Guides, Scripts, Imports
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 5: Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter6-numpy-addendum.html">
-   Chapter 6: NumPy Implementation Details
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter7-pandas.html">
-   Chapter 7: Introduction to Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter8-wrangling-basics.html">
-   Chapter 8: Basic Data Wrangling With Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter9-wrangling-advanced.html">
-   Chapter 9: Advanced Data Wrangling With Pandas
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Practice Exercises
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter1-basics-practice.html">
-   Python Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter2-loops-functions-practice.html">
-   Loops &amp; Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter3-tests-classes-practice.html">
-   Unit Tests &amp; Classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter4-style-scripts-imports-practice.html">
-   Style Guides, Scripts, Imports
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter5-numpy-practice.html">
-   NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter7-pandas-practice.html">
-   Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter8-wrangling-basics-practice.html">
-   Basic Wrangling With Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter9-wrangling-advanced-practice.html">
-   Advanced Wrangling With Pandas
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Tomas Beuzen <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -221,11 +122,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -237,8 +138,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -246,23 +147,22 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/TomasBeuzen/python-programming-for-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/TomasBeuzen/python-programming-for-data-science/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter5-numpy.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter5-numpy.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/TomasBeuzen/python-programming-for-data-science/edit/master/chapters/chapter5-numpy.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+        
     </div>
 </div>
 
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -272,18 +172,13 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/TomasBeuzen/python-programming-for-data-science/master?urlpath=tree/chapters/chapter5-numpy.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/chapters/chapter5-numpy.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/TomasBeuzen/python-programming-for-data-science/blob/master/chapters/chapter5-numpy.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -293,6 +188,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -389,6 +285,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -401,7 +298,7 @@
 <h1>Chapter 5: Introduction to NumPy<a class="headerlink" href="#chapter-5-introduction-to-numpy" title="Permalink to this headline">¶</a></h1>
 <h2>Chapter Outline<span class="tocSkip"></span></h2>
 <hr>
-<div class="toc"><ul class="toc-item"><li><span><a href="#introduction-to-numpy" data-toc-modified-id="1.-Introduction-to-NumPy-1">1. Introduction to NumPy</a></span></li><li><span><a href="#numpy-arrays" data-toc-modified-id="2.-NumPy-Arrays-2">2. NumPy Arrays</a></span></li><li><span><a href="#array-operations-and-broadcasting" data-toc-modified-id="3.-Array-Operations-and-Broadcasting-3">3. Array Operations and Broadcasting</a></span></li><li><span><a href="#indexing-and-slicing" data-toc-modified-id="4.-Indexing-and-slicing-4">4. Indexing and slicing</a></span></li><li><span><a href="#more-useful-numpy-functions" data-toc-modified-id="5.-More-Useful-NumPy-Functions-5">5. More Useful NumPy Functions</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
+<div class="toc"><ul class="toc-item"><li><span><a href="#1.-Introduction-to-NumPy" data-toc-modified-id="1.-Introduction-to-NumPy-1">1. Introduction to NumPy</a></span></li><li><span><a href="#2.-NumPy-Arrays" data-toc-modified-id="2.-NumPy-Arrays-2">2. NumPy Arrays</a></span></li><li><span><a href="#3.-Array-Operations-and-Broadcasting" data-toc-modified-id="3.-Array-Operations-and-Broadcasting-3">3. Array Operations and Broadcasting</a></span></li><li><span><a href="#4.-Indexing-and-slicing" data-toc-modified-id="4.-Indexing-and-slicing-4">4. Indexing and slicing</a></span></li><li><span><a href="#5.-More-Useful-NumPy-Functions" data-toc-modified-id="5.-More-Useful-NumPy-Functions-5">5. More Useful NumPy Functions</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
 <h2>Chapter Learning Objectives<a class="headerlink" href="#chapter-learning-objectives" title="Permalink to this headline">¶</a></h2>
 <hr><ul class="simple">
 <li><p>Use NumPy to create arrays with built-in functions inlcuding <code class="docutils literal notranslate"><span class="pre">np.array()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.full()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.ones()</span></code></p></li>
@@ -660,11 +557,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.31658748, 0.03022873],
-       [0.45887575, 0.86662331],
-       [0.13207967, 0.85047239],
-       [0.19284452, 0.4145791 ],
-       [0.53239103, 0.5968896 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.48842109, 0.82067278],
+       [0.06614562, 0.44065857],
+       [0.41885461, 0.50422269],
+       [0.71636772, 0.24301198],
+       [0.76246544, 0.00130572]])
 </pre></div>
 </div>
 </div>
@@ -690,11 +587,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.20983428, 0.54170816],
-       [0.50059837, 0.44160885],
-       [0.52684962, 0.9519489 ],
-       [0.53092945, 0.4622409 ],
-       [0.32498283, 0.21731213]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.86258953, 0.34282778],
+       [0.2518006 , 0.54530223],
+       [0.69527896, 0.44661314],
+       [0.13609837, 0.14415497],
+       [0.69862271, 0.25991615]])
 </pre></div>
 </div>
 </div>
@@ -706,8 +603,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.20983428, 0.50059837, 0.52684962, 0.53092945, 0.32498283],
-       [0.54170816, 0.44160885, 0.9519489 , 0.4622409 , 0.21731213]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.86258953, 0.2518006 , 0.69527896, 0.13609837, 0.69862271],
+       [0.34282778, 0.54530223, 0.44661314, 0.14415497, 0.25991615]])
 </pre></div>
 </div>
 </div>
@@ -719,7 +616,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4708013495289487
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.43832044508799123
 </pre></div>
 </div>
 </div>
@@ -1236,7 +1133,7 @@ sales shape: (3, 3)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Broadcasting is 8.08x faster than looping here.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Broadcasting is 8.61x faster than looping here.
 </pre></div>
 </div>
 </div>
@@ -1576,10 +1473,10 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 4, 9, 7, 8, 1],
-       [3, 3, 9, 6, 0, 0],
-       [0, 1, 5, 9, 6, 3],
-       [6, 7, 0, 6, 8, 8]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 9, 7, 1, 8, 2],
+       [6, 7, 9, 4, 8, 5],
+       [9, 5, 0, 3, 3, 8],
+       [9, 2, 6, 9, 7, 7]])
 </pre></div>
 </div>
 </div>
@@ -1591,7 +1488,7 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
@@ -1603,7 +1500,7 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
@@ -1615,7 +1512,7 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 7, 0, 6, 8, 8])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 2, 6, 9, 7, 7])
 </pre></div>
 </div>
 </div>
@@ -1651,7 +1548,7 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 9, 5, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7, 9, 0, 6])
 </pre></div>
 </div>
 </div>
@@ -1663,8 +1560,8 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 5],
-       [6, 7, 0]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 5, 0],
+       [9, 2, 6]])
 </pre></div>
 </div>
 </div>
@@ -1676,12 +1573,12 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 3, 0, 6],
-       [4, 3, 1, 7],
-       [9, 9, 5, 0],
-       [7, 6, 9, 6],
-       [8, 0, 6, 8],
-       [1, 0, 3, 8]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 6, 9, 9],
+       [9, 7, 5, 2],
+       [7, 9, 0, 6],
+       [1, 4, 3, 9],
+       [8, 8, 3, 7],
+       [2, 5, 8, 7]])
 </pre></div>
 </div>
 </div>
@@ -1693,10 +1590,10 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9, 4, 9, 7, 8, 1],
-       [3, 3, 9, 6, 0, 0],
-       [0, 1, 5, 9, 6, 3],
-       [6, 7, 0, 6, 8, 8]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 9, 7, 1, 8, 2],
+       [6, 7, 9, 4, 8, 5],
+       [9, 5, 0, 3, 3, 8],
+       [9, 2, 6, 9, 7, 7]])
 </pre></div>
 </div>
 </div>
@@ -1709,10 +1606,10 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[     9,      4,      9,      7,      8,      1],
-       [     3, 555555,      9,      6,      0,      0],
-       [     0,      1,      5,      9,      6,      3],
-       [     6,      7,      0,      6,      8,      8]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[     2,      9,      7,      1,      8,      2],
+       [     6, 555555,      9,      4,      8,      5],
+       [     9,      5,      0,      3,      3,      8],
+       [     9,      2,      6,      9,      7,      7]])
 </pre></div>
 </div>
 </div>
@@ -1754,8 +1651,8 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.12700105, 0.36011086, 0.82508582, 0.56646415, 0.35503842,
-       0.52200749, 0.34272111, 0.59669545, 0.25618968, 0.82273245])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.62997858, 0.54259309, 0.88606984, 0.42421373, 0.15005004,
+       0.37269727, 0.21407708, 0.23881631, 0.93594971, 0.47008412])
 </pre></div>
 </div>
 </div>
@@ -1767,8 +1664,8 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.12700105, 1.36011086, 1.82508582, 1.56646415, 1.35503842,
-       1.52200749, 1.34272111, 1.59669545, 1.25618968, 1.82273245])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.62997858, 1.54259309, 1.88606984, 1.42421373, 1.15005004,
+       1.37269727, 1.21407708, 1.23881631, 1.93594971, 1.47008412])
 </pre></div>
 </div>
 </div>
@@ -1781,8 +1678,8 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True,  True, False,  True, False,  True, False,
-        True])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True, False, False, False, False, False,  True,
+       False])
 </pre></div>
 </div>
 </div>
@@ -1795,8 +1692,8 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.12700105, 0.36011086, 0.5       , 0.5       , 0.35503842,
-       0.5       , 0.34272111, 0.5       , 0.25618968, 0.5       ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.5       , 0.5       , 0.5       , 0.42421373, 0.15005004,
+       0.37269727, 0.21407708, 0.23881631, 0.5       , 0.47008412])
 </pre></div>
 </div>
 </div>
@@ -1809,8 +1706,8 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.33847366, 0.43610173, 0.30564705, 0.5099709 , 0.93375661,
-       0.1333407 , 0.50820287, 0.66291725, 0.07292992, 0.58978083])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.2452962 , 0.45455715, 0.12091049, 0.23919726, 0.20837206,
+       0.51765102, 0.35842781, 0.50097459, 0.88917569, 0.99230881])
 </pre></div>
 </div>
 </div>
@@ -1823,8 +1720,8 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.33847366, 0.43610173, 0.30564705, 0.5       , 0.5       ,
-       0.1333407 , 0.5       , 0.5       , 0.07292992, 0.5       ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.2452962 , 0.45455715, 0.12091049, 0.23919726, 0.20837206,
+       0.5       , 0.35842781, 0.5       , 0.5       , 0.5       ])
 </pre></div>
 </div>
 </div>
@@ -1937,7 +1834,7 @@ Dimensions: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vectorized operation is 4.63x faster than looping here.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vectorized operation is 4.13x faster than looping here.
 </pre></div>
 </div>
 </div>
@@ -1974,15 +1871,13 @@ Dimensions: 2
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="chapter4-style-scripts-imports.html" title="previous page">Chapter 4: Style Guides, Scripts, Imports</a>
-    <a class='right-next' id="next-link" href="chapter6-numpy-addendum.html" title="next page">Chapter 6: NumPy Implementation Details</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By Tomas Beuzen<br/>
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
         
             &copy; Copyright 2020.<br/>
       </p>
@@ -1994,7 +1889,10 @@ Dimensions: 2
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
     
   </body>
 </html>

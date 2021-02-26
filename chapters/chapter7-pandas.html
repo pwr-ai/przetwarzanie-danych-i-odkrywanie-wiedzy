@@ -1,33 +1,51 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Chapter 7: Introduction to Pandas &#8212; Python Programming for Data Science</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 7: Introduction to Pandas &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -36,25 +54,13 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://www.tomasbeuzen.com/python-programming-for-data-science/chapters/chapter7-pandas.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 8: Basic Data Wrangling With Pandas" href="chapter8-wrangling-basics.html" />
-    <link rel="prev" title="Chapter 6: NumPy Implementation Details" href="chapter6-numpy-addendum.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://www.tomasbeuzen.com/python-programming-for-data-science/chapters/chapter7-pandas.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Chapter 7: Introduction to Pandas" />
-<meta property="og:description" content="Chapter 7: Introduction to Pandas  &lt;h2&gt;Chapter Outline&lt;span class=&#34;tocSkip&#34;&gt;&lt;/span&gt;&lt;/h2&gt; &lt;hr&gt; &lt;div class=&#34;toc&#34;&gt;&lt;ul class=&#34;toc-item&#34;&gt;&lt;li&gt;&lt;span&gt;&lt;a href=&#34;#1.-Intro" />
-<meta property="og:image"       content="https://www.tomasbeuzen.com/python-programming-for-data-science/_static/logo.png" />
-
-<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -72,130 +78,25 @@
   <img src="../_static/logo.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   Python Programming for Data Science
+   Przetwarzanie Danych i Odkrywanie Wiedzy
   </a>
  </li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Chapters
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter1-basics.html">
-   Chapter 1: Python Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter2-loops-functions.html">
-   Chapter 2: Loops &amp; Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter3-tests-classes.html">
-   Chapter 3: Unit Tests &amp; Classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter4-style-scripts-imports.html">
-   Chapter 4: Style Guides, Scripts, Imports
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter5-numpy.html">
-   Chapter 5: Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter6-numpy-addendum.html">
-   Chapter 6: NumPy Implementation Details
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 7: Introduction to Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter8-wrangling-basics.html">
-   Chapter 8: Basic Data Wrangling With Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter9-wrangling-advanced.html">
-   Chapter 9: Advanced Data Wrangling With Pandas
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Practice Exercises
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter1-basics-practice.html">
-   Python Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter2-loops-functions-practice.html">
-   Loops &amp; Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter3-tests-classes-practice.html">
-   Unit Tests &amp; Classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter4-style-scripts-imports-practice.html">
-   Style Guides, Scripts, Imports
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter5-numpy-practice.html">
-   NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter7-pandas-practice.html">
-   Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter8-wrangling-basics-practice.html">
-   Basic Wrangling With Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter9-wrangling-advanced-practice.html">
-   Advanced Wrangling With Pandas
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Tomas Beuzen <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -221,11 +122,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -237,8 +138,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -246,23 +147,22 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/TomasBeuzen/python-programming-for-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/TomasBeuzen/python-programming-for-data-science/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter7-pandas.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter7-pandas.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/TomasBeuzen/python-programming-for-data-science/edit/master/chapters/chapter7-pandas.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+        
     </div>
 </div>
 
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -272,18 +172,13 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/TomasBeuzen/python-programming-for-data-science/master?urlpath=tree/chapters/chapter7-pandas.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/chapters/chapter7-pandas.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/TomasBeuzen/python-programming-for-data-science/blob/master/chapters/chapter7-pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -293,6 +188,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -450,6 +346,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -462,7 +359,7 @@
 <h1>Chapter 7: Introduction to Pandas<a class="headerlink" href="#chapter-7-introduction-to-pandas" title="Permalink to this headline">¶</a></h1>
 <h2>Chapter Outline<span class="tocSkip"></span></h2>
 <hr>
-<div class="toc"><ul class="toc-item"><li><span><a href="#introduction-to-pandas" data-toc-modified-id="1.-Introduction-to-Pandas-1">1. Introduction to Pandas</a></span></li><li><span><a href="#pandas-series" data-toc-modified-id="2.-Pandas-Series-2">2. Pandas Series</a></span></li><li><span><a href="#pandas-dataframes" data-toc-modified-id="3.-Pandas-DataFrames-3">3. Pandas DataFrames</a></span></li><li><span><a href="#why-ndarrays-and-series-and-dataframes?" data-toc-modified-id="4.-Why-ndarrays-and-Series-and-DataFrames?-4">4. Why ndarrays and Series and DataFrames?</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
+<div class="toc"><ul class="toc-item"><li><span><a href="#1.-Introduction-to-Pandas" data-toc-modified-id="1.-Introduction-to-Pandas-1">1. Introduction to Pandas</a></span></li><li><span><a href="#2.-Pandas-Series" data-toc-modified-id="2.-Pandas-Series-2">2. Pandas Series</a></span></li><li><span><a href="#3.-Pandas-DataFrames" data-toc-modified-id="3.-Pandas-DataFrames-3">3. Pandas DataFrames</a></span></li><li><span><a href="#4.-Why-ndarrays-and-Series-and-DataFrames?" data-toc-modified-id="4.-Why-ndarrays-and-Series-and-DataFrames?-4">4. Why ndarrays and Series and DataFrames?</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
 <h2>Chapter Learning Objectives<a class="headerlink" href="#chapter-learning-objectives" title="Permalink to this headline">¶</a></h2>
 <hr><ul class="simple">
 <li><p>Create Pandas series with <code class="docutils literal notranslate"><span class="pre">pd.Series()</span></code> and Pandas dataframe with <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code></p></li>
@@ -561,9 +458,9 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.976935
-1   -0.194313
-2    0.173407
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.672550
+1   -0.938203
+2   -0.119919
 dtype: float64
 </pre></div>
 </div>
@@ -610,11 +507,11 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.655347
-1   -2.245187
-2    0.342516
-3    0.484205
-4   -1.190367
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.294579
+1    0.198272
+2   -0.503040
+3   -0.484173
+4    0.505109
 Name: random_series, dtype: float64
 </pre></div>
 </div>
@@ -639,11 +536,11 @@ Name: random_series, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.655347
-1   -2.245187
-2    0.342516
-3    0.484205
-4   -1.190367
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.294579
+1    0.198272
+2   -0.503040
+3   -0.484173
+4    0.505109
 Name: another_name, dtype: float64
 </pre></div>
 </div>
@@ -670,7 +567,7 @@ Name: another_name, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.65534724, -2.24518664,  0.34251645,  0.48420464, -1.19036667])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.29457908,  0.19827166, -0.50304006, -0.48417339,  0.50510875])
 </pre></div>
 </div>
 </div>
@@ -1003,7 +900,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;T&#39;, &#39;abs&#39;, &#39;add&#39;, &#39;add_prefix&#39;, &#39;add_suffix&#39;, &#39;agg&#39;, &#39;aggregate&#39;, &#39;align&#39;, &#39;all&#39;, &#39;any&#39;, &#39;append&#39;, &#39;apply&#39;, &#39;argmax&#39;, &#39;argmin&#39;, &#39;argsort&#39;, &#39;array&#39;, &#39;asfreq&#39;, &#39;asof&#39;, &#39;astype&#39;, &#39;at&#39;, &#39;at_time&#39;, &#39;attrs&#39;, &#39;autocorr&#39;, &#39;axes&#39;, &#39;backfill&#39;, &#39;between&#39;, &#39;between_time&#39;, &#39;bfill&#39;, &#39;bool&#39;, &#39;cat&#39;, &#39;clip&#39;, &#39;combine&#39;, &#39;combine_first&#39;, &#39;compare&#39;, &#39;convert_dtypes&#39;, &#39;copy&#39;, &#39;corr&#39;, &#39;count&#39;, &#39;cov&#39;, &#39;cummax&#39;, &#39;cummin&#39;, &#39;cumprod&#39;, &#39;cumsum&#39;, &#39;describe&#39;, &#39;diff&#39;, &#39;div&#39;, &#39;divide&#39;, &#39;divmod&#39;, &#39;dot&#39;, &#39;drop&#39;, &#39;drop_duplicates&#39;, &#39;droplevel&#39;, &#39;dropna&#39;, &#39;dt&#39;, &#39;dtype&#39;, &#39;dtypes&#39;, &#39;duplicated&#39;, &#39;empty&#39;, &#39;eq&#39;, &#39;equals&#39;, &#39;ewm&#39;, &#39;expanding&#39;, &#39;explode&#39;, &#39;factorize&#39;, &#39;ffill&#39;, &#39;fillna&#39;, &#39;filter&#39;, &#39;first&#39;, &#39;first_valid_index&#39;, &#39;floordiv&#39;, &#39;ge&#39;, &#39;get&#39;, &#39;groupby&#39;, &#39;gt&#39;, &#39;hasnans&#39;, &#39;head&#39;, &#39;hist&#39;, &#39;iat&#39;, &#39;idxmax&#39;, &#39;idxmin&#39;, &#39;iloc&#39;, &#39;index&#39;, &#39;infer_objects&#39;, &#39;interpolate&#39;, &#39;is_monotonic&#39;, &#39;is_monotonic_decreasing&#39;, &#39;is_monotonic_increasing&#39;, &#39;is_unique&#39;, &#39;isin&#39;, &#39;isna&#39;, &#39;isnull&#39;, &#39;item&#39;, &#39;items&#39;, &#39;iteritems&#39;, &#39;keys&#39;, &#39;kurt&#39;, &#39;kurtosis&#39;, &#39;last&#39;, &#39;last_valid_index&#39;, &#39;le&#39;, &#39;loc&#39;, &#39;lt&#39;, &#39;mad&#39;, &#39;map&#39;, &#39;mask&#39;, &#39;max&#39;, &#39;mean&#39;, &#39;median&#39;, &#39;memory_usage&#39;, &#39;min&#39;, &#39;mod&#39;, &#39;mode&#39;, &#39;mul&#39;, &#39;multiply&#39;, &#39;name&#39;, &#39;nbytes&#39;, &#39;ndim&#39;, &#39;ne&#39;, &#39;nlargest&#39;, &#39;notna&#39;, &#39;notnull&#39;, &#39;nsmallest&#39;, &#39;nunique&#39;, &#39;pad&#39;, &#39;pct_change&#39;, &#39;pipe&#39;, &#39;plot&#39;, &#39;pop&#39;, &#39;pow&#39;, &#39;prod&#39;, &#39;product&#39;, &#39;quantile&#39;, &#39;radd&#39;, &#39;rank&#39;, &#39;ravel&#39;, &#39;rdiv&#39;, &#39;rdivmod&#39;, &#39;reindex&#39;, &#39;reindex_like&#39;, &#39;rename&#39;, &#39;rename_axis&#39;, &#39;reorder_levels&#39;, &#39;repeat&#39;, &#39;replace&#39;, &#39;resample&#39;, &#39;reset_index&#39;, &#39;rfloordiv&#39;, &#39;rmod&#39;, &#39;rmul&#39;, &#39;rolling&#39;, &#39;round&#39;, &#39;rpow&#39;, &#39;rsub&#39;, &#39;rtruediv&#39;, &#39;sample&#39;, &#39;searchsorted&#39;, &#39;sem&#39;, &#39;set_axis&#39;, &#39;shape&#39;, &#39;shift&#39;, &#39;size&#39;, &#39;skew&#39;, &#39;slice_shift&#39;, &#39;sort_index&#39;, &#39;sort_values&#39;, &#39;sparse&#39;, &#39;squeeze&#39;, &#39;std&#39;, &#39;str&#39;, &#39;sub&#39;, &#39;subtract&#39;, &#39;sum&#39;, &#39;swapaxes&#39;, &#39;swaplevel&#39;, &#39;tail&#39;, &#39;take&#39;, &#39;to_clipboard&#39;, &#39;to_csv&#39;, &#39;to_dict&#39;, &#39;to_excel&#39;, &#39;to_frame&#39;, &#39;to_hdf&#39;, &#39;to_json&#39;, &#39;to_latex&#39;, &#39;to_list&#39;, &#39;to_markdown&#39;, &#39;to_numpy&#39;, &#39;to_period&#39;, &#39;to_pickle&#39;, &#39;to_sql&#39;, &#39;to_string&#39;, &#39;to_timestamp&#39;, &#39;to_xarray&#39;, &#39;tolist&#39;, &#39;transform&#39;, &#39;transpose&#39;, &#39;truediv&#39;, &#39;truncate&#39;, &#39;tshift&#39;, &#39;tz_convert&#39;, &#39;tz_localize&#39;, &#39;unique&#39;, &#39;unstack&#39;, &#39;update&#39;, &#39;value_counts&#39;, &#39;values&#39;, &#39;var&#39;, &#39;view&#39;, &#39;where&#39;, &#39;xs&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;T&#39;, &#39;abs&#39;, &#39;add&#39;, &#39;add_prefix&#39;, &#39;add_suffix&#39;, &#39;agg&#39;, &#39;aggregate&#39;, &#39;align&#39;, &#39;all&#39;, &#39;any&#39;, &#39;append&#39;, &#39;apply&#39;, &#39;argmax&#39;, &#39;argmin&#39;, &#39;argsort&#39;, &#39;array&#39;, &#39;asfreq&#39;, &#39;asof&#39;, &#39;astype&#39;, &#39;at&#39;, &#39;at_time&#39;, &#39;attrs&#39;, &#39;autocorr&#39;, &#39;axes&#39;, &#39;backfill&#39;, &#39;between&#39;, &#39;between_time&#39;, &#39;bfill&#39;, &#39;bool&#39;, &#39;cat&#39;, &#39;clip&#39;, &#39;combine&#39;, &#39;combine_first&#39;, &#39;compare&#39;, &#39;convert_dtypes&#39;, &#39;copy&#39;, &#39;corr&#39;, &#39;count&#39;, &#39;cov&#39;, &#39;cummax&#39;, &#39;cummin&#39;, &#39;cumprod&#39;, &#39;cumsum&#39;, &#39;describe&#39;, &#39;diff&#39;, &#39;div&#39;, &#39;divide&#39;, &#39;divmod&#39;, &#39;dot&#39;, &#39;drop&#39;, &#39;drop_duplicates&#39;, &#39;droplevel&#39;, &#39;dropna&#39;, &#39;dt&#39;, &#39;dtype&#39;, &#39;dtypes&#39;, &#39;duplicated&#39;, &#39;empty&#39;, &#39;eq&#39;, &#39;equals&#39;, &#39;ewm&#39;, &#39;expanding&#39;, &#39;explode&#39;, &#39;factorize&#39;, &#39;ffill&#39;, &#39;fillna&#39;, &#39;filter&#39;, &#39;first&#39;, &#39;first_valid_index&#39;, &#39;flags&#39;, &#39;floordiv&#39;, &#39;ge&#39;, &#39;get&#39;, &#39;groupby&#39;, &#39;gt&#39;, &#39;hasnans&#39;, &#39;head&#39;, &#39;hist&#39;, &#39;iat&#39;, &#39;idxmax&#39;, &#39;idxmin&#39;, &#39;iloc&#39;, &#39;index&#39;, &#39;infer_objects&#39;, &#39;interpolate&#39;, &#39;is_monotonic&#39;, &#39;is_monotonic_decreasing&#39;, &#39;is_monotonic_increasing&#39;, &#39;is_unique&#39;, &#39;isin&#39;, &#39;isna&#39;, &#39;isnull&#39;, &#39;item&#39;, &#39;items&#39;, &#39;iteritems&#39;, &#39;keys&#39;, &#39;kurt&#39;, &#39;kurtosis&#39;, &#39;last&#39;, &#39;last_valid_index&#39;, &#39;le&#39;, &#39;loc&#39;, &#39;lt&#39;, &#39;mad&#39;, &#39;map&#39;, &#39;mask&#39;, &#39;max&#39;, &#39;mean&#39;, &#39;median&#39;, &#39;memory_usage&#39;, &#39;min&#39;, &#39;mod&#39;, &#39;mode&#39;, &#39;mul&#39;, &#39;multiply&#39;, &#39;name&#39;, &#39;nbytes&#39;, &#39;ndim&#39;, &#39;ne&#39;, &#39;nlargest&#39;, &#39;notna&#39;, &#39;notnull&#39;, &#39;nsmallest&#39;, &#39;nunique&#39;, &#39;pad&#39;, &#39;pct_change&#39;, &#39;pipe&#39;, &#39;plot&#39;, &#39;pop&#39;, &#39;pow&#39;, &#39;prod&#39;, &#39;product&#39;, &#39;quantile&#39;, &#39;radd&#39;, &#39;rank&#39;, &#39;ravel&#39;, &#39;rdiv&#39;, &#39;rdivmod&#39;, &#39;reindex&#39;, &#39;reindex_like&#39;, &#39;rename&#39;, &#39;rename_axis&#39;, &#39;reorder_levels&#39;, &#39;repeat&#39;, &#39;replace&#39;, &#39;resample&#39;, &#39;reset_index&#39;, &#39;rfloordiv&#39;, &#39;rmod&#39;, &#39;rmul&#39;, &#39;rolling&#39;, &#39;round&#39;, &#39;rpow&#39;, &#39;rsub&#39;, &#39;rtruediv&#39;, &#39;sample&#39;, &#39;searchsorted&#39;, &#39;sem&#39;, &#39;set_axis&#39;, &#39;set_flags&#39;, &#39;shape&#39;, &#39;shift&#39;, &#39;size&#39;, &#39;skew&#39;, &#39;slice_shift&#39;, &#39;sort_index&#39;, &#39;sort_values&#39;, &#39;sparse&#39;, &#39;squeeze&#39;, &#39;std&#39;, &#39;str&#39;, &#39;sub&#39;, &#39;subtract&#39;, &#39;sum&#39;, &#39;swapaxes&#39;, &#39;swaplevel&#39;, &#39;tail&#39;, &#39;take&#39;, &#39;to_clipboard&#39;, &#39;to_csv&#39;, &#39;to_dict&#39;, &#39;to_excel&#39;, &#39;to_frame&#39;, &#39;to_hdf&#39;, &#39;to_json&#39;, &#39;to_latex&#39;, &#39;to_list&#39;, &#39;to_markdown&#39;, &#39;to_numpy&#39;, &#39;to_period&#39;, &#39;to_pickle&#39;, &#39;to_sql&#39;, &#39;to_string&#39;, &#39;to_timestamp&#39;, &#39;to_xarray&#39;, &#39;tolist&#39;, &#39;transform&#39;, &#39;transpose&#39;, &#39;truediv&#39;, &#39;truncate&#39;, &#39;tshift&#39;, &#39;tz_convert&#39;, &#39;tz_localize&#39;, &#39;unique&#39;, &#39;unstack&#39;, &#39;update&#39;, &#39;value_counts&#39;, &#39;values&#39;, &#39;var&#39;, &#39;view&#39;, &#39;where&#39;, &#39;xs&#39;]
 </pre></div>
 </div>
 </div>
@@ -1435,43 +1332,43 @@ dtype: Int64
   <tbody>
     <tr>
       <th>row_1</th>
-      <td>-1.867671</td>
-      <td>2.017613</td>
-      <td>-0.707579</td>
-      <td>-0.593037</td>
-      <td>-1.139370</td>
+      <td>0.578103</td>
+      <td>-0.463404</td>
+      <td>-1.009262</td>
+      <td>-1.685627</td>
+      <td>1.340655</td>
     </tr>
     <tr>
       <th>row_2</th>
-      <td>-0.616632</td>
-      <td>0.835813</td>
-      <td>0.552254</td>
-      <td>-1.228844</td>
-      <td>-0.715589</td>
+      <td>-1.710552</td>
+      <td>1.095797</td>
+      <td>1.765652</td>
+      <td>2.155606</td>
+      <td>0.188916</td>
     </tr>
     <tr>
       <th>row_3</th>
-      <td>-0.422409</td>
-      <td>-0.126844</td>
-      <td>-1.662894</td>
-      <td>-0.795743</td>
-      <td>-0.145217</td>
+      <td>1.101345</td>
+      <td>-1.545782</td>
+      <td>-2.207963</td>
+      <td>0.966520</td>
+      <td>1.839682</td>
     </tr>
     <tr>
       <th>row_4</th>
-      <td>-2.208804</td>
-      <td>0.492757</td>
-      <td>-2.167197</td>
-      <td>-0.511605</td>
-      <td>-0.778787</td>
+      <td>1.904035</td>
+      <td>-0.228450</td>
+      <td>0.092900</td>
+      <td>-0.738510</td>
+      <td>-0.913768</td>
     </tr>
     <tr>
       <th>row_5</th>
-      <td>-0.302125</td>
-      <td>1.058088</td>
-      <td>0.775947</td>
-      <td>0.207029</td>
-      <td>0.204075</td>
+      <td>-0.094665</td>
+      <td>-0.068067</td>
+      <td>0.935746</td>
+      <td>-1.016523</td>
+      <td>2.515133</td>
     </tr>
   </tbody>
 </table>
@@ -1740,10 +1637,10 @@ Name: Name, dtype: object
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">/opt/miniconda3/envs/py4ds/lib/python3.8/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2897</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2898</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2899</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="nn">~/work/pdiow/lib/python3.8/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3079</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3080</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3081</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
 <span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
@@ -1761,19 +1658,19 @@ Name: Name, dtype: object
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">56</span><span class="o">-</span><span class="n">feb9bd85061b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># doesn&#39;t work</span>
 
-<span class="nn">/opt/miniconda3/envs/py4ds/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2904</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2905</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2906</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2907</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2908</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+<span class="nn">~/work/pdiow/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3022</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3023</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3024</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3025</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3026</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
 
-<span class="nn">/opt/miniconda3/envs/py4ds/lib/python3.8/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2898</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2899</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2900</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">2901</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2902</span>         <span class="k">if</span> <span class="n">tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">~/work/pdiow/lib/python3.8/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3080</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3081</span>             <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3082</span>                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3083</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3084</span>         <span class="k">if</span> <span class="n">tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
 <span class="ne">KeyError</span>: 0
 </pre></div>
@@ -4421,15 +4318,13 @@ dtype: float64
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="chapter6-numpy-addendum.html" title="previous page">Chapter 6: NumPy Implementation Details</a>
-    <a class='right-next' id="next-link" href="chapter8-wrangling-basics.html" title="next page">Chapter 8: Basic Data Wrangling With Pandas</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By Tomas Beuzen<br/>
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
         
             &copy; Copyright 2020.<br/>
       </p>
@@ -4441,7 +4336,10 @@ dtype: float64
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
     
   </body>
 </html>

@@ -1,33 +1,51 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Chapter 4: Style Guides, Scripts, Imports &#8212; Python Programming for Data Science</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 4: Style Guides, Scripts, Imports &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -36,25 +54,13 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://www.tomasbeuzen.com/python-programming-for-data-science/chapters/chapter4-style-scripts-imports.html" />
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 5: Introduction to NumPy" href="chapter5-numpy.html" />
-    <link rel="prev" title="Chapter 3: Unit Tests &amp; Classes" href="chapter3-tests-classes.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://www.tomasbeuzen.com/python-programming-for-data-science/chapters/chapter4-style-scripts-imports.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Chapter 4: Style Guides, Scripts, Imports" />
-<meta property="og:description" content="Chapter 4: Style Guides, Scripts, Imports  &lt;h2&gt;Chapter Outline&lt;span class=&#34;tocSkip&#34;&gt;&lt;/span&gt;&lt;/h2&gt; &lt;hr&gt; &lt;div class=&#34;toc&#34;&gt;&lt;ul class=&#34;toc-item&#34;&gt;&lt;li&gt;&lt;span&gt;&lt;a href=&#34;#" />
-<meta property="og:image"       content="https://www.tomasbeuzen.com/python-programming-for-data-science/_static/logo.png" />
-
-<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -72,130 +78,25 @@
   <img src="../_static/logo.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">Python Programming for Data Science</h1>
+  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   Python Programming for Data Science
+   Przetwarzanie Danych i Odkrywanie Wiedzy
   </a>
  </li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Chapters
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter1-basics.html">
-   Chapter 1: Python Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter2-loops-functions.html">
-   Chapter 2: Loops &amp; Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter3-tests-classes.html">
-   Chapter 3: Unit Tests &amp; Classes
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 4: Style Guides, Scripts, Imports
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter5-numpy.html">
-   Chapter 5: Introduction to NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter6-numpy-addendum.html">
-   Chapter 6: NumPy Implementation Details
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter7-pandas.html">
-   Chapter 7: Introduction to Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter8-wrangling-basics.html">
-   Chapter 8: Basic Data Wrangling With Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter9-wrangling-advanced.html">
-   Chapter 9: Advanced Data Wrangling With Pandas
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Practice Exercises
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter1-basics-practice.html">
-   Python Basics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter2-loops-functions-practice.html">
-   Loops &amp; Functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter3-tests-classes-practice.html">
-   Unit Tests &amp; Classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter4-style-scripts-imports-practice.html">
-   Style Guides, Scripts, Imports
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter5-numpy-practice.html">
-   NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter7-pandas-practice.html">
-   Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter8-wrangling-basics-practice.html">
-   Basic Wrangling With Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practice-exercises/chapter9-wrangling-advanced-practice.html">
-   Advanced Wrangling With Pandas
-  </a>
- </li>
-</ul>
-
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Tomas Beuzen <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  <br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </div>
 
 </div>
@@ -221,11 +122,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -237,8 +138,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -246,23 +147,22 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/TomasBeuzen/python-programming-for-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/TomasBeuzen/python-programming-for-data-science/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter4-style-scripts-imports.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter4-style-scripts-imports.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/TomasBeuzen/python-programming-for-data-science/edit/master/chapters/chapter4-style-scripts-imports.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+        
     </div>
 </div>
 
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -272,18 +172,13 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/TomasBeuzen/python-programming-for-data-science/master?urlpath=tree/chapters/chapter4-style-scripts-imports.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/chapters/chapter4-style-scripts-imports.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/TomasBeuzen/python-programming-for-data-science/blob/master/chapters/chapter4-style-scripts-imports.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -293,6 +188,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -403,6 +299,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -415,7 +312,7 @@
 <h1>Chapter 4: Style Guides, Scripts, Imports<a class="headerlink" href="#chapter-4-style-guides-scripts-imports" title="Permalink to this headline">¶</a></h1>
 <h2>Chapter Outline<span class="tocSkip"></span></h2>
 <hr>
-<div class="toc"><ul class="toc-item"><li><span><a href="#style-guide" data-toc-modified-id="1.-Style-Guide-1">1. Style Guide</a></span></li><li><span><a href="#python-scripts" data-toc-modified-id="2.-Python-Scripts-2">2. Python Scripts</a></span></li><li><span><a href="#importing" data-toc-modified-id="3.-Importing-3">3. Importing</a></span></li><li><span><a href="#intriguing-behaviour-in-python" data-toc-modified-id="4.-Intriguing-Behaviour-in-Python-4">4. Intriguing Behaviour in Python</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
+<div class="toc"><ul class="toc-item"><li><span><a href="#1.-Style-Guide" data-toc-modified-id="1.-Style-Guide-1">1. Style Guide</a></span></li><li><span><a href="#2.-Python-Scripts" data-toc-modified-id="2.-Python-Scripts-2">2. Python Scripts</a></span></li><li><span><a href="#3.-Importing" data-toc-modified-id="3.-Importing-3">3. Importing</a></span></li><li><span><a href="#4.-Intriguing-Behaviour-in-Python" data-toc-modified-id="4.-Intriguing-Behaviour-in-Python-4">4. Intriguing Behaviour in Python</a></span></li></ul></div><div class="section" id="chapter-learning-objectives">
 <h2>Chapter Learning Objectives<a class="headerlink" href="#chapter-learning-objectives" title="Permalink to this headline">¶</a></h2>
 <hr><ul class="simple">
 <li><p>Describe why code style is important.</p></li>
@@ -728,7 +625,7 @@ data/bad_style.py:28:2: W292 no newline at end of file
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x1068846d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x108d470d0&gt;
 </pre></div>
 </div>
 </div>
@@ -760,7 +657,7 @@ data/bad_style.py:28:2: W292 no newline at end of file
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x106884df0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x108d472b0&gt;
 </pre></div>
 </div>
 </div>
@@ -780,7 +677,7 @@ data/bad_style.py:28:2: W292 no newline at end of file
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x1068844c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x108d47070&gt;
 </pre></div>
 </div>
 </div>
@@ -800,7 +697,7 @@ data/bad_style.py:28:2: W292 no newline at end of file
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x1068845e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wallet.Wallet at 0x108d47be0&gt;
 </pre></div>
 </div>
 </div>
@@ -855,14 +752,14 @@ data/bad_style.py:28:2: W292 no newline at end of file
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/Users/tbeuzen/GitHub/online-courses/python-programming-for-data-science/chapters&#39;,
- &#39;/opt/miniconda3/envs/py4ds/lib/python38.zip&#39;,
- &#39;/opt/miniconda3/envs/py4ds/lib/python3.8&#39;,
- &#39;/opt/miniconda3/envs/py4ds/lib/python3.8/lib-dynload&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/Users/xaru/work/pdiow/przetwarzanie-danych-i-odkrywanie-wiedzy/chapters&#39;,
+ &#39;/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8/lib/python38.zip&#39;,
+ &#39;/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8/lib/python3.8&#39;,
+ &#39;/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8/lib/python3.8/lib-dynload&#39;,
  &#39;&#39;,
- &#39;/opt/miniconda3/envs/py4ds/lib/python3.8/site-packages&#39;,
- &#39;/opt/miniconda3/envs/py4ds/lib/python3.8/site-packages/IPython/extensions&#39;,
- &#39;/Users/tbeuzen/.ipython&#39;,
+ &#39;/Users/xaru/work/pdiow/lib/python3.8/site-packages&#39;,
+ &#39;/Users/xaru/work/pdiow/lib/python3.8/site-packages/IPython/extensions&#39;,
+ &#39;/Users/xaru/.ipython&#39;,
  &#39;data/&#39;]
 </pre></div>
 </div>
@@ -934,7 +831,7 @@ data/bad_style.py:28:2: W292 no newline at end of file
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 9, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 8, 6])
 </pre></div>
 </div>
 </div>
@@ -952,19 +849,22 @@ data/bad_style.py:28:2: W292 no newline at end of file
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/1000000 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|██        | 207211/1000000 [00:00&lt;00:00, 2072107.04it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|█▍        | 149991/1000000 [00:00&lt;00:00, 1499761.25it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|████▏     | 420255/1000000 [00:00&lt;00:00, 2089264.93it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 32%|███▏      | 323086/1000000 [00:00&lt;00:00, 1635711.00it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|██████▌   | 657347/1000000 [00:00&lt;00:00, 2166474.45it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|████▉     | 498131/1000000 [00:00&lt;00:00, 1688078.26it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|████████▉ | 895911/1000000 [00:00&lt;00:00, 2227869.20it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 68%|██████▊   | 675359/1000000 [00:00&lt;00:00, 1721297.15it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1000000/1000000 [00:00&lt;00:00, 2274442.52it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|████████▌ | 852353/1000000 [00:00&lt;00:00, 1738814.32it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1000000/1000000 [00:00&lt;00:00, 1668452.35it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1050,8 +950,8 @@ data/bad_style.py:28:2: W292 no newline at end of file
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x has the value: [ 6  7  8  9 10], id: 5042109936
-y has the value: [1 2 3 4 5], id: 5713686976
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x has the value: [ 6  7  8  9 10], id: 4524789808
+y has the value: [1 2 3 4 5], id: 4443549392
 </pre></div>
 </div>
 </div>
@@ -1068,8 +968,8 @@ y has the value: [1 2 3 4 5], id: 5713686976
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x has the value: [ 6  7  8  9 10], id: 5042109696
-y has the value: [ 6  7  8  9 10], id: 5042109696
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x has the value: [ 6  7  8  9 10], id: 4524790480
+y has the value: [ 6  7  8  9 10], id: 4524790480
 </pre></div>
 </div>
 </div>
@@ -1262,15 +1162,13 @@ After modifying x:
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="chapter3-tests-classes.html" title="previous page">Chapter 3: Unit Tests &amp; Classes</a>
-    <a class='right-next' id="next-link" href="chapter5-numpy.html" title="next page">Chapter 5: Introduction to NumPy</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By Tomas Beuzen<br/>
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
         
             &copy; Copyright 2020.<br/>
       </p>
@@ -1282,7 +1180,10 @@ After modifying x:
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
     
   </body>
 </html>
