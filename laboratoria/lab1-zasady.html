@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L1: Zasady laboratorium &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="L1: Przygotowanie środowiska" href="lab1-przygotowanie-srodowiska.html" />
+    <link rel="prev" title="Przetwarzanie Danych i Odkrywanie Wiedzy" href="../README.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratoria
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   L1: Zasady laboratorium
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab1-przygotowanie-srodowiska.html">
+   L1: Przygotowanie środowiska
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2-podstawowe-biblioteki.html">
+   L2: Podstawowe biblioteki do odkrywania wiedzy
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/laboratoria/lab1-zasady.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/laboratoria/lab1-zasady.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">
+   Efekty kształcenia laboratorium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bhp">
+   BHP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plan-kursu">
+   Plan kursu
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zasady-laboratorium">
+   Zasady laboratorium
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zajecia">
+     Zajęcia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wykonywanie-zadan">
+     Wykonywanie zadań
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#punktacja">
+     Punktacja
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#skala-oceniania">
+     Skala oceniania:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bezposredni-kontakt-do-prowadzacych">
+     Bezpośredni kontakt do prowadzących:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../_images/banner.png" /></p>
+<div class="section" id="l1-zasady-laboratorium">
+<h1>L1: Zasady laboratorium<a class="headerlink" href="#l1-zasady-laboratorium" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="efekty-ksztalcenia-laboratorium">
+<h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>zapoznasz się z zasadami BHP</p></li>
+<li><p>dowiesz się, co będziemy ćwiczyć w trakcie tego semestru</p></li>
+<li><p>poznasz zasady oceniania</p></li>
+</ul>
+</div>
+<div class="section" id="bhp">
+<h2>BHP<a class="headerlink" href="#bhp" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>W tym semestrze zajęcia odbywają się wyłącznie zdalnie. W związku z tym, należy dołożyć wszelkich starań by:</p>
+<ol class="simple">
+<li><p>zadbać o ergonomię pracy przy komputerze (więcej informacji np. <a class="reference external" href="http://pracujkomfortowo.pl/o-ergonomii/ergonomia-pracy-przy-komputerze/">tutaj</a>)</p></li>
+<li><p>zadbać o podstawowe BHP przebywania w domu (więcej informacji np. <a class="reference external" href="https://www.skanska.pl/o-skanska/media/informacje-prasowe/166133/Domowe-BHP-jak-zadbac-o-bezpieczenstwo-w-mieszkaniu-">tutaj</a>)</p></li>
+<li><p>zadbać o bezpieczeństwo korzystania z sieci (więcej informacji np. <a class="reference external" href="http://nbzp.cz/10-porad-bezpieczenstwa">tutaj</a>)</p></li>
+</ol>
+</div>
+<div class="section" id="plan-kursu">
+<h2>Plan kursu<a class="headerlink" href="#plan-kursu" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr lab.</p></th>
+<th class="text-align:left head"><p>Temat laboratorium</p></th>
+<th class="text-align:center head"><p>Data grup TP</p></th>
+<th class="text-align:center head"><p>Termin oddania TP</p></th>
+<th class="text-align:center head"><p>Data grup TN</p></th>
+<th class="text-align:center head"><p>Termin oddania TN</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td class="text-align:left"><p>Wprowadzenie i przygotowanie środowiska</p></td>
+<td class="text-align:center"><p>2021.03.02</p></td>
+<td class="text-align:center"><p>-</p></td>
+<td class="text-align:center"><p>2021.03.02</p></td>
+<td class="text-align:center"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td class="text-align:left"><p>Podstawowe biblioteki do odkrywania wiedzy</p></td>
+<td class="text-align:center"><p>2021.03.16</p></td>
+<td class="text-align:center"><p>2021.03.22</p></td>
+<td class="text-align:center"><p>2021.03.09</p></td>
+<td class="text-align:center"><p>2021.03.15</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td class="text-align:left"><p>Zastosowanie prostych metod uczenia maszynowego</p></td>
+<td class="text-align:center"><p>2021.04.13</p></td>
+<td class="text-align:center"><p>2021.04.19</p></td>
+<td class="text-align:center"><p>2021.03.23</p></td>
+<td class="text-align:center"><p>2021.03.29</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td class="text-align:left"><p>Preprocessing danych</p></td>
+<td class="text-align:center"><p>2021.04.27</p></td>
+<td class="text-align:center"><p>2021.05.03</p></td>
+<td class="text-align:center"><p>2021.04.20</p></td>
+<td class="text-align:center"><p>2021.04.26</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td class="text-align:left"><p>Narzędzia zarządzania eksperymentami</p></td>
+<td class="text-align:center"><p>2021.05.11</p></td>
+<td class="text-align:center"><p>2021.05.17</p></td>
+<td class="text-align:center"><p>2021.05.04</p></td>
+<td class="text-align:center"><p>2021.05.10</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td class="text-align:left"><p>Produktyzacja procesów odkrywania wiedzy</p></td>
+<td class="text-align:center"><p>2021.05.25</p></td>
+<td class="text-align:center"><p>2021.05.31</p></td>
+<td class="text-align:center"><p>2021.05.18</p></td>
+<td class="text-align:center"><p>2021.05.24</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td class="text-align:left"><p>Rozwiązywanie realnego problemu cz. 1</p></td>
+<td class="text-align:center"><p>2021.06.08</p></td>
+<td class="text-align:center"><p>-</p></td>
+<td class="text-align:center"><p>2021.06.01</p></td>
+<td class="text-align:center"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td class="text-align:left"><p>Rozwiązywanie realnego problemu cz. 2</p></td>
+<td class="text-align:center"><p>2021.06.22</p></td>
+<td class="text-align:center"><p>2021.06.21</p></td>
+<td class="text-align:center"><p>2021.06.15</p></td>
+<td class="text-align:center"><p>2021.06.14</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="zasady-laboratorium">
+<h2>Zasady laboratorium<a class="headerlink" href="#zasady-laboratorium" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="zajecia">
+<h3>Zajęcia<a class="headerlink" href="#zajecia" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Kurs składa się z 8 zajęć.</p></li>
+<li><p>Pierwsze zajęcia (niniejsze) służą wprowadzeniu i zrównaniu podstawowego poziomu wiedzy.</p></li>
+<li><p>Kolejne 5 zajęć składać się będzie ze wstępu teoretycznego okraszonego przykładami i zestawu zadań do wykonania.</p></li>
+<li><p>Ostatnie 2 zajęcia będą mini-projektem polegającym na rozwiązaniu realnego problemu odkrywania wiedzy, bazując na wiedzy z poprzednich zajęć.</p></li>
+</ol>
+</div>
+<div class="section" id="wykonywanie-zadan">
+<h3>Wykonywanie zadań<a class="headerlink" href="#wykonywanie-zadan" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Zadania wykonujemy przy pomocy środowiska Github Classroom.</p></li>
+<li><p>Każdy rozwiązuje zadania indywidualnie.</p></li>
+<li><p>Wykryte plagiaty skutkują niezaliczeniem laboratorium.</p></li>
+<li><p>Materiały do laboratorium będą dostarczone w postaci Jupyter Book, a zadania w formie repozytorium na platformie Github Classroom.</p></li>
+<li><p>Jako oddanie zadania do oceny rozumiemy commit kodu rozwiązującego zadanie do odpowiedniego repozytorium.</p></li>
+<li><p>Warunkiem koniecznym zaliczenia laboratorium jest uzyskanie ze wszystkich laboratoriów co najmniej połowy punktów możliwych do uzyskania</p></li>
+</ol>
+</div>
+<div class="section" id="punktacja">
+<h3>Punktacja<a class="headerlink" href="#punktacja" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Rozwiązując zadania z laboratoriów 2-6 można zdobyć max 15pkt za każde.</p></li>
+<li><p>Wykonując mini-projekt z laboratoriów 7-8 można zdobyć max 25pkt.</p></li>
+<li><p>Termin oddania zadań mija o północy następnego tygodnia - tj. mając zajęcia we wtorek, termin oddania to następny poniedziałek godzina 23:59.</p></li>
+<li><p>Oddając w następnym tygodniu, zdobyte punkty przemnażamy przez 50%.</p></li>
+<li><p>Oddając później, nie ma możliwości zdobycia punktów.</p></li>
+<li><p>Sumaryczna ilość punktów do zdobycia podczas całego kursu to 100pkt.</p></li>
+<li><p>Możliwe jest zdobycie dodatkowych punktów za wyróżniające się rozwiązania, działania i zachowania.</p></li>
+</ol>
+</div>
+<div class="section" id="skala-oceniania">
+<h3>Skala oceniania:<a class="headerlink" href="#skala-oceniania" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>% pkt</p></th>
+<th class="text-align:left head"><p>ocena</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&lt;50%</p></td>
+<td class="text-align:left"><p>brak zaliczenia (2.0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>[50%, 60%)</p></td>
+<td class="text-align:left"><p>dostateczny (3.0)</p></td>
+</tr>
+<tr class="row-even"><td><p>[60%, 70%)</p></td>
+<td class="text-align:left"><p>dostateczny+ (3.5)</p></td>
+</tr>
+<tr class="row-odd"><td><p>[70%, 80%)</p></td>
+<td class="text-align:left"><p>dobry (4.0)</p></td>
+</tr>
+<tr class="row-even"><td><p>[80%, 90%)</p></td>
+<td class="text-align:left"><p>dobry plus (4.5)</p></td>
+</tr>
+<tr class="row-odd"><td><p>[90%, 100%)</p></td>
+<td class="text-align:left"><p>bardzo dobry (5.0)</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;100%</p></td>
+<td class="text-align:left"><p>celujący (5.5)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="bezposredni-kontakt-do-prowadzacych">
+<h3>Bezpośredni kontakt do prowadzących:<a class="headerlink" href="#bezposredni-kontakt-do-prowadzacych" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="mailto:tomasz&#46;kajdanowicz&#37;&#52;&#48;pwr&#46;edu&#46;pl">tomasz<span>&#46;</span>kajdanowicz<span>&#64;</span>pwr<span>&#46;</span>edu<span>&#46;</span>pl</a></p></li>
+<li><p><a class="reference external" href="mailto:kamil&#46;tagowski&#37;&#52;&#48;pwr&#46;edu&#46;pl">kamil<span>&#46;</span>tagowski<span>&#64;</span>pwr<span>&#46;</span>edu<span>&#46;</span>pl</a></p></li>
+<li><p><a class="reference external" href="mailto:krzysztof&#46;rajda&#37;&#52;&#48;pwr&#46;edu&#46;pl">krzysztof<span>&#46;</span>rajda<span>&#64;</span>pwr<span>&#46;</span>edu<span>&#46;</span>pl</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./laboratoria"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">Przetwarzanie Danych i Odkrywanie Wiedzy</a>
+    <a class='right-next' id="next-link" href="lab1-przygotowanie-srodowiska.html" title="next page">L1: Przygotowanie środowiska</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

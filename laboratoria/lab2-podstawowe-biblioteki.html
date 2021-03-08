@@ -45,6 +45,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,6 +57,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="L1: Przygotowanie środowiska" href="lab1-przygotowanie-srodowiska.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -89,10 +92,20 @@
   Laboratoria
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab1-zasady.html">
+   L1: Zasady laboratorium
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lab1-przygotowanie-srodowiska.html">
-   L1: Zasady laboratorium. Przygotowanie środowiska
+   L1: Przygotowanie środowiska
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   L2: Podstawowe biblioteki do odkrywania wiedzy
   </a>
  </li>
 </ul>
@@ -267,6 +280,23 @@
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#broadcasting">
+     Broadcasting
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#przyklady">
+       Przykłady
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#przyklady-niepoprawne">
+       Przykłady niepoprawne
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -359,11 +389,6 @@
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zadania">
-   Zadania
-  </a>
  </li>
 </ul>
 
@@ -544,7 +569,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([68, 17, 81])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([31, 86, 71])
 </pre></div>
 </div>
 </div>
@@ -558,8 +583,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.10503618e+231, 3.10503618e+231, 2.18665683e-314, 2.78134232e-309,
-       3.10503618e+231, 3.10503618e+231])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
@@ -578,9 +602,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[34, 24],
-       [69, 96],
-       [56, 63]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[40, 99],
+       [22, 38],
+       [30, 46]])
 </pre></div>
 </div>
 </div>
@@ -746,8 +770,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([55, 28, 40, 34, 16, 66, 39,  2, 40, 26, 31, 46, 77, 73, 42, 94, 40,
-       96, 51, 56])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([40, 42, 99, 72, 43, 82, 50, 35, 72, 51, 95,  4, 49, 41, 46, 37,  7,
+       19, 42, 57])
 </pre></div>
 </div>
 </div>
@@ -761,9 +785,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False, False, False, False,  True, False, False, False,
-       False, False, False,  True,  True, False,  True, False,  True,
-        True,  True])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True,  True, False,  True, False, False,  True,
+        True,  True, False, False, False, False, False, False, False,
+       False,  True])
 </pre></div>
 </div>
 </div>
@@ -776,7 +800,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([55, 66, 77, 73, 94, 96, 51, 56])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([99, 72, 82, 72, 51, 95, 57])
 </pre></div>
 </div>
 </div>
@@ -922,9 +946,9 @@ połączone poziomo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[89, 59,  4],
-       [15, 91, 98],
-       [21,  6, 19]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[59, 28, 67],
+       [ 1, 26, 96],
+       [76, 17, 22]])
 </pre></div>
 </div>
 </div>
@@ -938,9 +962,9 @@ połączone poziomo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4, 59, 89],
-       [15, 91, 98],
-       [ 6, 19, 21]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[28, 59, 67],
+       [ 1, 26, 96],
+       [17, 22, 76]])
 </pre></div>
 </div>
 </div>
@@ -962,19 +986,19 @@ połączone poziomo
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>oryginalna 
- [[89 59  4]
- [15 91 98]
- [21  6 19]] 
+ [[59 28 67]
+ [ 1 26 96]
+ [76 17 22]] 
 
 posortowana kolumnami
- [[15  6  4]
- [21 59 19]
- [89 91 98]] 
+ [[ 1 17 22]
+ [59 26 67]
+ [76 28 96]] 
 
 posortowana wierszami 
- [[ 4 59 89]
- [15 91 98]
- [ 6 19 21]] 
+ [[28 59 67]
+ [ 1 26 96]
+ [17 22 76]] 
 </pre></div>
 </div>
 </div>
@@ -1110,8 +1134,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 4],
-       [2, 2]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 2],
+       [8, 8]])
 </pre></div>
 </div>
 </div>
@@ -1123,7 +1147,7 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 6])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([11, 10])
 </pre></div>
 </div>
 </div>
@@ -1135,7 +1159,7 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.5, 2. ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.5, 8. ])
 </pre></div>
 </div>
 </div>
@@ -1151,8 +1175,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3, 12],
-       [ 2,  6]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3,  6],
+       [ 8, 24]])
 </pre></div>
 </div>
 </div>
@@ -1165,8 +1189,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 2],
-       [4, 2]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3, 8],
+       [2, 8]])
 </pre></div>
 </div>
 </div>
@@ -1179,8 +1203,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1. ,  2. ],
-       [ 1. , -1.5]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.   , -0.25 ],
+       [-1.   ,  0.375]])
 </pre></div>
 </div>
 </div>
@@ -1193,12 +1217,101 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 5.37228132, -0.37228132]),
- array([[ 0.86011126, -0.76454754],
-        [ 0.51010647,  0.64456735]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 0.78300943, 10.21699057]),
+ array([[-0.66983552, -0.26705875],
+        [ 0.74250951, -0.96368025]]))
 </pre></div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="broadcasting">
+<h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h3>
+<p>Numpy również potrafi pod pewnymi warunkami wykonywać operacje na tablicach o różnych wymiarach. Mniejsza z tablic jest “powielana” wzdłuż większej tablicy, aby sprowidzić ją do tych samych wymiarów. Operacja nie powoduje kopiowania, a jest oparte o odpowiednie indeksowane.</p>
+<div class="section" id="przyklady">
+<h4>Przykłady<a class="headerlink" href="#przyklady" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span>
+<span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[3, 0],
+        [0, 6]]),
+ (2, 2))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 1.],
+       [2., 2.]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="przyklady-niepoprawne">
+<h4>Przykłady niepoprawne<a class="headerlink" href="#przyklady-niepoprawne" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">47</span><span class="o">-</span><span class="n">ece174826f41</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (2,) (3,) 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">48</span><span class="o">-</span><span class="n">b0e707a428b6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (2,2) (3,3) 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Więcej szczegółów dotyczących broadcastingu znajdziecie w dokumentacji pod adresem <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html">https://numpy.org/doc/stable/user/basics.broadcasting.html</a></p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -1258,11 +1371,11 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    8
-b    2
-c    8
-d    1
-e    8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    7
+b    6
+c    3
+d    3
+e    1
 dtype: int64
 </pre></div>
 </div>
@@ -1464,7 +1577,7 @@ Name: petal width, Length: 150, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal length            4.3
-sepal width             3.0
+sepal width               3
 petal length            1.1
 petal width             0.1
 class           Iris-setosa
@@ -2363,7 +2476,10 @@ Name: 13, dtype: object
 <p>Niezwykle przydatną funkcjonalnością jest możliwość aplikowania funkcji do danych. Przydaje się to np. do tworzenia nowych kolumn:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;high sepal ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;sepal length&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;sepal width&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;high sepal ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;sepal length&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;sepal width&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">,</span> 
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -2693,7 +2809,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_99_0.png" src="../_images/lab2-podstawowe-biblioteki_99_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_108_0.png" src="../_images/lab2-podstawowe-biblioteki_108_0.png" />
 </div>
 </div>
 <p>Wykres możemy prosto opisać i dostosować do własnych potrzeb:</p>
@@ -2709,7 +2825,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_101_0.png" src="../_images/lab2-podstawowe-biblioteki_101_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_110_0.png" src="../_images/lab2-podstawowe-biblioteki_110_0.png" />
 </div>
 </div>
 <p>Podstawowa konfiguracja wykresu pozwala też umieszczac na nim kilka serii danych. Przydaje się wtedy umieścić legendę</p>
@@ -2727,7 +2843,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_103_0.png" src="../_images/lab2-podstawowe-biblioteki_103_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_112_0.png" src="../_images/lab2-podstawowe-biblioteki_112_0.png" />
 </div>
 </div>
 </div>
@@ -2752,7 +2868,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_105_0.png" src="../_images/lab2-podstawowe-biblioteki_105_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_114_0.png" src="../_images/lab2-podstawowe-biblioteki_114_0.png" />
 </div>
 </div>
 <div class="admonition seealso">
@@ -2772,7 +2888,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_108_0.png" src="../_images/lab2-podstawowe-biblioteki_108_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_117_0.png" src="../_images/lab2-podstawowe-biblioteki_117_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2785,7 +2901,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_109_0.png" src="../_images/lab2-podstawowe-biblioteki_109_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_118_0.png" src="../_images/lab2-podstawowe-biblioteki_118_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2798,7 +2914,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_110_0.png" src="../_images/lab2-podstawowe-biblioteki_110_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_119_0.png" src="../_images/lab2-podstawowe-biblioteki_119_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2811,7 +2927,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_111_0.png" src="../_images/lab2-podstawowe-biblioteki_111_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_120_0.png" src="../_images/lab2-podstawowe-biblioteki_120_0.png" />
 </div>
 </div>
 </div>
@@ -2897,7 +3013,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_114_0.png" src="../_images/lab2-podstawowe-biblioteki_114_0.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_123_0.png" src="../_images/lab2-podstawowe-biblioteki_123_0.png" />
 </div>
 </div>
 </div>
@@ -2914,12 +3030,12 @@ Name: 13, dtype: object
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../_images/lab2-podstawowe-biblioteki_116_1.png" src="../_images/lab2-podstawowe-biblioteki_116_1.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_125_1.png" src="../_images/lab2-podstawowe-biblioteki_125_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2930,35 +3046,48 @@ Name: 13, dtype: object
        &lt;AxesSubplot:title={&#39;center&#39;:&#39;petal width&#39;}&gt;], dtype=object)
 </pre></div>
 </div>
-<img alt="../_images/lab2-podstawowe-biblioteki_117_1.png" src="../_images/lab2-podstawowe-biblioteki_117_1.png" />
+<img alt="../_images/lab2-podstawowe-biblioteki_126_1.png" src="../_images/lab2-podstawowe-biblioteki_126_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">scatter_matrix</span>
 
-<span class="n">scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="n">diagonal</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">);</span>
+<span class="n">scatter_matrix</span><span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;high sepal ratio&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> 
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> 
+    <span class="n">diagonal</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_118_0.png" src="../_images/lab2-podstawowe-biblioteki_118_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:xlabel=&#39;sepal length&#39;, ylabel=&#39;sepal length&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;sepal width&#39;, ylabel=&#39;sepal length&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;petal length&#39;, ylabel=&#39;sepal length&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;petal width&#39;, ylabel=&#39;sepal length&#39;&gt;],
+       [&lt;AxesSubplot:xlabel=&#39;sepal length&#39;, ylabel=&#39;sepal width&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;sepal width&#39;, ylabel=&#39;sepal width&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;petal length&#39;, ylabel=&#39;sepal width&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;petal width&#39;, ylabel=&#39;sepal width&#39;&gt;],
+       [&lt;AxesSubplot:xlabel=&#39;sepal length&#39;, ylabel=&#39;petal length&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;sepal width&#39;, ylabel=&#39;petal length&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;petal length&#39;, ylabel=&#39;petal length&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;petal width&#39;, ylabel=&#39;petal length&#39;&gt;],
+       [&lt;AxesSubplot:xlabel=&#39;sepal length&#39;, ylabel=&#39;petal width&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;sepal width&#39;, ylabel=&#39;petal width&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;petal length&#39;, ylabel=&#39;petal width&#39;&gt;,
+        &lt;AxesSubplot:xlabel=&#39;petal width&#39;, ylabel=&#39;petal width&#39;&gt;]],
+      dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/lab2-podstawowe-biblioteki_127_1.png" src="../_images/lab2-podstawowe-biblioteki_127_1.png" />
 </div>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Więcej o możliwościach Pandas w kontekście generowania wykresów - w <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/visualization.html">dokumentacji</a></p>
-</div>
-<p><br><br><br><br><br><br><br><br></p>
-</div>
-</div>
-<div class="section" id="zadania">
-<h2>Zadania<a class="headerlink" href="#zadania" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -2992,6 +3121,7 @@ Name: 13, dtype: object
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="lab1-przygotowanie-srodowiska.html" title="previous page">L1: Przygotowanie środowiska</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
