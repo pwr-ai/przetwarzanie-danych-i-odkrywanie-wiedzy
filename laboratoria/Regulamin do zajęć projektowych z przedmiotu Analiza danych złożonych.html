@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>L4: Manipulacje zbiorami danych &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>&lt;no title&gt; &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -102,11 +102,6 @@
    L1: Przygotowanie środowiska
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab2-podstawowe-biblioteki.html">
-   L2: Podstawowe biblioteki do odkrywania wiedzy
-  </a>
- </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -143,7 +138,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/laboratoria/lab4-manipulacja-datasetem.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/laboratoria/Regulamin do zajęć projektowych z przedmiotu Analiza danych złożonych.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -168,7 +163,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/laboratoria/lab4-manipulacja-datasetem.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/laboratoria/Regulamin do zajęć projektowych z przedmiotu Analiza danych złożonych.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -189,12 +184,7 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">
-   Efekty kształcenia laboratorium
-  </a>
- </li>
+            <ul class="simple nav section-nav flex-column">
 </ul>
 
         </nav>
@@ -206,21 +196,58 @@
         
               <div>
                 
-  <p><img alt="" src="../_images/banner.png" /></p>
-<div class="section" id="l4-manipulacje-zbiorami-danych">
-<h1>L4: Manipulacje zbiorami danych<a class="headerlink" href="#l4-manipulacje-zbiorami-danych" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="efekty-ksztalcenia-laboratorium">
-<h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Permalink to this headline">¶</a></h2>
-<hr><ul class="simple">
-<li><p>zapoznasz się z zasadami BHP</p></li>
-<li><p>dowiesz się, co będziemy ćwiczyć w trakcie tego semestru</p></li>
-<li><p>poznasz zasady oceniania</p></li>
-<li><p>poznasz możliwości tworzenia środowiska wirtualnego Python</p></li>
-<li><p>poznasz środowisko Jupyter</p></li>
-<li><p>poznasz podstawowe mechanizmy systemu kontroli wersji Git i ekosystemu GitHub</p></li>
+  <ol class="simple">
+<li><p>Zajęcia składać się będą z dwóch części: laboratoryjnej (4 zajęcia - 60 pkt) i projektowej (3 zajęcia - 40 pkt)</p></li>
+<li><p>Każde zadanie laboratoryjne oceniane jest łącznie na 15 pkt. Tematy którę będą realizowane:</p>
+<ul class="simple">
+<li><p>Klasyfikacja kolektywna (2021-03-09, termin oddania zadania: 2021-03-23)</p></li>
+<li><p>Klasyfikacja w danych hierarchicznych (2021-03-23, termin oddania zadania: 2021-04-20)</p></li>
+<li><p>Dane strumieniowe (2021-04-21, termin oddania zadania: 2021-05-04)</p></li>
+<li><p>Analiza szeregów czasowych (2021-05-04, termin oddania zadania: 2021-05-18)</p></li>
 </ul>
-</div>
-</div>
+</li>
+<li><p>Za opóźnienie o każdy termin zajęć kara punktowa wynosi 25% punktacji bazowej,
+przy czym listę można oddać najpóźniej 2 terminy zajęć po ustalonym terminie.</p></li>
+<li><p>Część projektowa polega na kontynuacji realizowanych projektów w poprzednich semestrach.  Tematyka projektów jest dowolna. Projekty powinny być realizowane w tej samej grupie osób. W ramach zajęć należy wprowadzić modyfikację projektu, która będzie wcześniej skonsultowana z prowadzącym i dopasowana do realizowanego projektu. Dopuszczalne są poniższe modyfikację:</p>
+<ul class="simple">
+<li><p>Dodanie nowego źródła danych</p></li>
+<li><p>Przeprowadzenie analizy eksproracyjnej z perspektywy użytkownika końcowego.</p></li>
+</ul>
+</li>
+<li><p>Część projektowa kończy się prezentacją, która odbędzie się na ostatnich zjęciach.
+Prezentacja powinna objąć takie elementy jak: stan projektu przed rozpoczęciem zajęć,
+wprowadzone zmiany podczas realizacji tych zajęć, napotkane problemy, dalsze plany dotyczące rozwoju tego projektu.</p></li>
+<li><p>W przypadku sytuacji, gdzie wybranie projektu będzie niemożliwe wprowadzona będzie część zastępcza,
+która zostanie ogłoszona nie później niż na pierwszych zajęciach projektowych.</p></li>
+<li><p>Ocena końcowa z zajęć jest przyznawana zgodnie z informacjami zawartymi w poniższej tabeli.</p></li>
+</ol>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Punkty</p></th>
+<th class="head"><p>Ocena</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0-50</p></td>
+<td><p>2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>51-60</p></td>
+<td><p>3.0</p></td>
+</tr>
+<tr class="row-even"><td><p>61-70</p></td>
+<td><p>3.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>71-80</p></td>
+<td><p>4.0</p></td>
+</tr>
+<tr class="row-even"><td><p>81-90</p></td>
+<td><p>4.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>91-100</p></td>
+<td><p>5.0</p></td>
+</tr>
+</tbody>
+</table>
 
     <script type="text/x-thebe-config">
     {

@@ -17,19 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-a = np.arange(2)
-b = np.ones(3)
+import pandas as pd
+from sklearn.datasets import load_boston
 
-a * b
+df = pd.DataFrame(dataset['data'], columns=dataset['feature_names'])
+df.head()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m<ipython-input-47-ece174826f41>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0mb[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mones[0m[0;34m([0m[0;36m3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-8-5e7881ff40ac>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mdatasets[0m [0;32mimport[0m [0mload_boston[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m [0;34m[0m[0m
-[0;32m----> 4[0;31m [0ma[0m [0;34m*[0m [0mb[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mValueError[0m: operands could not be broadcast together with shapes (2,) (3,) 
-ValueError: operands could not be broadcast together with shapes (2,) (3,) 
+[0;32m----> 4[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mDataFrame[0m[0;34m([0m[0mdataset[0m[0;34m[[0m[0;34m'data'[0m[0;34m][0m[0;34m,[0m [0mcolumns[0m[0;34m=[0m[0mdataset[0m[0;34m[[0m[0;34m'feature_names'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mdf[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'dataset' is not defined
+NameError: name 'dataset' is not defined
 
