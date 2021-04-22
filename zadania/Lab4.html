@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -223,8 +221,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dodatkowe-1-pkt">
-   Dodatkowe (+1 pkt)
+  <a class="reference internal nav-link" href="#dodatkowe-zadanie-1-pkt">
+   Dodatkowe zadanie (+1 pkt)
   </a>
  </li>
 </ul>
@@ -242,10 +240,10 @@
 <h1>Zadania Lista 4<a class="headerlink" href="#zadania-lista-4" title="Permalink to this headline">¶</a></h1>
 <p>W zadaniu wykorzystamy zbiór danych <a class="reference external" href="https://www.kaggle.com/mattpodolak/rwallstreetbets-posts-and-comments?select=wallstreetbets_posts.csv">Reddit WallStreetBets Posts and Comments</a>, udostępniony na portalu Kaggle.
 <img alt="DS_LOGO" src="https://upload.wikimedia.org/wikipedia/en/f/f0/WallStreetBets.png" /></p>
-<p>Zbiór danych zawiera posty i komentarze zebrane pochodzące z subreddita <code class="docutils literal notranslate"><span class="pre">wallstreetbets</span></code> z okresu 06-12-2020 do 06-02-2021 za pomocą narzędzia <a class="reference external" href="https://github.com/mattpodolak/pmaw/">pmaw</a>. W zadaniu wykorzystamy wyłącznie plik <code class="docutils literal notranslate"><span class="pre">wallstreetbets_posts.csv</span></code>.
+<p>Zbiór danych zawiera posty i komentarze pochodzące z subreddita <code class="docutils literal notranslate"><span class="pre">wallstreetbets</span></code> z okresu 06-12-2020 do 06-02-2021 zebrane za pomocą narzędzia <a class="reference external" href="https://github.com/mattpodolak/pmaw/">pmaw</a>. W zadaniu wykorzystamy wyłącznie plik <code class="docutils literal notranslate"><span class="pre">wallstreetbets_posts.csv</span></code>.
 Lista zadań została podzielona na cztery etapy:</p>
 <ol class="simple">
-<li><p>Czysczenie danych i przetwarzanie wstępne</p></li>
+<li><p>Czyszczenie danych i przetwarzanie wstępne</p></li>
 <li><p>Inżynieria cech</p></li>
 <li><p>Przygotowanie modelu</p></li>
 <li><p>Selekcja cech</p></li>
@@ -298,7 +296,7 @@ Lista zadań została podzielona na cztery etapy:</p>
 </div>
 </div>
 </div>
-<p><strong>(0.5 pkt)</strong> e) Dokonaj podziału zbioru na dwie części: uczący i testowy. Nie używaj podziału losowego, tylko podziel dane wg. czasu napisania posta. Zbiór testowy mają tworzyć wpisy z ostatnich 6 dni, a wcześniejsze wpisy zbiór uczący</p>
+<p><strong>(0.5 pkt)</strong> e) Dokonaj podziału zbioru na dwie części: uczący i testowy. Nie używaj podziału losowego, tylko podziel dane wg czasu napisania posta. Zbiór testowy mają tworzyć wpisy z ostatnich 6 dni, a wcześniejsze wpisy zbiór uczący</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
@@ -327,9 +325,9 @@ Lista zadań została podzielona na cztery etapy:</p>
 </div>
 <p>c) <strong>(2 pkt)</strong> Przekształć cechę tekstową <code class="docutils literal notranslate"><span class="pre">title</span></code> wykorzystująć do tego metodę <code class="docutils literal notranslate"><span class="pre">TF-IDF</span> </code></p>
 <ul class="simple">
-<li><p>Odfiltruj najczęstsze słowa w języku angielskie (stop words) w tym celu możesz wykorzystać bibliotekę <code class="docutils literal notranslate"><span class="pre">spacy</span></code>.</p></li>
-<li><p>Usuń znaki interpunkcyjne</p></li>
 <li><p>Sprowadź tokeny do formy bazowej (lematy)</p></li>
+<li><p>Odfiltruj najczęstsze słowa w języku angielskim (stop words) w tym celu możesz wykorzystać bibliotekę <code class="docutils literal notranslate"><span class="pre">spacy</span></code>.</p></li>
+<li><p>Usuń znaki interpunkcyjne</p></li>
 <li><p>Ogranicz reprezentację tf-idf do 25 najczęstszych słów w zbiorze</p></li>
 <li><p>Dodaj do zbioru tak przygotowane cechy, zmapuj wektor cech do n kolumn np. <code class="docutils literal notranslate"><span class="pre">title_tfidf_gme</span></code>, <code class="docutils literal notranslate"><span class="pre">title_tfidf_squeeze</span></code> itd.</p></li>
 </ul>
@@ -352,7 +350,7 @@ Przeprowadź odpowiednie transformacje danych, wymagane dla tego modelu. Do ewal
 </div>
 </div>
 </div>
-<p>c) <strong>(2 pkt)</strong> Zmień reprezentację tekstową pola <code class="docutils literal notranslate"><span class="pre">title</span></code>. Przeprowadź podobne kroki jak w punkcie <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">c)</span></code>, tylko zamiast ograniczania reprezentacji do 25 najczęstszych słów w zbiorze, wykorzystaj metodę <code class="docutils literal notranslate"><span class="pre">PCA</span></code>. Zareportuj pokrycie wariancji. Tak otrzymane cechy z <code class="docutils literal notranslate"><span class="pre">pca</span></code> dodaj do zbioru uczącego. Przeucz model i dokonaj porównania. Krótko podsumuj wyniki.</p>
+<p>b) <strong>(2 pkt)</strong> Zmień reprezentację tekstową pola <code class="docutils literal notranslate"><span class="pre">title</span></code>. Przeprowadź podobne kroki jak w punkcie <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">c)</span></code>, tylko zamiast ograniczania reprezentacji do 25 najczęstszych słów w zbiorze, wykorzystaj metodę <code class="docutils literal notranslate"><span class="pre">PCA</span></code>. Zareportuj pokrycie wariancji. Tak otrzymane cechy z <code class="docutils literal notranslate"><span class="pre">pca</span></code> dodaj do zbioru uczącego. Przeucz model i dokonaj porównania. Krótko podsumuj wyniki.</p>
 </div>
 <div class="section" id="pkt-selekcja-cech">
 <h2>4. (2 pkt) Selekcja cech<a class="headerlink" href="#pkt-selekcja-cech" title="Permalink to this headline">¶</a></h2>
@@ -365,9 +363,9 @@ Przeprowadź odpowiednie transformacje danych, wymagane dla tego modelu. Do ewal
 </div>
 </div>
 </div>
-<div class="section" id="dodatkowe-1-pkt">
-<h2>Dodatkowe (+1 pkt)<a class="headerlink" href="#dodatkowe-1-pkt" title="Permalink to this headline">¶</a></h2>
-<p>Wykorzystaj bibliotekę featuretoools do procesu ekstrakcji cech lub inną bibliotekę automatycznej ekstrakcji cech</p>
+<div class="section" id="dodatkowe-zadanie-1-pkt">
+<h2>Dodatkowe zadanie (+1 pkt)<a class="headerlink" href="#dodatkowe-zadanie-1-pkt" title="Permalink to this headline">¶</a></h2>
+<p>Wykorzystaj bibliotekę dedykowaną do automatycznej ekstrakcji cech np. <code class="docutils literal notranslate"><span class="pre">featuretoools</span></code></p>
 </div>
 </div>
 
