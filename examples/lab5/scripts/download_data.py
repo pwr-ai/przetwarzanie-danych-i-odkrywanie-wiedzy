@@ -15,6 +15,7 @@ def main():
     dataset = {
         "train": {"X": dataset["train"]["text"], "y": dataset["train"]["target"]},
         "test": {"X": dataset["test"]["text"], "y": dataset["test"]["target"]},
+        "labels": dataset["train"].features["target"].names,
     }
 
     with open("data/dataset.pkl", "wb") as f:

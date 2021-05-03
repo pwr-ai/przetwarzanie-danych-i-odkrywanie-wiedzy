@@ -4,8 +4,8 @@ stages:
     cmd: PYTHONPATH=. python3 scripts/download_data.py
     deps:
     - path: scripts/download_data.py
-      md5: 883b4173c78906597e1437d252f35fda
-      size: 517
+      md5: 4744f9cc2b979c015cab98bb1b590bca
+      size: 578
     params:
       params.yaml:
         download_data.dev_domains:
@@ -17,30 +17,30 @@ stages:
         - hotels
     outs:
     - path: data/dataset.pkl
-      md5: 70d53f56925ba804a75766edc2f99c42
-      size: 2263605
+      md5: 35c2088e2229c17deb87abb690475c75
+      size: 2263646
   extract_features:
     cmd: PYTHONPATH=. python3 scripts/extract_features.py
     deps:
     - path: data/dataset.pkl
-      md5: 70d53f56925ba804a75766edc2f99c42
-      size: 2263605
+      md5: 35c2088e2229c17deb87abb690475c75
+      size: 2263646
     - path: scripts/extract_features.py
       md5: c01e4d9b6f359a6b49a94883252e53d8
       size: 451
     outs:
     - path: data/featurized.pkl
-      md5: 8261fc348d16744b8c55842cdbdb597c
-      size: 3263777
+      md5: 1604a55a106f3a0558cc996365eaade1
+      size: 3263818
   evaluate_model:
     cmd: PYTHONPATH=. python3 scripts/evaluate_model.py
     deps:
     - path: data/featurized.pkl
-      md5: 8261fc348d16744b8c55842cdbdb597c
-      size: 3263777
+      md5: 1604a55a106f3a0558cc996365eaade1
+      size: 3263818
     - path: scripts/evaluate_model.py
-      md5: b1eed272329319bd7e9a27a650703582
-      size: 791
+      md5: 600bd6d5c67009ef813d1ce813e3a590
+      size: 2159
     params:
       params.yaml:
         evaluate_model.max_iter: 200
