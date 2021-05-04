@@ -12,7 +12,6 @@ from sklearn.metrics import classification_report
 
 
 def plot_metrics_per_class(report: Dict[str, Any], labels: List[str]):
-    print(report)
     report = pd.DataFrame(
         [
             {
@@ -66,11 +65,6 @@ def main():
             clf, X=dataset["test"]["X"], y_true=dataset["test"]["y"], prefix="test_"
         )
         mlflow.log_figure(fig, artifact_file="metrics.png")
-        mlflow.sklearn.log_model(
-            clf,
-            "models",
-            registered_model_name="LogisticRegression",
-        )
 
     with open("data/results.json", "w") as f:
         json.dump(obj=metrics, fp=f)
