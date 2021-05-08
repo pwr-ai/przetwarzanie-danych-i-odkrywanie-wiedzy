@@ -249,8 +249,8 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wysylanie-i-pobieranie-danych-z-dvc-wymaga-serwera-zewnetrznego">
-     Wysyłanie i pobieranie danych z dvc (WYMAGA SERWERA ZEWNĘTRZNEGO)
+    <a class="reference internal nav-link" href="#wysylanie-i-pobieranie-danych-z-dvc">
+     Wysyłanie i pobieranie danych z dvc
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -273,6 +273,11 @@
      Inne przydatne komendy DVC
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kod-do-czesci-i">
+     Kod do części I
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -281,18 +286,52 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#uruchomienie-serwera">
-     Uruchomienie serwera
+    <a class="reference internal nav-link" href="#id1">
+     Instalacja
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#automatyczne-logowanie">
-     Automatyczne logowanie
+    <a class="reference internal nav-link" href="#mlflow-tracking">
+     MLFlow Tracking
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ustawienia-potrzebne-do-relizacji-laboratorium">
+       Ustawienia potrzebne do relizacji laboratorium
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uruchomienie-serwera-do-sledzenia-przebiegow-uczenia">
+     Uruchomienie serwera do śledzenia przebiegów uczenia
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reczne-logowanie">
-     Ręczne logowanie
+    <a class="reference internal nav-link" href="#monitorowanie-przebiegow-uczenia">
+     Monitorowanie przebiegów uczenia
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#automatyczne-logowanie">
+       Automatyczne logowanie
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reczne-logowanie">
+       Ręczne logowanie
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dodanie-mlflow-do-skryptu">
+     Dodanie MLFlow do skryptu
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kod-do-czesci-ii">
+     Kod do części II
     </a>
    </li>
   </ul>
@@ -341,6 +380,10 @@
 <p>Dodatkowo do obsługi zewnętrzych serwerów wymaga zainstalowania dodatkowych zależności. Wspierane konfiguracje to <code class="docutils literal notranslate"><span class="pre">s3,</span> <span class="pre">gs,</span> <span class="pre">azure,</span> <span class="pre">oss,</span> <span class="pre">ssh</span></code> lub <code class="docutils literal notranslate"><span class="pre">all</span></code> - instaluje wszystkie opcjonalne zależności. Jeżeli chcemy zainstalować dodatkowe zależności np. dla s3, polecenie przyjmie następującą postać:</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">dvc[s3]</span></code></p>
 <p>W ramach materiałów nie będziemy wykorzystywać zewnętrznego serwera, dlatego wystarczy nam podstawowa wersja.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Poniższa instrukcja dotyczy wykorzystania DVC w wersji 2.0 i została przetestowana z wykorzystaniem wersji 2.1.0</p>
+</div>
 </div>
 <div class="section" id="inicjalizacja-repozytorium-dvc">
 <h3>Inicjalizacja repozytorium dvc<a class="headerlink" href="#inicjalizacja-repozytorium-dvc" title="Permalink to this headline">¶</a></h3>
@@ -452,18 +495,18 @@
 </div>
 <div class="section" id="dodanie-skryptu-do-dvc">
 <h4>Dodanie skryptu do DVC<a class="headerlink" href="#dodanie-skryptu-do-dvc" title="Permalink to this headline">¶</a></h4>
-<p>Etapy przetwarzania dodajemy do potoku za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">run</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/run">[LINK]</a>.</p>
+<p>Etapy przetwarzania dodajemy do potoku za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">run</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/run">[LINK]</a> lub <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">stage</span> <span class="pre">add</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/stage/add">[LINK]</a>.</p>
 <p>Głównymi elementami danego etapu definiowanego w dvc są:</p>
 <ul class="simple">
 <li><p>zależności etapu (dane wejściowe, skrypty pythonowe etc.), definiowane za pomocą parametru <code class="docutils literal notranslate"><span class="pre">-d</span></code></p></li>
 <li><p>parametry (w celu śledzenia zmian), definiowane za pomocą parametru <code class="docutils literal notranslate"><span class="pre">-p</span></code></p></li>
-<li><p>pliki wejściowe, definiowane za pomocą parametru <code class="docutils literal notranslate"><span class="pre">-o</span></code></p></li>
+<li><p>pliki wyjściowe, definiowane za pomocą parametru <code class="docutils literal notranslate"><span class="pre">-o</span></code></p></li>
 <li><p>skrypt który będziemy wykonywać podawany na końcu polecania w naszym przypadku będzie to <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">scripts/download_data.py</span></code></p></li>
 </ul>
 <p>Wróćmy do naszego skryptu pobierającego zbiór danych. Nazwę etapu przypisujemy za pomocą parametru <code class="docutils literal notranslate"><span class="pre">-n</span></code>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Etapy w dvc podczas dodawania za pomocą <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">run</span></code> są automatycznie wykonywane, aby zmienić to zachowanie musimy dodać flagę <code class="docutils literal notranslate"><span class="pre">--no-exec</span></code></p>
+<p>Etapy w dvc podczas dodawania za pomocą <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">run</span></code> są automatycznie wykonywane, aby zmienić to zachowanie musimy dodać flagę <code class="docutils literal notranslate"><span class="pre">--no-exec</span></code> lub możemy wykorzystać polecenie <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">stage</span> <span class="pre">add</span></code></p>
 </div>
 <p>Zdefiniujmy teraz elementy etapu:</p>
 <ul class="simple">
@@ -489,9 +532,9 @@
 </ul>
 <p>Zbierzmy teraz wszystko w ramach polecenia i wykonajmy je.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc run  <span class="se">\</span>
-	-n download_data <span class="se">\</span>
-	-d scripts/download_data.py <span class="se">\</span>
-	-o data/dataset.pkl <span class="se">\</span>
+    -n download_data <span class="se">\</span>
+    -d scripts/download_data.py <span class="se">\</span>
+    -o data/dataset.pkl <span class="se">\</span>
     -p download_data.train_domains <span class="se">\</span>
     -p download_data.dev_domains <span class="se">\</span>
     -p download_data.test_domains <span class="se">\</span>
@@ -559,7 +602,7 @@
 <div class="section" id="wykonywanie-etapow">
 <h4>Wykonywanie etapów<a class="headerlink" href="#wykonywanie-etapow" title="Permalink to this headline">¶</a></h4>
 <p>Do wykonania etapu lub etapów służy polecenie <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code>. Domyślna konfiguracja polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> oznacza przejrzenie całego potoku i wykonanie tylko tych etapów w których wykryto zmiany. Możemy również wykonać jeden etap lub wybraną część potoku przekazując nazwy etapów. Pełna dokumentacja: <a class="reference external" href="https://dvc.org/doc/command-reference/repro">[LINK]</a></p>
-<p>Najważniejsze parametry:</p>
+<p>Przydatne parametry:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">--dry</span></code> - pozwala podejrzeć które etapy mają byc wykonane</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> - wymuszenie wykonania wszystkich lub wybranych potoków, nawet jeżeli <code class="docutils literal notranslate"><span class="pre">dvc</span></code> nie reportuje zmian</p></li>
@@ -607,10 +650,15 @@
 </div>
 </div>
 </div>
-<div class="section" id="wysylanie-i-pobieranie-danych-z-dvc-wymaga-serwera-zewnetrznego">
-<h3>Wysyłanie i pobieranie danych z dvc (WYMAGA SERWERA ZEWNĘTRZNEGO)<a class="headerlink" href="#wysylanie-i-pobieranie-danych-z-dvc-wymaga-serwera-zewnetrznego" title="Permalink to this headline">¶</a></h3>
-<p>Pliki trackowane przez dvc takie jak pliki wyjściowe możemy przesyłać na zewnętrzny serwer za pomocą polecenia
-<code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">push</span></code>, a pobierać lokalnie za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">pull</span></code>. Podobnie jak w przypadku <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> operacje działają na całym potok lub jego poszczególnych elementach</p>
+<div class="section" id="wysylanie-i-pobieranie-danych-z-dvc">
+<h3>Wysyłanie i pobieranie danych z dvc<a class="headerlink" href="#wysylanie-i-pobieranie-danych-z-dvc" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Wymaga konfiguracji serwera zewnętrznego.
+Więcej szczegółów na temat konfiguracji serwera:  <a class="reference external" href="https://dvc.org/doc/command-reference/remote">[LINK]</a></p>
+</div>
+<p>Pliki śledzone przez dvc takie jak np. pliki wyjściowe możemy przesyłać na zewnętrzny serwer za pomocą polecenia
+<code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">push</span></code>, a pobierać lokalnie za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">pull</span></code>. Podobnie jak w przypadku <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> zakres operacji <code class="docutils literal notranslate"><span class="pre">push</span></code> i <code class="docutils literal notranslate"><span class="pre">pull</span></code> obejmuje domyślnie cały potok lub jego wybraną część poprzez przekazanie nazw(y) etapów jako argumentu polecenia.</p>
 </div>
 <div class="section" id="kolejne-etapy-przetwarzania">
 <h3>Kolejne etapy przetwarzania<a class="headerlink" href="#kolejne-etapy-przetwarzania" title="Permalink to this headline">¶</a></h3>
@@ -633,14 +681,14 @@
 </div>
 <p>W przypadku <code class="docutils literal notranslate"><span class="pre">evaluate_model</span></code> dodamy mechanizm śledzenie metryk. Pełny opis jest dostępny pod adresem <a class="reference external" href="https://dvc.org/doc/command-reference/metrics">[LINK]</a>. Metryki specyfikuje się za pomocą flagi <code class="docutils literal notranslate"><span class="pre">-M</span></code>. Obecnie wspierany jest format <code class="docutils literal notranslate"><span class="pre">json</span></code> lub <code class="docutils literal notranslate"><span class="pre">yaml</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc run  <span class="se">\</span>
--n evaluate_model <span class="se">\</span>
--d scripts/evaluate_model.py <span class="se">\</span>
--d data/featurized.pkl <span class="se">\</span>
--M data/results.json <span class="se">\</span>
--p evaluate_model.random_state <span class="se">\</span>
--p evaluate_model.max_iter <span class="se">\</span>
---no-exec <span class="se">\</span>
-<span class="nv">PYTHONPATH</span><span class="o">=</span>. python3 scripts/evaluate_model.py
+    -n evaluate_model <span class="se">\</span>
+    -d scripts/evaluate_model.py <span class="se">\</span>
+    -d data/featurized.pkl <span class="se">\</span>
+    -M data/results.json <span class="se">\</span>
+    -p evaluate_model.random_state <span class="se">\</span>
+    -p evaluate_model.max_iter <span class="se">\</span>
+    --no-exec <span class="se">\</span>
+    <span class="nv">PYTHONPATH</span><span class="o">=</span>. python3 scripts/evaluate_model.py
 
 <span class="go">Adding stage &#39;evaluate_model&#39; in &#39;dvc.yaml&#39;                           </span>
 
@@ -667,11 +715,10 @@
 <span class="go">Use `dvc push` to send your updates to remote storage.</span>
 </pre></div>
 </div>
-<p>Kompletny kod znajduje się pod adresem: <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/7fdd74b21c92bac61bfefca949b4d34bc6c70c20/examples/lab5">[LINK]</a></p>
 </div>
 <div class="section" id="przegladanie-potoku-przetwarzania-parametrow-i-metryk">
 <h3>Przeglądanie potoku przetwarzania, parametrów i metryk<a class="headerlink" href="#przegladanie-potoku-przetwarzania-parametrow-i-metryk" title="Permalink to this headline">¶</a></h3>
-<p>Mając już zdefiniowany potok przetwarzania możemy go zwizualizować w konsoli za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">dag</span></code></p>
+<p>Mając już zdefiniowany potok przetwarzania możemy go zwizualizować w konsoli za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">dag</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/dag">[LINK]</a></p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc dag
 
 <span class="go">  +---------------+  </span>
@@ -691,22 +738,49 @@
 <span class="go"> +----------------+  </span>
 </pre></div>
 </div>
-<p>Metryki możemy teraz wyświetlić bezpośrednio z konsoli za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">metrics</span> <span class="pre">show</span></code></p>
+<p>Możemy również śledzić graph zależności pomiędzy wyjściami za pomocą flagi <code class="docutils literal notranslate"><span class="pre">--outs</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc dag --outs
+
+<span class="go">  +------------------+   </span>
+<span class="go">  | data/dataset.pkl |   </span>
+<span class="go">  +------------------+   </span>
+<span class="go">            *            </span>
+<span class="go">            *            </span>
+<span class="go">            *            </span>
+<span class="go">+---------------------+  </span>
+<span class="go">| data/featurized.pkl |  </span>
+<span class="go">+---------------------+  </span>
+<span class="go">            *            </span>
+<span class="go">            *            </span>
+<span class="go">            *            </span>
+<span class="go"> +-------------------+   </span>
+<span class="go"> | data/results.json |   </span>
+<span class="go"> +-------------------+   </span>
+</pre></div>
+</div>
+<p>Listę etapów możemy podejrzeć za pomocą polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">stage</span> <span class="pre">list</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/stage/list">[LINK]</a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc stage list
+<span class="go">download_data     Outputs data/dataset.pkl</span>
+<span class="go">extract_features  Outputs data/featurized.pkl</span>
+<span class="go">evaluate_model    Reports data/results.json</span>
+</pre></div>
+</div>
+<p>Metryki możemy teraz wyświetlić bezpośrednio z konsoli za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">metrics</span> <span class="pre">show</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/metrics/show">[LINK]</a></p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc metrics show
 <span class="go">Path               accuracy    f1-score                               </span>
 <span class="go">data/results.json  0.74165     0.67661</span>
 </pre></div>
 </div>
-<p>Parametry możemy wyświetlić za pomocą <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">params</span> <span class="pre">diff</span></code></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc params diff
+<p>Parametry możemy wyświetlić za pomocą <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">params</span> <span class="pre">diff</span> <span class="pre">--all</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/params/diff">[LINK]</a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc params diff --all
 
-<span class="go">Path         Param                        Old    New                  </span>
-<span class="go">params.yaml  download_data.dev_domains    —      [&#39;hotels&#39;]</span>
-<span class="go">params.yaml  download_data.test_domains   —      [&#39;hotels&#39;]</span>
-<span class="go">params.yaml  download_data.text_cfg       —      sentence</span>
-<span class="go">params.yaml  download_data.train_domains  —      [&#39;hotels&#39;]</span>
-<span class="go">params.yaml  evaluate_model.max_iter      —      200</span>
-<span class="go">params.yaml  evaluate_model.random_state  —      441</span>
+<span class="go">Path         Param                        Old         New             </span>
+<span class="go">params.yaml  download_data.dev_domains    [&#39;hotels&#39;]  [&#39;hotels&#39;]</span>
+<span class="go">params.yaml  download_data.test_domains   [&#39;hotels&#39;]  [&#39;hotels&#39;]</span>
+<span class="go">params.yaml  download_data.text_cfg       sentence    sentence</span>
+<span class="go">params.yaml  download_data.train_domains  [&#39;hotels&#39;]  [&#39;hotels&#39;]</span>
+<span class="go">params.yaml  evaluate_model.max_iter      200         200</span>
+<span class="go">params.yaml  evaluate_model.random_state  441         441</span>
 </pre></div>
 </div>
 </div>
@@ -732,7 +806,7 @@
 </pre></div>
 </div>
 <p>Czas na cofnięcie zmian, zacznijmy od odrzucenia zmian w repozytorium git, zmienione pliki to <code class="docutils literal notranslate"><span class="pre">results.json</span></code>, <code class="docutils literal notranslate"><span class="pre">params.yaml</span></code> i <code class="docutils literal notranslate"><span class="pre">dvc.lock</span></code>.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git reset --hard
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git restore .
 </pre></div>
 </div>
 <p>Teraz zostaje nam cofnięcie zmian w plikach <code class="docutils literal notranslate"><span class="pre">dvc</span></code> do tego wykorzystamy komendę <code class="docutils literal notranslate"><span class="pre">checkout</span></code>, która działa w podobny sposób jak <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>. Przydatna jest również w sytuacji, kiedy przełączamy się pomiędzy różnymi branchami.</p>
@@ -743,46 +817,121 @@
 <div class="section" id="inne-przydatne-komendy-dvc">
 <h3>Inne przydatne komendy DVC<a class="headerlink" href="#inne-przydatne-komendy-dvc" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://dvc.org/doc/command-reference/add">dvc add</a></p></li>
-<li><p><a class="reference external" href="https://dvc.org/doc/command-reference/commit">dvc commit</a></p></li>
-<li><p><a class="reference external" href="https://dvc.org/doc/command-reference/commit">dvc remove</a></p></li>
+<li><p><a class="reference external" href="https://dvc.org/doc/command-reference/add">dvc add</a> - Pozwala na śledzenie pliku / folderu poprzez utworzenie pliku <code class="docutils literal notranslate"><span class="pre">{nazwa_pliku}.dvc</span></code>.<br />
+Przykład</p></li>
 </ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc add data/
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">data.dvc</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">outs</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">md5</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">48c6715169a5ed3b78e278f5f2c6055e.dir</span>
+  <span class="nt">size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">57675468</span>
+  <span class="nt">nfiles</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dvc.org/doc/command-reference/commit">dvc commit</a> - Pozwala uaktalnić stan danego etapu. <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">commit</span></code> jest szczególnie przydatny w sytuacjach:</p>
+<ul>
+<li><p>Kiedy wprowadziliśmy zmiany w zależnościach etapu, które nie mają wpływu na pliki wyjściowe etapu</p></li>
+<li><p>Kiedy wykonaliśmy skrypt danego etapu z pominięciem polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://dvc.org/doc/command-reference/remove">dvc remove</a> - Usuwa dany etap</p></li>
+</ul>
+</div>
+<div class="section" id="kod-do-czesci-i">
+<h3>Kod do części I<a class="headerlink" href="#kod-do-czesci-i" title="Permalink to this headline">¶</a></h3>
+<p>Rozwiązanie części I znajduje się pod adresem: <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/7fdd74b21c92bac61bfefca949b4d34bc6c70c20/examples/lab5">[LINK]</a></p>
 </div>
 </div>
 <div class="section" id="mlflow">
 <h2>MLFlow<a class="headerlink" href="#mlflow" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="uruchomienie-serwera">
-<h3>Uruchomienie serwera<a class="headerlink" href="#uruchomienie-serwera" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">mlflow</span> <span class="n">server</span> \                                 
-    <span class="o">--</span><span class="n">backend</span><span class="o">-</span><span class="n">store</span><span class="o">-</span><span class="n">uri</span> <span class="n">sqlite</span><span class="p">:</span><span class="o">///</span><span class="n">mlflow</span><span class="o">.</span><span class="n">db</span> \
-    <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">artifact</span><span class="o">-</span><span class="n">root</span> <span class="o">./</span><span class="n">artifacts</span> \
-    <span class="o">--</span><span class="n">host</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span>
+<p>MLFlow jest również dedykowanym narzędziem do zarządzania eksperymentami. Jego funkcjonalnośc obejmuje następujące moduły:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.mlflow.org/docs/latest/tracking.html"><code class="docutils literal notranslate"><span class="pre">MLFlow</span> <span class="pre">Tracking</span></code></a> - zarządzanie eksperymentami, logowanie parametrych, metryk, wykresów i innych artefaktów</p></li>
+<li><p><a class="reference external" href="https://www.mlflow.org/docs/latest/projects.html"><code class="docutils literal notranslate"><span class="pre">MLFlow</span> <span class="pre">Projects</span></code></a> - przygotowanie środowiska eksperymentalnego dla projektu, wykonywanie eksperymentów</p></li>
+<li><p><a class="reference external" href="https://www.mlflow.org/docs/latest/models.html"><code class="docutils literal notranslate"><span class="pre">MLFlow</span> <span class="pre">Deployment</span></code></a> - Wdrażanie modeli</p></li>
+<li><p><a class="reference external" href="https://www.mlflow.org/docs/latest/model-registry.html"><code class="docutils literal notranslate"><span class="pre">MLFlow</span> <span class="pre">Registry</span></code></a> - Rejestr modeli</p></li>
+</ul>
+<p><strong>Dokumentacja</strong>: <a class="reference external" href="https://www.mlflow.org/docs/latest/index.html">[LINK]</a></p>
+<p>W ramach zajęć skupimy się na module <code class="docutils literal notranslate"><span class="pre">MLFlow</span> <span class="pre">Tracking</span></code></p>
+<div class="section" id="id1">
+<h3>Instalacja<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Biblioteka mlflow również możemy zainstalować za pomocą menadżera paczek</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install mlflow
 </pre></div>
 </div>
-<p>W kodzie umieszczamy adres serwera, do którego będziemy logować metryki</p>
+</div>
+<div class="section" id="mlflow-tracking">
+<h3>MLFlow Tracking<a class="headerlink" href="#mlflow-tracking" title="Permalink to this headline">¶</a></h3>
+<p>Moduł jest oparty o monitorowanie przebiegów uczenia (ang. runs), które opcjonalnie możemy grupować w eksperymenty.</p>
+<p>W ramach pojedynczego przebiegu zbierane są takie komponenty jak:</p>
+<ul class="simple">
+<li><p>Wersja kodu (aktualny hash commitu z gita)</p></li>
+<li><p>Czas rozpoczęcia i zakończenia przebiegu</p></li>
+<li><p>Źródło uruchomienia np. nazwa skryptu do uczenia</p></li>
+<li><p>Parametry</p></li>
+<li><p>Metryki</p></li>
+<li><p>Artefakty - pliki wyjściowe w dowolnym formacie, można logować obrazy, wykresy, modele itp.</p></li>
+</ul>
+<p>Do logowania eksperymenty potrzebujemy zdefiniowania dwóch magazynów danych:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">backend</span> <span class="pre">store</span></code> - przechowuje dane dotyczące ekspetymentów (przebiegi, parametry, metryki, tagi, metadane itp.)<br />
+Wspierane typy magazynów danych:</p>
+<ul>
+<li><p>lokalna ścieżka</p></li>
+<li><p>baza danych: mysql, mssql, sqlite lub postgresql</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">artifact</span> <span class="pre">store</span></code> - przechowuje artefakty (pliki, modele, wykresy, obrazy itp.)
+Wspierane typy magazynów danych: lokalna ścieżka, Amazon S3, Azure Blob Storage, Google Cloud Storage, serwer FTP i SFTP, NFS i HDFS</p></li>
+</ul>
+<p>Więcej informacji na temat magazynów danych mlflow: <a class="reference external" href="https://www.mlflow.org/docs/latest/tracking.html#backend-stores">[LINK]</a></p>
+<div class="section" id="ustawienia-potrzebne-do-relizacji-laboratorium">
+<h4>Ustawienia potrzebne do relizacji laboratorium<a class="headerlink" href="#ustawienia-potrzebne-do-relizacji-laboratorium" title="Permalink to this headline">¶</a></h4>
+<p>W ramach laboratorium wykorzystamy baze danych sqllite, a artefakty będziemy logować do folderu <code class="docutils literal notranslate"><span class="pre">artifacts</span></code></p>
+</div>
+</div>
+<div class="section" id="uruchomienie-serwera-do-sledzenia-przebiegow-uczenia">
+<h3>Uruchomienie serwera do śledzenia przebiegów uczenia<a class="headerlink" href="#uruchomienie-serwera-do-sledzenia-przebiegow-uczenia" title="Permalink to this headline">¶</a></h3>
+<p>Pierwszym krokiem, który musimy zdefiniować jest uruchomienie serwera, który będzie nam obsługiwał proces śledzenia przebiegów uczenia. Do tego wykorzystamy komendę <code class="docutils literal notranslate"><span class="pre">mlflow</span> <span class="pre">server</span></code>. Aplikacja domyślnie uruchamia się na porcie 5000. Szczegółowa dokumentacja: <a class="reference external" href="https://mlflow.org/docs/latest/tracking.html#tracking-server">[LINK]</a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host <span class="m">0</span>.0.0.0    
+<span class="go">    </span>
+</pre></div>
+</div>
+<p>Następnym krokiem jest przekazanie adresu serwisu do śledzenia do biblioteki mlflow.
+Możemy umieścić bezpośrednie odwołanie w kodzie:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="s2">&quot;http://localhost:5000&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Logowanie artefaktów modelu odbywa się w ramach klauzuli <code class="docutils literal notranslate"><span class="pre">mlflow.start_run()</span></code></p>
+<p>lub za pomocą zmiennej środowiskowej</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">MLFLOW_TRACKING_URI</span><span class="o">=</span>http://localhost:5000
+</pre></div>
+</div>
+</div>
+<div class="section" id="monitorowanie-przebiegow-uczenia">
+<h3>Monitorowanie przebiegów uczenia<a class="headerlink" href="#monitorowanie-przebiegow-uczenia" title="Permalink to this headline">¶</a></h3>
+<p>Nowy przebieg tworzymy za pomocą metody <a class="reference external" href="%60https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.create_experiment"><code class="docutils literal notranslate"><span class="pre">mlflow.start_run()</span></code></a>. Najprościej jest umieścić go w ramach bloku kodu <code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">():</span>
     <span class="o">...</span>
 </pre></div>
 </div>
-</div>
 <div class="section" id="automatyczne-logowanie">
-<h3>Automatyczne logowanie<a class="headerlink" href="#automatyczne-logowanie" title="Permalink to this headline">¶</a></h3>
-<p>MLflow dostarcza interejsy, które pozwolają automatycznie logować parametry, sam model oraz metryki, odbywa się to za pomocą metody <code class="docutils literal notranslate"><span class="pre">autolog()</span></code>. Metoda musi być wywołana przed rozpocząciem procesu uczenia.</p>
+<h4>Automatyczne logowanie<a class="headerlink" href="#automatyczne-logowanie" title="Permalink to this headline">¶</a></h4>
+<p>MLflow dostarcza moduły, które pozwolają automatycznie logować parametry, sam model oraz metryki, odbywa się to za pomocą metody <code class="docutils literal notranslate"><span class="pre">autolog()</span></code>. Metoda <code class="docutils literal notranslate"><span class="pre">autolog()</span></code> musi być wywołana przed rozpocząciem procesu uczenia.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Funkcjanolność związana z autologowaniem za pomocą metody autolog() jest w fazie eksperymentalnej i zależy od wykorzystywanej biblioteki.</p>
 </div>
 <p>Autolog obecnie nie wspiera automatycznego wykrywania modelu, musimy zaimportować odpowiedni moduł przeznaczony dla naszego modelu. W naszym przypadku będzie to sklearn. <code class="docutils literal notranslate"><span class="pre">mlflow.sklearn.autolog()</span></code>.</p>
 <p>Szczegóły dotyczące autologowania i lista obecnie wspieranych bibliotek znajduję się pod linkiem: <a class="reference external" href="https://www.mlflow.org/docs/latest/tracking.html#automatic-logging">[LINK]</a></p>
-<p>Autolog w przypadku <code class="docutils literal notranslate"><span class="pre">sklaern</span></code> loguje metryki wyłącznie dla danych uczących dla danych testowych lub walidacyjnych również to wykonać. Do tego wykorzystamy funkcję <code class="docutils literal notranslate"><span class="pre">mlflow.sklearn.eval_and_log_metrics</span></code></p>
+<p>Autolog w przypadku <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> loguje metryki wyłącznie dla danych uczących dla danych testowych lub walidacyjnych również to wykonać. Do tego wykorzystamy funkcję <code class="docutils literal notranslate"><span class="pre">mlflow.sklearn.eval_and_log_metrics</span></code></p>
 </div>
 <div class="section" id="reczne-logowanie">
-<h3>Ręczne logowanie<a class="headerlink" href="#reczne-logowanie" title="Permalink to this headline">¶</a></h3>
+<h4>Ręczne logowanie<a class="headerlink" href="#reczne-logowanie" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>Logowanie parametrów: <code class="docutils literal notranslate"><span class="pre">mlflow.log_param</span></code> lub <code class="docutils literal notranslate"><span class="pre">mlflow.log_params</span></code><br />
 Przykłady:</p>
@@ -795,7 +944,7 @@ Przykłady:</p>
 Przykłady:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">mlflow.log_metric(&quot;accuracy&quot;,</span> <span class="pre">metrics[&quot;accuracy&quot;])</span></code></p></li>
-<li><p>`mlflow.log_metrics(metrics=metrics)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mlflow.log_metrics(metrics=metrics)</span></code></p></li>
 </ul>
 </li>
 <li><p>Logowanie wykresów <code class="docutils literal notranslate"><span class="pre">mlflow.log_figure</span></code>
@@ -813,30 +962,205 @@ Przykłady:</p>
 </ul>
 </div>
 </div>
+<div class="section" id="dodanie-mlflow-do-skryptu">
+<h3>Dodanie MLFlow do skryptu<a class="headerlink" href="#dodanie-mlflow-do-skryptu" title="Permalink to this headline">¶</a></h3>
+<p>Dodajmy teraz obsługę mlflow do wcześniej przygotowane skryptu <code class="docutils literal notranslate"><span class="pre">evaluate_model</span></code>.</p>
+<p>Elementy, które będziemy logować:</p>
+<ul class="simple">
+<li><p>autologowanie</p></li>
+<li><p>logowanie parametru <code class="docutils literal notranslate"><span class="pre">train_domains</span></code> i <code class="docutils literal notranslate"><span class="pre">test_domains</span></code></p></li>
+<li><p>logowanie metryk <code class="docutils literal notranslate"><span class="pre">accuracy</span></code> i macro <code class="docutils literal notranslate"><span class="pre">f1-score</span></code></p></li>
+<li><p>logowanie wykresu przedstawiającego metryki <code class="docutils literal notranslate"><span class="pre">precision</span></code>, <code class="docutils literal notranslate"><span class="pre">recall</span></code>, <code class="docutils literal notranslate"><span class="pre">f1-score</span></code> per klasa</p></li>
+</ul>
+<p>Bazowa wersja skryptu <code class="docutils literal notranslate"><span class="pre">evaluate_model</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/featurized.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;params.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="o">**</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;evaluate_model&quot;</span><span class="p">])</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">])</span>
+
+    <span class="n">report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span>
+        <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;f1-score&quot;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&quot;macro avg&quot;</span><span class="p">][</span><span class="s2">&quot;f1-score&quot;</span><span class="p">],</span>
+    <span class="p">}</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/results.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">metrics</span><span class="p">,</span> <span class="n">fp</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+
+<span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>Kod po dodaniu obsługi mlflow</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>import json
+import pickle
+<span class="gi">+ from typing import Dict, Any, List</span>
+
+<span class="gi">+ import matplotlib.pyplot as plt</span>
+<span class="gi">+ import mlflow</span>
+<span class="gi">+ import pandas as pd</span>
+<span class="gi">+ import seaborn as sns</span>
+import yaml
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+
+
+<span class="gi">+ def plot_metrics_per_class(report: Dict[str, Any], labels: List[str]):</span>
+<span class="gi">+    report = pd.DataFrame(</span>
+<span class="gi">+        [</span>
+<span class="gi">+            {</span>
+<span class="gi">+                &quot;class&quot;: labels[class_id],</span>
+<span class="gi">+                &quot;metric&quot;: metric,</span>
+<span class="gi">+                &quot;value&quot;: report[str(class_id)][metric],</span>
+<span class="gi">+            }</span>
+<span class="gi">+            for class_id in range(len(labels))</span>
+<span class="gi">+            for metric in [&quot;precision&quot;, &quot;recall&quot;, &quot;f1-score&quot;]</span>
+<span class="gi">+        ]</span>
+<span class="gi">+    )</span>
+<span class="gi">+</span>
+<span class="gi">+    sns.barplot(data=report, x=&quot;class&quot;, y=&quot;value&quot;, hue=&quot;metric&quot;)</span>
+<span class="gi">+</span>
+<span class="gi">+    plt.title(&quot;Metrics per class&quot;)</span>
+<span class="gi">+    fig = plt.gcf()</span>
+<span class="gi">+    return fig</span>
+
+
+def main():
+    with open(&quot;data/featurized.pkl&quot;, &quot;rb&quot;) as f:
+        dataset = pickle.load(f)
+
+    with open(&quot;params.yaml&quot;, &quot;r&quot;) as f:
+        cfg = yaml.safe_load(f)
+
+<span class="gi">+    mlflow.set_tracking_uri(&quot;http://localhost:5100&quot;)</span>
+
+<span class="gi">+    with mlflow.start_run():</span>
+<span class="gi">+        mlflow.sklearn.autolog()</span>
+
+        clf = LogisticRegression(**cfg[&quot;evaluate_model&quot;])
+        clf.fit(dataset[&quot;train&quot;][&quot;X&quot;], dataset[&quot;train&quot;][&quot;y&quot;])
+
+        y_pred = clf.predict(dataset[&quot;test&quot;][&quot;X&quot;])
+
+        report = classification_report(
+            y_pred=y_pred,
+            y_true=dataset[&quot;test&quot;][&quot;y&quot;],
+            output_dict=True,
+        )
+        metrics = {
+            &quot;accuracy&quot;: report[&quot;accuracy&quot;],
+            &quot;f1-score&quot;: report[&quot;macro avg&quot;][&quot;f1-score&quot;],
+        }
+
+<span class="gi">+        fig = plot_metrics_per_class(report, labels=dataset[&quot;labels&quot;])</span>
+<span class="gi">+        mlflow.log_params(cfg[&quot;download_data&quot;])</span>
+<span class="gi">+        mlflow.log_metrics(metrics=metrics)</span>
+<span class="gi">+        mlflow.sklearn.eval_and_log_metrics(</span>
+<span class="gi">+            clf, X=dataset[&quot;test&quot;][&quot;X&quot;], y_true=dataset[&quot;test&quot;][&quot;y&quot;], prefix=&quot;test_&quot;</span>
+<span class="gi">+        )</span>
+<span class="gi">+        mlflow.log_figure(fig, artifact_file=&quot;metrics.png&quot;)</span>
+
+    with open(&quot;data/results.json&quot;, &quot;w&quot;) as f:
+        json.dump(obj=metrics, fp=f)
+
+
+main()
+</pre></div>
+</div>
+</div>
+<div class="section" id="kod-do-czesci-ii">
+<h3>Kod do części II<a class="headerlink" href="#kod-do-czesci-ii" title="Permalink to this headline">¶</a></h3>
+<p>Pełny kod pokrywający część II znajduje się pod adresem: <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/main/examples/lab5">[LINK]</a></p>
+</div>
+</div>
 <div class="section" id="eksperymenty-w-dvc-2-0">
 <h2>Eksperymenty w DVC 2.0<a class="headerlink" href="#eksperymenty-w-dvc-2-0" title="Permalink to this headline">¶</a></h2>
-<p>Kolejkowanie eksperymentów</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc exp run --queue -S evaluate_model.max_iter<span class="o">=</span><span class="m">300</span>
-<span class="gp">$ </span>dvc exp run --queue -S evaluate_model.max_iter<span class="o">=</span><span class="m">300</span> -S download_data.train_domains<span class="o">=</span><span class="s2">&quot;[hotels,medicine]&quot;</span> 
+<p>Ostatnim omawianym elementem jest definiowanie eksperymentów w ramach DVC w wersji 2.0
+Eksperymenty oparte są o moduł <a class="reference external" href="https://dvc.org/doc/command-reference/exp"><code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span></code></a> pozwalają na łatwą zmianę konfiguracji potoku przetwarzania oraz umożliwiają definicję kilku konfiguracji. Aktualny opis interfejsu <code class="docutils literal notranslate"><span class="pre">experiments</span></code> znajduje się pod adresem <a class="reference external" href="https://dvc.org/doc/start/experiments">[LINK]</a></p>
+<p>Eksperymenty są uruchamiane za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span> <span class="pre">run</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/exp/run">[LINK]</a> zmienione parametry podajemy za pomocą flagi <code class="docutils literal notranslate"><span class="pre">-S</span></code>.</p>
+<p>Zmieńmy teraz liczbę iteracji na 50.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc exp run -S evaluate_model.max_iter<span class="o">=</span><span class="m">50</span>
+
+<span class="go">...</span>
+
+<span class="go">Reproduced experiment(s): exp-b605e</span>
+<span class="go">Experiment results have been applied to your workspace.</span>
+
+<span class="go">To promote an experiment to a Git branch run:</span>
+
+<span class="go">        dvc exp branch &lt;exp&gt;</span>
+</pre></div>
+</div>
+<p>Teraz możemy podejrzeć zmainę metryk za pomocą <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span> <span class="pre">diff</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc exp diff
+
+<span class="go">Path               Metric    Value    Change</span>
+<span class="go">data/results.json  accuracy  0.73964  -0.0020121</span>
+<span class="go">data/results.json  f1-score  0.66816  -0.0084543</span>
+
+<span class="go">Path         Param                    Value    Change</span>
+<span class="go">params.yaml  evaluate_model.max_iter  50       -150</span>
+</pre></div>
+</div>
+<p>Alternatywnie możemy zdefiniować kolejkę eksperymentów i dopiero później je wykonać. Dodajmy teraz inne konfigurację. W celu zakolejkowania eksperymentu wykorzystujemy flagę <code class="docutils literal notranslate"><span class="pre">--queue</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc exp run --queue -S evaluate_model.max_iter<span class="o">=</span><span class="m">300</span> -S download_data.train_domains<span class="o">=</span><span class="s2">&quot;[hotels,medicine]&quot;</span> 
+<span class="go">Queued experiment &#39;dd51be5&#39; for future execution. </span>
+<span class="gp">$ </span>dvc exp run --queue -S evaluate_model.max_iter<span class="o">=</span><span class="m">300</span> -S download_data.train_domains<span class="o">=</span><span class="s2">&quot;[medicine,products]&quot;</span> 
+<span class="go">Queued experiment &#39;9887d0f&#39; for future execution.  </span>
 <span class="gp">$ </span>dvc exp run --queue -S evaluate_model.max_iter<span class="o">=</span><span class="m">300</span> -S download_data.train_domains<span class="o">=</span><span class="s2">&quot;[all]&quot;</span>
+<span class="go">Queued experiment &#39;db4350f&#39; for future execution.  </span>
 </pre></div>
 </div>
 <p>Uruchumienie eksperymentów</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc exp run --run-all 
 </pre></div>
 </div>
-<p>Wyświetlenie wyników z eksperymentów</p>
+<p>Podsumowanie wyników eksperymentów możemy uzyskać za pomocą polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span> <span class="pre">show</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/exp/show">[LINK]</a></p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc exp show
+</pre></div>
+</div>
+<p>Możemy ograniczyć listę wyświetlanych kolumn przez polecenie <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span> <span class="pre">show</span></code> poprzez zignorowanie czasu wykonania eksperymentu (flaga <code class="docutils literal notranslate"><span class="pre">--no-timestamp</span></code>), wyspecifikowanie parametrów na których nam zależy (flaga <code class="docutils literal notranslate"><span class="pre">--include-params</span></code>)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc exp show --no-timestamp --include-params download_data.train_domains,evaluate_model.max_iter
+
+<span class="go">┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┓</span>
+<span class="go">┃ Experiment              ┃ accuracy ┃ f1-score ┃ download_data.train_domains ┃ evaluate_model.max_iter ┃</span>
+<span class="go">┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━┩</span>
+<span class="go">│ workspace               │ 0.74165  │ 0.67661  │ [&#39;hotels&#39;]                  │ 200                     │</span>
+<span class="go">│ main                    │ 0.74165  │ 0.67661  │ [&#39;hotels&#39;]                  │ 200                     │</span>
+<span class="go">│ ├── 3080e90 [exp-58a4b] │ 0.72716  │ 0.66199  │ [&#39;hotels&#39;, &#39;medicine&#39;]      │ 300                     │</span>
+<span class="go">│ ├── 6846c4f [exp-410e9] │ 0.57223  │ 0.51545  │ [&#39;medicine&#39;, &#39;products&#39;]    │ 300                     │</span>
+<span class="go">│ └── 72921d1 [exp-dd6cb] │ 0.73119  │ 0.6675   │ [&#39;all&#39;]                     │ 300                     │</span>
+<span class="go">└─────────────────────────┴──────────┴──────────┴─────────────────────────────┴─────────────────────────┘</span>
 </pre></div>
 </div>
 <p>Wyświetlanie listy eksperymentów</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc exp list
+<span class="go">main:                                                                 </span>
+<span class="go">        exp-58a4b</span>
+<span class="go">        exp-410e9</span>
+<span class="go">        exp-dd6cb</span>
 </pre></div>
 </div>
-<p>Usunięcie eksperymentu</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dvc remove <span class="o">{</span>id<span class="o">}</span>
-</pre></div>
-</div>
+<p>Możemy teraz wybrać najlepszy eksperyment, akurat w tym przypadku żaden z przeprowadzonych eksperymentów nie okazał się lepszy od konfiguracji zastosowanej na głównym branchu. Więc pozostawimy bez zmian. Ale jeżeli chcielibyśmy zaaktualizować potok na bazie któregoś z przeprowadzonych elementów możemy wykorzystać komendę <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span> <span class="pre">apply</span></code> podając identyfikator eksperymentu</p>
+<p>Do usunięcia eksperymentu służy komenda <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">remove</span></code>, możemy również usunąć stare eksperymenty za pomocą <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span> <span class="pre">gc</span> <span class="pre">--workspace</span></code>, dodatkowo aby wyczyścić pamięc podręczną musimy również wykonać polecenie <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">gc</span></code></p>
 </div>
 </div>
 

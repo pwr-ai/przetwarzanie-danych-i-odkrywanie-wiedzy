@@ -254,6 +254,8 @@
 <li><p>Ewaluacja modelu</p></li>
 </ul>
 <p>Podczas refaktoryzacji pomiń elementy związane z <code class="docutils literal notranslate"><span class="pre">pandas.profiling</span></code>, <code class="docutils literal notranslate"><span class="pre">shap</span></code> i uruchomienia modelu na podzbiorze cech. Skrypty umieść w folderze <code class="docutils literal notranslate"><span class="pre">scripts</span></code>, parametry w pliku <code class="docutils literal notranslate"><span class="pre">params.yaml</span></code>, a pliki wyjściowe w folderze <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<p><strong>UWAGA</strong>
+W celu przyśpieszenia obliczeń można wykorzystać podzbiór zbioru danych lub ograniczyć dane etapy np. podzbiorem cech.</p>
 </div>
 <div class="section" id="pkt-obsluga-mlflow">
 <h2>2. (4 pkt) Obsługa MLflow<a class="headerlink" href="#pkt-obsluga-mlflow" title="Permalink to this headline">¶</a></h2>
@@ -261,16 +263,15 @@
 </div>
 <div class="section" id="pkt-obsluga-dvc">
 <h2>3. (4 pkt)  Obsługa DVC<a class="headerlink" href="#pkt-obsluga-dvc" title="Permalink to this headline">¶</a></h2>
-<p>Dodaj przygotowane skrypty jako elementy potoku <code class="docutils literal notranslate"><span class="pre">DVC</span></code>, zdefiniuj odpowiednie parametry i zależności. Dodaj metryki do trackowania. Zreprodokuj potok. Zatwierdź zmiany i umieść je w repozytorium. Oznacz końcowy <code class="docutils literal notranslate"><span class="pre">commit</span></code> tagiem <code class="docutils literal notranslate"><span class="pre">initial_pipeline</span></code></p>
+<p>Dodaj przygotowane skrypty jako elementy potoku <code class="docutils literal notranslate"><span class="pre">DVC</span></code>, zdefiniuj odpowiednie parametry i zależności. Dodaj metryki do trackowania. Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. Oznacz końcowy <code class="docutils literal notranslate"><span class="pre">commit</span></code> tagiem <code class="docutils literal notranslate"><span class="pre">initial_pipeline</span></code></p>
 </div>
 <div class="section" id="pkt-wykonanie-eksperymentow">
 <h2>4. (3 pkt) Wykonanie eksperymentów<a class="headerlink" href="#pkt-wykonanie-eksperymentow" title="Permalink to this headline">¶</a></h2>
-<p>Dodaj możliwość wybrania modelu w konfiguracji. Dodaj wsparcie dla modeli <a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">LightGBM</span></code></a> i <a class="reference external" href="https://github.com/catboost/catboost"><code class="docutils literal notranslate"><span class="pre">Catboost</span></code></a></p>
-<p>Dodaj logowanie tych modeli do mlflow. Wykorzystaj api <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span></code> do porównania modeli. Do rozwiązania załącz wyjście polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span> <span class="pre">show</span></code>.</p>
+<p>Dodaj możliwość wybrania modelu w konfiguracji. Dodaj wsparcie dla modeli [<code class="docutils literal notranslate"><span class="pre">LightGBM</span></code>].(<a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/">https://lightgbm.readthedocs.io/en/latest/</a>) i <a class="reference external" href="https://github.com/catboost/catboost"><code class="docutils literal notranslate"><span class="pre">Catboost</span></code></a> Dodaj logowanie tych modeli do mlflow. Wykorzystaj api <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span></code> do porównania modeli.</p>
 </div>
 <div class="section" id="pkt-podsumowanie">
 <h2>5. (1 pkt) Podsumowanie<a class="headerlink" href="#pkt-podsumowanie" title="Permalink to this headline">¶</a></h2>
-<p>Napisz podsumowanie dokanych eksperymentów. Zbadaj czy występują różnice w istototności cech pomiędzy różnymi modelami. Wskaż twoim zdaniem mocne i słabe strony zastosowania <code class="docutils literal notranslate"><span class="pre">dvc</span></code> i <code class="docutils literal notranslate"><span class="pre">mlflow</span></code>.</p>
+<p>Napisz podsumowanie dokanych eksperymentów w pliku <code class="docutils literal notranslate"><span class="pre">SOLUTION.md</span></code> lub <code class="docutils literal notranslate"><span class="pre">SOLUTION.ipynb</span></code>. Załącz wyjście polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span> <span class="pre">show</span></code>.  Zbadaj czy występują różnice w istototności cech pomiędzy różnymi modelami. Wskaż twoim zdaniem mocne i słabe strony zastosowania <code class="docutils literal notranslate"><span class="pre">dvc</span></code> i <code class="docutils literal notranslate"><span class="pre">mlflow</span></code>. Zdefiniuj twoim zdaniem elementy najbardziej problematyczne i czasochłonne.</p>
 </div>
 </div>
 
