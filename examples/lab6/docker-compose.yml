@@ -1,0 +1,24 @@
+services:
+  graphite:
+    image: graphiteapp/graphite-statsd
+    container_name: graphite
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 80:80
+      - 2003-2004:2003-2004 
+      - 2023-2024:2023-2024 
+      - 8125:8125/udp 
+      - 8126:8126 
+    restart: always
+  app:
+    build: .
+    command: python3 app.py
+    container_name: app
+    environment:
+      - DEBUG=True
+    depends_on:
+      - graphite
+    ports:
+      - 6661:5000
+    restart: always
