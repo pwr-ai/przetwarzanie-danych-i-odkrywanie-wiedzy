@@ -22,3 +22,11 @@ services:
     ports:
       - 6661:5000
     restart: always
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - graphite
+
