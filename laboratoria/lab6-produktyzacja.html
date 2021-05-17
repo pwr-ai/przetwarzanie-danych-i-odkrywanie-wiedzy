@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>L6: Produktyzacja odkrywania wiedzy &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>L6: Produktyzacja procesów odkrywania wiedzy &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -57,6 +57,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="L5: Narzędzia zarządzania eksperymentami" href="lab5-zarzadzanie-eksperymentami.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,7 +92,7 @@
   Laboratoria
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="lab1-zasady.html">
    L1: Zasady laboratorium
@@ -120,6 +121,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="lab5-zarzadzanie-eksperymentami.html">
    L5: Narzędzia zarządzania eksperymentami
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   L6: Produktyzacja procesów odkrywania wiedzy
   </a>
  </li>
 </ul>
@@ -206,9 +212,130 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">
-   Efekty kształcenia laboratorium
+  <a class="reference internal nav-link" href="#docker">
+   Docker
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filozofia-i-terminologia">
+     Filozofia i terminologia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instalacja">
+     Instalacja
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#podstawowy-uzycia-obrazow-i-kontenerow">
+     Podstawowy użycia obrazów i kontenerów
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#podstawowe-uruchomienie-uslugi-na-kontenerze">
+     Podstawowe uruchomienie usługi na kontenerze
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tworzenie-wlasnych-obrazow">
+     Tworzenie własnych obrazów
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#przygotowanie-kodu-aplikacji">
+       Przygotowanie kodu aplikacji
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tworzenie-obrazu">
+       Tworzenie obrazu
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#publikacja-obrazu-w-dockerhub">
+       Publikacja obrazu w DockerHub
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zbieranie-statystyk-z-aplikacji-produkcyjnej">
+   Zbieranie statystyk z aplikacji produkcyjnej
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graphite">
+     Graphite
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dashboard-graphite">
+       Dashboard Graphite
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#budowa-aplikacji-wielokontenerowej">
+   Budowa aplikacji wielokontenerowej
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sieci-w-dockerze">
+     Sieci w Dockerze
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-compose">
+   Docker Compose
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rozpoczecie-zbierania-danych-do-graphite-z-kodu">
+     Rozpoczęcie zbierania danych do Graphite z kodu
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#typy-danych-w-graphite">
+     Typy danych w Graphite
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grafana-ladniejsze-wykresy-wiecej-mozliwosci">
+   Grafana: ładniejsze wykresy, więcej możliwości
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#podpiecie-grafany-do-graphite">
+     Podpięcie Grafany do Graphite
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#streamlit-proste-budowanie-frontendu-do-aplikacji-ai">
+   Streamlit - proste budowanie frontendu do aplikacji AI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jak-dziala-streamlit">
+     Jak działa Streamlit?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dostepne-typy-widgetow">
+     Dostępne typy widgetów
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -222,18 +349,550 @@
               <div>
                 
   <p><img alt="" src="../_images/banner.png" /></p>
-<div class="section" id="l6-produktyzacja-odkrywania-wiedzy">
-<h1>L6: Produktyzacja odkrywania wiedzy<a class="headerlink" href="#l6-produktyzacja-odkrywania-wiedzy" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="efekty-ksztalcenia-laboratorium">
-<h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Permalink to this headline">¶</a></h2>
-<hr><ul class="simple">
-<li><p>zapoznasz się z zasadami BHP</p></li>
-<li><p>dowiesz się, co będziemy ćwiczyć w trakcie tego semestru</p></li>
-<li><p>poznasz zasady oceniania</p></li>
-<li><p>poznasz możliwości tworzenia środowiska wirtualnego Python</p></li>
-<li><p>poznasz środowisko Jupyter</p></li>
-<li><p>poznasz podstawowe mechanizmy systemu kontroli wersji Git i ekosystemu GitHub</p></li>
+<div class="section" id="l6-produktyzacja-procesow-odkrywania-wiedzy">
+<h1>L6: Produktyzacja procesów odkrywania wiedzy<a class="headerlink" href="#l6-produktyzacja-procesow-odkrywania-wiedzy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<p>Docker jest narzędziem służącym do konteneryzacji aplikacji, co umożliwia łatwe ich udostępnianie i wdrażanie do środowisk produkcyjnych. Izoluje środowisko aplikacji, wraz z jej zależnościami, w sposób niezależny od środowiska systemu operacyjnego.</p>
+<div class="section" id="filozofia-i-terminologia">
+<h3>Filozofia i terminologia<a class="headerlink" href="#filozofia-i-terminologia" title="Permalink to this headline">¶</a></h3>
+<p>Definicja aplikacji i zależności nazywana jest <strong>obrazem</strong> (ang. image). Na podstawie obrazu, Docker tworzy <strong>kontener</strong> (ang. container) który zawiera i w którym jest uruchomiona aplikacja.</p>
+<p>Publiczne obrazy dockerowe przechowywane są w <strong>repozytoriach</strong>, z których największym jest <a class="reference external" href="https://hub.docker.com/">Docker Hub</a></p>
+<p>Każde uruchomienie kontenera tworzy go na nowo (chyba że zadbamy o odpowiednią persystencję danych)</p>
+</div>
+<div class="section" id="instalacja">
+<h3>Instalacja<a class="headerlink" href="#instalacja" title="Permalink to this headline">¶</a></h3>
+<p>Należy <a class="reference external" href="https://docs.docker.com/engine/install/">zainstalować</a> paczkę odpowiednią dla swojego systemu operacyjnego.</p>
+<p>Po udanej instalacji warto zweryfikować, czy wszystko przebiegło pomyślnie, odpalając w terminalu:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run hello-world
+
+<span class="go">Hello from Docker!</span>
+<span class="go">This message shows that your installation appears to be working correctly.</span>
+
+<span class="go">To generate this message, Docker took the following steps:</span>
+<span class="go"> 1. The Docker client contacted the Docker daemon.</span>
+<span class="go"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span>
+<span class="go">    (amd64)</span>
+<span class="go"> 3. The Docker daemon created a new container from that image which runs the</span>
+<span class="go">    executable that produces the output you are currently reading.</span>
+<span class="go"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span>
+<span class="go">    to your terminal.</span>
+</pre></div>
+</div>
+<p><br><br><br><br><br></p>
+</div>
+<div class="section" id="podstawowy-uzycia-obrazow-i-kontenerow">
+<h3>Podstawowy użycia obrazów i kontenerów<a class="headerlink" href="#podstawowy-uzycia-obrazow-i-kontenerow" title="Permalink to this headline">¶</a></h3>
+<p>Załóżmy, że chcemy przetestować kawałek kodu na jednej ze starszych wersji Pythona - niemniej nie chcemy jej instalować w systemie.</p>
+<p>Zaczniemy od przeszukania repozytorium w poszukiwaniu obrazu z zainstalowanym Pythonem:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker search python
+<span class="go">NAME                             DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</span>
+<span class="go">python                           Python is an interpreted, interactive, objec…   6142      [OK]       </span>
+<span class="go">django                           Django is a free web application framework, …   1073      [OK]       </span>
+<span class="go">pypy                             PyPy is a fast, compliant alternative implem…   273       [OK]       </span>
+<span class="go">nikolaik/python-nodejs           Python with Node.js                             73                   [OK]</span>
+<span class="go">joyzoursky/python-chromedriver   Python with Chromedriver, for running automa…   58                   [OK]</span>
+<span class="go">arm32v7/python                   Python is an interpreted, interactive, objec…   57                   </span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>Ok, zaskakująco, nazywa się on <em>python</em>. Spróbujmy ściągnąć wersję obraz z wersją 2.7:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker pull python:2.7
+<span class="go">2.7: Pulling from library/python</span>
+<span class="go">...</span>
+<span class="go">Status: Downloaded newer image for python:2.7</span>
+</pre></div>
+</div>
+<p>Możemy w każdej chwili sprawdzić, jakie obrazy mamy aktualnie przechowywane lokalnie w systemie:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker images
+<span class="go">REPOSITORY               TAG       IMAGE ID       CREATED         SIZE</span>
+<span class="go">docker/getting-started   latest    3ba8f2ff0727   8 weeks ago     27.9MB</span>
+<span class="go">hello-world              latest    d1165f221234   2 months ago    13.3kB</span>
+<span class="go">python                   2.7       68e7be49c28c   12 months ago   902MB</span>
+</pre></div>
+</div>
+<p>Ściągnęliśmy obraz, czyli definicję naszej aplikacji. W tym przypadku jest to Linux z zainstalowanym Pythonem w wersji 2.7.</p>
+<p>By móc go użyć, trzeba go uruchomić - czyli stworzyć kontener. Podajemy parametry:</p>
+<ul class="simple">
+<li><p>flagę <code class="docutils literal notranslate"><span class="pre">-it</span></code> by wejść w tryb interaktywny,</p></li>
+<li><p>nazwę obrazu do uruchomienia</p></li>
+<li><p>polecenie startowe które chcemy uruchomić (zamiast defaultowego)</p></li>
 </ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run -it python:2.7 bash
+<span class="gp">root@559279343a97:/# </span>python -V
+<span class="go">Python 2.7.18</span>
+<span class="gp">root@559279343a97:/# </span>
+</pre></div>
+</div>
+<p>Po wyjściu z kontenera, automatycznie się on wyłącza. Możemy sprawdzić aktualnie istniejące w systemie kontenery przy pomocy:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker ps -a
+<span class="go">CONTAINER ID   IMAGE        COMMAND   CREATED         STATUS                      PORTS     NAMES</span>
+<span class="go">559279343a97   python:2.7   &quot;bash&quot;    3 minutes ago   Exited (0) 27 seconds ago             peaceful_williamson</span>
+</pre></div>
+</div>
+<p>Nieużywane kontenery potrafią zająć sporo miejsca na dysku. Dobrym pomysłem jest je regularnie czyścić, przy pomocy:
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">CONTAINER_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span> <span class="pre">prune</span></code> lub podając flagę <code class="docutils literal notranslate"><span class="pre">--rm</span></code> do polecenia <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--rm</span></code></p>
+<p><br><br><br><br><br></p>
+</div>
+<div class="section" id="podstawowe-uruchomienie-uslugi-na-kontenerze">
+<h3>Podstawowe uruchomienie usługi na kontenerze<a class="headerlink" href="#podstawowe-uruchomienie-uslugi-na-kontenerze" title="Permalink to this headline">¶</a></h3>
+<p>Dobrym pomysłem na wykorzystanie Dockera jest uruchomienie w nim różnych usług, które będą działały w tle i obsługiwały żądania.</p>
+<p>Przykładowo, możemy wystawić usługę obsługującą prostą, statyczną stronę WWW. Użyjemy następujących parametrów:</p>
+<ul class="simple">
+<li><p>flagi <code class="docutils literal notranslate"><span class="pre">-d</span></code> (od <em>detatch</em>) w celu uruchomienia kontenera w tle</p></li>
+<li><p>flagi <code class="docutils literal notranslate"><span class="pre">--name</span></code> w celu podania przyjaźniejszej nazwy kontenera</p></li>
+<li><p>flagi <code class="docutils literal notranslate"><span class="pre">-P</span></code> w celu otwarcia losowych portów pomiędzy kontenerem a systemem</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run -d -P --name example_site --rm dockersamples/static-site
+<span class="go">Unable to find image &#39;dockersamples/static-site:latest&#39; locally</span>
+<span class="go">latest: Pulling from dockersamples/static-site</span>
+<span class="go">...</span>
+<span class="go">Status: Downloaded newer image for dockersamples/static-site:latest</span>
+</pre></div>
+</div>
+<p>Sprawdźmy, jakie porty zostały otwarte:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker port example_site
+<span class="go">443/tcp -&gt; 0.0.0.0:55000</span>
+<span class="go">443/tcp -&gt; :::55000</span>
+<span class="go">80/tcp -&gt; 0.0.0.0:55001</span>
+<span class="go">80/tcp -&gt; :::55001</span>
+</pre></div>
+</div>
+<p>Teraz możemy spróbować odpalić stronę serwowaną z kontenera w przeglądarce:
+<img alt="" src="../_images/example_site_rendered.png" /></p>
+<p>By zatrzymać naszą usługę, wywołamy <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">stop</span> <span class="pre">example_site</span></code></p>
+<p><br><br><br><br><br></p>
+</div>
+<div class="section" id="tworzenie-wlasnych-obrazow">
+<h3>Tworzenie własnych obrazów<a class="headerlink" href="#tworzenie-wlasnych-obrazow" title="Permalink to this headline">¶</a></h3>
+<p>Dla zobrazowania przykładu, stworzymy prostą aplikację która będzie wyświetlała losowe memy z Reddita.</p>
+<div class="section" id="przygotowanie-kodu-aplikacji">
+<h4>Przygotowanie kodu aplikacji<a class="headerlink" href="#przygotowanie-kodu-aplikacji" title="Permalink to this headline">¶</a></h4>
+<p>Używając bibliotek <code class="docutils literal notranslate"><span class="pre">Flask</span></code> i <code class="docutils literal notranslate"><span class="pre">praw</span></code>, tworzymy następujący kod i zapisujemy go w pliku <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">praw</span>
+
+<span class="kn">import</span> <span class="nn">statsd</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;WdgsSyHEDgL8_g&#39;</span><span class="p">,</span>
+                     <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;Mqs5rCsVze9iNM3QrmqjXDNulCBYxg&#39;</span><span class="p">,</span> 
+                     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;aaa111bbb222&quot;</span><span class="p">,</span>
+                     <span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;meme_displayer&#39;</span><span class="p">,</span>
+                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;SecretCauliflower665&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="s2">&quot;meme&quot;</span><span class="p">)</span>
+    <span class="n">meme</span> <span class="o">=</span> <span class="n">subreddit</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">meme</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;PORT&quot;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Zapisujemy potrzebne biblioteki do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">praw</span><span class="o">==</span><span class="mf">7.2</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tworzenie-obrazu">
+<h4>Tworzenie obrazu<a class="headerlink" href="#tworzenie-obrazu" title="Permalink to this headline">¶</a></h4>
+<p>Podstawą do stworzenia obrazu jest plik <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>. Zawiera on definicję obrazu i komendy potrzebne do jego prawidłowej konfiguracji</p>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># definiujemy obraz na którym będziemy bazowali</span>
+<span class="k">FROM</span> <span class="s">python</span>
+
+<span class="c"># ustawiamy katalog domyślny dla naszej aplikacji</span>
+<span class="k">WORKDIR</span><span class="s"> /usr/src/app</span>
+
+<span class="c"># kopiujemy wszystkie pliki z obecnego katalogu do WORKDIR</span>
+<span class="k">COPY</span> . .
+
+<span class="c"># instalujemy zalezności</span>
+<span class="k">RUN</span> pip install -r requirements.txt
+
+<span class="c"># definiujemy port który będzie otwarty w kontenerze</span>
+<span class="k">EXPOSE</span><span class="s"> 5000</span>
+
+<span class="c"># definiujemy komendę startową</span>
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;./app.py&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Obraz budujemy przy pomocy polecenia <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span></code>, podając ścieżkę z której nalezy zacząć budowę. Dodatkowo podamy flagę <code class="docutils literal notranslate"><span class="pre">-t</span></code> określającą nazwę obrazu:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker build -t xaru665/random_reddit_memes .
+<span class="go"> =&gt; [internal] load build definition from Dockerfile                               0.0s</span>
+<span class="go"> =&gt; =&gt; transferring dockerfile: 37B                                                0.0s</span>
+<span class="go"> =&gt; [internal] load .dockerignore                                                  0.0s</span>
+<span class="go"> =&gt; =&gt; transferring context: 2B                                                    0.0s</span>
+<span class="go"> =&gt; [internal] load metadata for docker.io/library/python:latest                   0.9s</span>
+<span class="go"> =&gt; [internal] load build context                                                  0.4s</span>
+<span class="go"> =&gt; =&gt; transferring context: 213.70kB                                              0.4s</span>
+<span class="go"> =&gt; [1/4] FROM docker.io/library/python@sha256:f265c5096aa52bdd478d2a5ed097727f517686523ab1b3038cc7d6417  0.0s</span>
+<span class="go"> =&gt; CACHED [2/4] WORKDIR /usr/src/app                                              0.0s</span>
+<span class="go"> =&gt; [3/4] COPY . .                                                                 2.6s</span>
+<span class="go"> =&gt; [4/4] RUN pip install --no-cache-dir -r requirements.txt                       31.8s</span>
+<span class="go"> =&gt; exporting to image                                                             1.6s </span>
+<span class="go"> =&gt; =&gt; exporting layers                                                            1.5s </span>
+<span class="go"> =&gt; =&gt; writing image sha256:d249949a5a45941644cbb134117c504ea4a8dc8c82c49b26a34a92209                     0.0s </span>
+<span class="go"> =&gt; =&gt; naming to docker.io/xaru/random_reddit_memes                                0.0s </span>
+</pre></div>
+</div>
+<p>Możemy teraz sprawdzić, czy udało się poprawnie zbudować obraz:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker images
+<span class="go">REPOSITORY                  TAG       IMAGE ID       CREATED              SIZE</span>
+<span class="go">xaru665/random_reddit_memes    latest    d249949a5a45   About a minute ago   952MB</span>
+</pre></div>
+</div>
+<p>Nie pozostaje nam nic innego niż uruchomić go i cieszyć się działającą aplikacją:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run -p <span class="m">6661</span>:5000 xaru665/random_reddit_memes
+<span class="go"> * Serving Flask app &#39;app&#39; (lazy loading)</span>
+<span class="go"> * Environment: production</span>
+<span class="go">   WARNING: This is a development server. Do not use it in a production deployment.</span>
+<span class="go">   Use a production WSGI server instead.</span>
+<span class="go"> * Debug mode: off</span>
+<span class="go"> * Running on all addresses.</span>
+<span class="go">   WARNING: This is a development server. Do not use it in a production deployment.</span>
+<span class="go"> * Running on http://172.17.0.3:5000/ (Press CTRL+C to quit)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/meme_site_example.png" /></p>
+</div>
+<div class="section" id="publikacja-obrazu-w-dockerhub">
+<h4>Publikacja obrazu w DockerHub<a class="headerlink" href="#publikacja-obrazu-w-dockerhub" title="Permalink to this headline">¶</a></h4>
+<p>Stworzywszy swój pierwszy obraz, możemy go opublikować, by udostępnić innym nasze dzieło. Użyjemy repozytorium <a class="reference external" href="https://hub.docker.com/">DockerHub</a> (potrzebne będzie założenie konta)</p>
+<p>W celu opublikowania, używamy polecenia <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">push</span></code> - przy pierwszym użyciu będzie też konieczne zalogowanie (przy pomocy <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">login</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker login
+<span class="go">Login with your Docker ID to push and pull images from Docker Hub. If you don&#39;t have a Docker ID, head over to https://hub.docker.com to create one.</span>
+<span class="go">Username: xaru665</span>
+<span class="go">Password: </span>
+<span class="go">Login Succeeded</span>
+
+<span class="gp">$ </span>docker push xaru665/random_reddit_memes
+<span class="go">Using default tag: latest</span>
+<span class="go">The push refers to repository [docker.io/xaru665/random_reddit_memes]</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>Nasz obraz jest już publicznie dostępny pod adresem <a class="reference external" href="https://hub.docker.com/r/xaru665/random_reddit_memes">https://hub.docker.com/r/xaru665/random_reddit_memes</a> i może zostać pobrany i używany publicznie przy pomocy <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">xaru665/random_reddit_memes</span></code></p>
+<p>Cały kod użyty w tej części znajduje się <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/main/examples/lab6">TUTAJ</a></p>
+<p><br><br><br><br><br></p>
+</div>
+</div>
+</div>
+<div class="section" id="zbieranie-statystyk-z-aplikacji-produkcyjnej">
+<h2>Zbieranie statystyk z aplikacji produkcyjnej<a class="headerlink" href="#zbieranie-statystyk-z-aplikacji-produkcyjnej" title="Permalink to this headline">¶</a></h2>
+<p>Kluczową kwestią produktyzacji każdego systemu jest zapewnienie jest bezawaryjnego działania. Jednym ze sposobów jest zbieranie statystyk z działania systemu. Proste rozwiązania, w stylu logowania błędów do plików czy wyświetlania komunikatów na konsolę niestety nie wystarczają - nie są one skalowalne, ponadto ciężko o ich użycie w środowisku rozproszonym.</p>
+<p>Istnieje wiele systemów zbierających statystyki - np. <a class="reference external" href="https://graphite.readthedocs.io/en/latest/overview.html">Graphite</a>, <a class="reference external" href="https://prometheus.io/">Prometheus</a>, <a class="reference external" href="https://www.g2.com/products/amazon-timestream/reviews">Amazon Timestream</a>, <a class="reference external" href="https://www.influxdata.com/">InfluxDB</a>. Są one sprofilowane do zbierania danych w ujęciu czasowym.</p>
+<div class="section" id="graphite">
+<h3>Graphite<a class="headerlink" href="#graphite" title="Permalink to this headline">¶</a></h3>
+<p>Jest jednym z prostszych systemów - napisany w Pythonie, przechowuje statystyki w formie drzewa plików na dysku. Posiada prosty panel do wyświetlania statystyk.</p>
+<p>Do uruchomienia usługi posłużymy się istniejącym obrazem Dockera:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run -d <span class="se">\</span>
+     --name graphite <span class="se">\</span>
+     --restart<span class="o">=</span>always <span class="se">\</span>
+     -p <span class="m">80</span>:80 <span class="se">\</span>
+     -p <span class="m">2003</span>-2004:2003-2004 <span class="se">\</span>
+     -p <span class="m">2023</span>-2024:2023-2024 <span class="se">\</span>
+     -p <span class="m">8125</span>:8125/udp <span class="se">\</span>
+     -p <span class="m">8126</span>:8126 <span class="se">\</span>
+     graphiteapp/graphite-statsd
+</pre></div>
+</div>
+<p>Statystyki w Graphite ułożone są w strukturę drzewiastą. Przyjęło się odpowiednio zagnieżdżać metryki, np. <code class="docutils literal notranslate"><span class="pre">nazwa_serwera.nazwa_programu.nazwa_modułu.nazwa_funkcji.opis_statystyki</span></code> lub <code class="docutils literal notranslate"><span class="pre">domena.moduł.funkcja</span></code> itd.</p>
+<p>Dla testów, wyślemy jedną metrykę do Graphite. Mamy dostępnych kilka metod zapisu statystyk, nasłuchujących na różnych portach. Użyjemy najprostszego sposobu <code class="docutils literal notranslate"><span class="pre">plaintext</span></code>, nasłuchującego na porcie 2003:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;local.test_metric 13 `date +%s`&quot;</span> <span class="p">|</span> nc localhost <span class="m">2003</span>
+</pre></div>
+</div>
+<div class="section" id="dashboard-graphite">
+<h4>Dashboard Graphite<a class="headerlink" href="#dashboard-graphite" title="Permalink to this headline">¶</a></h4>
+<p>Graphite udostępnia prosty interfejs do przeglądu zapisanych metryk, dostępny pod adresem <code class="docutils literal notranslate"><span class="pre">localhost</span></code>:</p>
+<p><img alt="" src="../_images/graphite_dashboard.png" /></p>
+<p>Mamy możliwość przeglądania statystyk w czasie (w tym w trybie autoodświeżania) oraz aplikowania sporej dawki różnorakich funkcji, które pozwalają agregować, filtrować i przekształcać wartości metryk.</p>
+<p><br><br><br></p>
+</div>
+</div>
+</div>
+<div class="section" id="budowa-aplikacji-wielokontenerowej">
+<h2>Budowa aplikacji wielokontenerowej<a class="headerlink" href="#budowa-aplikacji-wielokontenerowej" title="Permalink to this headline">¶</a></h2>
+<p>Nasza aplikacja rozbudowuje sie - mamy jeden kontener z samą aplikacją i drugi, z Graphitem. Istnieje kilka możliwości zapewnienia komunikacji pomiędzy kontenerami</p>
+<div class="section" id="sieci-w-dockerze">
+<h3>Sieci w Dockerze<a class="headerlink" href="#sieci-w-dockerze" title="Permalink to this headline">¶</a></h3>
+<p>Docker domyślnie łączy wszystkie kontenery w sieć o nazwie <code class="docutils literal notranslate"><span class="pre">bridge</span></code>. Możemy sprawdzić jej konfigurację:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker network inspect bridge
+<span class="go">[</span>
+<span class="go">    {</span>
+<span class="go">        &quot;Name&quot;: &quot;bridge&quot;,</span>
+<span class="go">        &quot;Id&quot;: &quot;962e283a78f756b5c34b75069d933bcc5a91ef9731e2a2844d9e0ccbf85d0205&quot;,</span>
+<span class="go">        &quot;Created&quot;: &quot;2021-05-14T10:31:14.090335101Z&quot;,</span>
+<span class="go">        ...</span>
+<span class="go">        &quot;Containers&quot;: {</span>
+<span class="go">            &quot;4d044d8720a1fbb1bc056fec0b031366061f27162a9771c670ba5b3037f77a01&quot;: {</span>
+<span class="go">                &quot;Name&quot;: &quot;mystifying_kirch&quot;,</span>
+<span class="go">                &quot;EndpointID&quot;: &quot;c558eb8621995693f00dffdac26582e95c8ea6104f06df2ed9c91fc697cc3811&quot;,</span>
+<span class="go">                &quot;MacAddress&quot;: &quot;02:42:ac:11:00:02&quot;,</span>
+<span class="go">                &quot;IPv4Address&quot;: &quot;172.17.0.2/16&quot;,</span>
+<span class="go">                &quot;IPv6Address&quot;: &quot;&quot;</span>
+<span class="go">            },</span>
+<span class="go">            &quot;5ac1b3dd84fc1998aed3d46e829e06bd18fd06565f0c02419fd3aec4a2c76ad9&quot;: {</span>
+<span class="go">                &quot;Name&quot;: &quot;graphite&quot;,</span>
+<span class="go">                &quot;EndpointID&quot;: &quot;422844bd2b60a83db212415fe1ca393794c50f028d3e16a35cf382cd5d971b18&quot;,</span>
+<span class="go">                &quot;MacAddress&quot;: &quot;02:42:ac:11:00:03&quot;,</span>
+<span class="go">                &quot;IPv4Address&quot;: &quot;172.17.0.3/16&quot;,</span>
+<span class="go">                &quot;IPv6Address&quot;: &quot;&quot;</span>
+<span class="go">            }</span>
+<span class="go">        },</span>
+<span class="go">       ...</span>
+<span class="go">    }</span>
+<span class="go">]</span>
+</pre></div>
+</div>
+<p>Widzimy, że oba kontenery są w sieci, widzimy też ich adresy IP. Możemy ich użyć do komunikacji pomiędzykontenerowej.</p>
+<p>Niestety, to rozwiązanie ma swoje wady - z racji wpięcia wszystkich kontenerów do tej sieci, komunikacja między nimi nie jest izolowana. Można to rozwiązać tworząc osobną sieć i odpowiednio rekonfigurując kontenery, niemniej Docker udostępnia lepszą opcję.</p>
+</div>
+</div>
+<div class="section" id="docker-compose">
+<h2>Docker Compose<a class="headerlink" href="#docker-compose" title="Permalink to this headline">¶</a></h2>
+<p>W celu tworzenia aplikacji wielokontenerowych, polecane jest użycie narzędzia Docker Compose. Definiując odpowiednio cały system, możemy jednym poleceniem budować i uruchamiać wszystkie potrzebne kontenery. Ponadto są one spięte izolowaną siecią, więc nie ma ryzyka kolizji z kontenerami spoza scope naszej aplikacji.</p>
+<p>W niektórych przypadkach Docker Compose nie instaluje się razem z Dockerem. Należy go wtedy zainstalować, przy pomocy:
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">docker-compose</span></code></p>
+<p>Kluczem do sukcesu jest odpowiednie zdefiniowanie systemu w pliku <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+  <span class="c1"># definicja kontenerów używanych w naszej aplikacji</span>
+  <span class="nt">graphite</span><span class="p">:</span>
+    <span class="c1"># kontener bazowy</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">graphiteapp/graphite-statsd</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">graphite</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">discovery.type=single-node</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">80:80</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">2003-2004:2003-2004</span> 
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">2023-2024:2023-2024</span> 
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8125:8125/udp</span> 
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8126:8126</span> 
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+  <span class="nt">app</span><span class="p">:</span>
+    <span class="c1"># nie podajemy nazwy obrazu dla naszej aplikacji, lecz każemy compose przebudować ją w miarę potrzeb</span>
+    <span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app</span>
+    <span class="c1"># parametr depends_on wymusza kolejnośc uruchomienia kontenerów</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graphite</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DEBUG=True</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">6661:5000</span>
+</pre></div>
+</div>
+<p>Przed uruchomieniem, musimy zatrzymać i usunąć poprzednio stworzone kontenery:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker container ls
+<span class="go">CONTAINER ID   IMAGE            COMMAND             CREATED             STATUS             PORTS  NAMES</span>
+<span class="go">5ac1b3dd84fc   graphiteapp   &quot;/entrypoint&quot;       About an hour ago   Up About an hour   ...   graphite</span>
+<span class="go">4d044d8720a1   d249949a5a45  &quot;python ./app.py&quot;   5 hours ago         Up 5 hours         ... mystifying_kirch</span>
+
+<span class="gp">$ </span>docker stop 5ac1b3dd84fc 4d044d8720a1
+<span class="go">5ac1b3dd84fc</span>
+<span class="go">4d044d8720a1</span>
+
+<span class="gp">$ </span>docker rm 5ac1b3dd84fc 4d044d8720a1  
+<span class="go">5ac1b3dd84fc</span>
+<span class="go">4d044d8720a1</span>
+</pre></div>
+</div>
+<p>Możemy teraz uruchomić nasz świeżo stworzony system aplikacji:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker compose up                   
+<span class="go">[+] Running 2/2</span>
+<span class="go"> ⠿ Container graphite    Created                 0.2s</span>
+<span class="go"> ⠿ Container lab6_app_1  Created                 0.1s</span>
+<span class="go">Attaching to graphite, app_1</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>Możemy przetestować nasze endpointy do obu kontenerów - <a class="reference external" href="http://localhost:6661/">http://localhost:6661/</a> i <a class="reference external" href="http://localhost">http://localhost</a></p>
+<p><br><br><br></p>
+<div class="section" id="rozpoczecie-zbierania-danych-do-graphite-z-kodu">
+<h3>Rozpoczęcie zbierania danych do Graphite z kodu<a class="headerlink" href="#rozpoczecie-zbierania-danych-do-graphite-z-kodu" title="Permalink to this headline">¶</a></h3>
+<p>W celu łatwej interakcji z Graphitem, posłużymy sie biblioteką <code class="docutils literal notranslate"><span class="pre">StatsD</span></code>, dołączając do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wymaganą zależność:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">praw</span><span class="o">==</span><span class="mf">7.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">statsd</span><span class="o">==</span><span class="mf">3.3</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>oraz odpowiednio modyfikując kod aplikacji:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">praw</span>
+
+<span class="kn">import</span> <span class="nn">statsd</span>
+
+<span class="c1"># dzięki użyciu Docker Compose, możemy w kodzie odwoływać się do nazw kontenerów zamiast adresów IP - Docker rozwiąże adresy sam za nas</span>
+
+<span class="n">stats</span> <span class="o">=</span> <span class="n">statsd</span><span class="o">.</span><span class="n">StatsClient</span><span class="p">(</span><span class="s1">&#39;graphite&#39;</span><span class="p">,</span> <span class="mi">8125</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;WdgsSyHEDgL8_g&#39;</span><span class="p">,</span>
+                     <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;Mqs5rCsVze9iNM3QrmqjXDNulCBYxg&#39;</span><span class="p">,</span> 
+                     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;aaa111bbb222&quot;</span><span class="p">,</span>
+                     <span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;meme_displayer&#39;</span><span class="p">,</span>
+                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;SecretCauliflower665&#39;</span><span class="p">)</span>
+
+<span class="c1"># mierzymy czas wykonania tej funkcji</span>
+<span class="nd">@stats</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;random_reddit_memes.request_times&#39;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="c1"># mierzymy ilość wywołań tej funkcji</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;random_reddit_memes.requests&#39;</span><span class="p">)</span>
+    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="s2">&quot;meme&quot;</span><span class="p">)</span>
+    <span class="n">meme</span> <span class="o">=</span> <span class="n">subreddit</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">meme</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;random_reddit_memes.spawned&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;PORT&quot;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)))</span>
+    
+</pre></div>
+</div>
+<p>Po przeładowaniu kontenerów:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker compose up -d --build
+</pre></div>
+</div>
+<p>i kilkukrotnym odświeżeniu strony naszej aplikacji, możemy obserwować jak statystyki zbierają się w Graphicie:
+<img alt="" src="../_images/graphite_example3.png" /></p>
+</div>
+<div class="section" id="typy-danych-w-graphite">
+<h3>Typy danych w Graphite<a class="headerlink" href="#typy-danych-w-graphite" title="Permalink to this headline">¶</a></h3>
+<p>Istotną cechą jest posiadanie przez Graphite okna czasowego - domyślnie 15 sekund.</p>
+<p>Wyróżniamy trzy podstawowe typy danych:</p>
+<ul class="simple">
+<li><p><em>gauge</em> - najprostsza statystyka, określająca poziom jakiejś metryki. W przypadku wielokrotnego podbicia statystyki w oknie czasowym, zapisywana jest ostatnia wartość</p></li>
+<li><p><em>counter</em> - określa ilość wystąpień jakiegoś zjawiska. W przypadku wielokrotnego podbicia w oknie czasowym, zapisywana jest agregacja (domyślnie średnia)</p></li>
+<li><p><em>timer</em> - określa wartość rzeczywistą (np. czas trwania). W oknie czasowym liczone są dla niej dodatkowe statystyki - jak średnia, max, min i ilość podbić.</p></li>
+</ul>
+<p>Więcej informacji o typach danych w <a class="reference external" href="https://statsd.readthedocs.io/en/v3.3/types.html">dokumentacji</a></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div class="section" id="grafana-ladniejsze-wykresy-wiecej-mozliwosci">
+<h2>Grafana: ładniejsze wykresy, więcej możliwości<a class="headerlink" href="#grafana-ladniejsze-wykresy-wiecej-mozliwosci" title="Permalink to this headline">¶</a></h2>
+<p>Dashboard oferowany natywnie przez Graphite jest dość siermiężny jeśli chodzi o UX. Dobrym rozwiązaniem jest dołożenie kolejnej warstwy - Grafany</p>
+<p>Grafana to zaawansowane narzędzie monitoringu, pozwalające mocno rozwijać i konfigurować dashboardy i wykresy. Ma możliwość jednoczesnego czytania z wielu źródeł - Graphite jest jednym z nich.</p>
+<p>W Grafanie możemy łatwo:</p>
+<ul class="simple">
+<li><p>tworzyć zaawansowane wykresy z możliwością używania zmiennych</p></li>
+<li><p>agregować dane z różnych źródeł</p></li>
+<li><p>sprawdzać historyczny stan statystyk</p></li>
+<li><p>określać alerty</p></li>
+</ul>
+<p>Możemy łatwo dołożyć Grafanę do naszego stacku, modyfikując plik <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+  <span class="nt">graphite</span><span class="p">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="nt">app</span><span class="p">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="nt">grafana</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grafana/grafana</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grafana</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3000:3000</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graphite</span>
+</pre></div>
+</div>
+<p>Po przeładowaniu systemu:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker compose up -d --build 
+</pre></div>
+</div>
+<p>Możemy się zalogować do Grafany (adres <code class="docutils literal notranslate"><span class="pre">http://localhost:3000</span></code>, dane dostępowe <code class="docutils literal notranslate"><span class="pre">admin/admin</span></code>):
+<img src="../docs/lab6/grafana_example.png" width="400px">
+<img alt="" src="../_images/graphite_example3.png" /></p>
+<div class="section" id="podpiecie-grafany-do-graphite">
+<h3>Podpięcie Grafany do Graphite<a class="headerlink" href="#podpiecie-grafany-do-graphite" title="Permalink to this headline">¶</a></h3>
+<p>Nowe źródła podajemy w konfiguracji Grafany (<code class="docutils literal notranslate"><span class="pre">Configuration</span> <span class="pre">&gt;</span> <span class="pre">Data</span> <span class="pre">Sources</span> <span class="pre">&gt;</span> <span class="pre">Add</span> <span class="pre">data</span> <span class="pre">source</span></code>):
+<img alt="" src="../_images/grafana_new_source.png" /></p>
+<p>Wybieramy Graphite, podajemy nazwę naszego Graphitowego kontenera jako adres i defaultowy port:
+<img alt="" src="../_images/grafana_graphite_plug_in.png" /></p>
+<p>Możemy teraz rozpocząć dodawanie statystyk i budowanie dashboardów:
+<img alt="" src="../_images/grafana_panel_example.png" /></p>
+<p><br><br><br><br><br></p>
+</div>
+</div>
+<div class="section" id="streamlit-proste-budowanie-frontendu-do-aplikacji-ai">
+<h2>Streamlit - proste budowanie frontendu do aplikacji AI<a class="headerlink" href="#streamlit-proste-budowanie-frontendu-do-aplikacji-ai" title="Permalink to this headline">¶</a></h2>
+<p>Istnieje szereg narzędzi pozwalających w prosty sposób zbudować w pełni funkcjonalną i interaktywną stronę. Dzięki temu możemy skupić się na tworzeniu i rozwijaniu rozwiązań AI, przy jednoczesnym prostym ich popularyzowaniu.</p>
+<p>Jednym z nich jest <a class="reference external" href="https://streamlit.io/">Streamlit</a>. Jest to biblioteka renderująca skrypt Pythona do formy strony WWW.</p>
+<p>Przerobimy naszą przykładową aplikację, przy okazji rozszerzając jej funkcjonalności, umieszczając w pliku <code class="docutils literal notranslate"><span class="pre">app2.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">praw</span>
+
+<span class="c1"># importujemy bibliotekę</span>
+<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;WdgsSyHEDgL8_g&#39;</span><span class="p">,</span>
+                     <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;Mqs5rCsVze9iNM3QrmqjXDNulCBYxg&#39;</span><span class="p">,</span> 
+                     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;aaa111bbb222&quot;</span><span class="p">,</span>
+                     <span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;meme_displayer&#39;</span><span class="p">,</span>
+                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;SecretCauliflower665&#39;</span><span class="p">)</span>
+
+<span class="c1"># dodajemy możliwość wybrania jednej z predefiniowanych opcji</span>
+<span class="n">subreddit_name</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">radio</span><span class="p">(</span><span class="s1">&#39;What kind of memes do you like?&#39;</span><span class="p">,</span> 
+                          <span class="p">[</span><span class="s1">&#39;meme&#39;</span><span class="p">,</span> <span class="s1">&#39;aww&#39;</span><span class="p">,</span> <span class="s1">&#39;funny&#39;</span><span class="p">,</span> <span class="s1">&#39;polandball&#39;</span><span class="p">,</span> <span class="s1">&#39;MemesIRL&#39;</span><span class="p">])</span>
+
+<span class="c1"># dodajemy slider z możliwością wyboru liczby</span>
+<span class="n">memes_count</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">slider</span><span class="p">(</span><span class="s2">&quot;How many memes you want to see?&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">subreddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="n">subreddit_name</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">memes_count</span><span class="p">):</span>
+    <span class="n">meme</span> <span class="o">=</span> <span class="n">subreddit</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+   
+    <span class="k">if</span> <span class="n">meme</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">meme</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dorzucamy też zależność do wymaganych:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">streamlit</span><span class="o">==</span><span class="mf">0.82</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">praw</span><span class="o">==</span><span class="mf">7.2</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Zmodyfikujemy też plik <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> naszej aplikacji, by używała nowej biblioteki:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">FROM python</span>
+
+<span class="gp"># </span>ustawiamy katalog domyślny dla naszej aplikacji
+<span class="go">WORKDIR /usr/src/app</span>
+
+<span class="gp"># </span>kopiujemy wszystkie pliki z obecnego katalogu <span class="k">do</span> WORKDIR
+<span class="go">COPY . .</span>
+
+<span class="gp"># </span>instalujemy zalezności
+<span class="gp">#</span>RUN pip install -r requirements.txt 
+<span class="go">RUN pip install -r requirements2.txt</span>
+
+<span class="gp"># </span>definiujemy port który będzie otwarty w kontenerze
+<span class="go">EXPOSE 5000</span>
+
+<span class="gp"># </span>definiujemy komendę startową
+<span class="gp">#</span>CMD <span class="o">[</span><span class="s2">&quot;python&quot;</span>, <span class="s2">&quot;./app.py&quot;</span><span class="o">]</span>
+<span class="go">CMD [&quot;streamlit&quot;, &quot;run&quot;, &quot;./app2.py&quot;, &quot;--server.port&quot;, &quot;5000&quot;]</span>
+</pre></div>
+</div>
+<p>Po przebudowaniu i uruchomieniu naszej aplikacji, ukazuje nam się całkowicie odświeżona strona, z nowymi możliwościami:</p>
+<p><img alt="" src="../_images/streamlit_example.png" /></p>
+<div class="section" id="jak-dziala-streamlit">
+<h3>Jak działa Streamlit?<a class="headerlink" href="#jak-dziala-streamlit" title="Permalink to this headline">¶</a></h3>
+<p>Streamlit uruchamia serwer, obsługujący aplikację.</p>
+<p><em>Każda zmiana powoduje ponowne uruchomienie całego skryptu aplikacji i wyrenderowanie strony</em> - stąd kod jest maksymalnie uproszczony. Zmianą jest zarówno zmiana kodu źródłowego (łatwe dewelopowanie aplikacji) jak i zmiana elementów widgetów strony (interaktywność)</p>
+<p>Streamlit posiada też silnie rozbudowany mechanizm cache. Podanie przed funkcją dekoratora <code class="docutils literal notranslate"><span class="pre">&#64;streamlit.cache</span></code> powoduje, że wyjście danej funkcji zostaje zcachowane (dla danych parametrów wejściowych), co pozwala znacząco przyspieszyć działanie aplikacji</p>
+</div>
+<div class="section" id="dostepne-typy-widgetow">
+<h3>Dostępne typy widgetów<a class="headerlink" href="#dostepne-typy-widgetow" title="Permalink to this headline">¶</a></h3>
+<p>Streamlit udostępnia wiele rodzajów interaktywnych widgetów i wykresów. Ich działanie, wraz z potrzebnym do ich wygenerowania kodem, możemy obejrzeć w <a class="reference external" href="https://docs.streamlit.io/en/stable/api.html">dokumentacji</a> lub w demo dostępnym po odpaleniu:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">streamlit hello</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -265,6 +924,7 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="lab5-zarzadzanie-eksperymentami.html" title="previous page">L5: Narzędzia zarządzania eksperymentami</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
