@@ -358,7 +358,6 @@
 <h3>Filozofia i terminologia<a class="headerlink" href="#filozofia-i-terminologia" title="Permalink to this headline">¶</a></h3>
 <p>Definicja aplikacji i zależności nazywana jest <strong>obrazem</strong> (ang. image). Na podstawie obrazu, Docker tworzy <strong>kontener</strong> (ang. container) który zawiera i w którym jest uruchomiona aplikacja.</p>
 <p>Publiczne obrazy dockerowe przechowywane są w <strong>repozytoriach</strong>, z których największym jest <a class="reference external" href="https://hub.docker.com/">Docker Hub</a></p>
-<p>Każde uruchomienie kontenera tworzy go na nowo (chyba że zadbamy o odpowiednią persystencję danych)</p>
 </div>
 <div class="section" id="instalacja">
 <h3>Instalacja<a class="headerlink" href="#instalacja" title="Permalink to this headline">¶</a></h3>
@@ -714,7 +713,7 @@
 <p><br><br><br></p>
 <div class="section" id="rozpoczecie-zbierania-danych-do-graphite-z-kodu">
 <h3>Rozpoczęcie zbierania danych do Graphite z kodu<a class="headerlink" href="#rozpoczecie-zbierania-danych-do-graphite-z-kodu" title="Permalink to this headline">¶</a></h3>
-<p>W celu łatwej interakcji z Graphitem, posłużymy sie biblioteką <code class="docutils literal notranslate"><span class="pre">StatsD</span></code>, dołączając do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wymaganą zależność:</p>
+<p>W celu łatwej interakcji z Graphitem, posłużymy sie biblioteką <code class="docutils literal notranslate"><span class="pre">StatsD</span></code>, dołączając do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wymagane zależności:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">0</span>
 <span class="n">praw</span><span class="o">==</span><span class="mf">7.2</span><span class="o">.</span><span class="mi">0</span>
 <span class="n">statsd</span><span class="o">==</span><span class="mf">3.3</span><span class="o">.</span><span class="mi">0</span>
