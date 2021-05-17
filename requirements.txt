@@ -31,9 +31,9 @@ htmlmin==0.1.12
 idna==2.10
 ImageHash==4.2.0
 imagesize==1.2.0
-importlib-metadata==3.4.0
+importlib-metadata
 ipykernel==5.4.3
-ipython==7.20.0
+ipython
 ipython-genutils==0.2.0
 ipywidgets==7.6.3
 jedi==0.18.0
@@ -73,9 +73,9 @@ nested-lookup==0.2.21
 networkx==2.5
 notebook==6.2.0
 numba==0.52.0
-numpy==1.20.0
+numpy
 packaging==20.9
-pandas==1.2.1
+pandas
 pandas-profiling==2.9.0
 pandocfilters==1.4.3
 parso==0.8.1
@@ -110,7 +110,7 @@ QtPy==1.9.0
 regex==2020.11.13
 requests==2.25.1
 scikit-learn==0.24.1
-scipy==1.6.0
+scipy
 seaborn==0.11.1
 Send2Trash==1.5.0
 six==1.15.0
@@ -139,7 +139,7 @@ threadpoolctl==2.1.0
 toml==0.10.2
 tornado==6.1
 tqdm==4.56.0
-traitlets==5.0.5
+traitlets
 typed-ast==1.4.2
 typing-extensions==3.7.4.3
 uc-micro-py==1.0.1
