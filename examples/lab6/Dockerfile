@@ -8,12 +8,12 @@ WORKDIR /usr/src/app
 COPY . .
 
 # instalujemy zalezności
-RUN pip install 'flask[async]'==2.0.0
-RUN pip install MemeLib==0.1.5 
-RUN pip install statsd
+#RUN pip install -r requirements.txt 
+RUN pip install -r requirements2.txt
 
 # definiujemy port który będzie otwarty w kontenerze
 EXPOSE 5000
 
 # definiujemy komendę startową
-CMD ["python", "./app.py"]
+#CMD ["python", "./app.py"]
+CMD ["streamlit", "run", "./app2.py", "--server.port", "5000"]

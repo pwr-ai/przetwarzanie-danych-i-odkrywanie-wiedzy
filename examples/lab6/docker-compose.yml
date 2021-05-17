@@ -13,7 +13,6 @@ services:
     restart: always
   app:
     build: .
-    command: python3 app.py
     container_name: app
     environment:
       - DEBUG=True
