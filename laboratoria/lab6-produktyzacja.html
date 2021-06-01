@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -57,6 +59,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="L7, L8: Rozwiązywanie problemu" href="lab7-8-rozwiazywanie-problemu.html" />
     <link rel="prev" title="L5: Narzędzia zarządzania eksperymentami" href="lab5-zarzadzanie-eksperymentami.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -126,6 +129,16 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    L6: Produktyzacja procesów odkrywania wiedzy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab7-8-rozwiazywanie-problemu.html">
+   L7, L8: Rozwiązywanie problemu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab7-8-rozwiazywanie-problemu.html#kod-biblioteki-pdiow-challenge">
+   Kod biblioteki pdiow-challenge
   </a>
  </li>
 </ul>
@@ -358,6 +371,7 @@
 <h3>Filozofia i terminologia<a class="headerlink" href="#filozofia-i-terminologia" title="Permalink to this headline">¶</a></h3>
 <p>Definicja aplikacji i zależności nazywana jest <strong>obrazem</strong> (ang. image). Na podstawie obrazu, Docker tworzy <strong>kontener</strong> (ang. container) który zawiera i w którym jest uruchomiona aplikacja.</p>
 <p>Publiczne obrazy dockerowe przechowywane są w <strong>repozytoriach</strong>, z których największym jest <a class="reference external" href="https://hub.docker.com/">Docker Hub</a></p>
+<p>Każde uruchomienie kontenera tworzy go na nowo (chyba że zadbamy o odpowiednią persystencję danych)</p>
 </div>
 <div class="section" id="instalacja">
 <h3>Instalacja<a class="headerlink" href="#instalacja" title="Permalink to this headline">¶</a></h3>
@@ -713,7 +727,7 @@
 <p><br><br><br></p>
 <div class="section" id="rozpoczecie-zbierania-danych-do-graphite-z-kodu">
 <h3>Rozpoczęcie zbierania danych do Graphite z kodu<a class="headerlink" href="#rozpoczecie-zbierania-danych-do-graphite-z-kodu" title="Permalink to this headline">¶</a></h3>
-<p>W celu łatwej interakcji z Graphitem, posłużymy sie biblioteką <code class="docutils literal notranslate"><span class="pre">StatsD</span></code>, dołączając do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wymagane zależności:</p>
+<p>W celu łatwej interakcji z Graphitem, posłużymy sie biblioteką <code class="docutils literal notranslate"><span class="pre">StatsD</span></code>, dołączając do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wymaganą zależność:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">0</span>
 <span class="n">praw</span><span class="o">==</span><span class="mf">7.2</span><span class="o">.</span><span class="mi">0</span>
 <span class="n">statsd</span><span class="o">==</span><span class="mf">3.3</span><span class="o">.</span><span class="mi">0</span>
@@ -924,6 +938,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="lab5-zarzadzanie-eksperymentami.html" title="previous page">L5: Narzędzia zarządzania eksperymentami</a>
+    <a class='right-next' id="next-link" href="lab7-8-rozwiazywanie-problemu.html" title="next page">L7, L8: Rozwiązywanie problemu</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
