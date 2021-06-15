@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -134,11 +132,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="lab7-8-rozwiazywanie-problemu.html">
    L7, L8: Rozwiązywanie problemu
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab7-8-rozwiazywanie-problemu.html#kod-biblioteki-pdiow-challenge">
-   Kod biblioteki pdiow-challenge
   </a>
  </li>
 </ul>
@@ -361,8 +354,10 @@
         
               <div>
                 
-  <p><img alt="" src="../_images/banner.png" /></p>
-<div class="section" id="l6-produktyzacja-procesow-odkrywania-wiedzy">
+  <figure>
+  <img src="../_images/banner.png" alt="Logo kursu"/>
+    <figcaption style="text-align: right; font-size:9px"><a href="https://pixabay.com/service/license/">Na licencji Pixabay</a></figcaption>
+</figure><div class="section" id="l6-produktyzacja-procesow-odkrywania-wiedzy">
 <h1>L6: Produktyzacja procesów odkrywania wiedzy<a class="headerlink" href="#l6-produktyzacja-procesow-odkrywania-wiedzy" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="docker">
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
@@ -371,7 +366,6 @@
 <h3>Filozofia i terminologia<a class="headerlink" href="#filozofia-i-terminologia" title="Permalink to this headline">¶</a></h3>
 <p>Definicja aplikacji i zależności nazywana jest <strong>obrazem</strong> (ang. image). Na podstawie obrazu, Docker tworzy <strong>kontener</strong> (ang. container) który zawiera i w którym jest uruchomiona aplikacja.</p>
 <p>Publiczne obrazy dockerowe przechowywane są w <strong>repozytoriach</strong>, z których największym jest <a class="reference external" href="https://hub.docker.com/">Docker Hub</a></p>
-<p>Każde uruchomienie kontenera tworzy go na nowo (chyba że zadbamy o odpowiednią persystencję danych)</p>
 </div>
 <div class="section" id="instalacja">
 <h3>Instalacja<a class="headerlink" href="#instalacja" title="Permalink to this headline">¶</a></h3>
@@ -478,7 +472,7 @@
 </div>
 <div class="section" id="tworzenie-wlasnych-obrazow">
 <h3>Tworzenie własnych obrazów<a class="headerlink" href="#tworzenie-wlasnych-obrazow" title="Permalink to this headline">¶</a></h3>
-<p>Dla zobrazowania przykładu, stworzymy prostą aplikację która będzie wyświetlała losowe memy z Reddita.</p>
+<p>Dla zobrazowania przykładu, stworzymy prostą aplikację która będzie wyświetlała losowe memy z Reddita. W tym celu zostało założone konto do API Reddita, umożliwiające dostęp do zasobów serwisu z poziomu kodu. Rejestracji dokonano poprzez <a class="reference external" href="https://www.reddit.com/prefs/apps/">ten formularz</a></p>
 <div class="section" id="przygotowanie-kodu-aplikacji">
 <h4>Przygotowanie kodu aplikacji<a class="headerlink" href="#przygotowanie-kodu-aplikacji" title="Permalink to this headline">¶</a></h4>
 <p>Używając bibliotek <code class="docutils literal notranslate"><span class="pre">Flask</span></code> i <code class="docutils literal notranslate"><span class="pre">praw</span></code>, tworzymy następujący kod i zapisujemy go w pliku <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
@@ -489,11 +483,11 @@
 <span class="kn">import</span> <span class="nn">statsd</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;WdgsSyHEDgL8_g&#39;</span><span class="p">,</span>
-                     <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;Mqs5rCsVze9iNM3QrmqjXDNulCBYxg&#39;</span><span class="p">,</span> 
-                     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;aaa111bbb222&quot;</span><span class="p">,</span>
-                     <span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;meme_displayer&#39;</span><span class="p">,</span>
-                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;SecretCauliflower665&#39;</span><span class="p">)</span>
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">,</span>
+                     <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">,</span> 
+                     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+                     <span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">,</span>
+                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
@@ -727,7 +721,7 @@
 <p><br><br><br></p>
 <div class="section" id="rozpoczecie-zbierania-danych-do-graphite-z-kodu">
 <h3>Rozpoczęcie zbierania danych do Graphite z kodu<a class="headerlink" href="#rozpoczecie-zbierania-danych-do-graphite-z-kodu" title="Permalink to this headline">¶</a></h3>
-<p>W celu łatwej interakcji z Graphitem, posłużymy sie biblioteką <code class="docutils literal notranslate"><span class="pre">StatsD</span></code>, dołączając do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wymaganą zależność:</p>
+<p>W celu łatwej interakcji z Graphitem, posłużymy sie biblioteką <code class="docutils literal notranslate"><span class="pre">StatsD</span></code>, dołączając do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wymagane zależności:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">0</span>
 <span class="n">praw</span><span class="o">==</span><span class="mf">7.2</span><span class="o">.</span><span class="mi">0</span>
 <span class="n">statsd</span><span class="o">==</span><span class="mf">3.3</span><span class="o">.</span><span class="mi">0</span>
@@ -820,8 +814,7 @@
 </pre></div>
 </div>
 <p>Możemy się zalogować do Grafany (adres <code class="docutils literal notranslate"><span class="pre">http://localhost:3000</span></code>, dane dostępowe <code class="docutils literal notranslate"><span class="pre">admin/admin</span></code>):
-<img src="../docs/lab6/grafana_example.png" width="400px">
-<img alt="" src="../_images/graphite_example3.png" /></p>
+<img alt="" src="../_images/grafana_example.png" /></p>
 <div class="section" id="podpiecie-grafany-do-graphite">
 <h3>Podpięcie Grafany do Graphite<a class="headerlink" href="#podpiecie-grafany-do-graphite" title="Permalink to this headline">¶</a></h3>
 <p>Nowe źródła podajemy w konfiguracji Grafany (<code class="docutils literal notranslate"><span class="pre">Configuration</span> <span class="pre">&gt;</span> <span class="pre">Data</span> <span class="pre">Sources</span> <span class="pre">&gt;</span> <span class="pre">Add</span> <span class="pre">data</span> <span class="pre">source</span></code>):
