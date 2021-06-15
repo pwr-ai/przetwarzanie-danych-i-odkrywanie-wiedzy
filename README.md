@@ -5,10 +5,6 @@
 
 Witaj na kursie Przetwarzanie Danych i Odkrywanie Wiedzy, gdzie podczas kilku prostych zajęć dowiesz się przekrojowo, acz pokrótce, o metodach i narzędziach analizy danych, efektywnego tworzenia i interpretowania modeli uczenia maszynowego oraz przeprowadzania produkcyjnych wdrożeń tychże. 
 
-```{figure} docs/logo.png
-:height: 250px
-```
-
 ```{hint}
 Jedynym wymaganiem wstępnym do uczestnictwa w kursie jest podstawowa znajomość języka Python. Jeśli czujesz, że potrzebujesz wsparcia w tej materii, polecamy przerobienie pierwszych 4 lekcji z [tego kursu](https://www.tomasbeuzen.com/python-programming-for-data-science/) w celu ugruntowania wiedzy
 ```
