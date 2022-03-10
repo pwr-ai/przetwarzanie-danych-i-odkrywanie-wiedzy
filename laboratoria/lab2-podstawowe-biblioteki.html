@@ -59,6 +59,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="L1: Przygotowanie środowiska" href="lab1-przygotowanie-srodowiska.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -93,7 +94,7 @@
   Laboratoria
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="lab1-zasady.html">
    L1: Zasady laboratorium
@@ -102,6 +103,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="lab1-przygotowanie-srodowiska.html">
    L1: Przygotowanie środowiska
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   L2: Podstawowe biblioteki do odkrywania wiedzy
   </a>
  </li>
 </ul>
@@ -377,11 +383,6 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#wiele-wykresow-w-jednej-przestrzeni">
      Wiele wykresów w jednej przestrzeni
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wykresy-z-uzyciem-metod-pandas">
-     Wykresy z użyciem metod Pandas
     </a>
    </li>
   </ul>
@@ -3015,79 +3016,6 @@ Name: 13, dtype: object
 </div>
 </div>
 </div>
-<div class="section" id="wykresy-z-uzyciem-metod-pandas">
-<h3>Wykresy z użyciem metod Pandas<a class="headerlink" href="#wykresy-z-uzyciem-metod-pandas" title="Permalink to this headline">¶</a></h3>
-<p>Pandas udostępnia prosty interfejs rysowania wykresów Matplotlib bezpośrednio z DataFrame. Dzięki temu możemy prościej zwizualizowac wartości numeryczne i zaobserwować charakterystykę zbioru danych.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../_images/lab2-podstawowe-biblioteki_125_1.png" src="../_images/lab2-podstawowe-biblioteki_125_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;AxesSubplot:title={&#39;center&#39;:&#39;sepal length&#39;}&gt;,
-       &lt;AxesSubplot:title={&#39;center&#39;:&#39;sepal width&#39;}&gt;,
-       &lt;AxesSubplot:title={&#39;center&#39;:&#39;petal length&#39;}&gt;,
-       &lt;AxesSubplot:title={&#39;center&#39;:&#39;petal width&#39;}&gt;], dtype=object)
-</pre></div>
-</div>
-<img alt="../_images/lab2-podstawowe-biblioteki_126_1.png" src="../_images/lab2-podstawowe-biblioteki_126_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">scatter_matrix</span>
-
-<span class="n">scatter_matrix</span><span class="p">(</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;high sepal ratio&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> 
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
-    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> 
-    <span class="n">diagonal</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot:xlabel=&#39;sepal length&#39;, ylabel=&#39;sepal length&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;sepal width&#39;, ylabel=&#39;sepal length&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;petal length&#39;, ylabel=&#39;sepal length&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;petal width&#39;, ylabel=&#39;sepal length&#39;&gt;],
-       [&lt;AxesSubplot:xlabel=&#39;sepal length&#39;, ylabel=&#39;sepal width&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;sepal width&#39;, ylabel=&#39;sepal width&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;petal length&#39;, ylabel=&#39;sepal width&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;petal width&#39;, ylabel=&#39;sepal width&#39;&gt;],
-       [&lt;AxesSubplot:xlabel=&#39;sepal length&#39;, ylabel=&#39;petal length&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;sepal width&#39;, ylabel=&#39;petal length&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;petal length&#39;, ylabel=&#39;petal length&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;petal width&#39;, ylabel=&#39;petal length&#39;&gt;],
-       [&lt;AxesSubplot:xlabel=&#39;sepal length&#39;, ylabel=&#39;petal width&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;sepal width&#39;, ylabel=&#39;petal width&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;petal length&#39;, ylabel=&#39;petal width&#39;&gt;,
-        &lt;AxesSubplot:xlabel=&#39;petal width&#39;, ylabel=&#39;petal width&#39;&gt;]],
-      dtype=object)
-</pre></div>
-</div>
-<img alt="../_images/lab2-podstawowe-biblioteki_127_1.png" src="../_images/lab2-podstawowe-biblioteki_127_1.png" />
-</div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Więcej o możliwościach Pandas w kontekście generowania wykresów - w <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/visualization.html">dokumentacji</a></p>
-</div>
-</div>
 </div>
 </div>
 
@@ -3119,6 +3047,7 @@ Name: 13, dtype: object
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="lab1-przygotowanie-srodowiska.html" title="previous page">L1: Przygotowanie środowiska</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

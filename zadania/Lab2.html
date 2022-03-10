@@ -104,6 +104,11 @@
    L1: Przygotowanie środowiska
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../laboratoria/lab2-podstawowe-biblioteki.html">
+   L2: Podstawowe biblioteki do odkrywania wiedzy
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -189,7 +194,7 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pkt-wykonaj-podzadania-zdefiniowane-w-punktach-a-b-i-c-z-wykorzystaniem-bibliotek-numpy-i-matplotlib">
-   1. (7.5 pkt) Wykonaj podzadania zdefiniowane w punktach a), b) i c) z wykorzystaniem bibliotek
+   1. (6.5 pkt) Wykonaj podzadania zdefiniowane w punktach a), b) i c) z wykorzystaniem bibliotek
    <code class="docutils literal notranslate">
     <span class="pre">
      numpy
@@ -205,7 +210,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pkt-wykonaj-podzadania-zdefiniowane-w-punktach-a-b-c-i-d-z-wykorzystaniem-bibliotek-pandas-matplotlib-i-sklearn">
-   2. (7.5 pkt) Wykonaj podzadania zdefiniowane w punktach a), b), c) i d) z wykorzystaniem bibliotek
+   2. (6.5 pkt) Wykonaj podzadania zdefiniowane w punktach a), b), c) i d) z wykorzystaniem bibliotek
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -226,8 +231,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opcjonalne-3-3-pkt-zapoznaj-sie-z-biblioteka-seaborn-i-zmien-wykresy-z-punkty-3-d-na-uzywajace-tej-biblioteki">
-   [OPCJONALNE] 3. (3 pkt) Zapoznaj się z biblioteką seaborn i zmień wykresy z punkty 3 d) na używające tej biblioteki
+  <a class="reference internal nav-link" href="#opcjonalne-3-3-pkt-zapoznaj-sie-z-biblioteka-seaborn-i-zmien-wykresy-z-punktu-3-d-na-uzywajace-tej-biblioteki">
+   [OPCJONALNE] 3. (3 pkt) Zapoznaj się z biblioteką seaborn i zmień wykresy z punktu 3 d) na używające tej biblioteki
   </a>
  </li>
 </ul>
@@ -244,8 +249,8 @@
   <div class="section" id="zadania-lista-2">
 <h1>Zadania Lista 2<a class="headerlink" href="#zadania-lista-2" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="pkt-wykonaj-podzadania-zdefiniowane-w-punktach-a-b-i-c-z-wykorzystaniem-bibliotek-numpy-i-matplotlib">
-<h2>1. (7.5 pkt) Wykonaj podzadania zdefiniowane w punktach a), b) i c) z wykorzystaniem bibliotek <code class="docutils literal notranslate"><span class="pre">numpy</span></code> i <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#pkt-wykonaj-podzadania-zdefiniowane-w-punktach-a-b-i-c-z-wykorzystaniem-bibliotek-numpy-i-matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>a) <strong>(3 pkt)</strong> Poniżej przedstawiono implementację funkcji <code class="docutils literal notranslate"><span class="pre">calculate</span></code>, w której zrealizowano zbiór operacji na dwóch dwuwymiarowych macierzach <span class="math notranslate nohighlight">\(a\)</span> i <span class="math notranslate nohighlight">\(b\)</span>. Zmień implementację tej funkcji tak, aby pozbyć się wykorzystania pętli w tym celu wykorzystaj operacje zdefiniowane w bibliotece <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Zweryfikuj poprawność nowo zdefiowanej funkcji dla dowolnie wybranego zestawu parametrów.</p>
+<h2>1. (6.5 pkt) Wykonaj podzadania zdefiniowane w punktach a), b) i c) z wykorzystaniem bibliotek <code class="docutils literal notranslate"><span class="pre">numpy</span></code> i <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#pkt-wykonaj-podzadania-zdefiniowane-w-punktach-a-b-i-c-z-wykorzystaniem-bibliotek-numpy-i-matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>a) <strong>(3 pkt)</strong> Poniżej przedstawiono implementację funkcji <code class="docutils literal notranslate"><span class="pre">calculate</span></code>, w której zrealizowano zbiór operacji na dwóch dwuwymiarowych macierzach <span class="math notranslate nohighlight">\(a\)</span> i <span class="math notranslate nohighlight">\(b\)</span>. Zmień implementację tej funkcji tak, aby pozbyć się wykorzystania pętli - w tym celu wykorzystaj operacje zdefiniowane w bibliotece <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Zweryfikuj poprawność nowo zdefiowanej funkcji dla dowolnie wybranego zestawu parametrów</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> 
     <span class="n">b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -294,7 +299,7 @@
 </div>
 </div>
 </div>
-<p>b) <strong>(2 pkt)</strong> Dokonaj porównania czasów wykonania funkcji <code class="docutils literal notranslate"><span class="pre">calculate</span></code> i tej zaimplementowanej w punkcie 1. Wylosuj macierze wejściowe <span class="math notranslate nohighlight">\(a\)</span> i <span class="math notranslate nohighlight">\(b\)</span> z rozkładu dyskretnego jednostajnego z zakresu 0-10 oraz przyjmij wartość parametru <code class="docutils literal notranslate"><span class="pre">threshold</span></code> na 5. Obliczenia przeprowadź dla następujących wymiarów macierzy:</p>
+<p>b) <strong>(1.5 pkt)</strong> Dokonaj porównania czasów wykonania funkcji <code class="docutils literal notranslate"><span class="pre">calculate</span></code> i tej zaimplementowanej w punkcie 1. Wylosuj macierze wejściowe <span class="math notranslate nohighlight">\(a\)</span> i <span class="math notranslate nohighlight">\(b\)</span> z rozkładu dyskretnego jednostajnego z zakresu 0-10 oraz przyjmij wartość parametru <code class="docutils literal notranslate"><span class="pre">threshold</span></code> na 5. Obliczenia przeprowadź dla następujących wymiarów macierzy:</p>
 <ul class="simple">
 <li><p>3x3</p></li>
 <li><p>100x100</p></li>
@@ -311,7 +316,7 @@ W celu mierzenia czasu można użyć komendy %timeit
 </div>
 </div>
 </div>
-<p>c) <strong>(2.5 pkt)</strong> Wykorzystując bibliotekę <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> narysuj wykres przyśpieszenia nowo zaimplementowanej funkcji w porównaniu do oryginalnej implementacji. Dobierz odpowiedni typ wykresu, podpisz etykiety osi i uzupełnij tytuł wykresu.</p>
+<p>c) <strong>(2 pkt)</strong> Wykorzystując bibliotekę <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> narysuj wykres przyśpieszenia nowo zaimplementowanej funkcji w porównaniu do oryginalnej implementacji. Dobierz odpowiedni typ wykresu, podpisz etykiety osi i uzupełnij tytuł wykresu.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD I WYKRES</span>
@@ -321,7 +326,7 @@ W celu mierzenia czasu można użyć komendy %timeit
 </div>
 </div>
 <div class="section" id="pkt-wykonaj-podzadania-zdefiniowane-w-punktach-a-b-c-i-d-z-wykorzystaniem-bibliotek-pandas-matplotlib-i-sklearn">
-<h2>2. (7.5 pkt) Wykonaj podzadania zdefiniowane w punktach a), b), c) i d) z wykorzystaniem bibliotek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> i <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#pkt-wykonaj-podzadania-zdefiniowane-w-punktach-a-b-c-i-d-z-wykorzystaniem-bibliotek-pandas-matplotlib-i-sklearn" title="Permalink to this headline">¶</a></h2>
+<h2>2. (6.5 pkt) Wykonaj podzadania zdefiniowane w punktach a), b), c) i d) z wykorzystaniem bibliotek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> i <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#pkt-wykonaj-podzadania-zdefiniowane-w-punktach-a-b-c-i-d-z-wykorzystaniem-bibliotek-pandas-matplotlib-i-sklearn" title="Permalink to this headline">¶</a></h2>
 <p>a) <strong>(0.5 pkt)</strong> Używając biblioteki <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> i poniższej definicji wczytaj zbiór danych <code class="docutils literal notranslate"><span class="pre">boston</span> <span class="pre">house-prices</span> <span class="pre">dataset</span></code> i przekształć go do postaci <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> z biblioteki <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Dodatkowo wyświetl 15 pierwszych rekordów.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">()</span>
@@ -350,7 +355,7 @@ W celu mierzenia czasu można użyć komendy %timeit
 </div>
 </div>
 </div>
-<p>d) <strong>(4 pkt)</strong> Dla wybranych cech w punkcie <code class="docutils literal notranslate"><span class="pre">c)</span></code> porównaj wartości tych cech na wykresach. Dobierz odpowiedni typ wykresu (słupkowy, kołowy, liniowy, histogram). Wybór uzasadnij. Wykresy mają być umiejscowione w jednym wykresie z subplotem składającym się z 2 kolumn i dwóch rzędów. Wykresy powinny posiadać etykiety osi X i Y oraz legendę.</p>
+<p>d) <strong>(3 pkt)</strong> Dla wybranych cech w punkcie <code class="docutils literal notranslate"><span class="pre">c)</span></code> porównaj wartości tych cech na wykresach. Dobierz odpowiedni typ wykresu (słupkowy, kołowy, liniowy, histogram). Wybór uzasadnij. Wykresy mają być umiejscowione w jednym wykresie z subplotem składającym się z 2 kolumn i dwóch rzędów. Wykresy powinny posiadać etykiety osi X i Y oraz legendę.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD I WYKRESY</span>
@@ -359,8 +364,8 @@ W celu mierzenia czasu można użyć komendy %timeit
 </div>
 </div>
 </div>
-<div class="section" id="opcjonalne-3-3-pkt-zapoznaj-sie-z-biblioteka-seaborn-i-zmien-wykresy-z-punkty-3-d-na-uzywajace-tej-biblioteki">
-<h2>[OPCJONALNE] 3. (3 pkt) Zapoznaj się z biblioteką <a class="reference external" href="https://seaborn.pydata.org/index.html">seaborn</a> i zmień wykresy z punkty 3 d) na używające tej biblioteki<a class="headerlink" href="#opcjonalne-3-3-pkt-zapoznaj-sie-z-biblioteka-seaborn-i-zmien-wykresy-z-punkty-3-d-na-uzywajace-tej-biblioteki" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="opcjonalne-3-3-pkt-zapoznaj-sie-z-biblioteka-seaborn-i-zmien-wykresy-z-punktu-3-d-na-uzywajace-tej-biblioteki">
+<h2>[OPCJONALNE] 3. (3 pkt) Zapoznaj się z biblioteką <a class="reference external" href="https://seaborn.pydata.org/index.html">seaborn</a> i zmień wykresy z punktu 3 d) na używające tej biblioteki<a class="headerlink" href="#opcjonalne-3-3-pkt-zapoznaj-sie-z-biblioteka-seaborn-i-zmien-wykresy-z-punktu-3-d-na-uzywajace-tej-biblioteki" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD I WYKRESY</span>
