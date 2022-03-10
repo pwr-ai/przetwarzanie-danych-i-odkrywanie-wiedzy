@@ -5,7 +5,7 @@
   chapters:
   - file: laboratoria/lab1-zasady.ipynb
   - file: laboratoria/lab1-przygotowanie-srodowiska.ipynb
-  #- file: laboratoria/lab2-podstawowe-biblioteki.ipynb
+  - file: laboratoria/lab2-podstawowe-biblioteki.ipynb
   #- file: laboratoria/lab3-tworzenie-modeli.ipynb
   #- file: laboratoria/lab4-manipulacja-datasetem.ipynb
   #- file: laboratoria/lab5-zarzadzanie-eksperymentami.ipynb
