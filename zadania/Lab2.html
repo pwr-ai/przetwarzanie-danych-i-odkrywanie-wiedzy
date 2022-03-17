@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -280,14 +278,14 @@
             <span class="n">b_sum</span> <span class="o">+=</span> <span class="n">b</span><span class="p">[</span><span class="n">row_id</span><span class="p">][</span><span class="n">col_id</span><span class="p">]</span>
 
 
-    <span class="n">col_avgs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">row_avgs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">row_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
-        <span class="n">col_sum</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">col_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
-            <span class="n">col_sum</span> <span class="o">+=</span> <span class="n">c</span><span class="p">[</span><span class="n">row_id</span><span class="p">][</span><span class="n">col_id</span><span class="p">]</span>
+        <span class="n">row_sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">row_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+            <span class="n">row_sum</span> <span class="o">+=</span> <span class="n">c</span><span class="p">[</span><span class="n">row_id</span><span class="p">][</span><span class="n">col_id</span><span class="p">]</span>
 
-        <span class="n">col_avg</span> <span class="o">=</span> <span class="n">col_sum</span> <span class="o">/</span> <span class="n">cols</span>
-        <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">col_avg</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="n">b_sum</span>  
+        <span class="n">row_avg</span> <span class="o">=</span> <span class="n">row_sum</span> <span class="o">/</span> <span class="n">cols</span>
+        <span class="n">out</span> <span class="o">+=</span> <span class="p">(</span><span class="n">row_avg</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="n">b_sum</span>  
 
     <span class="k">return</span> <span class="n">out</span>
 </pre></div>
