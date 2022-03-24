@@ -57,6 +57,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="L3: Analiza eksploracyjna zbioru danych" href="lab3-analiza-zbioru-danych.html" />
     <link rel="prev" title="L1: Przygotowanie środowiska" href="lab1-przygotowanie-srodowiska.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -106,6 +107,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    L2: Podstawowe biblioteki do odkrywania wiedzy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3-analiza-zbioru-danych.html">
+   L3: Analiza eksploracyjna zbioru danych
   </a>
  </li>
 </ul>
@@ -568,7 +574,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([98, 76, 12])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20, 28, 52])
 </pre></div>
 </div>
 </div>
@@ -582,7 +588,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00e+000, 2.27e-322, 0.00e+000, 0.00e+000, 0.00e+000, 0.00e+000])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0e+000, 2.8e-322, 0.0e+000, 0.0e+000, 0.0e+000, 0.0e+000])
 </pre></div>
 </div>
 </div>
@@ -601,9 +607,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[72, 98],
-       [15, 37],
-       [78, 96]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[63, 17],
+       [19, 90],
+       [95, 66]])
 </pre></div>
 </div>
 </div>
@@ -769,8 +775,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([42, 20, 18, 80, 94, 23, 30, 75, 91, 95, 49, 34, 12, 37, 65, 36, 13,
-       59, 40, 71])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([76, 74, 32, 22, 81, 71, 96, 43, 92, 65, 39, 74, 58, 86,  8, 44, 15,
+       62, 53, 39])
 </pre></div>
 </div>
 </div>
@@ -784,9 +790,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False,  True,  True, False, False,  True,  True,
-        True, False, False, False, False,  True, False, False,  True,
-       False,  True])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False, False,  True,  True,  True, False,  True,
+        True, False,  True,  True,  True, False, False, False,  True,
+        True, False])
 </pre></div>
 </div>
 </div>
@@ -799,7 +805,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([80, 94, 75, 91, 95, 65, 59, 71])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([76, 74, 81, 71, 96, 92, 65, 74, 58, 86, 62, 53])
 </pre></div>
 </div>
 </div>
@@ -945,9 +951,9 @@ połączone poziomo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[90, 14, 84],
-       [73, 97, 80],
-       [22, 18, 66]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 7, 98, 88],
+       [ 7, 71, 61],
+       [62, 89, 16]])
 </pre></div>
 </div>
 </div>
@@ -961,9 +967,9 @@ połączone poziomo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[14, 84, 90],
-       [73, 80, 97],
-       [18, 22, 66]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 7, 88, 98],
+       [ 7, 61, 71],
+       [16, 62, 89]])
 </pre></div>
 </div>
 </div>
@@ -985,19 +991,19 @@ połączone poziomo
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>oryginalna 
- [[90 14 84]
- [73 97 80]
- [22 18 66]] 
+ [[ 7 98 88]
+ [ 7 71 61]
+ [62 89 16]] 
 
 posortowana kolumnami
- [[22 14 66]
- [73 18 80]
- [90 97 84]] 
+ [[ 7 71 16]
+ [ 7 89 61]
+ [62 98 88]] 
 
 posortowana wierszami 
- [[14 84 90]
- [73 80 97]
- [18 22 66]] 
+ [[ 7 88 98]
+ [ 7 61 71]
+ [16 62 89]] 
 </pre></div>
 </div>
 </div>
@@ -1133,8 +1139,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6, 3],
-       [3, 3]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 2],
+       [9, 8]])
 </pre></div>
 </div>
 </div>
@@ -1146,7 +1152,7 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 6])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([17, 10])
 </pre></div>
 </div>
 </div>
@@ -1158,7 +1164,7 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.5, 3. ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5. , 8.5])
 </pre></div>
 </div>
 </div>
@@ -1174,8 +1180,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6, 9],
-       [3, 9]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 8,  6],
+       [ 9, 24]])
 </pre></div>
 </div>
 </div>
@@ -1188,8 +1194,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6, 3],
-       [3, 3]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 9],
+       [2, 8]])
 </pre></div>
 </div>
 </div>
@@ -1202,8 +1208,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.33333333, -0.33333333],
-       [-0.33333333,  0.66666667]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.17391304, -0.04347826],
+       [-0.19565217,  0.17391304]])
 </pre></div>
 </div>
 </div>
@@ -1216,9 +1222,9 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([7.85410197, 1.14589803]),
- array([[ 0.85065081, -0.52573111],
-        [ 0.52573111,  0.85065081]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([12.24264069,  3.75735931]),
+ array([[ 0.42640143, -0.42640143],
+        [ 0.90453403,  0.90453403]]))
 </pre></div>
 </div>
 </div>
@@ -1238,8 +1244,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[6, 0],
-        [0, 9]]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[8, 0],
+        [0, 6]]),
  (2, 2))
 </pre></div>
 </div>
@@ -1349,8 +1355,8 @@ dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    3
 b    3
 c    7
-d    3
-e    6
+d    5
+e    3
 dtype: int64
 </pre></div>
 </div>
@@ -3024,6 +3030,7 @@ Name: 13, dtype: object
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="lab1-przygotowanie-srodowiska.html" title="previous page">L1: Przygotowanie środowiska</a>
+    <a class='right-next' id="next-link" href="lab3-analiza-zbioru-danych.html" title="next page">L3: Analiza eksploracyjna zbioru danych</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
