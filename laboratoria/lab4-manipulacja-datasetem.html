@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>L4: Manipulacje zbiorami danych &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>L5: Uczenie maszynowe II &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -112,6 +112,11 @@
    L3: Analiza eksploracyjna zbioru danych
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4-tworzenie-modeli.html">
+   L4: Tworzenie modeli uczenia maszynowego
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -199,11 +204,13 @@
   <a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">
    Efekty kształcenia laboratorium
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#podstawowe-narzedzia-do-przetwarzania-danych">
-   Podstawowe narzędzia do przetwarzania danych
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dostosowywanie-parametrow">
+     Dostosowywanie parametrów
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#przetwarzanie-tekstow-z-wykorzystaniem-biblioteki-spacy">
@@ -257,132 +264,58 @@
         
               <div>
                 
-  <figure>
-  <img src="../_images/banner.png" alt="Logo kursu"/>
-    <figcaption style="text-align: right; font-size:9px"><a href="https://pixabay.com/service/license/">Na licencji Pixabay</a></figcaption>
-</figure><div class="section" id="l4-manipulacje-zbiorami-danych">
-<h1>L4: Manipulacje zbiorami danych<a class="headerlink" href="#l4-manipulacje-zbiorami-danych" title="Permalink to this headline">¶</a></h1>
+  <p><img alt="" src="../_images/banner.png" /><figcaption style="text-align: right; font-size:9px"><a href="https://pixabay.com/service/license/">Na licencji Pixabay</a></figcaption></p>
+<div class="section" id="l5-uczenie-maszynowe-ii">
+<h1>L5: Uczenie maszynowe II<a class="headerlink" href="#l5-uczenie-maszynowe-ii" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="efekty-ksztalcenia-laboratorium">
 <h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Permalink to this headline">¶</a></h2>
-<hr><ul class="simple">
-<li><p>poznasz podstawowe bibliteki służące do przetwarzania różnego rodzaju danych</p></li>
-<li><p>poznasz jakie są podstawowymi narzędziami do przetwarzania tekstu</p></li>
-<li><p>poznasz jak obliczyć prostą reprezentację wektorową tekstu</p></li>
-<li><p>poznasz jak interpretować predykcje modelu</p></li>
-</ul>
+<hr><div class="section" id="dostosowywanie-parametrow">
+<h3>Dostosowywanie parametrów<a class="headerlink" href="#dostosowywanie-parametrow" title="Permalink to this headline">¶</a></h3>
+<p>Praktycznie każdy z algorytmów uczenia maszynowego posiada pewne parametry (lub hiper-parametry), które wpływają na proces uczenia. W przypadku użytego algorytmu SVM są to np. rodzaj funkcji jądra i stopień regularyzacji.</p>
+<p>Odpowiednie dostosowanie parametrów algorytmu do danego problemu może znacząco poprawić jakość jego działania.</p>
+<p>Sklearn posiada zaimplementowanych kilka strategii poszukiwania najlepszych parametrów. Użyjemy tutaj najprostszego podejścia losowego:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">param_distributions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;svc__kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;svc__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
+
+<span class="c1"># now create a searchCV object and fit it to the data</span>
+<span class="n">search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">pipeline_classifier</span><span class="p">,</span>
+                            <span class="n">n_iter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                            <span class="n">param_distributions</span><span class="o">=</span><span class="n">param_distributions</span><span class="p">)</span>
+<span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="podstawowe-narzedzia-do-przetwarzania-danych">
-<h2>Podstawowe narzędzia do przetwarzania danych<a class="headerlink" href="#podstawowe-narzedzia-do-przetwarzania-danych" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Typ danych</p></th>
-<th class="text-align:left head"><p>Biblioteka</p></th>
-<th class="text-align:left head"><p>Repozytorium</p></th>
-<th class="text-align:left head"><p>Zbiory danych</p></th>
-<th class="text-align:left head"><p>Przetwarzanie wstępne</p></th>
-<th class="text-align:left head"><p>Modele/Algorytmy</p></th>
-<th class="text-align:left head"><p>Ewaluacja</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>Tekst</p></td>
-<td class="text-align:left"><p>nltk</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/nltk/nltk">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>spacy</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/explosion/spaCy">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>transformers</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/huggingface/transformers">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>datasets</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/huggingface/datasets">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>torchtext</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/pytorch/text">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Obrazy</p></td>
-<td class="text-align:left"><p>torchvision</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/pytorch/vision">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>opencv</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/opencv/opencv">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>turicreate</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/apple/turicreate">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p>Grafy</p></td>
-<td class="text-align:left"><p>networkx</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/networkx/networkx">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>graphtool</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/antmd/graph-tool">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>ogb</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/snap-stanford/ogb">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p></p></td>
-<td class="text-align:left"><p>torch-geometric</p></td>
-<td class="text-align:left"><p><a class="reference external" href="https://github.com/rusty1s/pytorch_geometric">LINK</a></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
-</tr>
-</tbody>
-</table>
+</div>
+</div>
+<p>Mechanizm wykonuje ilosc powtórzeń zadaną przez argument <code class="docutils literal notranslate"><span class="pre">n_iter</span></code> i losuje za każdym razem wartości parametrów spośród podanych. Dla każdego z nich wykonuje cross-walidację. Możemy też przeanalizować dokładne wyniki tego procesu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parametry modelu sprawdzić możemy przy pomocy metody <code class="docutils literal notranslate"><span class="pre">get_params()</span></code> lub <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">w dokumentacji</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline_classifier</span><span class="o">.</span><span class="n">get_params</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Istnieje szeroki wachlarz metod do selekcji parametrów modelu, poza tymi zaimplementowanymi w sklearnie. Warto przypatrzeć się <a class="reference external" href="https://github.com/hyperopt/hyperopt">Hyperopt</a>, <a class="reference external" href="https://github.com/automl/HpBandSter">HpBandSter</a> lub <a class="reference external" href="https://optuna.org/">Optuna</a>.</p>
+<p>Ciekawym rozwiązaniem jest też AutoML, automatycznie dobierajacy model i parametry do zadanego problemu - np. rozwiązanie <a class="reference external" href="https://www.h2o.ai/products/h2o-automl/">H2O AutoML</a></p>
+</div>
+</div>
 </div>
 <div class="section" id="przetwarzanie-tekstow-z-wykorzystaniem-biblioteki-spacy">
 <h2>Przetwarzanie tekstów z wykorzystaniem biblioteki spacy<a class="headerlink" href="#przetwarzanie-tekstow-z-wykorzystaniem-biblioteki-spacy" title="Permalink to this headline">¶</a></h2>
@@ -709,7 +642,7 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab4-manipulacja-datasetem_40_0.png" src="../_images/lab4-manipulacja-datasetem_40_0.png" />
+<img alt="../_images/lab4-manipulacja-datasetem_44_0.png" src="../_images/lab4-manipulacja-datasetem_44_0.png" />
 </div>
 </div>
 <p>Wartości zaznaczono na czerwono oznaczają cechy które podnosiły wartość predykcji, a na niebiesko te, które obniżały. W lewej kolumnie umieszczono cechy i ich wartości. Liczbę wyświetlanych cech regulujemy parametrem <code class="docutils literal notranslate"><span class="pre">max_display</span></code>. <span class="math notranslate nohighlight">\(f(x)\)</span> oznacza wartość predykcji, a <span class="math notranslate nohighlight">\(E[f(X)]\)</span> umieszczona pod osią X oznacza uśrednione wyjście modelu dla zadanego zbioru, które w tym przypadku wynosi 22.533.</p>
@@ -744,7 +677,7 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab4-manipulacja-datasetem_44_0.png" src="../_images/lab4-manipulacja-datasetem_44_0.png" />
+<img alt="../_images/lab4-manipulacja-datasetem_48_0.png" src="../_images/lab4-manipulacja-datasetem_48_0.png" />
 </div>
 </div>
 <p>W przypadku wykresu <code class="docutils literal notranslate"><span class="pre">force</span></code> podawana wcześniej wartość  <code class="docutils literal notranslate"><span class="pre">$E[f(X)]$</span></code> jest oznaczona jako <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">value</span></code>. Wartości cech są tutaj oznaczone jako poszczególne etykiety słupków. W porównaniu do poprzedniego wykresu tutaj nie widzimy dokładnych wartości, tylko określa je długość danego słupka.</p>
@@ -786,7 +719,7 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab4-manipulacja-datasetem_49_0.png" src="../_images/lab4-manipulacja-datasetem_49_0.png" />
+<img alt="../_images/lab4-manipulacja-datasetem_53_0.png" src="../_images/lab4-manipulacja-datasetem_53_0.png" />
 </div>
 </div>
 <p>Ostatnią grupę wykresów pełnią wykresy podsumowujące wszystkie predykcje do tego służą wykresy <code class="docutils literal notranslate"><span class="pre">beeswarm</span></code> i <code class="docutils literal notranslate"><span class="pre">bar</span></code></p>
@@ -797,7 +730,7 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab4-manipulacja-datasetem_51_0.png" src="../_images/lab4-manipulacja-datasetem_51_0.png" />
+<img alt="../_images/lab4-manipulacja-datasetem_55_0.png" src="../_images/lab4-manipulacja-datasetem_55_0.png" />
 </div>
 </div>
 <p>Na podstawie analizy możemy zinterpretować zależności badanych cech na wysokość predykcji, dzięki czemu możemy wyróżnić dwie grupy:</p>
@@ -826,7 +759,7 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab4-manipulacja-datasetem_54_0.png" src="../_images/lab4-manipulacja-datasetem_54_0.png" />
+<img alt="../_images/lab4-manipulacja-datasetem_58_0.png" src="../_images/lab4-manipulacja-datasetem_58_0.png" />
 </div>
 </div>
 </div>
