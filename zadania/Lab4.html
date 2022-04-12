@@ -201,28 +201,28 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-czyszczenie-danych-i-przetwarzanie-wstepne">
-   1. (4 pkt)  Czyszczenie danych i przetwarzanie wstępne
+  <a class="reference internal nav-link" href="#uwagi-ogolne">
+   Uwagi ogólne
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-inzynieria-cech">
-   2. (5 pkt) Inżynieria cech
+  <a class="reference internal nav-link" href="#czyszczenie-danych-i-przetwarzanie-wstepne">
+   Czyszczenie danych i przetwarzanie wstępne
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-przygotowanie-modelu">
-   3. (4 pkt) Przygotowanie modelu
+  <a class="reference internal nav-link" href="#uczenie-modelu">
+   Uczenie modelu
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-selekcja-cech">
-   4. (2 pkt) Selekcja cech
+  <a class="reference internal nav-link" href="#feature-engineering">
+   Feature engineering
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dodatkowe-1-pkt">
-   Dodatkowe (+1 pkt)
+  <a class="reference internal nav-link" href="#wnioski">
+   Wnioski
   </a>
  </li>
 </ul>
@@ -238,134 +238,46 @@
                 
   <div class="section" id="zadania-lista-4">
 <h1>Zadania Lista 4<a class="headerlink" href="#zadania-lista-4" title="Permalink to this headline">¶</a></h1>
-<p>W zadaniu wykorzystamy zbiór danych <a class="reference external" href="https://www.kaggle.com/mattpodolak/rwallstreetbets-posts-and-comments?select=wallstreetbets_posts.csv">Reddit WallStreetBets Posts and Comments</a>, udostępniony na portalu Kaggle.
-<img alt="DS_LOGO" src="https://upload.wikimedia.org/wikipedia/en/f/f0/WallStreetBets.png" /></p>
-<p>Zbiór danych zawiera posty i komentarze zebrane pochodzące z subreddita <code class="docutils literal notranslate"><span class="pre">wallstreetbets</span></code> z okresu 06-12-2020 do 06-02-2021 za pomocą narzędzia <a class="reference external" href="https://github.com/mattpodolak/pmaw/">pmaw</a>. W zadaniu wykorzystamy wyłącznie plik <code class="docutils literal notranslate"><span class="pre">wallstreetbets_posts.csv</span></code>.
-Lista zadań została podzielona na cztery etapy:</p>
+<p>Celem listy jest budowa modelu klasyfikacji sentymentu, używając poznanego już zbioru wpisów internetowych nt. Cyberpunka.</p>
+<div class="section" id="uwagi-ogolne">
+<h2>Uwagi ogólne<a class="headerlink" href="#uwagi-ogolne" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>Czysczenie danych i przetwarzanie wstępne</p></li>
-<li><p>Inżynieria cech</p></li>
-<li><p>Przygotowanie modelu</p></li>
-<li><p>Selekcja cech</p></li>
+<li><p>Dokonując analizy modelu zawsze wykonuj cross-walidację</p></li>
+<li><p>Stosuj potoki przetwarzania sklearn, jeśli to możliwe</p></li>
 </ol>
-<p>Celem zadania jest przygotowanie modelu klasyfikacji, mogącego rozpoznać czy dany post zostanie usunięty przez moderatora.</p>
-<div class="section" id="pkt-czyszczenie-danych-i-przetwarzanie-wstepne">
-<h2>1. (4 pkt)  Czyszczenie danych i przetwarzanie wstępne<a class="headerlink" href="#pkt-czyszczenie-danych-i-przetwarzanie-wstepne" title="Permalink to this headline">¶</a></h2>
-<p>a) <strong>(0.5 pkt)</strong> Usuń posty użytkowników ze zbioru danych, którzy napisali mniej niż 5 postów, usuń również użytkownika z maksymalną liczbą postów (bot).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
 </div>
+<div class="section" id="czyszczenie-danych-i-przetwarzanie-wstepne">
+<h2>Czyszczenie danych i przetwarzanie wstępne<a class="headerlink" href="#czyszczenie-danych-i-przetwarzanie-wstepne" title="Permalink to this headline">¶</a></h2>
+<p>a) <strong>(1 pkt)</strong> Rozwiąż kwestię brakujących wartości - bazując na wykonanej EDA, uzupełnij brakujące wartości, usuń przypadki z brakującymi wartościami lub usuń kolumny zawierające brakujące wartości.</p>
+<p>b) <strong>(1 pkt)</strong> Zakoduj zmienne kategoryczne</p>
+<p>c) <strong>(1 pkt)</strong> Przeskaluj zmienne numeryczne</p>
+<p>d) <strong>(2 pkt)</strong> Dokonaj standardowego czyszczenia danych tekstowych - usuń URLe, mentiony użytkowników (tj. <code class="docutils literal notranslate"><span class="pre">&#64;xaru</span></code>) oraz znak hasha z hashtagów, jeśli występują w tekście</p>
+<p>e) <strong>(1 pkt)</strong> Dokonaj wektoryzacji danych tekstowych metodą BoW</p>
 </div>
-</div>
-<p>b) <strong>(0.5 pkt)</strong> Usuń zduplikowane wiersze.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>c) <strong>(0.5 pkt)</strong> Stwórz kolumnę <code class="docutils literal notranslate"><span class="pre">target</span></code>, która będzie określać zbiór etykiet wyjściowych. W tym celu przetwórz kolumnę <code class="docutils literal notranslate"><span class="pre">removed_by_category</span></code>. Dla wartości kolumny <code class="docutils literal notranslate"><span class="pre">moderator,</span> <span class="pre">reddit,</span> <span class="pre">automod_filtered</span></code> przyjmij etykietę 1, w pozostałych przypadkach etykietę 0. Na koniec usuń kolumnę <code class="docutils literal notranslate"><span class="pre">removed_by_category</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>d) <strong>(2 pkt)</strong> Wybierz i przedstaw podzbiór kolumn do dalszego przetwarzania. W tym celu możesz wykorzystać poznaną wcześniej bibliotekę <code class="docutils literal notranslate"><span class="pre">pandas_profiling</span></code>. Dodaj krótkie uzasadnienie do każdej z kolumn. Uzupełnij brakujące wartości, jeżeli zajdzie taka potrzeba.</p>
-<p><strong>Zbiór kolumn potrzebnych do dalszego przetwarzania. W ich przypadku, proszę nie pisać uzasadniania.</strong></p>
+<div class="section" id="uczenie-modelu">
+<h2>Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Permalink to this headline">¶</a></h2>
+<p><strong>(5 pkt)</strong> Wytrenuj i porównaj dwa klasyczne algorytmy ML - SVM i Random Forest.</p>
+<p>Przeprowadź następujące eksperymenty:</p>
 <ul class="simple">
-<li><p>author</p></li>
-<li><p>title</p></li>
-<li><p>created_utc</p></li>
+<li><p>użyj tylko danych tekstowych</p></li>
+<li><p>użyj pozostałych danych oprócz tekstowych</p></li>
+<li><p>użyj wszystkich danych</p></li>
 </ul>
-<p><strong>Kolumny, które muszą byc usunięte</strong></p>
+<p>Zaraportuj metryki klasyfikacji. Jak możesz je interpretować? Który algorytm lepiej sobie radzi w tym przypadku? Które cechy pozwalają najlepiej predykować sentyment? Zastanów się, dlaczego?</p>
+</div>
+<div class="section" id="feature-engineering">
+<h2>Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
+<p><strong>(5 pkt)</strong> Bazując na przeprowadzonej EDA, dokonaj inżynierii cech w celu polepszenia wyników z poprzedniego zadania:</p>
 <ul class="simple">
-<li><p>selftext</p></li>
-<li><p>no_follow</p></li>
-<li><p>crosspost_parent_list</p></li>
-<li><p>is_robot_indexable</p></li>
+<li><p>użyj metod selekcji cech</p></li>
+<li><p>użyj metod redukcji wymiarowości</p></li>
+<li><p>zaproponuj nowe cechy, bazując na wiedzy domenowej którą uzyskałeś</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
+<p>Wykonaj kilka iteracji i eksperymentów, sprawdź, jakie kombinacje metod/cech pozwalają poprawić rezultaty, a jakie nie. Jak sądzisz, dlaczego?</p>
 </div>
-</div>
-</div>
-<p><strong>(0.5 pkt)</strong> e) Dokonaj podziału zbioru na dwie części: uczący i testowy. Nie używaj podziału losowego, tylko podziel dane wg. czasu napisania posta. Zbiór testowy mają tworzyć wpisy z ostatnich 6 dni, a wcześniejsze wpisy zbiór uczący</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="pkt-inzynieria-cech">
-<h2>2. (5 pkt) Inżynieria cech<a class="headerlink" href="#pkt-inzynieria-cech" title="Permalink to this headline">¶</a></h2>
-<p>a) <strong>(2 pkt)</strong> Zaproponuj zestaw co najmniej 5 cech użytkownika zagregowanych do dnia napisania danego postu np. liczba wszystkich napisanych postów.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>b) <strong>(1 pkt)</strong> Utwórz nowy zestaw cech na podstawie cech zaproponowych w poprzednim punkcie ograniczając je czasowo do ostatnich 7 dni.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>c) <strong>(2 pkt)</strong> Przekształć cechę tekstową <code class="docutils literal notranslate"><span class="pre">title</span></code> wykorzystująć do tego metodę <code class="docutils literal notranslate"><span class="pre">TF-IDF</span> </code></p>
-<ul class="simple">
-<li><p>Odfiltruj najczęstsze słowa w języku angielskie (stop words) w tym celu możesz wykorzystać bibliotekę <code class="docutils literal notranslate"><span class="pre">spacy</span></code>.</p></li>
-<li><p>Usuń znaki interpunkcyjne</p></li>
-<li><p>Sprowadź tokeny do formy bazowej (lematy)</p></li>
-<li><p>Ogranicz reprezentację tf-idf do 25 najczęstszych słów w zbiorze</p></li>
-<li><p>Dodaj do zbioru tak przygotowane cechy, zmapuj wektor cech do n kolumn np. <code class="docutils literal notranslate"><span class="pre">title_tfidf_gme</span></code>, <code class="docutils literal notranslate"><span class="pre">title_tfidf_squeeze</span></code> itd.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="pkt-przygotowanie-modelu">
-<h2>3. (4 pkt) Przygotowanie modelu<a class="headerlink" href="#pkt-przygotowanie-modelu" title="Permalink to this headline">¶</a></h2>
-<p>a) <strong>(2 pkt)</strong> Wyucz klasyfikator XBGClassifier z modułu (xgboost). Wykorzystaj wersję biblioteki 1.3.3
-Przeprowadź odpowiednie transformacje danych, wymagane dla tego modelu. Do ewaluacji wykorzystaj metryki <code class="docutils literal notranslate"><span class="pre">Precision</span></code>,  <code class="docutils literal notranslate"><span class="pre">Recall</span></code> i <code class="docutils literal notranslate"><span class="pre">F1</span></code> oraz zareportuj czas uczenia.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>c) <strong>(2 pkt)</strong> Zmień reprezentację tekstową pola <code class="docutils literal notranslate"><span class="pre">title</span></code>. Przeprowadź podobne kroki jak w punkcie <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">c)</span></code>, tylko zamiast ograniczania reprezentacji do 25 najczęstszych słów w zbiorze, wykorzystaj metodę <code class="docutils literal notranslate"><span class="pre">PCA</span></code>. Zareportuj pokrycie wariancji. Tak otrzymane cechy z <code class="docutils literal notranslate"><span class="pre">pca</span></code> dodaj do zbioru uczącego. Przeucz model i dokonaj porównania. Krótko podsumuj wyniki.</p>
-</div>
-<div class="section" id="pkt-selekcja-cech">
-<h2>4. (2 pkt) Selekcja cech<a class="headerlink" href="#pkt-selekcja-cech" title="Permalink to this headline">¶</a></h2>
-<p>Dokonaj selekcji cech modelu. Do dalszego przetwarzania wybierz model z punktu <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">c)</span></code> oferujący lepszą wartość metryki F1. Do wybrania odpowiedniego podzbioru cech wykorzystaj bibliotekę <code class="docutils literal notranslate"><span class="pre">shap</span></code>. Dokonaj przeuczenia modelu. Porównaj wyniki i czas obliczeń do modelu wykorzystującego cały zbiór cech.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="dodatkowe-1-pkt">
-<h2>Dodatkowe (+1 pkt)<a class="headerlink" href="#dodatkowe-1-pkt" title="Permalink to this headline">¶</a></h2>
-<p>Wykorzystaj bibliotekę featuretoools do procesu ekstrakcji cech lub inną bibliotekę automatycznej ekstrakcji cech</p>
+<div class="section" id="wnioski">
+<h2>Wnioski<a class="headerlink" href="#wnioski" title="Permalink to this headline">¶</a></h2>
+<p><strong>(1 pkt)</strong> Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu?</p>
 </div>
 </div>
 
