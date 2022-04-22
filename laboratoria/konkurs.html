@@ -1,0 +1,682 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KONKURS &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="L5: Uczenie maszynowe II" href="lab5-uczenie-maszynowe-2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratoria
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab1-zasady.html">
+   L1: Zasady laboratorium
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab1-przygotowanie-srodowiska.html">
+   L1: Przygotowanie środowiska
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2-podstawowe-biblioteki.html">
+   L2: Podstawowe biblioteki do odkrywania wiedzy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3-analiza-zbioru-danych.html">
+   L3: Analiza eksploracyjna zbioru danych
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4-tworzenie-modeli.html">
+   L4: Tworzenie modeli uczenia maszynowego
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab5-uczenie-maszynowe-2.html">
+   L5: Uczenie maszynowe II
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   KONKURS
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/laboratoria/konkurs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/laboratoria/konkurs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regulamin">
+   Regulamin
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zgloszenia-rozwiazania">
+   Zgłoszenia rozwiązania
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metryka">
+   Metryka
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tablica-wynikow">
+   Tablica wyników
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zbior-danych">
+   Zbiór danych
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#podzial-zbioru">
+     Podział zbioru
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kolumny-w-zbiorze-danych">
+     Kolumny w zbiorze danych
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raport-z-pandas-profiling-zbioru-uczacego">
+     Raport z Pandas Profiling zbioru uczącego
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kod-biblioteki-pdiow-challenge">
+   Kod biblioteki pdiow-challenge
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pobieranie-i-wczytywanie-zbioru-danych">
+     Pobieranie i wczytywanie zbioru danych
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#podzbiory-danych">
+     Podzbiory danych
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformacje-danych">
+     Transformacje danych
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uczenie-modelu-i-ewaluacja">
+     Uczenie modelu i ewaluacja
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#przygotowanie-pliku-zgloszeniowego">
+     Przygotowanie pliku zgłoszeniowego
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../_images/banner.png" /><figcaption style="text-align: right; font-size:9px"><a href="https://pixabay.com/service/license/">Na licencji Pixabay</a></figcaption></p>
+<div class="section" id="konkurs">
+<h1>KONKURS<a class="headerlink" href="#konkurs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="regulamin">
+<h2>Regulamin<a class="headerlink" href="#regulamin" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Konkurs jest realizowany z wykorzystaniem platform Kaggle i Github Classroom</p></li>
+<li><p>Każdy student może posiadać tylko jedno konto użytkownika na platformie Kaggle biorące udział w konkursie.</p></li>
+<li><p>Można przyjąć dowolną nazwę użytkownika za wyjątkiem obraźliwych lub narusząjących dobra osobiste. Nazwa użytkownika biorąca udział w konkursie powinna być wpisana do pliku <a class="reference external" href="http://README.md">README.md</a> w przesłanym zadaniu na platformie Github Classroom.</p></li>
+<li><p>Obowiązuje zakaz dzielenia się kodu z pozostałymi uczestnikami konkursu</p></li>
+<li><p>Można wysłać maksymalnie 15 zgłoszeń konkursowych dziennie do ewaluacji</p></li>
+<li><p>Można wybrać tylko jedno zgłoszenie do końcowej oceny</p></li>
+<li><p>Konkurs trwa od XXX do XXX</p></li>
+<li><p>Każda próba oszustwa (manipulacje na zbiorze danych, współdzielenie kodu itp.) będzie wiązała się z usunięciem z uczestinctwa i otrzymaniem 0 pkt za ostatnie zadanie</p></li>
+<li><p>Zgłoszenie jest uznawane za poprawne, jeżeli zajdą wszystkie poniższe punkty:</p>
+<ul class="simple">
+<li><p>Wysłanie pliku csv z wynikami predykcji na zbiorze testowym na platformę Kaggle</p></li>
+<li><p>Osiągnięcie na tablicy publicznej (public) wyniku przekraczające XXX uśrednionej metryki f1-score</p></li>
+<li><p>Zamieszczenie na platformie Github Classroom kodu rozwiązania wraz z wysłanym plikiem submission</p></li>
+</ul>
+</li>
+<li><p>Poprawne zgłoszenie konkursowe student otrzyma 13 pkt za zadanie.</p></li>
+<li><p>Student otrzyma 25 pkt (pełna punktacja) za zgłoszenie, którego wynik ewaluacji na publicznej tablicy wyników (public leaderboard) wyniesie więcej niż XXX</p></li>
+<li><p>Trójka studentów, która znajdzie się w TOP 3 na prywatnej tablicy wyników, otrzyma 5 punktów dodatkowych do oceny z laboratorium. Osoby te będą poproszone na ostatnich zajęciach o krótkie zaprezentowanie rozwiązania. Nie obowiązuje tutaj podział na grupy, brany jest wynik obejmujący wszystkie grupy laboratoryjne.</p></li>
+</ol>
+</div>
+<div class="section" id="zgloszenia-rozwiazania">
+<h2>Zgłoszenia rozwiązania<a class="headerlink" href="#zgloszenia-rozwiazania" title="Permalink to this headline">¶</a></h2>
+<p>Pliki zgłoszeniowe powinny mieć dwie kolumny i być w formacie csv:</p>
+<ul class="simple">
+<li><p>Id - identyfikator przypadku ze zbioru uczącego</p></li>
+<li><p>Predicted - Predykowana klasa</p></li>
+</ul>
+<p>Przykładowy plik rozwiązania:</p>
+<div class="highlight-csv notranslate"><div class="highlight"><pre><span></span>Id,Predicted
+1, 1
+2, 0
+3, 0
+4, 1
+5, 1
+6, 0
+etc.
+</pre></div>
+</div>
+</div>
+<div class="section" id="metryka">
+<h2>Metryka<a class="headerlink" href="#metryka" title="Permalink to this headline">¶</a></h2>
+<p>Zgłoszenie jest rankingowane na podstawie uśrednionej metryki <code class="docutils literal notranslate"><span class="pre">f1-score</span></code> (typ uśrednienia: <code class="docutils literal notranslate"><span class="pre">micro</span></code>)</p>
+</div>
+<div class="section" id="tablica-wynikow">
+<h2>Tablica wyników<a class="headerlink" href="#tablica-wynikow" title="Permalink to this headline">¶</a></h2>
+<p>Podczas realizacji konkursu będą dostępne dwie tablice wyników:</p>
+<ul class="simple">
+<li><p>Publiczna, dostępna od momentu uruchomienia konkursu. Każdy uczestnik będzie mógł podejrzeć aktualne miejsce w rankingu i uzyskany wynik. Wyniki predykcji będą ewaluowane z wykorzystaniem 30% zbioru testowego.</p></li>
+<li><p>Prywatna, dostępna po zakończenia konkursu. Każdy uczestnik, będzie mógł podejrzeć aktualne miejsce i uzyskany wynik dopiero po zakończeniu konkursu. Wyniki predykcji będą ewaluowane z wykorzystaniem 70% zbioru testowego.</p></li>
+</ul>
+<p>W związku z tym, że ewaluacja w ramach danej tablicy wyników dokonywana jest na innej próbce danych, miejsce rankingowe może ulec zmianie.
+Podział danych na tablice publiczną i prywatną jest niejawny i ewaluacja wyników następuje po stronie platofrmy Kaggle</p>
+</div>
+<div class="section" id="zbior-danych">
+<h2>Zbiór danych<a class="headerlink" href="#zbior-danych" title="Permalink to this headline">¶</a></h2>
+<p>Zbiór danych tworzy lista projektów realizowanych z Funduszy Europejskich w Polsce w latach 2014-2020. Zbiór danych został wcześniej oczyszczony i wybrano podzbiór <strong>15</strong> cech. Cecha wyjściowa składa się z dwóch klas i z powodu prowadzenia konkursu została utajniona.</p>
+<div class="section" id="podzial-zbioru">
+<h3>Podział zbioru<a class="headerlink" href="#podzial-zbioru" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Podzbiór</p></th>
+<th class="head"><p>Liczba przypadków</p></th>
+<th class="head"><p>Czy podzbiór można modyfikować podzbiór</p></th>
+<th class="head"><p>Czy posiada etykiety</p></th>
+<th class="head"><p>Liczba przypadków klasy 0</p></th>
+<th class="head"><p>Liczba przypadków klasy 1</p></th>
+<th class="head"><p>Rozkład klas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Uczący (train)</p></td>
+<td><p>46800</p></td>
+<td><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
+<td><p>21857</p></td>
+<td><p>24943</p></td>
+<td><p>0.467 / 0.533</p></td>
+</tr>
+<tr class="row-odd"><td><p>Walidacyjny (dev)</p></td>
+<td><p>15600</p></td>
+<td><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\surd\)</span></p></td>
+<td><p>7320</p></td>
+<td><p>8280</p></td>
+<td><p>0.469 / 0.531</p></td>
+</tr>
+<tr class="row-even"><td><p>Testowy (test)</p></td>
+<td><p>15600</p></td>
+<td><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\times\)</span></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../pdiow-challenge/&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pdiow.dataset</span> <span class="kn">import</span> <span class="n">PDIOWChallengeDatasetLoader</span>
+<span class="kn">from</span> <span class="nn">pandas_profiling</span> <span class="kn">import</span> <span class="n">ProfileReport</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">PDIOWChallengeDatasetLoader</span><span class="p">(</span><span class="s2">&quot;../../pdiow-challenge/dataset/&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">x_train</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">y_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">bf91d5e864ee</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../../pdiow-challenge/&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">pdiow.dataset</span> <span class="kn">import</span> <span class="n">PDIOWChallengeDatasetLoader</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">pandas_profiling</span> <span class="kn">import</span> <span class="n">ProfileReport</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pdiow&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kolumny-w-zbiorze-danych">
+<h3>Kolumny w zbiorze danych<a class="headerlink" href="#kolumny-w-zbiorze-danych" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nazwa</p></th>
+<th class="head"><p>Opis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>title</p></td>
+<td><p>Tytuł projektu</p></td>
+</tr>
+<tr class="row-odd"><td><p>description</p></td>
+<td><p>Skrócony opis do 2000 znaków</p></td>
+</tr>
+<tr class="row-even"><td><p>beneficiary_name</p></td>
+<td><p>Nazwa beneficjenta</p></td>
+</tr>
+<tr class="row-odd"><td><p>fund</p></td>
+<td><p>Fundusz</p></td>
+</tr>
+<tr class="row-even"><td><p>programme</p></td>
+<td><p>Program</p></td>
+</tr>
+<tr class="row-odd"><td><p>eu_financial_rate</p></td>
+<td><p>Poziom unijnego dofinansowania w procentach w %</p></td>
+</tr>
+<tr class="row-even"><td><p>finance_form</p></td>
+<td><p>Forma finansowania</p></td>
+</tr>
+<tr class="row-odd"><td><p>territory_type</p></td>
+<td><p>Typ obszaru, na którym realizowany jest projekt</p></td>
+</tr>
+<tr class="row-even"><td><p>start_date</p></td>
+<td><p>Data rozpoczęcia realizacji projektu</p></td>
+</tr>
+<tr class="row-odd"><td><p>end_date</p></td>
+<td><p>Data zakończenia realizacji projektu</p></td>
+</tr>
+<tr class="row-even"><td><p>competitive_procedure</p></td>
+<td><p>Projekt konkursowy czy pozakonkursowy</p></td>
+</tr>
+<tr class="row-odd"><td><p>economic_activity_area</p></td>
+<td><p>Dziedzina działalności gospodarczej, której dotyczy projekt</p></td>
+</tr>
+<tr class="row-even"><td><p>project_thematic_objective</p></td>
+<td><p>Cel projektu</p></td>
+</tr>
+<tr class="row-odd"><td><p>area_of_project_intervention</p></td>
+<td><p>Obszar wsparcia projektu</p></td>
+</tr>
+<tr class="row-even"><td><p>teritorial_delivery_mechanism</p></td>
+<td><p>Projekt realizowany w ramach terytorialnych mechanizmów wdrażania</p></td>
+</tr>
+<tr class="row-odd"><td><p>y</p></td>
+<td><p>brak*</p></td>
+</tr>
+</tbody>
+</table>
+<p>*Opis będzie przedstawiony na ostatnich zajęciach</p>
+</div>
+<div class="section" id="raport-z-pandas-profiling-zbioru-uczacego">
+<h3>Raport z Pandas Profiling zbioru uczącego<a class="headerlink" href="#raport-z-pandas-profiling-zbioru-uczacego" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">report</span> <span class="o">=</span> <span class="n">ProfileReport</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">to_notebook_iframe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">d788210d3d88</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">report</span> <span class="o">=</span> <span class="n">ProfileReport</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">report</span><span class="o">.</span><span class="n">to_notebook_iframe</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;ProfileReport&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kod-biblioteki-pdiow-challenge">
+<h2>Kod biblioteki pdiow-challenge<a class="headerlink" href="#kod-biblioteki-pdiow-challenge" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Wykorzystanie i adaptowanie interfejsów zdefiniowanych w bibliotece jest opcjonalne. Ma ułatwić pracę, niż tworzyć wymóg jej stosowania.</p>
+<p>Jedyna funkcjonalność która nie powinna być zmieniona, jest ta dotycząca przygotowania pliku zgłoszeniowego</p>
+</div>
+<div class="section" id="pobieranie-i-wczytywanie-zbioru-danych">
+<h3>Pobieranie i wczytywanie zbioru danych<a class="headerlink" href="#pobieranie-i-wczytywanie-zbioru-danych" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pdiow.dataset</span> <span class="kn">import</span> <span class="n">PDIOWChallengeDatasetLoader</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">PDIOWChallengeDatasetLoader</span><span class="p">()</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="podzbiory-danych">
+<h3>Podzbiory danych<a class="headerlink" href="#podzbiory-danych" title="Permalink to this headline">¶</a></h3>
+<p>W ramach ułatwienia prototypowania modeli można ograniczyć przypadków w zbiorze wykorzystując metodę <code class="docutils literal notranslate"><span class="pre">subsample()</span></code>, która ogranicza rozmiar zbioru do zadanego procentu.</p>
+<p><strong>Przykład</strong>: Ograniczenie zbioru do 10%</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">subsample</span><span class="p">(</span><span class="n">sample_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transformacje-danych">
+<h3>Transformacje danych<a class="headerlink" href="#transformacje-danych" title="Permalink to this headline">¶</a></h3>
+<p>Przygotowany został szablon, który można wykorzystać w celu łatwego zaadaptowania transformacji danych.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Transformation</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">:</span> <span class="n">PDIOWChallangeDataset</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span>
+        
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PDIOWChallangeDataset</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">X_train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">X_train</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">X_dev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">X_dev</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">X_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">X_test</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span>
+</pre></div>
+</div>
+<p>Pozwala na zdefiniowanie transformacji, ich definicja i zastosowania na zbiorze uczącym, a w końcowym kroku dokonuje transformacji na zbiorach walidacyjnym i testowym</p>
+</div>
+<div class="section" id="uczenie-modelu-i-ewaluacja">
+<h3>Uczenie modelu i ewaluacja<a class="headerlink" href="#uczenie-modelu-i-ewaluacja" title="Permalink to this headline">¶</a></h3>
+<p>Przygotowany również został szablon do uczenia modeli i jego ewaluacji, który obejmuję implementację metod jak <a class="reference external" href="http://m.in">m.in</a>. <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code>, <code class="docutils literal notranslate"><span class="pre">evaluate</span></code>. Parametrami Modelu jest zainicjalizowany klasyfikator oraz zbiór danych.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClassificationModel</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classifier</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">dataset</span><span class="p">:</span> <span class="n">PDIOWChallengeDataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">classifier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_model</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_validate_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fit</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;fit&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">fit</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Given model has not fit method!&quot;</span><span class="p">)</span>
+
+        <span class="n">predict</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;predict&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">predict</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Given model has not predict method!&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">x_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y_train</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">x_test</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Evaluator</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y_dev</span><span class="p">,</span>
+            <span class="n">y_pred</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">x_dev</span><span class="p">),</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">evaluate_cv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">splits</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">CVEvaluator</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classifier</span><span class="p">,</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">x_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">x_dev</span><span class="p">],</span>
+                <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">Y</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y_dev</span><span class="p">],</span>
+                <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">splits</span><span class="o">=</span><span class="n">splits</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">fit_evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">create_submission_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">create_submission_file</span><span class="p">(</span><span class="n">y_pred</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(),</span> <span class="n">filepath</span><span class="o">=</span><span class="n">filepath</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ewaluację modelu możemy przeprowadzić na dwa sposoby:</p>
+<ul class="simple">
+<li><p>standardowy wykorzystując metodę <code class="docutils literal notranslate"><span class="pre">fit_evaluate()</span></code> i zbiór walidacyjny</p></li>
+<li><p>lub metodę <code class="docutils literal notranslate"><span class="pre">evaluate_cv()</span></code>, która łączy zbiory uczący i walidacyjny i dokonuje walidacji krzyżową.</p></li>
+</ul>
+</div>
+<div class="section" id="przygotowanie-pliku-zgloszeniowego">
+<h3>Przygotowanie pliku zgłoszeniowego<a class="headerlink" href="#przygotowanie-pliku-zgloszeniowego" title="Permalink to this headline">¶</a></h3>
+<p>Do przygotowania pliku zgłoszeniowego można wykorzystać metodę <code class="docutils literal notranslate"><span class="pre">create_submission_file</span></code> w <code class="docutils literal notranslate"><span class="pre">ClassificationModel</span></code>  lub funkcji <code class="docutils literal notranslate"><span class="pre">create_submission_file</span></code> umieszczonej w module <code class="docutils literal notranslate"><span class="pre">pdiow.submission</span></code>.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./laboratoria"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="lab5-uczenie-maszynowe-2.html" title="previous page">L5: Uczenie maszynowe II</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
