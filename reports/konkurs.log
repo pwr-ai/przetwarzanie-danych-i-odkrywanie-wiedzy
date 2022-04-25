@@ -18,7 +18,8 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 import sys
-sys.path.append('../../pdiow-challenge/')
+
+sys.path.append("../../pdiow-challenge/")
 
 from pdiow.dataset import PDIOWChallengeDatasetLoader
 from pandas_profiling import ProfileReport
@@ -30,12 +31,12 @@ df["target"] = ds.y_train
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mImportError[0m                               Traceback (most recent call last)
-[0;32m<ipython-input-1-83eecd22bfd4>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0msys[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m'../../pdiow-challenge/'[0m[0;34m)[0m[0;34m[0m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[0;32m----> 4[0;31m [0;32mfrom[0m [0mpdiow[0m[0;34m.[0m[0mdataset[0m [0;32mimport[0m [0mPDIOWChallengeDatasetLoader[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0;32mfrom[0m [0mpandas_profiling[0m [0;32mimport[0m [0mProfileReport[0m[0;34m[0m[0m
-[1;32m      6[0m [0;34m[0m[0m
+[0;32m<ipython-input-1-0efc509157e9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0msys[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0;34m"../../pdiow-challenge/"[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[0;32m----> 5[0;31m [0;32mfrom[0m [0mpdiow[0m[0;34m.[0m[0mdataset[0m [0;32mimport[0m [0mPDIOWChallengeDatasetLoader[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0;32mfrom[0m [0mpandas_profiling[0m [0;32mimport[0m [0mProfileReport[0m[0;34m[0m[0m
+[1;32m      7[0m [0;34m[0m[0m
 
 [0;32m~/work/zajecia/pdiow-challenge/pdiow/__init__.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m from . import (

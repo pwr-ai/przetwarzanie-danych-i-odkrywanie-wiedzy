@@ -308,17 +308,17 @@
 <li><p>Obowiązuje zakaz dzielenia się kodu z pozostałymi uczestnikami konkursu</p></li>
 <li><p>Można wysłać maksymalnie 15 zgłoszeń konkursowych dziennie do ewaluacji</p></li>
 <li><p>Można wybrać tylko jedno zgłoszenie do końcowej oceny</p></li>
-<li><p>Konkurs trwa od XXX do XXX</p></li>
+<li><p>Konkurs trwa od 2022.04.27 do 2022.06.09</p></li>
 <li><p>Każda próba oszustwa (manipulacje na zbiorze danych, współdzielenie kodu itp.) będzie wiązała się z usunięciem z uczestinctwa i otrzymaniem 0 pkt za ostatnie zadanie</p></li>
 <li><p>Zgłoszenie jest uznawane za poprawne, jeżeli zajdą wszystkie poniższe punkty:</p>
 <ul class="simple">
 <li><p>Wysłanie pliku csv z wynikami predykcji na zbiorze testowym na platformę Kaggle</p></li>
-<li><p>Osiągnięcie na tablicy publicznej (public) wyniku przekraczające XXX uśrednionej metryki f1-score</p></li>
+<li><p>Osiągnięcie na tablicy publicznej (public) wyniku przekraczające 0.7 uśrednionej metryki f1-score</p></li>
 <li><p>Zamieszczenie na platformie Github Classroom kodu rozwiązania wraz z wysłanym plikiem submission</p></li>
 </ul>
 </li>
-<li><p>Poprawne zgłoszenie konkursowe student otrzyma 13 pkt za zadanie.</p></li>
-<li><p>Student otrzyma 25 pkt (pełna punktacja) za zgłoszenie, którego wynik ewaluacji na publicznej tablicy wyników (public leaderboard) wyniesie więcej niż XXX</p></li>
+<li><p>Za poprawne zgłoszenie konkursowe student otrzyma 13 pkt za zadanie.</p></li>
+<li><p>Student otrzyma 25 pkt (pełna punktacja) za zgłoszenie, którego wynik ewaluacji na publicznej tablicy wyników (public leaderboard) wyniesie więcej niż 0.8</p></li>
 <li><p>Trójka studentów, która znajdzie się w TOP 3 na prywatnej tablicy wyników, otrzyma 5 punktów dodatkowych do oceny z laboratorium. Osoby te będą poproszone na ostatnich zajęciach o krótkie zaprezentowanie rozwiązania. Nie obowiązuje tutaj podział na grupy, brany jest wynik obejmujący wszystkie grupy laboratoryjne.</p></li>
 </ol>
 </div>
@@ -398,10 +398,9 @@ Podział danych na tablice publiczną i prywatną jest niejawny i ewaluacja wyni
 </tr>
 </tbody>
 </table>
-<div class="cell tag_hide-cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../pdiow-challenge/&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../pdiow-challenge/&quot;</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">pdiow.dataset</span> <span class="kn">import</span> <span class="n">PDIOWChallengeDatasetLoader</span>
 <span class="kn">from</span> <span class="nn">pandas_profiling</span> <span class="kn">import</span> <span class="n">ProfileReport</span>
@@ -410,22 +409,6 @@ Podział danych na tablice publiczną i prywatną jest niejawny i ewaluacja wyni
 <span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">x_train</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">y_train</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">bf91d5e864ee</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../../pdiow-challenge/&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">pdiow.dataset</span> <span class="kn">import</span> <span class="n">PDIOWChallengeDatasetLoader</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">pandas_profiling</span> <span class="kn">import</span> <span class="n">ProfileReport</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pdiow&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="kolumny-w-zbiorze-danych">
@@ -491,24 +474,9 @@ Podział danych na tablice publiczną i prywatną jest niejawny i ewaluacja wyni
 </div>
 <div class="section" id="raport-z-pandas-profiling-zbioru-uczacego">
 <h3>Raport z Pandas Profiling zbioru uczącego<a class="headerlink" href="#raport-z-pandas-profiling-zbioru-uczacego" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">report</span> <span class="o">=</span> <span class="n">ProfileReport</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">report</span> <span class="o">=</span> <span class="n">ProfileReport</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">report</span><span class="o">.</span><span class="n">to_notebook_iframe</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">d788210d3d88</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">report</span> <span class="o">=</span> <span class="n">ProfileReport</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">report</span><span class="o">.</span><span class="n">to_notebook_iframe</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;ProfileReport&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
