@@ -127,6 +127,11 @@
    KONKURS
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../laboratoria/lab6-zarzadzanie-eksperymentami.html">
+   L5: Narzędzia zarządzania eksperymentami
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -211,28 +216,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-reorganizacja-rozwiazania-listy-4">
-   1. (3 pkt) Reorganizacja rozwiązania listy 4
+  <a class="reference internal nav-link" href="#tuning-hiperparametrow">
+   Tuning hiperparametrów
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-obsluga-mlflow">
-   2. (4 pkt) Obsługa MLflow
+  <a class="reference internal nav-link" href="#wektoryzacja-tekstu">
+   Wektoryzacja tekstu
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-obsluga-dvc">
-   3. (4 pkt)  Obsługa DVC
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-wykonanie-eksperymentow">
-   4. (3 pkt) Wykonanie eksperymentów
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-podsumowanie">
-   5. (1 pkt) Podsumowanie
+  <a class="reference internal nav-link" href="#wyjasnialnosc-modeli">
+   Wyjaśnialność modeli
   </a>
  </li>
 </ul>
@@ -248,35 +243,32 @@
                 
   <div class="section" id="zadania-lista-5">
 <h1>Zadania Lista 5<a class="headerlink" href="#zadania-lista-5" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="pkt-reorganizacja-rozwiazania-listy-4">
-<h2>1. (3 pkt) Reorganizacja rozwiązania listy 4<a class="headerlink" href="#pkt-reorganizacja-rozwiazania-listy-4" title="Permalink to this headline">¶</a></h2>
-<p>Dokanaj refaktoryzacji rozwiązania listy 4. Przedstaw poszczególne elementy rozwiązania w postaci osobnych skryptów.</p>
-<p>Do realizacji można wykorzystać zastosować następujący podział:</p>
+<div class="section" id="tuning-hiperparametrow">
+<h2>Tuning hiperparametrów<a class="headerlink" href="#tuning-hiperparametrow" title="Permalink to this headline">¶</a></h2>
+<p>Porównaj następujące metody optymalizacji parametrów modelu: <em>RandomSearch, GridSearch, HalvingGridSearch, HalvingRandomSearch</em></p>
+<p>a) (1 pkt) Opisz pokrótce ich działanie, możliwości i ograniczenia</p>
+<p>b) (2 pkt) Użyj ich i porównaj jakość najlepszego modelu oraz czas ich działania. Narysuj odpowiedni wykres</p>
+<p>c) (1 pkt) Podaj lub oszacuj ilość iteracji każdej z metod (tj. ilość stworzonych podczas działania modeli)</p>
+<p>d) (1 pkt) Podsumuj uzyskane wyniki. Wskaż twoim zdaniem najlepszą wykorzystaną metodę optymalizacji hiperparametrów. Wybór uzasadnij.</p>
+<p><br><br></p>
+</div>
+<div class="section" id="wektoryzacja-tekstu">
+<h2>Wektoryzacja tekstu<a class="headerlink" href="#wektoryzacja-tekstu" title="Permalink to this headline">¶</a></h2>
+<p>a) (2 pkt) Używając biblioteki Spacy, dokonaj preprocessingu danych tekstowych. Usuń z tekstu wszystkie elementy, które nie są nośnikami emocji.</p>
+<p>b) (5 pkt) Dokonaj wektoryzacji tak przetworzonego tekstu przy pomocy następujących metod:</p>
 <ul class="simple">
-<li><p>Czyszczenie danych</p></li>
-<li><p>Podział danych</p></li>
-<li><p>Ekstrakcja cech</p></li>
-<li><p>Ewaluacja modelu</p></li>
+<li><p>bag-of-words</p></li>
+<li><p>tf-idf</p></li>
+<li><p>word2vec</p></li>
 </ul>
-<p>Podczas refaktoryzacji pomiń elementy związane z <code class="docutils literal notranslate"><span class="pre">pandas.profiling</span></code>, <code class="docutils literal notranslate"><span class="pre">shap</span></code> i uruchomienia modelu na podzbiorze cech. Skrypty umieść w folderze <code class="docutils literal notranslate"><span class="pre">scripts</span></code>, parametry w pliku <code class="docutils literal notranslate"><span class="pre">params.yaml</span></code>, a pliki wyjściowe w folderze <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
-<p><strong>UWAGA</strong>
-W celu przyśpieszenia obliczeń można wykorzystać podzbiór zbioru danych lub ograniczyć dane etapy np. podzbiorem cech.</p>
+<p>Wyucz klasyfikator używając każdej z nich. Porównaj wyniki i spróbuj uzasadnić różnice w jakości.</p>
+<p><br><br></p>
 </div>
-<div class="section" id="pkt-obsluga-mlflow">
-<h2>2. (4 pkt) Obsługa MLflow<a class="headerlink" href="#pkt-obsluga-mlflow" title="Permalink to this headline">¶</a></h2>
-<p>Do skryptu przeznaczonego do ewaluacji modelu dodaj obsługę <code class="docutils literal notranslate"><span class="pre">MLflow</span></code>. Przekaż odpowiednie parametry i metryki. Dodaj wykres macierzy pomyłek dla zbioru uczącego i testowego. Dodaj etap badania istotności cech i przekaż wykresy do <code class="docutils literal notranslate"><span class="pre">MLFlow</span></code>. <em>(Można ograniczyć się do dodania jednego wykresu podsumowującego np. <code class="docutils literal notranslate"><span class="pre">beeswarm</span></code>)</em></p>
-</div>
-<div class="section" id="pkt-obsluga-dvc">
-<h2>3. (4 pkt)  Obsługa DVC<a class="headerlink" href="#pkt-obsluga-dvc" title="Permalink to this headline">¶</a></h2>
-<p>Dodaj przygotowane skrypty jako elementy potoku <code class="docutils literal notranslate"><span class="pre">DVC</span></code>, zdefiniuj odpowiednie parametry i zależności. Dodaj metryki do trackowania. Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. Oznacz końcowy <code class="docutils literal notranslate"><span class="pre">commit</span></code> tagiem <code class="docutils literal notranslate"><span class="pre">initial_pipeline</span></code></p>
-</div>
-<div class="section" id="pkt-wykonanie-eksperymentow">
-<h2>4. (3 pkt) Wykonanie eksperymentów<a class="headerlink" href="#pkt-wykonanie-eksperymentow" title="Permalink to this headline">¶</a></h2>
-<p>Dodaj możliwość wybrania modelu w konfiguracji. Dodaj wsparcie dla modeli [<code class="docutils literal notranslate"><span class="pre">LightGBM</span></code>].(<a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/">https://lightgbm.readthedocs.io/en/latest/</a>) i <a class="reference external" href="https://github.com/catboost/catboost"><code class="docutils literal notranslate"><span class="pre">Catboost</span></code></a> Dodaj logowanie tych modeli do mlflow. Wykorzystaj api <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span></code> do porównania modeli.</p>
-</div>
-<div class="section" id="pkt-podsumowanie">
-<h2>5. (1 pkt) Podsumowanie<a class="headerlink" href="#pkt-podsumowanie" title="Permalink to this headline">¶</a></h2>
-<p>Napisz podsumowanie dokanych eksperymentów w pliku <code class="docutils literal notranslate"><span class="pre">SOLUTION.md</span></code> lub <code class="docutils literal notranslate"><span class="pre">SOLUTION.ipynb</span></code>. Załącz wyjście polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span> <span class="pre">show</span></code>.  Zbadaj czy występują różnice w istototności cech pomiędzy różnymi modelami. Wskaż twoim zdaniem mocne i słabe strony zastosowania <code class="docutils literal notranslate"><span class="pre">dvc</span></code> i <code class="docutils literal notranslate"><span class="pre">mlflow</span></code>. Zdefiniuj twoim zdaniem elementy najbardziej problematyczne i czasochłonne.</p>
+<div class="section" id="wyjasnialnosc-modeli">
+<h2>Wyjaśnialność modeli<a class="headerlink" href="#wyjasnialnosc-modeli" title="Permalink to this headline">¶</a></h2>
+<p>a) (1 pkt) Używając metody SHAP, przeanalizuj wyniki jednego z uprzednio stworzonych klasyfikatorów.</p>
+<p>b) (1.5 pkt) Zweryfikuj, które cechy wpływają na ocenę sentymentu pozytywnie, a które negatywnie.</p>
+<p>c) (1.5 pkt) Przeanalizuj dokładnie kilka błędnych zaklasyfikoawanych przykładów, sprawdzając, co w ich przypadku spowodowało błąd</p>
 </div>
 </div>
 
