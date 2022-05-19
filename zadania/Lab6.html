@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zadania Lista 5 &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>Zadania Lista 6 &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -129,7 +129,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../laboratoria/lab6-zarzadzanie-eksperymentami.html">
-   L5: Narzędzia zarządzania eksperymentami
+   L6: Narzędzia zarządzania eksperymentami
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../laboratoria/lab7-produktyzacja.html">
+   L7: Produktyzacja procesów odkrywania wiedzy
   </a>
  </li>
 </ul>
@@ -216,13 +221,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pkt-reorganizacja-rozwiazania-listy-4">
-   1. (3 pkt) Reorganizacja rozwiązania listy 4
+  <a class="reference internal nav-link" href="#pkt-reorganizacja-rozwiazania-z-poprzednich-list">
+   1. (2 pkt) Reorganizacja rozwiązania z poprzednich list
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pkt-obsluga-mlflow">
-   2. (4 pkt) Obsługa MLflow
+   2. (3 pkt) Obsługa MLflow
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -251,37 +256,57 @@
         
               <div>
                 
-  <div class="section" id="zadania-lista-5">
-<h1>Zadania Lista 5<a class="headerlink" href="#zadania-lista-5" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="pkt-reorganizacja-rozwiazania-listy-4">
-<h2>1. (3 pkt) Reorganizacja rozwiązania listy 4<a class="headerlink" href="#pkt-reorganizacja-rozwiazania-listy-4" title="Permalink to this headline">¶</a></h2>
-<p>Dokanaj refaktoryzacji rozwiązania listy 4. Przedstaw poszczególne elementy rozwiązania w postaci osobnych skryptów.</p>
+  <div class="section" id="zadania-lista-6">
+<h1>Zadania Lista 6<a class="headerlink" href="#zadania-lista-6" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pkt-reorganizacja-rozwiazania-z-poprzednich-list">
+<h2>1. (2 pkt) Reorganizacja rozwiązania z poprzednich list<a class="headerlink" href="#pkt-reorganizacja-rozwiazania-z-poprzednich-list" title="Permalink to this headline">¶</a></h2>
+<p>Dokanaj refaktoryzacji rozwiązania listy 4 i 5 - przedstaw poszczególne elementy rozwiązania w postaci osobnych skryptów.</p>
 <p>Do realizacji można wykorzystać zastosować następujący podział:</p>
 <ul class="simple">
 <li><p>Czyszczenie danych</p></li>
 <li><p>Podział danych</p></li>
 <li><p>Ekstrakcja cech</p></li>
-<li><p>Ewaluacja modelu</p></li>
+<li><p>Uczenie i ewaluacja modelu</p></li>
 </ul>
-<p>Podczas refaktoryzacji pomiń elementy związane z <code class="docutils literal notranslate"><span class="pre">pandas.profiling</span></code>, <code class="docutils literal notranslate"><span class="pre">shap</span></code> i uruchomienia modelu na podzbiorze cech. Skrypty umieść w folderze <code class="docutils literal notranslate"><span class="pre">scripts</span></code>, parametry w pliku <code class="docutils literal notranslate"><span class="pre">params.yaml</span></code>, a pliki wyjściowe w folderze <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<p>Podczas refaktoryzacji pomiń elementy związane z <code class="docutils literal notranslate"><span class="pre">pandas.profiling</span></code> i warianty poszczególnych eksperymentów.</p>
+<p>Skrypty umieść w folderze <code class="docutils literal notranslate"><span class="pre">scripts</span></code>, parametry w pliku <code class="docutils literal notranslate"><span class="pre">params.yaml</span></code>, a pliki wyjściowe w folderze <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 <p><strong>UWAGA</strong>
 W celu przyśpieszenia obliczeń można wykorzystać podzbiór zbioru danych lub ograniczyć dane etapy np. podzbiorem cech.</p>
 </div>
 <div class="section" id="pkt-obsluga-mlflow">
-<h2>2. (4 pkt) Obsługa MLflow<a class="headerlink" href="#pkt-obsluga-mlflow" title="Permalink to this headline">¶</a></h2>
-<p>Do skryptu przeznaczonego do ewaluacji modelu dodaj obsługę <code class="docutils literal notranslate"><span class="pre">MLflow</span></code>. Przekaż odpowiednie parametry i metryki. Dodaj wykres macierzy pomyłek dla zbioru uczącego i testowego. Dodaj etap badania istotności cech i przekaż wykresy do <code class="docutils literal notranslate"><span class="pre">MLFlow</span></code>. <em>(Można ograniczyć się do dodania jednego wykresu podsumowującego np. <code class="docutils literal notranslate"><span class="pre">beeswarm</span></code>)</em></p>
+<h2>2. (3 pkt) Obsługa MLflow<a class="headerlink" href="#pkt-obsluga-mlflow" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Do skryptu przeznaczonego do ewaluacji modelu dodaj obsługę <code class="docutils literal notranslate"><span class="pre">MLflow</span></code>.</p></li>
+<li><p>Przekaż odpowiednie parametry i metryki.</p></li>
+<li><p>Dodaj wykres macierzy pomyłek dla zbioru uczącego i testowego.</p></li>
+</ul>
 </div>
 <div class="section" id="pkt-obsluga-dvc">
 <h2>3. (4 pkt)  Obsługa DVC<a class="headerlink" href="#pkt-obsluga-dvc" title="Permalink to this headline">¶</a></h2>
-<p>Dodaj przygotowane skrypty jako elementy potoku <code class="docutils literal notranslate"><span class="pre">DVC</span></code>, zdefiniuj odpowiednie parametry i zależności. Dodaj metryki do trackowania. Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. Oznacz końcowy <code class="docutils literal notranslate"><span class="pre">commit</span></code> tagiem <code class="docutils literal notranslate"><span class="pre">initial_pipeline</span></code></p>
+<ul class="simple">
+<li><p>Dodaj przygotowane skrypty jako elementy potoku <code class="docutils literal notranslate"><span class="pre">DVC</span></code>, zdefiniuj odpowiednie parametry i zależności.</p></li>
+<li><p>Dodaj metryki do trackowania.</p></li>
+<li><p>Zreprodukuj potok.</p></li>
+</ul>
 </div>
 <div class="section" id="pkt-wykonanie-eksperymentow">
 <h2>4. (3 pkt) Wykonanie eksperymentów<a class="headerlink" href="#pkt-wykonanie-eksperymentow" title="Permalink to this headline">¶</a></h2>
-<p>Dodaj możliwość wybrania modelu w konfiguracji. Dodaj wsparcie dla modeli [<code class="docutils literal notranslate"><span class="pre">LightGBM</span></code>].(<a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/">https://lightgbm.readthedocs.io/en/latest/</a>) i <a class="reference external" href="https://github.com/catboost/catboost"><code class="docutils literal notranslate"><span class="pre">Catboost</span></code></a> Dodaj logowanie tych modeli do mlflow. Wykorzystaj api <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span></code> do porównania modeli.</p>
+<ul class="simple">
+<li><p>Dodaj możliwość wybrania modelu w konfiguracji.</p></li>
+<li><p>Dodaj wsparcie dla modeli [<code class="docutils literal notranslate"><span class="pre">LightGBM</span></code>].(<a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/">https://lightgbm.readthedocs.io/en/latest/</a>) i <a class="reference external" href="https://github.com/catboost/catboost"><code class="docutils literal notranslate"><span class="pre">Catboost</span></code></a></p></li>
+<li><p>Dodaj logowanie tych parametrów do mlflow.</p></li>
+<li><p>Wykorzystaj api <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span></code> do porównania modeli.</p></li>
+<li><p>Załącz screen z MLFlow pokazujący przebieg eksperymentów</p></li>
+</ul>
 </div>
 <div class="section" id="pkt-podsumowanie">
 <h2>5. (1 pkt) Podsumowanie<a class="headerlink" href="#pkt-podsumowanie" title="Permalink to this headline">¶</a></h2>
-<p>Napisz podsumowanie dokanych eksperymentów w pliku <code class="docutils literal notranslate"><span class="pre">SOLUTION.md</span></code> lub <code class="docutils literal notranslate"><span class="pre">SOLUTION.ipynb</span></code>. Załącz wyjście polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span> <span class="pre">show</span></code>.  Zbadaj czy występują różnice w istototności cech pomiędzy różnymi modelami. Wskaż twoim zdaniem mocne i słabe strony zastosowania <code class="docutils literal notranslate"><span class="pre">dvc</span></code> i <code class="docutils literal notranslate"><span class="pre">mlflow</span></code>. Zdefiniuj twoim zdaniem elementy najbardziej problematyczne i czasochłonne.</p>
+<ul class="simple">
+<li><p>Napisz podsumowanie dokanych eksperymentów.</p></li>
+<li><p>Załącz wyjście polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span> <span class="pre">show</span></code>.</p></li>
+<li><p>Wskaż twoim zdaniem mocne i słabe strony zastosowania <code class="docutils literal notranslate"><span class="pre">dvc</span></code> i <code class="docutils literal notranslate"><span class="pre">mlflow</span></code>.</p></li>
+<li><p>Zdefiniuj twoim zdaniem elementy najbardziej problematyczne i czasochłonne.</p></li>
+</ul>
 </div>
 </div>
 
