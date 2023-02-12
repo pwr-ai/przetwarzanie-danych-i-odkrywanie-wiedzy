@@ -1,6 +1,6 @@
 # Book settings
 title: Przetwarzanie danych i odkrywanie wiedzy
-author: Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda
+author: Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak
 logo: docs/logo.png
 exclude_patterns: ["cache"]
 

@@ -1,6 +1,8 @@
 - file: README
   numbered: false
 
+# todo: change order
+
 - part: Laboratoria
   chapters:
   - file: laboratoria/lab1-zasady.ipynb
