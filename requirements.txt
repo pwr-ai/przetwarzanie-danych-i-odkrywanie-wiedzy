@@ -72,6 +72,7 @@ nbformat==5.1.2
 nest-asyncio==1.5.1
 nested-lookup==0.2.21
 networkx==2.5
+nltk==3.6.7
 notebook==6.2.0
 numba==0.52.0
 numpy
