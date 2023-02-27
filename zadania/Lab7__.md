@@ -1,4 +1,4 @@
-# Zadania Lista 7
+# Zadania Lista 7 (Work in progress)
 
 ## (5 pkt) 1. Zbuduj frontend aplikacji
 
