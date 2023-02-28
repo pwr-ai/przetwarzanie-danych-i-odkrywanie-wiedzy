@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zadania Lista 4 &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>Zadania Lista 4: Analiza eksploracyjna danych &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -108,28 +110,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab3-analiza-zbioru-danych.html">
-   L3: Analiza eksploracyjna zbioru danych
+  <a class="reference internal" href="../laboratoria/lab3-zarzadzanie-eksperymentami.html">
+   L3: Narzędzia zarządzania eksperymentami
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab4-tworzenie-modeli.html">
-   L4: Tworzenie modeli uczenia maszynowego
+  <a class="reference internal" href="../laboratoria/lab4-analiza-zbioru-danych.html">
+   L4: Analiza eksploracyjna zbioru danych
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab5-uczenie-maszynowe-2.html">
-   L5: Uczenie maszynowe II
+  <a class="reference internal" href="../laboratoria/lab5-tworzenie-modeli.html">
+   L5: Tworzenie modeli uczenia maszynowego
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/konkurs.html">
-   KONKURS
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab6-zarzadzanie-eksperymentami.html">
-   L6: Narzędzia zarządzania eksperymentami
+  <a class="reference internal" href="../laboratoria/lab6-uczenie-maszynowe-2.html">
+   L6: Uczenie maszynowe II
   </a>
  </li>
  <li class="toctree-l1">
@@ -221,28 +218,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uwagi-ogolne">
-   Uwagi ogólne
+  <a class="reference internal nav-link" href="#zadanie-1-1-pkt">
+   Zadanie 1 (1 pkt)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#czyszczenie-danych-i-przetwarzanie-wstepne">
-   Czyszczenie danych i przetwarzanie wstępne
+  <a class="reference internal nav-link" href="#zadanie-2-6-pkt">
+   Zadanie 2 (6 pkt)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uczenie-modelu">
-   Uczenie modelu
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-engineering">
-   Feature engineering
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wnioski">
-   Wnioski
+  <a class="reference internal nav-link" href="#zadanie-3-1-pkt">
+   Zadanie 3 (1 pkt)
   </a>
  </li>
 </ul>
@@ -256,48 +243,42 @@
         
               <div>
                 
-  <div class="section" id="zadania-lista-4">
-<h1>Zadania Lista 4<a class="headerlink" href="#zadania-lista-4" title="Permalink to this headline">¶</a></h1>
-<p>Celem listy jest budowa modelu klasyfikacji sentymentu, używając poznanego już zbioru wpisów internetowych nt. Cyberpunka.</p>
-<div class="section" id="uwagi-ogolne">
-<h2>Uwagi ogólne<a class="headerlink" href="#uwagi-ogolne" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Dokonując analizy modelu zawsze wykonuj cross-walidację</p></li>
-<li><p>Stosuj potoki przetwarzania sklearn, jeśli to możliwe</p></li>
-</ol>
-</div>
-<div class="section" id="czyszczenie-danych-i-przetwarzanie-wstepne">
-<h2>Czyszczenie danych i przetwarzanie wstępne<a class="headerlink" href="#czyszczenie-danych-i-przetwarzanie-wstepne" title="Permalink to this headline">¶</a></h2>
-<p>a) <strong>(1 pkt)</strong> Rozwiąż kwestię brakujących wartości - bazując na wykonanej EDA, uzupełnij brakujące wartości, usuń przypadki z brakującymi wartościami lub usuń kolumny zawierające brakujące wartości.</p>
-<p>b) <strong>(1 pkt)</strong> Zakoduj zmienne kategoryczne</p>
-<p>c) <strong>(1 pkt)</strong> Przeskaluj zmienne numeryczne</p>
-<p>d) <strong>(2 pkt)</strong> Dokonaj standardowego czyszczenia danych tekstowych - usuń URLe, mentiony użytkowników (tj. <code class="docutils literal notranslate"><span class="pre">&#64;xaru</span></code>) oraz znak hasha z hashtagów, jeśli występują w tekście</p>
-<p>e) <strong>(1 pkt)</strong> Dokonaj wektoryzacji danych tekstowych metodą BoW</p>
-</div>
-<div class="section" id="uczenie-modelu">
-<h2>Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Permalink to this headline">¶</a></h2>
-<p><strong>(5 pkt)</strong> Wytrenuj i porównaj dwa klasyczne algorytmy ML - SVM i Random Forest.</p>
-<p>Przeprowadź następujące eksperymenty:</p>
+  <div class="section" id="zadania-lista-4-analiza-eksploracyjna-danych">
+<h1>Zadania Lista 4: Analiza eksploracyjna danych<a class="headerlink" href="#zadania-lista-4-analiza-eksploracyjna-danych" title="Permalink to this headline">¶</a></h1>
+<p><strong>Wymagania</strong></p>
 <ul class="simple">
-<li><p>użyj tylko danych tekstowych</p></li>
-<li><p>użyj pozostałych danych oprócz tekstowych</p></li>
-<li><p>użyj wszystkich danych</p></li>
+<li><p>Końcową komendę <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> należy uruchomić korzystając ze środowiska w kontenerze Docker.</p></li>
 </ul>
-<p>Zaraportuj metryki klasyfikacji. Jak możesz je interpretować? Który algorytm lepiej sobie radzi w tym przypadku? Które cechy pozwalają najlepiej predykować sentyment? Zastanów się, dlaczego?</p>
+<div class="section" id="zadanie-1-1-pkt">
+<h2>Zadanie 1 (1 pkt)<a class="headerlink" href="#zadanie-1-1-pkt" title="Permalink to this headline">¶</a></h2>
+<p>Skonstruuj co najmniej 3 dodatkowe cechy na podstawie danych oraz wiedzy dziedzinowej i umieść je jako osobne kolumny. Cechy nie powinny pochodzić wyłącznie z tekstu. Przykładem takiej cechy może być długość tekstu.</p>
 </div>
-<div class="section" id="feature-engineering">
-<h2>Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
-<p><strong>(5 pkt)</strong> Bazując na przeprowadzonej EDA, dokonaj inżynierii cech w celu polepszenia wyników z poprzedniego zadania:</p>
+<div class="section" id="zadanie-2-6-pkt">
+<h2>Zadanie 2 (6 pkt)<a class="headerlink" href="#zadanie-2-6-pkt" title="Permalink to this headline">¶</a></h2>
+<p>Celem zadania jest dokonanie analizy eksploracyjnej (EDA) zadanego zbioru danych, pod kątem zastosowania do treningu modelu sentymentu, przy pomocy poznanych narzędzi.</p>
+<p>Na podstawie danych numerycznych/kategorycznych postaraj się odpowiedzieć na następujące pytania (jednak nie ograniczaj się jedynie do odpowiedzi na nie):</p>
 <ul class="simple">
-<li><p>użyj metod selekcji cech</p></li>
-<li><p>użyj metod redukcji wymiarowości</p></li>
-<li><p>zaproponuj nowe cechy, bazując na wiedzy domenowej którą uzyskałeś</p></li>
+<li><p>ile znajduje się w zbiorze cech kategorycznych, a ile numerycznych?</p></li>
+<li><p>czy zmienna wyjściowa jest kategoryczna, czy numeryczna?</p></li>
+<li><p>czy i ile w zbiorze jest brakujących wartości? Dla jakich zmiennych? Co z tego wynika?</p></li>
+<li><p>czy któreś z cech są skorelowane? Co z tego może wynikać?</p></li>
+<li><p>czy któraś z cech koreluje ze zmienną wyjściową? Jeśli tak - która? Czy któraś nie koreluje?</p></li>
+<li><p>czy zbiór danych wydaje się być wystarczająco informacyjny by rozwiązać zadanie analizy sentymentu?</p></li>
 </ul>
-<p>Wykonaj kilka iteracji i eksperymentów, sprawdź, jakie kombinacje metod/cech pozwalają poprawić rezultaty, a jakie nie. Jak sądzisz, dlaczego?</p>
+<p>Zbadaj również dane tekstowe:</p>
+<ul class="simple">
+<li><p>czy któreś ze słów wydają się dominować w zbiorze?</p></li>
+<li><p>czy najpopularniejsze słowa różnią się znacząco pomiędzy klasami? Czy potrafisz wyróżnić słowa mogące wpływać w znaczym stopniu na sentyment?</p></li>
+<li><p>jaka jest charakterystyka tekstu (np. długość, czystość)?</p></li>
+</ul>
+<p>Opisz swoje ciekawe spostrzeżenia co do danych. Spróbuj na podstawie uzyskanych informacji zarekomendować dalsze działania w zakresie posiadanej wiedzy.</p>
+<p>Rezultatem pracy niech będzie prosty, krótki raport podsumowujący wiedzę, którą udało się uzyskać z EDA. Powinien zawierać sedno analiz i najważniejsze wnioski które udało się uzyskać. Raport powinien być w formacie Jupyter Notebook’a.</p>
+<p>Co do formuły raportu - załóż, że pracujesz w dziale R&amp;D renomowanej firmy i musisz przygotować krótkie streszczenie wiedzy dla swojego przełożonego, by mógł on podjąć decyzje o dalszych etapach prac. <strong>Krótko, treściwie, same konkrety, wnioski i rekomendacje</strong> :)</p>
 </div>
-<div class="section" id="wnioski">
-<h2>Wnioski<a class="headerlink" href="#wnioski" title="Permalink to this headline">¶</a></h2>
-<p><strong>(1 pkt)</strong> Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu?</p>
+<div class="section" id="zadanie-3-1-pkt">
+<h2>Zadanie 3 (1 pkt)<a class="headerlink" href="#zadanie-3-1-pkt" title="Permalink to this headline">¶</a></h2>
+<p>Porównywanie notebooków za pomocą <code class="docutils literal notranslate"><span class="pre">git</span></code> jest problematyczne, dlatego najlepiej przechowywać je z wyczyszczonym outputem a wykonane przechowywać za pomocą dvc w osobnej lokalizacji. Dodatkową zaletą jest redukcja rozmiaru repozytorium gdy notebook’i zawierają dużo obrazki.</p>
+<p>Dodaj do DVC stage, który będzie wykonywał napisany notebook zapisując w folderze <code class="docutils literal notranslate"><span class="pre">data</span></code> lub jego podfolderze, dodaj odpowiednie zależności. Wykorzystaj komendę <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">nbconvert</span></code> lub narzędzie <a class="reference external" href="https://papermill.readthedocs.io/en/latest/">papermill</a>.</p>
 </div>
 </div>
 
@@ -335,9 +316,9 @@
     <div class="container">
       <p>
         
-          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2023.<br/>
       </p>
     </div>
   </footer>

@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -108,28 +110,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab3-analiza-zbioru-danych.html">
-   L3: Analiza eksploracyjna zbioru danych
+  <a class="reference internal" href="../laboratoria/lab3-zarzadzanie-eksperymentami.html">
+   L3: Narzędzia zarządzania eksperymentami
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab4-tworzenie-modeli.html">
-   L4: Tworzenie modeli uczenia maszynowego
+  <a class="reference internal" href="../laboratoria/lab4-analiza-zbioru-danych.html">
+   L4: Analiza eksploracyjna zbioru danych
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab5-uczenie-maszynowe-2.html">
-   L5: Uczenie maszynowe II
+  <a class="reference internal" href="../laboratoria/lab5-tworzenie-modeli.html">
+   L5: Tworzenie modeli uczenia maszynowego
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/konkurs.html">
-   KONKURS
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab6-zarzadzanie-eksperymentami.html">
-   L6: Narzędzia zarządzania eksperymentami
+  <a class="reference internal" href="../laboratoria/lab6-uczenie-maszynowe-2.html">
+   L6: Uczenie maszynowe II
   </a>
  </li>
  <li class="toctree-l1">
@@ -221,18 +218,23 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tuning-hiperparametrow">
-   Tuning hiperparametrów
+  <a class="reference internal nav-link" href="#pkt-czyszczenie-danych-i-przetwarzanie-wstepne">
+   1. (3 pkt) Czyszczenie danych i przetwarzanie wstępne
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wektoryzacja-tekstu">
-   Wektoryzacja tekstu
+  <a class="reference internal nav-link" href="#uczenie-modelu">
+   2. Uczenie modelu
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wyjasnialnosc-modeli">
-   Wyjaśnialność modeli
+  <a class="reference internal nav-link" href="#feature-engineering">
+   3. Feature engineering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wnioski">
+   4. Wnioski
   </a>
  </li>
 </ul>
@@ -248,32 +250,50 @@
                 
   <div class="section" id="zadania-lista-5">
 <h1>Zadania Lista 5<a class="headerlink" href="#zadania-lista-5" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="tuning-hiperparametrow">
-<h2>Tuning hiperparametrów<a class="headerlink" href="#tuning-hiperparametrow" title="Permalink to this headline">¶</a></h2>
-<p>Porównaj następujące metody optymalizacji parametrów modelu: <em>RandomSearch, GridSearch, HalvingGridSearch, HalvingRandomSearch</em></p>
-<p>a) (1 pkt) Opisz pokrótce ich działanie, możliwości i ograniczenia</p>
-<p>b) (2 pkt) Użyj ich i porównaj jakość najlepszego modelu oraz czas ich działania. Narysuj odpowiedni wykres</p>
-<p>c) (1 pkt) Podaj lub oszacuj ilość iteracji każdej z metod (tj. ilość stworzonych podczas działania modeli)</p>
-<p>d) (1 pkt) Podsumuj uzyskane wyniki. Wskaż twoim zdaniem najlepszą wykorzystaną metodę optymalizacji hiperparametrów. Wybór uzasadnij.</p>
-<p><br><br></p>
-</div>
-<div class="section" id="wektoryzacja-tekstu">
-<h2>Wektoryzacja tekstu<a class="headerlink" href="#wektoryzacja-tekstu" title="Permalink to this headline">¶</a></h2>
-<p>a) (2 pkt) Używając biblioteki Spacy, dokonaj preprocessingu danych tekstowych. Usuń z tekstu wszystkie elementy, które nie są nośnikami emocji.</p>
-<p>b) (5 pkt) Dokonaj wektoryzacji tak przetworzonego tekstu przy pomocy następujących metod:</p>
+<p>Celem listy jest budowa modelu klasyfikacji wydźwięku emocjonalnego (sentiment).</p>
+<p><strong>Wymagania</strong></p>
 <ul class="simple">
-<li><p>bag-of-words</p></li>
-<li><p>tf-idf</p></li>
-<li><p>word2vec</p></li>
+<li><p>Wszystkie procedury należy zintegrować z potokiem dvc.</p></li>
+<li><p>Końcową komendę <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> należy uruchomić korzystając ze środowiska w kontenerze Docker.</p></li>
 </ul>
-<p>Wyucz klasyfikator używając każdej z nich. Porównaj wyniki i spróbuj uzasadnić różnice w jakości.</p>
-<p><br><br></p>
+<p><strong>Uwagi ogólne</strong></p>
+<ol class="simple">
+<li><p>Zanim cokolwiek dodasz do projeku zastanów się w którym stage’u powinno to być umieszczone. W wielu sytuacjach nie będzie jednego dobrego rozwiązania, należy wtedy postąpić według własnych preferencji zdając sobie sprawę z wad i zalet decyzji.</p></li>
+<li><p>Dokonując analizy modelu zawsze wykonuj cross-walidację.</p></li>
+<li><p>Weź pod uwagę, że korzystając Stosuj potoki przetwarzania sklearn, jeśli to możliwe.</p></li>
+</ol>
+<div class="section" id="pkt-czyszczenie-danych-i-przetwarzanie-wstepne">
+<h2>1. (3 pkt) Czyszczenie danych i przetwarzanie wstępne<a class="headerlink" href="#pkt-czyszczenie-danych-i-przetwarzanie-wstepne" title="Permalink to this headline">¶</a></h2>
+<p>a) <strong>(0.5 pkt)</strong> Rozwiąż kwestię brakujących wartości - bazując na wykonanej EDA, uzupełnij brakujące wartości, usuń przypadki z brakującymi wartościami lub usuń kolumny zawierające brakujące wartości.</p>
+<p>b) <strong>(0.5 pkt)</strong> Zakoduj zmienne kategoryczne</p>
+<p>c) <strong>(0.5 pkt)</strong> Przeskaluj zmienne numeryczne</p>
+<p>d) <strong>(1 pkt)</strong> Dokonaj czyszczenia danych tekstowych (należy zaproponować metodę czyszczenia). Można użyć do tego np. biblioteki Spacy, regex’y.</p>
+<p>e) <strong>(0.5 pkt)</strong> Dokonaj wektoryzacji danych tekstowych metodą BoW</p>
 </div>
-<div class="section" id="wyjasnialnosc-modeli">
-<h2>Wyjaśnialność modeli<a class="headerlink" href="#wyjasnialnosc-modeli" title="Permalink to this headline">¶</a></h2>
-<p>a) (1 pkt) Używając metody SHAP, przeanalizuj wyniki jednego z uprzednio stworzonych klasyfikatorów.</p>
-<p>b) (1.5 pkt) Zweryfikuj, które cechy wpływają na ocenę sentymentu pozytywnie, a które negatywnie.</p>
-<p>c) (1.5 pkt) Przeanalizuj dokładnie kilka błędnych zaklasyfikoawanych przykładów, sprawdzając, co w ich przypadku spowodowało błąd</p>
+<div class="section" id="uczenie-modelu">
+<h2>2. Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Permalink to this headline">¶</a></h2>
+<p><strong>(3 pkt)</strong> Wytrenuj i porównaj dwa klasyczne algorytmy ML - SVM i Random Forest.</p>
+<p>Przeprowadź następujące eksperymenty:</p>
+<ul class="simple">
+<li><p>użyj tylko danych tekstowych</p></li>
+<li><p>użyj pozostałych danych oprócz tekstowych</p></li>
+<li><p>użyj wszystkich danych</p></li>
+</ul>
+<p>Zaraportuj metryki klasyfikacji. Jak możesz je interpretować? Który algorytm lepiej sobie radzi w tym przypadku? Które cechy pozwalają najlepiej predykować sentyment? Zastanów się, dlaczego?</p>
+</div>
+<div class="section" id="feature-engineering">
+<h2>3. Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
+<p><strong>(3 pkt)</strong> Bazując na przeprowadzonej EDA, dokonaj inżynierii cech w celu polepszenia wyników z poprzedniego zadania:</p>
+<ul class="simple">
+<li><p>użyj metod selekcji cech</p></li>
+<li><p>użyj metod redukcji wymiarowości</p></li>
+<li><p>zaproponuj nowe cechy, bazując na wiedzy domenowej którą uzyskałeś</p></li>
+</ul>
+<p>Wykonaj kilka iteracji i eksperymentów, sprawdź, jakie kombinacje metod/cech pozwalają poprawić rezultaty, a jakie nie. Jak sądzisz, dlaczego?</p>
+</div>
+<div class="section" id="wnioski">
+<h2>4. Wnioski<a class="headerlink" href="#wnioski" title="Permalink to this headline">¶</a></h2>
+<p><strong>(1 pkt)</strong> Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu?</p>
 </div>
 </div>
 
@@ -311,9 +331,9 @@
     <div class="container">
       <p>
         
-          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2023.<br/>
       </p>
     </div>
   </footer>

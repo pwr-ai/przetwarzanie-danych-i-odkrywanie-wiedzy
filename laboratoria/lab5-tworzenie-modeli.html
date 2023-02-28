@@ -1,0 +1,1253 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L5: Tworzenie modeli uczenia maszynowego &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="L6: Uczenie maszynowe II" href="lab6-uczenie-maszynowe-2.html" />
+    <link rel="prev" title="L4: Analiza eksploracyjna zbioru danych" href="lab4-analiza-zbioru-danych.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratoria
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab1-zasady.html">
+   L1: Zasady laboratorium
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab1-przygotowanie-srodowiska.html">
+   L1: Przygotowanie środowiska
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2-podstawowe-biblioteki.html">
+   L2: Podstawowe biblioteki do odkrywania wiedzy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">
+   L3: Narzędzia zarządzania eksperymentami
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4-analiza-zbioru-danych.html">
+   L4: Analiza eksploracyjna zbioru danych
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   L5: Tworzenie modeli uczenia maszynowego
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab6-uczenie-maszynowe-2.html">
+   L6: Uczenie maszynowe II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab7-produktyzacja.html">
+   L7: Produktyzacja procesów odkrywania wiedzy
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/laboratoria/lab5-tworzenie-modeli.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/laboratoria/lab5-tworzenie-modeli.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wprowadzenie-do-uczenia-maszynowego">
+   Wprowadzenie do uczenia maszynowego
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uczenie-maszynowe-przy-pomocy-sklearn">
+   Uczenie maszynowe przy pomocy sklearn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wczytanie-zbioru-danych">
+   Wczytanie zbioru danych
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preprocessing-zbioru-danych">
+   Preprocessing zbioru danych
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obsluga-danych-brakujacych">
+     Obsługa danych brakujących
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#usuniecie-rekordow-z-brakujacymi-danymi">
+       Usunięcie rekordów z brakującymi danymi
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uzupelnianie-danych-brakujacych">
+       Uzupełnianie danych brakujących
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformacje-cech">
+     Transformacje cech
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#skalowanie-wartosci-cech">
+       Skalowanie wartości cech
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#standaryzacja-cech">
+         Standaryzacja cech
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kodowanie-cech-kategorycznych">
+     Kodowanie cech kategorycznych
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#label-encoding">
+       Label encoding
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#one-hot-encoding">
+       One-hot encoding
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wektoryzacja-tekstu">
+     Wektoryzacja tekstu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inzynieria-cech-ang-feature-engineering">
+   Inżynieria cech (ang. feature engineering)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selekcja-cech-redukcja-wymiarowosci">
+     Selekcja cech / redukcja wymiarowości
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uczenie-modelu">
+   Uczenie modelu
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#potoki">
+     Potoki
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analiza-jakosci-modelu">
+     Analiza jakości modelu
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#walidacja-krzyzowa">
+     Walidacja krzyżowa
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../_images/banner.png" /><figcaption style="text-align: right; font-size:9px"><a href="https://pixabay.com/service/license/">Na licencji Pixabay</a></figcaption></p>
+<div class="section" id="l5-tworzenie-modeli-uczenia-maszynowego">
+<h1>L5: Tworzenie modeli uczenia maszynowego<a class="headerlink" href="#l5-tworzenie-modeli-uczenia-maszynowego" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wprowadzenie-do-uczenia-maszynowego">
+<h2>Wprowadzenie do uczenia maszynowego<a class="headerlink" href="#wprowadzenie-do-uczenia-maszynowego" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ol class="simple">
+<li><p>Uczenie maszynowe (ang. <em>machine learning</em>) jest obecnie najpopularniejszą dziedziną sztucznej inteligencji.</p></li>
+<li><p>Polega ono na automatycznej budowie <em>modelu</em> poprzez ekspozycję <em>algorytmu</em> na <em>dane treningowe</em> w procesie zwanym <em>uczeniem</em>.</p></li>
+<li><p>Model uczenia maszynowego posiada zdolność rozpoznawania wzorców wykrytych w danych, dzięki czemu jest w stanie dokonywać <em>predykcji</em>.</p></li>
+<li><p>Celem uczenia maszynowego jest tworzenie modeli zdolnych do <em>generalizacji</em>, tj. poprawnego predykowania na danych nie użytych do treningu.</p></li>
+</ol>
+<p>W zależności od problemu który ma zostać rozwiązany, stosuje się różne metody i algorytmy, w szczególności:</p>
+<ul class="simple">
+<li><p>jeśli celem jest przypisanie danym pewnej kategorycznej etykiety, mówimy o <em>klasyfikacji</em> - np. określenie czy na zdjęciu jest kot, czy pies</p></li>
+<li><p>jesli celem jest umiejscowienie danych na pewnej ciągłej skali liczbowej, mówimy o <em>regresji</em> - np. prognozowanie wartości produktu</p></li>
+<li><p>jeśli celem jest zgrupowanie podobnych sobie danych, mówimy o <em>klasteryzacji</em> - np. przypisanie użytkowników Twittera do grup w zależności od poruszanych tematów</p></li>
+</ul>
+<p>Klasyfikacja i regresja są przykładami <em>uczenia nadzorowanego</em>, gdzie do treningu oprócz danych wejściowych opisujących problem, musimy też posiadać <em>etykietę</em>, tj. klasę lub wartość która ma być wyjściem modelu.</p>
+<p>Klasteryzacja to przykład <em>uczenia nienadzorowanego</em>, gdzie model realizuje swoje zadanie bez dodatkowych informacji z naszej strony.</p>
+<p><img alt="" src="../_images/rodzaje_uczenia.png" /></p>
+</div>
+<div class="section" id="uczenie-maszynowe-przy-pomocy-sklearn">
+<h2>Uczenie maszynowe przy pomocy sklearn<a class="headerlink" href="#uczenie-maszynowe-przy-pomocy-sklearn" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Scikit-learn (aka sklearn) jest aktualnie najpopularniejszą biblioteką w Pythonie pozwalającą kompleksowo przeprowadzać proces machine learningowy, który zazwyczaj składa się z następujących elementów:</p>
+<ol class="simple">
+<li><p>wczytanie zbioru danych</p></li>
+<li><p>preprocessing zbioru:</p>
+<ul class="simple">
+<li><p>transformacje cech (skalowanie, kodowanie, dyskretyzacja, embeddowanie, ekstrakcja cech itd)</p></li>
+<li><p>rozwiązanie kwestii brakujących danych</p></li>
+<li><p>rozwiązanie kwestii powtarzających się danych</p></li>
+<li><p>rozwiązanie kwestii imbalansu klas (oversampling/undersampling)</p></li>
+<li><p>augmentacja danych</p></li>
+</ul>
+</li>
+<li><p>inżynieria cech</p></li>
+<li><p>uczenie modelu</p></li>
+<li><p>dostosowywanie (fine-tuning) parametrów</p></li>
+</ol>
+<p>Instalacja przebiega standardowo:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scikit-learn</span></code></p>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+</div>
+<div class="section" id="wczytanie-zbioru-danych">
+<h2>Wczytanie zbioru danych<a class="headerlink" href="#wczytanie-zbioru-danych" title="Permalink to this headline">¶</a></h2>
+<p>Scikit-learn posiada wbudowany zestaw standardowych, benchmarkowych zbiorów danych - jak np. używany w przykładzie zbiór <em>wine</em>. Pozwala także w prosty sposób generować syntetyczne dane.</p>
+<p>Więcej informacji o dostępnych w bibliotece zbiorach danych <a class="reference external" href="https://scikit-learn.org/stable/datasets.html">tutaj</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;../docs/lab3/wine_with_nulls.csv&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Trzymając się przyjętej konwencji matematycznej, zbiór danych wejściowych nazywamy <code class="docutils literal notranslate"><span class="pre">x</span></code>, natomiast wyjściowych - <code class="docutils literal notranslate"><span class="pre">y</span></code></p>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+</div>
+<div class="section" id="preprocessing-zbioru-danych">
+<h2>Preprocessing zbioru danych<a class="headerlink" href="#preprocessing-zbioru-danych" title="Permalink to this headline">¶</a></h2>
+<p>Odpowiednie przygotowanie danych uczących jest kluczem do sukcesu każdego przedsięwzięcia machine learningu - w myśl zasady <code class="docutils literal notranslate"><span class="pre">Garbage</span> <span class="pre">in,</span> <span class="pre">garbage</span> <span class="pre">out</span></code>. Przed przystąpieniem do uczenia, zazwyczaj konieczne jest wykonanie co najmniej kilku kroków wstępnego przetwarzania danych.</p>
+<p>Krok ten silnie uzależniony jest od samych danych - inaczej przygotowywać będziemy dane tekstowe, numeryczne, dźwiękowe czy obrazy. Dużą rolę gra tutaj także planowany do użycia algorytm - część z nich wymaga np. ustandaryzowanych danych.</p>
+<p>Duże znaczenie dla jakości procesu ma balans klas - w przypadku danych niezbalansowanych, część algorytmów wykazuje tendencje do preferowania klasy nadreprezentowanej, przez co popełniają błędy.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Większość algorytmów i klas zawartych w scikit-learn implementuje interfejs fit/transform - tj. przy pomocy funkcji <code class="docutils literal notranslate"><span class="pre">fit</span></code> dokonywane jest dopasowywanie algorytmów do danych uczących (uczenie/ustalanie parametrów modelu), natomiast przy pomocy funkcji <code class="docutils literal notranslate"><span class="pre">transform</span></code> dokonywane jest przekształcenie danych.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Funkcji <code class="docutils literal notranslate"><span class="pre">fit</span></code> używamy na danych treningowych, NIGDY na testowych!</p>
+</div>
+<p>W naszym komfortowym przykładzie nie ma dużej potrzeby dostosowywania danych:</p>
+<ul class="simple">
+<li><p>klasy są w miarę dobrze zbalansowane</p></li>
+<li><p>nie ma duplikatów</p></li>
+<li><p>nie ma danych kategorycznych, poza etykietą, więc nie ma potrzeby ich kodowania</p></li>
+</ul>
+<div class="section" id="obsluga-danych-brakujacych">
+<h3>Obsługa danych brakujących<a class="headerlink" href="#obsluga-danych-brakujacych" title="Permalink to this headline">¶</a></h3>
+<p>W przetwarzanym zbiorze danych występują brakujące wartości. Dane w takiej postaci nie nadają się do celów uczenia maszynowego.</p>
+<p>Istnieją dwa podejścia na rozwiązanie tej kwestii:</p>
+<ul class="simple">
+<li><p>usunięcie rekordów zawierających brakujące wartości</p></li>
+<li><p>uzupełnienie tych wartości</p></li>
+</ul>
+<div class="section" id="usuniecie-rekordow-z-brakujacymi-danymi">
+<h4>Usunięcie rekordów z brakującymi danymi<a class="headerlink" href="#usuniecie-rekordow-z-brakujacymi-danymi" title="Permalink to this headline">¶</a></h4>
+<p>Jest to rozwiązanie najprostsze i potencjalnie najlepsze dla jakości klasyfikacji - usuwając “niepewne” rekordy, uczymy klasyfikator jedynie na pełnowartościowych danych.</p>
+<p>Minusem tego rozwiązania jest jednakże zmniejszenie się zbioru danych - polecane jest jego stosowanie jedynie w przypadku, gdy mamy wystarczającą ilość danych</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sprawdźmy, czy faktycznie występują brakujące wartości</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># usuńmy je</span>
+<span class="n">x_dropped</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># sprawdźmy ponownie</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_dropped</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_dropped</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alcohol                         True
+malic_acid                      True
+ash                             True
+alcalinity_of_ash               True
+magnesium                       True
+total_phenols                   True
+flavanoids                      True
+nonflavanoid_phenols            True
+proanthocyanins                 True
+color_intensity                 True
+hue                             True
+od280/od315_of_diluted_wines    True
+proline                         True
+dtype: bool
+(178, 13) 
+
+
+alcohol                         False
+malic_acid                      False
+ash                             False
+alcalinity_of_ash               False
+magnesium                       False
+total_phenols                   False
+flavanoids                      False
+nonflavanoid_phenols            False
+proanthocyanins                 False
+color_intensity                 False
+hue                             False
+od280/od315_of_diluted_wines    False
+proline                         False
+dtype: bool
+(98, 13)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uzupelnianie-danych-brakujacych">
+<h4>Uzupełnianie danych brakujących<a class="headerlink" href="#uzupelnianie-danych-brakujacych" title="Permalink to this headline">¶</a></h4>
+<p>W przypadku gdy mamy niedostateczną ilość danych i nie możemy ich usunąć bez konsekwencji, alternatywą jest uzupełnienie danych.</p>
+<p>W tym celu należy wybrać odpowiednią wartość. Najpopularniejsze strategie to:</p>
+<ul class="simple">
+<li><p>wybranie odpowiedniej statystyki (średnia/mediana) w zbiorze</p></li>
+<li><p>wybranie odpowiedniej statystyki (średnia/mediana) w danej klasie</p></li>
+<li><p>wybranie wartości najczęstszej w zbiorze</p></li>
+<li><p>wybranie wartości najczęstszej w danej klasie</p></li>
+<li><p>interpolacja wartości</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Przydatne</span> <span class="n">metody</span> <span class="n">biblioteki</span> <span class="n">Pandas</span><span class="p">:</span> <span class="p">[</span><span class="n">fillna</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pandas</span><span class="o">.</span><span class="n">pydata</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pandas</span><span class="o">-</span><span class="n">docs</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">reference</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">fillna</span><span class="o">.</span><span class="n">html</span><span class="c1">#pandas.DataFrame.fillna) [interpolate](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.interpolate.html#pandas.DataFrame.interpolate)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uzupełnimy wartości średnimi w zbiorze</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>alcohol</th>
+      <th>malic_acid</th>
+      <th>ash</th>
+      <th>alcalinity_of_ash</th>
+      <th>magnesium</th>
+      <th>total_phenols</th>
+      <th>flavanoids</th>
+      <th>nonflavanoid_phenols</th>
+      <th>proanthocyanins</th>
+      <th>color_intensity</th>
+      <th>hue</th>
+      <th>od280/od315_of_diluted_wines</th>
+      <th>proline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>14.23</td>
+      <td>1.71</td>
+      <td>2.43</td>
+      <td>15.6</td>
+      <td>127.0</td>
+      <td>2.800000</td>
+      <td>3.06000</td>
+      <td>0.28</td>
+      <td>2.29</td>
+      <td>5.64</td>
+      <td>1.04</td>
+      <td>3.92</td>
+      <td>1065.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13.20</td>
+      <td>1.78</td>
+      <td>2.14</td>
+      <td>11.2</td>
+      <td>100.0</td>
+      <td>2.650000</td>
+      <td>2.76000</td>
+      <td>0.26</td>
+      <td>1.28</td>
+      <td>4.38</td>
+      <td>1.05</td>
+      <td>3.40</td>
+      <td>1050.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13.16</td>
+      <td>2.36</td>
+      <td>2.67</td>
+      <td>18.6</td>
+      <td>101.0</td>
+      <td>2.291988</td>
+      <td>3.24000</td>
+      <td>0.30</td>
+      <td>2.81</td>
+      <td>5.68</td>
+      <td>1.03</td>
+      <td>3.17</td>
+      <td>1185.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14.37</td>
+      <td>1.95</td>
+      <td>2.50</td>
+      <td>16.8</td>
+      <td>113.0</td>
+      <td>3.850000</td>
+      <td>2.01976</td>
+      <td>0.24</td>
+      <td>2.18</td>
+      <td>7.80</td>
+      <td>0.86</td>
+      <td>3.45</td>
+      <td>1480.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>13.24</td>
+      <td>2.59</td>
+      <td>2.36</td>
+      <td>21.0</td>
+      <td>118.0</td>
+      <td>2.800000</td>
+      <td>2.69000</td>
+      <td>0.39</td>
+      <td>1.82</td>
+      <td>4.32</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>735.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>13.71</td>
+      <td>5.65</td>
+      <td>2.45</td>
+      <td>20.5</td>
+      <td>95.0</td>
+      <td>1.680000</td>
+      <td>0.61000</td>
+      <td>0.52</td>
+      <td>1.06</td>
+      <td>7.70</td>
+      <td>0.64</td>
+      <td>1.74</td>
+      <td>740.0</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>13.40</td>
+      <td>3.91</td>
+      <td>2.48</td>
+      <td>23.0</td>
+      <td>102.0</td>
+      <td>1.800000</td>
+      <td>0.75000</td>
+      <td>0.43</td>
+      <td>1.41</td>
+      <td>7.30</td>
+      <td>0.70</td>
+      <td>1.56</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>13.27</td>
+      <td>4.28</td>
+      <td>2.26</td>
+      <td>20.0</td>
+      <td>120.0</td>
+      <td>1.590000</td>
+      <td>0.69000</td>
+      <td>0.43</td>
+      <td>1.35</td>
+      <td>10.20</td>
+      <td>0.59</td>
+      <td>1.56</td>
+      <td>835.0</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>13.17</td>
+      <td>2.59</td>
+      <td>2.37</td>
+      <td>20.0</td>
+      <td>120.0</td>
+      <td>1.650000</td>
+      <td>0.68000</td>
+      <td>0.53</td>
+      <td>1.46</td>
+      <td>9.30</td>
+      <td>0.60</td>
+      <td>1.62</td>
+      <td>840.0</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>14.13</td>
+      <td>4.10</td>
+      <td>2.36</td>
+      <td>24.5</td>
+      <td>96.0</td>
+      <td>2.050000</td>
+      <td>0.76000</td>
+      <td>0.56</td>
+      <td>1.35</td>
+      <td>9.20</td>
+      <td>0.61</td>
+      <td>1.60</td>
+      <td>560.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>178 rows × 13 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="transformacje-cech">
+<h3>Transformacje cech<a class="headerlink" href="#transformacje-cech" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="skalowanie-wartosci-cech">
+<h4>Skalowanie wartości cech<a class="headerlink" href="#skalowanie-wartosci-cech" title="Permalink to this headline">¶</a></h4>
+<p>Część algorytmów jest wrażliwa na zróżnicowanie wartości poszczególnych cech. Są to w szczególności:</p>
+<ul class="simple">
+<li><p>algorytmy bazujące na gradientach - np. regresja logistyczna, sieci neuronowe</p></li>
+<li><p>algorytmy bazujące na odległościach - np. kNN, SVM, k-means</p></li>
+</ul>
+<p>Niektóre algorytmy doskonale radzą sobie nawet z dużymi dysproporcjami rozkładami wartości poszczególnych cech - w szczególności np. drzewa decyzyjne i lasy losowe.</p>
+<p>Istnieją dwie standardowe metody skalowania cech:</p>
+<ul class="simple">
+<li><p>standaryzacja - przekształcenie wartości posiadających rozkład zbliżony do normalnego do takiego posiadającego średnią w zerze i odchylenie standardowe równe 1</p></li>
+<li><p>normalizacja - przekształcenie wartości o nieznanym rozkładzie do takiego, który ma maksymalną wartości równą 1. Jest wrażliwa na outliery!</p></li>
+</ul>
+<p><img alt="" src="../_images/feature_scaling.png" /></p>
+<div class="section" id="standaryzacja-cech">
+<h5>Standaryzacja cech<a class="headerlink" href="#standaryzacja-cech" title="Permalink to this headline">¶</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zdefiniujmy funkcję wyświetlajacą statystyki średniej i odchylenia standardowego</span>
+<span class="k">def</span> <span class="nf">print_dataset_stats</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Średnia cech:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Odchylenie standardowe cech:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Przed standaryzacją&quot;</span><span class="p">)</span>
+<span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Po standaryzacji&quot;</span><span class="p">)</span>
+<span class="n">print_dataset_stats</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Przed standaryzacją
+Średnia cech:
+ alcohol                          13.009357
+malic_acid                        2.318059
+ash                               2.360000
+alcalinity_of_ash                19.404790
+magnesium                       100.088757
+total_phenols                     2.291988
+flavanoids                        2.019760
+nonflavanoid_phenols              0.365614
+proanthocyanins                   1.583295
+color_intensity                   5.009529
+hue                               0.959920
+od280/od315_of_diluted_wines      2.615176
+proline                         756.209302
+dtype: float64
+
+Odchylenie standardowe cech:
+ alcohol                           0.803573
+malic_acid                        1.083068
+ash                               0.268717
+alcalinity_of_ash                 3.223883
+magnesium                        14.117679
+total_phenols                     0.613800
+flavanoids                        0.974356
+nonflavanoid_phenols              0.120615
+proanthocyanins                   0.564260
+color_intensity                   2.240211
+hue                               0.226580
+od280/od315_of_diluted_wines      0.690702
+proline                         310.213727
+dtype: float64
+
+Po standaryzacji
+Średnia cech:
+ [-3.43295929e-15 -1.59672525e-16 -1.18694068e-15 -4.39099443e-16
+  1.75639777e-15  1.99590656e-16  0.00000000e+00 -2.79426919e-16
+ -3.99181312e-17  2.99385984e-16 -4.79017575e-16  3.19345050e-16
+ -1.99590656e-16]
+
+Odchylenie standardowe cech:
+ [1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Do normalizacji służy analogiczny moduł sklearn - <code class="docutils literal notranslate"><span class="pre">MinMaxScaler</span></code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kodowanie-cech-kategorycznych">
+<h3>Kodowanie cech kategorycznych<a class="headerlink" href="#kodowanie-cech-kategorycznych" title="Permalink to this headline">¶</a></h3>
+<p>Kodowanie cech kategorycznych ma na celu przekształcenie ich do formy numerycznej, by umożliwić ich obsługę przez algorytmy ML. Nie wszystkie algorytmy wymagają kodowania (np. drzewa)</p>
+<div class="section" id="label-encoding">
+<h4>Label encoding<a class="headerlink" href="#label-encoding" title="Permalink to this headline">¶</a></h4>
+<p>Polega na przypisywaniu wartościom kategorycznym kolejnych wartości liczbowych, np:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+
+<span class="n">le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="s2">&quot;paris&quot;</span><span class="p">,</span> <span class="s2">&quot;paris&quot;</span><span class="p">,</span> <span class="s2">&quot;tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;amsterdam&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 2, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Wartości są przypisywane w kolejności alfabetycznej, stąd algorytm może zostać wprowadzony w błąd, jesli dane nie wykazują takiej zależności!</p>
+</div>
+</div>
+<div class="section" id="one-hot-encoding">
+<h4>One-hot encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this headline">¶</a></h4>
+<p>Alternatywą jest zakodować wartości jako wektor, gdzie każda pozycja odpowiada jednej z wartości:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enc</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">OneHotEncoder</span><span class="p">()</span>
+<span class="n">enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([[</span><span class="s2">&quot;paris&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;paris&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;tokyo&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;amsterdam&quot;</span><span class="p">]])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 1., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.],
+       [1., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wektoryzacja-tekstu">
+<h3>Wektoryzacja tekstu<a class="headerlink" href="#wektoryzacja-tekstu" title="Permalink to this headline">¶</a></h3>
+<p>Podstawową metodą zamiany tekstu na wektor liczbowy jest metoda Bag-of-Words. To rozbudowa metody one-hot encoding dla danych tekstowych (w technicznej implementacji używane są rzadkie macierze).</p>
+<p>Plusem jest jej prostota, minusem całkowity brak uwzględnienia zależności w tekście</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_20newsgroups</span>
+
+<span class="n">newsgroups</span> <span class="o">=</span> <span class="n">fetch_20newsgroups</span><span class="p">(</span>
+    <span class="n">subset</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span>
+    <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;alt.atheism&quot;</span><span class="p">,</span> <span class="s2">&quot;sci.space&quot;</span><span class="p">],</span>
+    <span class="n">remove</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;headers&quot;</span><span class="p">,</span> <span class="s2">&quot;footers&quot;</span><span class="p">,</span> <span class="s2">&quot;quotes&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">count_vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">x_train_counts</span> <span class="o">=</span> <span class="n">count_vect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+<span class="n">x_train_counts</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1073, 18217)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_vect</span><span class="o">.</span><span class="n">vocabulary_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;space&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15360
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xxx</span> <span class="o">=</span> <span class="n">count_vect</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;god saved a space shuttle from atheism revolution&quot;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xxx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xxx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xxx</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 0 0 ... 0 0 0]]
+(1, 18217)
+7
+</pre></div>
+</div>
+</div>
+</div>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+</div>
+</div>
+<div class="section" id="inzynieria-cech-ang-feature-engineering">
+<h2>Inżynieria cech (ang. feature engineering)<a class="headerlink" href="#inzynieria-cech-ang-feature-engineering" title="Permalink to this headline">¶</a></h2>
+<p>Inżynieria cech jest procesem wykorzystywania wiedzy domenowej na temat danych do tworzenia funkcji umożliwiających działanie algorytmów uczenia maszynowego. Poprawne przygotowanie cech bardzo zwiększa moc predykcyjną algorytmów.</p>
+<p>Przykładowo, mając dane nt. pewnej populacji, cecha wzrostu danego człowieka może nie mieć mocy predykcyjnej lub jest ona ciężka do użycia przez prostsze algorytmy. Niemniej przekształcenie jej do informacji o tym czy dany człowiek jest wyższy/niższy od średniego wzrostu w danej populacji może pomóc.</p>
+<div class="section" id="selekcja-cech-redukcja-wymiarowosci">
+<h3>Selekcja cech / redukcja wymiarowości<a class="headerlink" href="#selekcja-cech-redukcja-wymiarowosci" title="Permalink to this headline">¶</a></h3>
+<p>W wielu zbiorach danych występują cechy, które nie są informacyjne. Usunięcie takich cech często pozwala na poprawę jakości predykcji. Ograniczenie ilości cech ułatwia także technicznie proces uczenia - algorytm musi przetworzyc mniej danych, wiec dzieje się to szybciej. Istnieje wiele metod selekcji cech, np. bazujacych na testach statystycznych. Ich ogólna idea polega na ocenieniu cech wg. zadanej miary jakości, a następnie wyboru najbardziej wartościowych.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usunięcie cech z niską wariancją</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">VarianceThreshold</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">sel</span> <span class="o">=</span> <span class="n">VarianceThreshold</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.8</span><span class="p">)))</span>
+<span class="n">sel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1],
+       [1, 0],
+       [0, 0],
+       [1, 1],
+       [1, 0],
+       [1, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># usunięcie cech na podstawie testu statystycznego</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">chi2</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">x_new</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">chi2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_new</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(178, 13)
+(178, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatywnie stosuje się metody redukcji wymiarowości. W przeciwieństwie do selekcji cech, która jedynie wybiera spośród istniejących już danych pewien ich podzbiór, algorytmy redukcji wymiarowości przekształcają dane, tworząc nowe, bardziej informacyjne cechy. Najpopularniejszą metodą redukcji wymiarowości jest <code class="docutils literal notranslate"><span class="pre">PCA</span></code></p>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+</div>
+</div>
+<div class="section" id="uczenie-modelu">
+<h2>Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Permalink to this headline">¶</a></h2>
+<p>Mając odpowiednio przygotowane dane, możemy przystąpić do procesu uczenia. Pierwszym krokiem będzie podział zbioru na część treningową (na której nauczymy model) oraz testową (na której przetestujemy jego jakość). Taki podział pozwala zmierzyć zdolność modelu do generalizacji - sprawdzamy jakość na danych, które nie były użyte do nauki, których “model wcześniej nie widział”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">666</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_train: &quot;</span><span class="p">,</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_test: &quot;</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_train: &quot;</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_test: &quot;</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_train:  (142, 13)
+x_test:  (36, 13)
+y_train:  (142,)
+y_test:  (36,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalnie jesteśmy gotowi stworzyć klasyfikator. Dla przykładu użyjemy algorytmu SVM. Przykłady innych modeli można znaleźć <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">tutaj</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Możemy go teraz użyć w celu predykcji nowych wartości:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 1])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Istnieje wiele modeli uczenia maszynowego. Wybór odpowiedniego zależy od problemu który rozwiązujemy, danych które posiadamy, pożądanemu rezultatowi i warunkom działania (np. pożądana szybkość uczenia i inferencji).</p>
+<p>Do najpopularniejszych modeli nadzorowanych należą - drzewa decyzyjne (i lasy losowe), kNN, SVM, Naive Bayes, sieci neuronowe.</p>
+<p>Niestety, dokładne wprowadzenie w fascynującą dziedzinę modelu uczenia maszynowego leży poza zakresem tego laboratorium.</p>
+</div>
+<div class="section" id="potoki">
+<h3>Potoki<a class="headerlink" href="#potoki" title="Permalink to this headline">¶</a></h3>
+<p>W przypadku bardziej rozbudowanego preprocessingu, niezwykle przydatna staje się możliwość łączenia wszystkich użytych mechanizmów w jeden potok:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">13</span>
+<span class="p">)</span>
+
+<span class="n">pipeline_classifier</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+    <span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">VarianceThreshold</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.8</span><span class="p">))),</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">pipeline_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[(&#39;standardscaler&#39;, StandardScaler()),
+                (&#39;variancethreshold&#39;,
+                 VarianceThreshold(threshold=0.15999999999999998)),
+                (&#39;svc&#39;, SVC())])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 0])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analiza-jakosci-modelu">
+<h3>Analiza jakości modelu<a class="headerlink" href="#analiza-jakosci-modelu" title="Permalink to this headline">¶</a></h3>
+<p>Na tym etapie posiadamy zbiór danych podzielony na część treningową i testową, oraz klasyfikator nauczony na częsci treningowej. Jak sprawdzić, jak dobrze jest on nauczony?</p>
+<p>Do określenia jakości modelu służy szereg metryk, różnych w zależności od problemu.</p>
+<p>W zadaniu klasyfikacji, standardowo używa się następujących miar wywodzących się z klasyfikacji binarnej:</p>
+<ul class="simple">
+<li><p>accuracy, oznaczająca procent poprawnie oznaczonych przykładów</p></li>
+<li><p>F1 - będąca średnią miar <code class="docutils literal notranslate"><span class="pre">precision</span></code> i <code class="docutils literal notranslate"><span class="pre">recall</span></code>, mierzących skłonności modelu do niepopełniania błędów</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+
+<span class="n">y_predicted</span> <span class="o">=</span> <span class="n">pipeline_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: &quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1: &quot;</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.9722222222222222
+F1:  0.9696394686907022
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dokładniejsze informacje o jakości klasyfikacji możemy uzyskac np. przy pomocy metody <code class="docutils literal notranslate"><span class="pre">classification_report</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        12
+           1       0.94      1.00      0.97        15
+           2       1.00      0.89      0.94         9
+
+    accuracy                           0.97        36
+   macro avg       0.98      0.96      0.97        36
+weighted avg       0.97      0.97      0.97        36
+</pre></div>
+</div>
+</div>
+</div>
+<p>W przypadku zadania regresji, standardowo używaną miarą jest błąd średniokwadratowy (<code class="docutils literal notranslate"><span class="pre">ang.</span> <span class="pre">mean</span> <span class="pre">square</span> <span class="pre">error</span></code>). Więcej informacji o różnych rodzajach metryk jakości modelu - <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">tutaj</a></p>
+</div>
+<div class="section" id="walidacja-krzyzowa">
+<h3>Walidacja krzyżowa<a class="headerlink" href="#walidacja-krzyzowa" title="Permalink to this headline">¶</a></h3>
+<p>Powyżej nauczyliśmy model klasyfikować - i to z bardzo dobrą jakością!</p>
+<p>Jednakże, nauczyliśmy nasz model na pewnym podzbiorze danych i przetestowaliśmy na innym. Nie mamy pewności, czy model sam w sobie wykazuje się dobrą jakością, czy to akurat ten specyficzny wybór podzbiorów danych daje tak dobre wyniki.</p>
+<p>Z pomocą przychodzi tutaj <code class="docutils literal notranslate"><span class="pre">walidacja</span> <span class="pre">krzyżowa</span> <span class="pre">|</span> <span class="pre">sprawdzanie</span> <span class="pre">krzyżowe</span></code> <code class="docutils literal notranslate"><span class="pre">(ang.</span> <span class="pre">cross-validation)</span></code>. Jest to procedura polegająca na kilkukrotnym uruchomieniu procedury uczenia modelu, za każdym razem na innym podzbiorze danych. Uśredniony wynik takich kilku modeli pozwala z większą dokładnością wyrokować o jakości samego modelu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_validate</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cv_results</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">pipeline_classifier</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;f1_macro&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv_results</span><span class="p">[</span><span class="s2">&quot;test_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.983504493924021
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "przetwarzanie-danych-i-odkrywanie-wiedzy"
+        },
+        kernelOptions: {
+            kernelName: "przetwarzanie-danych-i-odkrywanie-wiedzy",
+            path: "./laboratoria"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'przetwarzanie-danych-i-odkrywanie-wiedzy'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="lab4-analiza-zbioru-danych.html" title="previous page">L4: Analiza eksploracyjna zbioru danych</a>
+    <a class='right-next' id="next-link" href="lab6-uczenie-maszynowe-2.html" title="next page">L6: Uczenie maszynowe II</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak<br/>
+        
+            &copy; Copyright 2023.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

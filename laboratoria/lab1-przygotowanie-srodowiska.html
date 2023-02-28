@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -110,28 +112,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lab3-analiza-zbioru-danych.html">
-   L3: Analiza eksploracyjna zbioru danych
+  <a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">
+   L3: Narzędzia zarządzania eksperymentami
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lab4-tworzenie-modeli.html">
-   L4: Tworzenie modeli uczenia maszynowego
+  <a class="reference internal" href="lab4-analiza-zbioru-danych.html">
+   L4: Analiza eksploracyjna zbioru danych
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lab5-uczenie-maszynowe-2.html">
-   L5: Uczenie maszynowe II
+  <a class="reference internal" href="lab5-tworzenie-modeli.html">
+   L5: Tworzenie modeli uczenia maszynowego
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="konkurs.html">
-   KONKURS
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab6-zarzadzanie-eksperymentami.html">
-   L6: Narzędzia zarządzania eksperymentami
+  <a class="reference internal" href="lab6-uczenie-maszynowe-2.html">
+   L6: Uczenie maszynowe II
   </a>
  </li>
  <li class="toctree-l1">
@@ -270,9 +267,58 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter">
-     Jupyter
+    <a class="reference internal nav-link" href="#docker">
+     Docker
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#kontenery-a-maszyny-wirtualne">
+       Kontenery a maszyny wirtualne
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instalacja">
+     Instalacja
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tworzenie-przykladowego-srodowiska">
+     Tworzenie przykładowego środowiska
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-notebook">
+     Jupyter Notebook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyterlab">
+     JupyterLab
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pycharm">
+     PyCharm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jakosc-kodu">
+     Jakość kodu
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#black">
+       black
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inne-narzedzia">
+       Inne narzędzia
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -328,19 +374,19 @@
 </div>
 <div class="section" id="github-classroom">
 <h3>GitHub Classroom<a class="headerlink" href="#github-classroom" title="Permalink to this headline">¶</a></h3>
-<p>Zajęcia przeprowadzone zostaną przy pomocy narzędzia GitHub Classroom, które pozwala na łatwe zarządzanie zadaniami grupy studentów.</p>
-<p>Każde laboratorium zostanie opublikowane w formie Assignmentu, do którego każdorazowo zostaniecie zaproszeni poprzez rozesłanie linka przez prowadzącego.</p>
-<p>Po zaakceptowaniu Assignmentu, sklonowane zostanie repozytorium zawierajace pliki przygotowane przez prowadzącego. Zadaniem studenta jest rozwiązanie zamieszczonych zadań i commit zmienionych plików z powrotem do repozytorium.</p>
-<p>Po upływie terminu oddawania zadań (tydzień od zajęć na których zostały one opublikowane) prowadzący sprawdza repozytoria, przegląda kod i weryfikuje umieszczone rozwiązania.</p>
+<p>Zajęcia przeprowadzone zostaną częściowo przy pomocy narzędzia GitHub Classroom, które pozwala na łatwe zarządzanie zadaniami grupy studentów, a częściowo z wykorzystaniem standardowych repozytoriów zakładanych przez prowadzącego.</p>
+<p>Część laboratoriów zostanie opublikowane w formie Assignmentu, do którego każdorazowo zostaniecie zaproszeni poprzez rozesłanie linka przez prowadzącego. Po zaakceptowaniu Assignmentu, sklonowane zostanie repozytorium zawierajace pliki przygotowane przez prowadzącego. Zadaniem studenta jest rozwiązanie zamieszczonych zadań i commit zmienionych plików z powrotem do repozytorium.</p>
+<p>Pozostałe laboratoria będą odbywały się w jednym standardowym repozytorium do którego zostaniecie zaproszeni. Po wykonaniu każdego z etapów wymagane będzie utworzenie Pull Reqest’a do brancha <code class="docutils literal notranslate"><span class="pre">main</span></code>. Studenci nie będą mogli samodzielnie modyfikować brancha <code class="docutils literal notranslate"><span class="pre">main</span></code>, ma to umożliwić prowadzącemu czytelny przegląd wprowadzonych zmian przy danej liście zadań.</p>
+<p>Po upływie terminu oddawania zadań (tydzień od zajęć na których zostały one opublikowane) prowadzący sprawdza repozytoria, przegląda kod i weryfikuje umieszczone rozwiązania. W przypadku standardowego repozytorium wykonuje operację <code class="docutils literal notranslate"><span class="pre">merge</span></code>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>Więcej informacji wraz z dokładnymi instrukcjami korzystania z Classroom - <a class="reference external" href="https://github.com/jfiksel/github-classroom-for-students">tutaj</a> (należy jednakże pominąć część dotyczącą instalacji i użytkowania RStudio)</p>
+<p>Więcej informacji wraz z dokładnymi instrukcjami korzystania z Classroom - <a class="reference external" href="https://github.com/jfiksel/github-classroom-for-students">tutaj</a> (należy jednakże pominąć część dotyczącą instalacji i użytkowania RStudio).</p>
 </div>
 </div>
 <div class="section" id="srodowiska-wirtualne">
 <h3>Środowiska wirtualne<a class="headerlink" href="#srodowiska-wirtualne" title="Permalink to this headline">¶</a></h3>
 <p>W celu izolacji środowiska Pythona na potrzeby konkretnego projektu stosuje się <em>środowiska wirtualne</em>. Umożliwiają one instalację bibliotek w izolacji od głównego systemu - dzięki czemu można stosować np. różne wersje jednej biblioteki w różnych projektach.</p>
-<p>Najpopularniejsze z nich to <code class="docutils literal notranslate"><span class="pre">venv</span></code>, <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> i <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Wymagamy używania środowisk wirtualnych jako dobrej praktyki programistycznej. Jednocześnie nie narzucamy wyboru konkretnego rozwiązania - choć różnią się między sobą, wszystkie spełniają założenia wirtualizacji.</p>
+<p>Najpopularniejsze z nich to <code class="docutils literal notranslate"><span class="pre">venv</span></code>, <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> i <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Używanie środowisk wirtualnych jest dobrą praktyką programistyczną umożliwiająca izolację środowisk. Nie narzucamy wyboru konkretnego rozwiązania - choć różnią się między sobą, wszystkie spełniają założenia wirtualizacji.</p>
 <div class="section" id="venv">
 <h4>Venv<a class="headerlink" href="#venv" title="Permalink to this headline">¶</a></h4>
 <p>Najprostsze z rozwiązań. Tworzy wirtualne środowisko - i to jedyne co robi.</p>
@@ -385,9 +431,9 @@
 </div>
 <div class="section" id="conda">
 <h4>Conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h4>
-<p>Jest to środowisko wirtualne korzystające z Anacondy, zawierającej dystrybucję Pythona sprofilowaną pod zastosowania naukowe. Anaconda zawiera preinstalowaną i zoptymalizowaną gamę paczek, osobny menager paczek i GUI</p>
+<p>Jest to środowisko wirtualne korzystające z Anacondy, zawierającej dystrybucję Pythona sprofilowaną pod zastosowania naukowe. Anaconda zawiera preinstalowaną i zoptymalizowaną gamę paczek, osobny menager paczek i GUI.</p>
 <p>Anaconda bywa częstym wyborem w przypadku używania Windowsa - standardowa instalacja części paczek często jest problematyczna, podczas gdy te wbudowane w Anacondę zazwyczaj nie sprawiają problemów.</p>
-<p>W celu instalacji odsyłamy do <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">dokumentacji</a></p>
+<p>W celu instalacji odsyłamy do <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">dokumentacji</a>.</p>
 <p>Stworzenie środowiska jest równie proste:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">ENVIRONMENT_NAME</span>
 </pre></div>
@@ -414,9 +460,90 @@
 </div>
 </div>
 </div>
-<div class="section" id="jupyter">
-<h3>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h3>
-<p>Większość laboratoriów przygotowane zostało w formie notebooków Jupytera. Jest to proste przeglądarkowe IDE Pythona, które w prosty sposób umożliwia eksperymentowanie i ewaluację kodu.</p>
+<div class="section" id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
+<p>Do wirtualizacji środowiska można użyć <strong>kontenerów</strong>. Jednym z najpopularniejszych narzędzi do tworzenia i zarządzania kontenerami jest Docker. Więcej o nim dowiecie się na ostatnich zajęciach. Teraz powiemy sobie jak wykorzystać go do wirtualizacji środowiska.</p>
+<p>Definicja aplikacji i zależności nazywana jest <strong>obrazem</strong> (ang. image). Na podstawie obrazu, Docker tworzy <strong>kontener</strong> (ang. container) który zawiera i w którym jest uruchomiona aplikacja.</p>
+<div class="section" id="kontenery-a-maszyny-wirtualne">
+<h4>Kontenery a maszyny wirtualne<a class="headerlink" href="#kontenery-a-maszyny-wirtualne" title="Permalink to this headline">¶</a></h4>
+<p>Środowiska uruchomieniowe dla aplikacji można tworzyć na wiele sposobów. Wiemy, że można używać do tego celu kontenerów, ale równie popularnym podejściem, było do niedawna, użycie maszyn wirtualnych. Który ze sposobów powinniśmy wybrać? Jakie są zalety i wady tych podejść?</p>
+<ol class="simple">
+<li><p><strong>Maszyny wirtualne</strong></p></li>
+</ol>
+<p>W systemie operacyjnym hosta uruchomiony jest hipernadzorca, który jest odpowiedzialny za wirtualizację, czyli <a class="reference external" href="http://m.in">m.in</a>. tłumaczenie instrukcji maszynowych maszyn wirtualnych na polecenia dla systemu hosta, a zatem i dla procesora, przetłumaczanie wywołań systemowych (ang. <em>system calls</em>) oraz alokację zasobów. Następnym poziomem są systemy operacyjne gościa, które są uruchomione w ramach hipernadzorcy. Systemy gościa dostarczają potrzebnych bibliotek i plików uruchomieniowych (<em>Bin/Lib</em>) dla uruchomionych aplikacji.</p>
+<ol class="simple">
+<li><p><strong>Kontenery</strong></p></li>
+</ol>
+<p>Zamiast hipernadzorcy występuje tutaj silnik kontenerezacji, który wykorzystuje odpowiednie mechanizmy systemu operacyjnego hosta (więcej o tym poniżej), aby bezpośrednio uruchamiać aplikacje i dostarczać im potrzebnych bibliotek i plików uruchomieniowych.</p>
+<p>Wizualne porównanie tych podejść znajduje się na poniższym obrazku:</p>
+<p><img alt="" src="../_images/virtual_machine_vs_container.png" /></p>
+<p>Jak widać maszyny wirtualne dostarczają większej izolacji od systemu operacyjnego hosta. Wiąże się to jednak z większym kosztem i zazwyczaj wolniejszym środowiskiem – głównie ze względu na potrzebę tłumaczenia instrukcji maszynowych i wywołań systemowych. Kontenery są narzędziem o mniejszym stopniu skomplikowania, pozwalającymi szybciej uruchamiać aplikacje i wymagają mniej zasobów (np. poprzez brak potrzeby uruchamiania systemu operacyjnego gościa).</p>
+</div>
+</div>
+<div class="section" id="instalacja">
+<h3>Instalacja<a class="headerlink" href="#instalacja" title="Permalink to this headline">¶</a></h3>
+<p>Należy <a class="reference external" href="https://docs.docker.com/engine/install/">zainstalować</a> paczkę odpowiednią dla swojego systemu operacyjnego.</p>
+<p>Po udanej instalacji warto zweryfikować, czy wszystko przebiegło pomyślnie, odpalając w terminalu:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run hello-world
+
+<span class="go">Hello from Docker!</span>
+<span class="go">This message shows that your installation appears to be working correctly.</span>
+
+<span class="go">To generate this message, Docker took the following steps:</span>
+<span class="go"> 1. The Docker client contacted the Docker daemon.</span>
+<span class="go"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span>
+<span class="go">    (amd64)</span>
+<span class="go"> 3. The Docker daemon created a new container from that image which runs the</span>
+<span class="go">    executable that produces the output you are currently reading.</span>
+<span class="go"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span>
+<span class="go">    to your terminal.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tworzenie-przykladowego-srodowiska">
+<h3>Tworzenie przykładowego środowiska<a class="headerlink" href="#tworzenie-przykladowego-srodowiska" title="Permalink to this headline">¶</a></h3>
+<p>W pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wyspecyfikuj paczki, a w głównym folderze projektu utwórz plik <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> o następującej treści:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FROM python:3.10
+
+ARG UID
+ARG GID
+
+WORKDIR /app
+
+RUN groupadd --gid $GID myuser &amp;&amp; useradd --no-create-home -u $UID --gid $GID myuser &amp;&amp; chown -R myuser /app
+
+COPY requirements.txt .
+
+RUN pip --no-cache-dir install -r requirements.txt
+
+USER myuser
+
+</pre></div>
+</div>
+<p>następnie zbuduj obraz dockerowy komendą (warto dodać nieobowiązkowy tag dla późniejszej prostszej identyfikacji):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) --tag pdiow-python . 
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--build-arg</span> <span class="pre">UID=$(id</span> <span class="pre">-u)</span> <span class="pre">--build-arg</span> <span class="pre">GID=$(id</span> <span class="pre">-g)</span></code> przekazujemy argumenty, które zapewnią, że utworzony w obrazie użytkownik będzie miał to samo ID użytkownika i ID grupy co użytkownik host’a.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Tworzenie nowego użytkownika w obrazie nie jest wymagane (ani technicznie, ani w ramach kursu). Gdy nie dodamy użytkownika, będziemy uruchamiać skrypt jako root, co jest naruszeniem zasad bezpieczeństwa. W związku z tym dobrą praktyką jest korzystanie z użytkownika niebędącego root’em. Więcej o dobrych praktykach przy korzystaniu z Dockera <a class="reference external" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">tutaj</a>.</p>
+</div>
+<p>w celu uruchomienia skryptu wpisujemy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker run --user &quot;$(id -u):$(id -g)&quot; --rm -v $(pwd):/app pdiow-python python SCIEZKA_DO_SKRYPTU
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--user</span> <span class="pre">&quot;$(id</span> <span class="pre">-u):$(id</span> <span class="pre">-g)&quot;</span></code> uruchamia kontener z id usera hosta. W przypadku gdyby skrypt zapisywał dane właścicielami będzie user a nie root. Przydatne na serwerach, gdzie nie mamy dostępu do root’a. (niewymagane, <em>uwaga</em>: działanie na systemach innych niż Linux może się różnić!)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--rm</span></code> automatyczne usuwa kontener po jego zamknięciu (niewymagane).</p>
+<p><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">$(pwd):/app</span></code> pozwala podmontować bieżący folder jako wolumen w kontenerze, umożliwia to ograniczenie kopiowania plików do obrazu oraz umożliwia modyfikacje zewnętrznych plików przez kontener np. skrypt może zapisać plik, który zobaczymy w plikach naszego projektu. Dodatkowo nie będzie konieczne, aby budować obraz przy każdej modyfikacji plików projektu. Ponowne budowanie będzie konieczne jedynie po modyfikacji pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Conda nie jest mechanizmem stricte Pythonowym - tak samo można używać środowisk wirtualnych dla innych jezyków</p>
+</div>
+</div>
+<div class="section" id="jupyter-notebook">
+<h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<p>Część laboratoriów przygotowane zostało w formie notebooków Jupytera. Jest to proste przeglądarkowe IDE Pythona, które w prosty sposób umożliwia eksperymentowanie i ewaluację kodu.</p>
 <p>W celu instalacji wykonujemy (uprzednio oczywiście aktywowawszy środowisko wirtualne):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyter</span>
 </pre></div>
@@ -428,6 +555,41 @@
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>W celu pogłębienia wiedzy o interfejsie i możliwościach Jupyter Notebooka - zachęcamy do lektury np. <a class="reference external" href="https://www.dataquest.io/blog/jupyter-notebook-tutorial/">tego artykułu</a></p>
+</div>
+</div>
+<div class="section" id="jupyterlab">
+<h3>JupyterLab<a class="headerlink" href="#jupyterlab" title="Permalink to this headline">¶</a></h3>
+<p>JupyterLab to kolejna generacja znanego IDE posiadająca bardziej rozbudowany interfejs.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Możliwe jest zainstalowanie używanie jednego Jupyter Notebook/JupyterLab z wieloma środowiskami - <a class="reference external" href="https://ipython.readthedocs.io/en/stable/install/kernel_install.html">dokumentacja</a>.</p>
+</div>
+</div>
+<div class="section" id="pycharm">
+<h3>PyCharm<a class="headerlink" href="#pycharm" title="Permalink to this headline">¶</a></h3>
+<p>PyCharm to popularne IDE dla języka Python, które umożliwia łatwe i szybkie tworzenie aplikacji. Oferuje wsparcie dla języka Python i popularnych bibliotek, udostępnia narzędzia do debugowania i testowania oraz współpracuje z systemami wersji kontrolnych. Integracja z narzędziami takimi jak Docker, Conda, DVC, Jupyter umożliwiają szybszą i bardziej efektywną pracę programisty.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Do celów edukacyjnych studenci mogą korzystać z PyCharm Professional Edition, która <a class="reference external" href="http://m.in">m.in</a>. pozwala na integrację z Docker’em. <a class="reference external" href="https://www.jetbrains.com/community/education/#students">Dowiedz się więcej.</a></p>
+</div>
+</div>
+<div class="section" id="jakosc-kodu">
+<h3>Jakość kodu<a class="headerlink" href="#jakosc-kodu" title="Permalink to this headline">¶</a></h3>
+<p>Formatowanie kodu za pomocą narzędzi zewnętrznych jest ważne, ponieważ poprawia jego czytelność, zmniejsza ryzyko błędów i umożliwia łatwiejszą współpracę w zespole.</p>
+<div class="section" id="black">
+<h4>black<a class="headerlink" href="#black" title="Permalink to this headline">¶</a></h4>
+<p>Paczka formatująca kod Pythonowy, instalujemy za pomocą:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span>
+</pre></div>
+</div>
+<p>następnie formatujemy wszystkie pliki w projekcie:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="inne-narzedzia">
+<h4>Inne narzędzia<a class="headerlink" href="#inne-narzedzia" title="Permalink to this headline">¶</a></h4>
+<p>Analiza wszystkich narzędzi dbających o jakość kodu nie jest celem tego kursu, jednakże rekomendujemy przyjrzenie się takim projektom jak <code class="docutils literal notranslate"><span class="pre">isort</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> i wiele innych oraz rozważenie wprowadzenia ich do codziennej pracy.</p>
 </div>
 </div>
 </div>
@@ -469,9 +631,9 @@
     <div class="container">
       <p>
         
-          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2023.<br/>
       </p>
     </div>
   </footer>

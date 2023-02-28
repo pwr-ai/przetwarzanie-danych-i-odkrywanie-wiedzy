@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -108,28 +110,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab3-analiza-zbioru-danych.html">
-   L3: Analiza eksploracyjna zbioru danych
+  <a class="reference internal" href="../laboratoria/lab3-zarzadzanie-eksperymentami.html">
+   L3: Narzędzia zarządzania eksperymentami
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab4-tworzenie-modeli.html">
-   L4: Tworzenie modeli uczenia maszynowego
+  <a class="reference internal" href="../laboratoria/lab4-analiza-zbioru-danych.html">
+   L4: Analiza eksploracyjna zbioru danych
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab5-uczenie-maszynowe-2.html">
-   L5: Uczenie maszynowe II
+  <a class="reference internal" href="../laboratoria/lab5-tworzenie-modeli.html">
+   L5: Tworzenie modeli uczenia maszynowego
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/konkurs.html">
-   KONKURS
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../laboratoria/lab6-zarzadzanie-eksperymentami.html">
-   L6: Narzędzia zarządzania eksperymentami
+  <a class="reference internal" href="../laboratoria/lab6-uczenie-maszynowe-2.html">
+   L6: Uczenie maszynowe II
   </a>
  </li>
  <li class="toctree-l1">
@@ -215,6 +212,35 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkt-przygotowanie-potoku-przetwarzaniadanych">
+   1. (3 pkt) Przygotowanie potoku przetwarzaniadanych
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkt-obsluga-dvc">
+   2. (3 pkt)  Obsługa DVC
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkt-wykonanie-eksperymentow">
+   3. (3 pkt) Wykonanie eksperymentów
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkt-obsluga-mlflow">
+   4. (3 pkt) Obsługa MLflow
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -224,80 +250,94 @@
                 
   <div class="section" id="zadania-lista-3">
 <h1>Zadania Lista 3<a class="headerlink" href="#zadania-lista-3" title="Permalink to this headline">¶</a></h1>
-<p>1. (1.5 pkt) Przy pomocy sklearn, wczytaj zbiór danych <a class="reference external" href="https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset">California Housing</a>.</p>
-<p>Za pomocą Pandas Profiling przeanalizuj ten zbiór i odpowiedz na następujące pytania:</p>
+<p><strong>Wymagania</strong></p>
 <ul class="simple">
-<li><p>Ile znajduje się w zbiorze cech kategorycznych, a ile numerycznych?</p></li>
-<li><p>Czy zmienna wyjściowa jest kategoryczna, czy numeryczna?</p></li>
-<li><p>Czy rozpatrujemy problem klasyfikacji, klasteryzacji czy regresji?</p></li>
-<li><p>Ile w zbiorze jest brakujących wartości?</p></li>
-<li><p>Czy któraś z cech koreluje ze zmienną wyjściową? Jeśli tak - która?</p></li>
+<li><p>Końcową komendę <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie przyznane będzie 0pkt za zadania z DVC.</p></li>
+<li><p>MLflow należy uruchomić w Dockerze, w przeciwnym razie przyznane będzie 0pkt za zadania z MLflow.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ ODPOWIEDZI</span>
-</pre></div>
+<hr class="docutils" />
+<p><em><strong>Analiza wydźwięku</strong></em></p>
+<p>Będziemy zajmować się zadaniem analizy wydźwięku emocjonalnego (sentiment).</p>
+<p>Analiza wydźwięku (ang. sentiment analysis) polega na określeniu nacechowania emocjonalnego wzmianek internetowych.</p>
+<p>Jest to rozbudowany i mocno subiektywny problem - tekst ma inny wydźwięk dla autora tekstu, inny dla osoby czytającej, inny dla “podmiotu lirycznego”; mocno zależy też od kontekstu kulturowego.</p>
+<p>Najczęstszym przypadkiem jest uproszczenie zadania do trójklasowej klasyfikacji - podziału na teksty pozytywne, neutralne, negatywne.</p>
+<p><strong>Żródło danych</strong></p>
+<p>Dzisiejsze zadania rozpoczynają przygodę ze zbiorem danych, którą kontynuować będziemy przez najbliższe laboratoria. <strong>Zadbaj o jakość i reprodukowalność kodu.</strong></p>
+<p>Będziemy korzystać ze zbioru danych Amazon Review Data, dokumentację znajdziemy <a class="reference external" href="https://nijianmo.github.io/amazon/index.html">tutaj</a>:</p>
+<ul>
+<li><p>grupa 1 i 2 (czw. 15:15 i pt. 9:15):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/Luxury_Beauty_5.json.gz">https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/Luxury_Beauty_5.json.gz</a></p></li>
+</ul>
+</li>
+<li><p>grupa 3 i 4 (pt. 11:15 i pt. 15:15):</p>
+<p>(pliki należy połączyć w ramach wstępnego przetwarzania danych, a kategorię jako wpisać jako nową kolumnę)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/All_Beauty_5.json.gz">https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/All_Beauty_5.json.gz</a></p></li>
+<li><p><a class="reference external" href="https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/AMAZON_FASHION_5.json.gz">https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/AMAZON_FASHION_5.json.gz</a></p></li>
+<li><p><a class="reference external" href="https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/Appliances_5.json.gz">https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/Appliances_5.json.gz</a></p></li>
+<li><p><a class="reference external" href="https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/Software_5.json.gz">https://jmcauley.ucsd.edu/data/amazon_v2/categoryFilesSmall/Software_5.json.gz</a></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Etykiety</strong></p>
+<ul class="simple">
+<li><p>grupa 1 i 2: kolumna “overall”, uproszczona następująco 1,2 -&gt; “negative”, 3 -&gt; “neutral”, 4,5 -&gt; “positive”</p></li>
+<li><p>grupa 3 i 4: kolumna “overall”</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="pkt-przygotowanie-potoku-przetwarzaniadanych">
+<h2>1. (3 pkt) Przygotowanie potoku przetwarzaniadanych<a class="headerlink" href="#pkt-przygotowanie-potoku-przetwarzaniadanych" title="Permalink to this headline">¶</a></h2>
+<p>Przygotuj poszczególne elementy rozwiązania problemu uczenia maszynowego w postaci osobnych skryptów.</p>
+<p>Do realizacji zastosować następujący podział:</p>
+<ul class="simple">
+<li><p>Wstępne przetwarzanie danych</p></li>
+<li><p>Podział danych</p></li>
+<li><p>Analiza danych</p></li>
+<li><p>Ekstrakcja cech</p></li>
+<li><p>Uczenie i ewaluacja modelu</p></li>
+</ul>
+<p>Skrypty umieść w folderze <code class="docutils literal notranslate"><span class="pre">scripts</span></code>, parametry w pliku <code class="docutils literal notranslate"><span class="pre">params.yaml</span></code>, a pliki wejściowe i wyjściowe w folderze <code class="docutils literal notranslate"><span class="pre">data</span></code> (najlepiej utwórz odpowiednie podfoldery).</p>
+<p>W ramach tej listy zajmiemy się klasyfikatora, który będzie punktem odniesienia (baseline) w kolejnych listach. Będzie on predykował ignorując wszystkie cechy wejściowe. Ponieżej zamieszczono opis działania poszczególnych skryptów.</p>
+<ul class="simple">
+<li><p>Wstępne przetwarzanie danych - w razie konieczności połącz pliki oraz rozwiąż problematyczny zagnieżdżony atrybut <code class="docutils literal notranslate"><span class="pre">style</span></code> i zapisz wynik</p></li>
+<li><p>Podział danych - podziel dane na zbiory train/val/test bez stratyfikacji i je zapisz. Zaleca się wykorzystanie funkcji <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">sklearn.model_selection.train_test_split
+</a>.</p></li>
+<li><p>Ekstrakcja cech - usuń wszystkie cechy (poza klasą sentymentu) oraz dodaj nową kolumnę, którą całą wypełnisz wartością <code class="docutils literal notranslate"><span class="pre">None</span></code>. Zapisz wynik.</p></li>
+<li><p>Analiza danych - na razie pomijamy, zajmiemy się na przyszłych zajęciach</p></li>
+<li><p>Uczenie i ewaluacja modelu - wytrenuj klasyfikator który będzie predykował najczęstszą klasę, następnie policz F1-score, wyniki zapisz w formacie json. Zaleca się wykorzystanie <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html">sklearn.dummy.DummyClassifier</a> oraz <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">sklearn.metrics.f1_score</a>.</p></li>
+</ul>
+<p><strong>Uwagi</strong></p>
+<ul class="simple">
+<li><p>należy dobrze się zastanowić jakie parametry umieścić w <code class="docutils literal notranslate"><span class="pre">params.yaml</span></code></p></li>
+</ul>
 </div>
+<div class="section" id="pkt-obsluga-dvc">
+<h2>2. (3 pkt)  Obsługa DVC<a class="headerlink" href="#pkt-obsluga-dvc" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Dodaj przygotowane skrypty jako elementy potoku <code class="docutils literal notranslate"><span class="pre">DVC</span></code>, zdefiniuj odpowiednie parametry, zależności oraz wyjścia.</p></li>
+<li><p>Dodaj metryki do trackowania.</p></li>
+<li><p>Zapisz wynik komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">status</span></code> (zrzut ekranu).</p></li>
+<li><p>Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium.</p></li>
+<li><p>Zmień podział danych na stratyfikowany. Zapisz wynik komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">status</span></code> (zrzut ekranu). Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium.</p></li>
+</ul>
 </div>
+<div class="section" id="pkt-wykonanie-eksperymentow">
+<h2>3. (3 pkt) Wykonanie eksperymentów<a class="headerlink" href="#pkt-wykonanie-eksperymentow" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Dodaj wsparcie dla modelu predykującego klasę z rozkładu jednostajnego ciągłego. Dodaj możliwość wybrania modelu w konfiguracji (params.yaml).</p></li>
+<li><p>Wykorzystaj api <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">experiments</span></code> do porównania modeli.</p></li>
+<li><p>Załącz wyjście polecenia dvc experiments show.</p></li>
+</ul>
 </div>
-<p>2. (3 pkt) Stwórz i wyucz pipeline składający się z modułów standaryzacji i estymatora - w zależności czy problem dotyczy klasyfikacji czy regresji, użyj <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">RandomForestClassifier</a> lub <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html">RandomForestRegressor</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>3. (3 pkt) Używając walidacji krzyżowej z 10 foldami (sprawdź odpowiedni parametr w <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_validate.html">dokumentacji</a>) sprawdź jakość predykcji, używając odpowiednich do zadania metryk (wybierz odpowiednią - przykładowe <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">tutaj</a>)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>4. (2 pkt) Używając cross-walidacji, porównaj jakość modelu używającego i nieużywającego standaryzacji cech.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="simple">
-<li><p>Porównaj następujące metody optymalizacji parametrów modelu, <code class="docutils literal notranslate"><span class="pre">RandomSearch</span></code>, <code class="docutils literal notranslate"><span class="pre">GridSearch</span></code>, <code class="docutils literal notranslate"><span class="pre">HalvingGridSearch</span></code>, <code class="docutils literal notranslate"><span class="pre">HalvingRandomSearch</span></code></p></li>
-</ol>
-<p>a) (1 pkt) Opisz pokrótce ich działanie, możliwości i ograniczenia</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ ODPOWIEDZI</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>b) (2 pkt) Użyj ich i porównaj jakość najlepszego modelu oraz czas ich działania. Narysuj odpowiedni wykres</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ KOD</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>c) (1.5 pkt) Podaj lub oszacuj ilość iteracji każdej z metod (tj. ilość stworzonych podczas działania modeli)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ ODPOWIEDZI</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>d) (1 pkt) Podsumuj uzyskane wyniki. Wskaż twoim zdaniem najlepszą wykorzystaną metodę optymalizacji hiperparametrów. Wybór uzasadnij.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TUTAJ UMIEŚĆ ODPOWIEDZI</span>
-</pre></div>
-</div>
-</div>
+<div class="section" id="pkt-obsluga-mlflow">
+<h2>4. (3 pkt) Obsługa MLflow<a class="headerlink" href="#pkt-obsluga-mlflow" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Do skryptu przeznaczonego do ewaluacji modelu dodaj obsługę <code class="docutils literal notranslate"><span class="pre">MLflow</span></code>.</p></li>
+<li><p>Przekaż odpowiednie parametry i metryki.</p></li>
+<li><p>Dodaj wykres macierzy pomyłek dla zbioru uczącego i testowego.</p></li>
+<li><p>Załącz zrzuty ekranu z MLFlow pokazujące przebieg eksperymentów.</p></li>
+</ul>
 </div>
 </div>
 
@@ -335,9 +375,9 @@
     <div class="container">
       <p>
         
-          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda<br/>
+          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2023.<br/>
       </p>
     </div>
   </footer>
