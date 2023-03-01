@@ -17,7 +17,7 @@
     <br><br>
     a) (2pkt) zainstaluj paczkę `black` specyfikując na sztywno jej wersję w pliku `requirements.txt`. Sformatuj wszystkie pliki `.py` w projekcie. Zamieść 3 zrzuty ekranu pod ścieżką `screenshots`: dowolony plik przed formatowaniem, dowolony plik po formatowaniu oraz wyjście w terminalu po komendzie formatującej. 
     <br><br>
-    b) (3pkt) uruchom Jupyter Notebook lub JupyterLab w kontenerze dockerowym. Następnie utwórz notebook pod ścieżką `notebooks/notebook_1.ipynb`, w którym w komórce typu `Markdown` wyświetlisz swój numer indeksu, a w komórce typu `Code`. Zaimportujesz funkcję/klasę z `src/utils.py`.
+    b) (3pkt) uruchom Jupyter Notebook lub JupyterLab w kontenerze dockerowym. Następnie utwórz notebook pod ścieżką `notebooks/notebook_1.ipynb`, w którym w komórce typu `Markdown` wyświetlisz swój numer indeksu, a w komórce typu `Code` zaimportujesz i użyjesz funkcji/klasy z `src/utils.py`.
 
 ---
 
