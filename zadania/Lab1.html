@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -170,9 +168,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/zadania/Lab1.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/zadania/Lab1.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -190,23 +188,6 @@
 
         <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/zadania/Lab1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
     </div>
 
     <!-- Table of contents -->
@@ -221,19 +202,29 @@
                 
   <div class="section" id="zadania-lista-1">
 <h1>Zadania Lista 1<a class="headerlink" href="#zadania-lista-1" title="Permalink to this headline">¶</a></h1>
-<p>1. Korzystając z języka Python i jedynie z wbudowanych paczek, wykonaj poniższe zadania:</p>
-<p>a) (2 pkt) Napisz dowolny skrypt pod ścieżką <code class="docutils literal notranslate"><span class="pre">scripts/main_1.py</span></code>.</p>
-<p>b) (3 pkt) W pliku <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code> zamieść dowolną funkcję/klasę, którą zaimportujesz i wykorzystasz w skrypcie <code class="docutils literal notranslate"><span class="pre">scripts/main_2.py</span></code>.</p>
-<p><strong>Wymagania</strong></p>
+<ol class="simple">
+<li><p>Korzystając z języka Python i jedynie z wbudowanych paczek, wykonaj poniższe zadania:
+<br><br>
+a) (2 pkt) Napisz dowolny skrypt pod ścieżką <code class="docutils literal notranslate"><span class="pre">&lt;KATALOG_GŁÓWNY_PROJEKTU&gt;/scripts/main_1.py</span></code>.
+<br><br>
+b) (3 pkt) W pliku <code class="docutils literal notranslate"><span class="pre">&lt;KATALOG_GŁÓWNY_PROJEKTU&gt;/src/utils.py</span></code> zamieść dowolną funkcję/klasę, którą zaimportujesz i wykorzystasz w skrypcie <code class="docutils literal notranslate"><span class="pre">scripts/main_2.py</span></code>.
+<br><br>
+<strong>Wymagania</strong></p>
 <ul class="simple">
 <li><p>Skrypty należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie przyznane będzie 0pkt. (To wymaganie zostanie z nami do końca kursu.)</p></li>
 <li><p>Pisząc skrypty należy skorzystać z instrukcji <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, ze struktur <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">dataclass</span></code> oraz z <em>list comprehension</em>. Każda instrukcja musi wystąpić <strong>co najmniej raz</strong> w zad. a <strong>lub</strong> b.</p></li>
 <li><p>Program nie musi być użyteczny, ale ma mieć jednoznaczny sens.</p></li>
 </ul>
+</li>
+</ol>
 <hr class="docutils" />
-<p>2. Korzystając ze środowiska Docker:</p>
-<p>a) (2pkt) zainstaluj paczkę <code class="docutils literal notranslate"><span class="pre">black</span></code> specyfikując na sztywno jej wersję w pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. Sformatuj wszystkie pliki <code class="docutils literal notranslate"><span class="pre">.py</span></code> w projekcie. Zamieść 3 zrzuty ekranu pod ścieżką <code class="docutils literal notranslate"><span class="pre">screenshots</span></code>: dowolony plik przed formatowaniem, dowolony plik po formatowaniu oraz wyjście w terminalu po komendzie formatującej.</p>
-<p>b) (3pkt) uruchom Jupyter Notebook lub JupyterLab w kontenerze dockerowym. Następnie utwórz notebook pod ścieżką <code class="docutils literal notranslate"><span class="pre">notebooks/notebook_1.ipynb</span></code>, w którym w komórce typu <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> wyświetlisz swój numer indeksu, a w komórce typu <code class="docutils literal notranslate"><span class="pre">Code</span></code>. Zaimportujesz funkcję/klasę z <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>.</p>
+<ol class="simple">
+<li><p>Korzystając ze środowiska Docker:
+<br><br>
+a) (2pkt) zainstaluj paczkę <code class="docutils literal notranslate"><span class="pre">black</span></code> specyfikując na sztywno jej wersję w pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. Sformatuj wszystkie pliki <code class="docutils literal notranslate"><span class="pre">.py</span></code> w projekcie. Zamieść 3 zrzuty ekranu pod ścieżką <code class="docutils literal notranslate"><span class="pre">screenshots</span></code>: dowolony plik przed formatowaniem, dowolony plik po formatowaniu oraz wyjście w terminalu po komendzie formatującej.
+<br><br>
+b) (3pkt) uruchom Jupyter Notebook lub JupyterLab w kontenerze dockerowym. Następnie utwórz notebook pod ścieżką <code class="docutils literal notranslate"><span class="pre">&lt;KATALOG_GŁÓWNY_PROJEKTU&gt;/notebooks/notebook_1.ipynb</span></code>, w którym w komórce typu <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> wyświetlisz swój numer indeksu, a w komórce typu <code class="docutils literal notranslate"><span class="pre">Code</span></code> zaimportujesz i użyjesz funkcji/klasy z <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>.</p></li>
+</ol>
 <hr class="docutils" />
 <p><strong>Uwagi</strong></p>
 <ul class="simple">
@@ -250,16 +241,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "przetwarzanie-danych-i-odkrywanie-wiedzy"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "przetwarzanie-danych-i-odkrywanie-wiedzy",
+            kernelName: "python3",
             path: "./zadania"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'przetwarzanie-danych-i-odkrywanie-wiedzy'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
