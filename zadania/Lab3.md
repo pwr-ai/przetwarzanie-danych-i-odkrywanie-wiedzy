@@ -3,7 +3,7 @@
 
 ## Wymagania
 
-- Końcową komendę `dvc repro` należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie przyznane będzie 0pkt za zadania z DVC. 
+- Komendy `dvc` należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie przyznane będzie 0pkt za zadania z DVC. 
 - MLflow należy uruchomić w Dockerze, w przeciwnym razie przyznane będzie 0pkt za zadania z MLflow.
 
 ---
@@ -71,7 +71,8 @@ W ramach tej listy zajmiemy się budową klasyfikatora, który będzie punktem o
 ## 2. (3 pkt)  Obsługa DVC
 
 * Dodaj przygotowane skrypty jako elementy potoku `DVC`, zdefiniuj odpowiednie parametry, zależności oraz wyjścia.
-* Dodaj metryki do trackowania. 
+* Dodaj metryki do trackowania.
+* Metryk nie należy umieszczać w cache dvc, mają być trackowane przez git. [więcej tutaj](https://dvc.org/doc/user-guide/project-structure/dvcyaml-files#metrics-and-plots-outputs) 
 * Zapisz wynik komendy `dvc status` (zrzut ekranu).
 * Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. 
 * Zmień podział danych na stratyfikowany. Zapisz wynik komendy `dvc status` (zrzut ekranu). Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. 
@@ -80,7 +81,7 @@ W ramach tej listy zajmiemy się budową klasyfikatora, który będzie punktem o
 
 * Dodaj wsparcie dla modelu predykującego klasę z rozkładu jednostajnego ciągłego. Dodaj możliwość wybrania modelu w konfiguracji (params.yaml). 
 * Wykorzystaj api `dvc experiments` do porównania modeli. 
-* Załącz wyjście polecenia dvc experiments show.
+* Załącz wyjście polecenia dvc experiments show (zrzut ekranu).
 
 
 ## 4. (3 pkt) Obsługa MLflow
@@ -89,3 +90,8 @@ W ramach tej listy zajmiemy się budową klasyfikatora, który będzie punktem o
 * Przekaż odpowiednie parametry i metryki. 
 * Dodaj wykres macierzy pomyłek dla zbioru uczącego i testowego.
 * Załącz zrzuty ekranu z MLFlow pokazujące przebieg eksperymentów.
+
+## 5. [OPCJONALNIE] (1 pkt) DVC remote
+
+* Dodaj zewnętrzną lokację do przechowywania danych z DVC np. studencki Google Drive.
+* Prześlij dane.
