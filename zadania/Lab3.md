@@ -50,7 +50,7 @@ Do realizacji zastosować następujący podział:
 - Ekstrakcja cech
 - Uczenie i ewaluacja modelu
 
-Skrypty umieść w folderze `scripts`, parametry w pliku `params.yaml`, a pliki wejściowe i wyjściowe w folderze `data` (najlepiej utwórz tam odpowiednie podfoldery).
+Skrypty umieść w folderze `scripts`, parametry w pliku `params.yaml`, a pliki wejściowe i wyjściowe w folderze `data` (najlepiej utwórz tam odpowiednie podfoldery). (Struktura projektu taka jak na laboratorium 1.)
 
 W ramach tej listy zajmiemy się budową klasyfikatora, który będzie punktem odniesienia (baseline) w kolejnych listach. Będzie on predykował ignorując wszystkie cechy wejściowe. Ponieżej zamieszczono opis działania poszczególnych skryptów.
 
@@ -63,7 +63,7 @@ W ramach tej listy zajmiemy się budową klasyfikatora, który będzie punktem o
 
 
 **Uwagi**
-* należy dużą uwagę przyłożyć do tego w których skryptach umiejścić poszczególne funkcjonalności
+* należy dużą uwagę przyłożyć do tego w których skryptach umieścić poszczególne funkcjonalności
 * należy dobrze się zastanowić jakie parametry umieścić w `params.yaml`
 * decyzje nie zawsze będą proste i czasem będzie istniało więcej niż jedno rozwiązanie, należy jednak zdawać sobie sprawę z wad i zalet danej implementacji 
 
