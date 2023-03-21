@@ -37,9 +37,9 @@ ich podzbioru. Dopuszczamy dane kategoryczne, numeryczne, tekstowe.
 
 1. Nowy zbiór musi przejść poprzez etapy przetwarzania opracowane w ramach list 3-6:
    * lista 3: wszystkie etapy zdefiniowanego potoku; mlflow
-   * lista 4: podstawowa EDA (konstrukcji dodatkowych cech nieobowiązkowo; bez raportu)
+   * lista 4: podstawowa EDA (konstrukcja dodatkowych cech nieobowiązkowo; bez raportu)
    * lista 5: czyszczenie danych i przetwarzanie wstępne; uczenie modeli; feature engineering (
-     tworzenie dodatkowych cechy nieobowiązkowo, bez wniosków)
+     tworzenie dodatkowych cechy nieobowiązkowo; bez wniosków)
    * lista 6: tuning hiperparametrów, wektoryzacja tekstu (bez wyjaśnialności)
 2. Słowne uzasadnienia i analizy nie są wymagane. EDA może być ograniczona do względem pierwszego
    zbioru danych.
@@ -47,7 +47,8 @@ ich podzbioru. Dopuszczamy dane kategoryczne, numeryczne, tekstowe.
    konfiguracji potoku (wstępne przetwarzanie + model + itd)
 4. Zastosowanie `foreach` w dvc.yaml dla co najmniej 3 z 5 etapów zdefiniowanych w laboratorium nr 3.
    Iteracja ma się odbywać po zbiorach danych (oczywiście może też jednocześnie po innych
-   parametrach).
+   parametrach). Dla etapów, w których nie chcemy zastosować foreach, trzeba napisać dedykowany skrypt 
+   dla każdego ze zbioru.
 5. Napisanie instrukcji w README.md jak zreprodukować wyniki korzystając z Dockera. Dostarcz
    odpowiedni Dockerfile. Jeśli nie udostępniasz publicznie `remote` wskaż, gdzie konkretnie należy
    umieścić pliki wejściowe lub napisz skrypt, który je pobiera (np. jako dodatkowy stage).
@@ -77,7 +78,7 @@ ich podzbioru. Dopuszczamy dane kategoryczne, numeryczne, tekstowe.
    ```yaml
    num_features: 7312
    ```
-4. Polecane narzędzia:
+5. Polecane narzędzia:
    1. [Typer](https://typer.tiangolo.com/)
    2. [papermill](https://papermill.readthedocs.io/en/latest/)
-   2. [Poetry](https://python-poetry.org/docs/basic-usage/)
+   3. [Poetry](https://python-poetry.org/docs/basic-usage/)
