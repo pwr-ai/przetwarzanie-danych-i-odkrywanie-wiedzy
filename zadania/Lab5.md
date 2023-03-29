@@ -49,5 +49,5 @@ Wykonaj kilka iteracji i eksperymentów, sprawdź, jakie kombinacje metod/cech p
 
 ## 4. Skuteczność na zbiorze testowym
 
-**(1 pkt)** Przygotuj raport w tabeli Markdown, w której porównasz zastosowane modele w najlepszej dla nich konfiguracji (Dummy, SVM, Random Forest) na zbiorze testowym. Wyuczone mają być na całym zbiorze treningowym.  
+**(1 pkt)** Przygotuj raport w tabeli Markdown, w której porównasz zastosowane modele (Dummy, SVM, Random Forest) w najlepszej dla nich konfiguracji na zbiorze testowym. Wyuczone mają być na całym zbiorze treningowym.  
 Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu? 
