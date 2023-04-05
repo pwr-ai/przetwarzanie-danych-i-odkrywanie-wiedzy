@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -170,9 +168,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/zadania/Lab5.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/zadania/Lab5.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -189,23 +187,6 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/zadania/Lab5.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
     </div>
 
@@ -233,8 +214,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wnioski">
-   4. Wnioski
+  <a class="reference internal nav-link" href="#skutecznosc-na-zbiorze-testowym">
+   4. Skuteczność na zbiorze testowym
   </a>
  </li>
 </ul>
@@ -260,7 +241,7 @@
 <ol class="simple">
 <li><p>Zanim cokolwiek dodasz do projeku zastanów się w którym stage’u powinno to być umieszczone. W wielu sytuacjach nie będzie jednego dobrego rozwiązania, należy wtedy postąpić według własnych preferencji zdając sobie sprawę z wad i zalet decyzji.</p></li>
 <li><p>Dokonując analizy modelu zawsze wykonuj cross-walidację.</p></li>
-<li><p>Weź pod uwagę, że korzystając Stosuj potoki przetwarzania sklearn, jeśli to możliwe.</p></li>
+<li><p>Stosuj potoki przetwarzania sklearn, jeśli to możliwe.</p></li>
 </ol>
 <div class="section" id="pkt-czyszczenie-danych-i-przetwarzanie-wstepne">
 <h2>1. (3 pkt) Czyszczenie danych i przetwarzanie wstępne<a class="headerlink" href="#pkt-czyszczenie-danych-i-przetwarzanie-wstepne" title="Permalink to this headline">¶</a></h2>
@@ -272,14 +253,14 @@
 </div>
 <div class="section" id="uczenie-modelu">
 <h2>2. Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Permalink to this headline">¶</a></h2>
-<p><strong>(3 pkt)</strong> Wytrenuj i porównaj dwa klasyczne algorytmy ML - SVM i Random Forest.</p>
+<p><strong>(3 pkt)</strong> Wytrenuj i porównaj dwa klasyczne algorytmy ML - SVM i Random Forest oraz klasyfikator Dummy używany w trakcie listy 3.</p>
 <p>Przeprowadź następujące eksperymenty:</p>
 <ul class="simple">
 <li><p>użyj tylko danych tekstowych</p></li>
 <li><p>użyj pozostałych danych oprócz tekstowych</p></li>
 <li><p>użyj wszystkich danych</p></li>
 </ul>
-<p>Zaraportuj metryki klasyfikacji. Jak możesz je interpretować? Który algorytm lepiej sobie radzi w tym przypadku? Które cechy pozwalają najlepiej predykować sentyment? Zastanów się, dlaczego?</p>
+<p>Zaraportuj metryki klasyfikacji stosując walidację krzyżową (cross-validation). Nie korzystamy ze zbioru testowego.</p>
 </div>
 <div class="section" id="feature-engineering">
 <h2>3. Feature engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
@@ -287,13 +268,14 @@
 <ul class="simple">
 <li><p>użyj metod selekcji cech</p></li>
 <li><p>użyj metod redukcji wymiarowości</p></li>
-<li><p>zaproponuj nowe cechy, bazując na wiedzy domenowej którą uzyskałeś</p></li>
+<li><p>(opcjonalnie) zaproponuj nowe cechy</p></li>
 </ul>
-<p>Wykonaj kilka iteracji i eksperymentów, sprawdź, jakie kombinacje metod/cech pozwalają poprawić rezultaty, a jakie nie. Jak sądzisz, dlaczego?</p>
+<p>Wykonaj kilka iteracji i eksperymentów, sprawdź, jakie kombinacje metod/cech pozwalają poprawić rezultaty, a jakie nie.</p>
 </div>
-<div class="section" id="wnioski">
-<h2>4. Wnioski<a class="headerlink" href="#wnioski" title="Permalink to this headline">¶</a></h2>
-<p><strong>(1 pkt)</strong> Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu?</p>
+<div class="section" id="skutecznosc-na-zbiorze-testowym">
+<h2>4. Skuteczność na zbiorze testowym<a class="headerlink" href="#skutecznosc-na-zbiorze-testowym" title="Permalink to this headline">¶</a></h2>
+<p><strong>(1 pkt)</strong> Przygotuj raport w tabeli Markdown, w której porównasz zastosowane modele (Dummy, SVM, Random Forest) w najlepszej dla nich konfiguracji na zbiorze testowym. Wyuczone mają być na całym zbiorze treningowym.<br />
+Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu?</p>
 </div>
 </div>
 
