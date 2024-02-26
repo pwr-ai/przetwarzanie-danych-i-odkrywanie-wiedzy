@@ -1,8 +1,9 @@
 # Book settings
 title: Przetwarzanie danych i odkrywanie wiedzy
-author: Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda
+author: Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak
 logo: docs/logo.png
 exclude_patterns: ["cache"]
+copyright                   : "2023"  # Copyright year to be placed in the footer
 
 repository:
   url: https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy

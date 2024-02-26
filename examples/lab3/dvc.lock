@@ -1,0 +1,51 @@
+schema: '2.0'
+stages:
+  download_data:
+    cmd: PYTHONPATH=. python3 scripts/download_data.py
+    deps:
+    - path: scripts/download_data.py
+      md5: 4744f9cc2b979c015cab98bb1b590bca
+      size: 578
+    params:
+      params.yaml:
+        download_data.dev_domains:
+        - hotels
+        download_data.test_domains:
+        - hotels
+        download_data.text_cfg: sentence
+        download_data.train_domains:
+        - hotels
+    outs:
+    - path: data/dataset.pkl
+      md5: 35c2088e2229c17deb87abb690475c75
+      size: 2263646
+  extract_features:
+    cmd: PYTHONPATH=. python3 scripts/extract_features.py
+    deps:
+    - path: data/dataset.pkl
+      md5: 35c2088e2229c17deb87abb690475c75
+      size: 2263646
+    - path: scripts/extract_features.py
+      md5: c01e4d9b6f359a6b49a94883252e53d8
+      size: 451
+    outs:
+    - path: data/featurized.pkl
+      md5: 1604a55a106f3a0558cc996365eaade1
+      size: 3263818
+  evaluate_model:
+    cmd: PYTHONPATH=. python3 scripts/evaluate_model.py
+    deps:
+    - path: data/featurized.pkl
+      md5: 1604a55a106f3a0558cc996365eaade1
+      size: 3263818
+    - path: scripts/evaluate_model.py
+      md5: ab0103e7695a615f0f60de676600f302
+      size: 1993
+    params:
+      params.yaml:
+        evaluate_model.max_iter: 200
+        evaluate_model.random_state: 441
+    outs:
+    - path: data/results.json
+      md5: c64aa36f914d427fa8b3c6f93bdf280a
+      size: 64
