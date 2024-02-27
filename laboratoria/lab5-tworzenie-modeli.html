@@ -1,354 +1,391 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>L5: Tworzenie modeli uczenia maszynowego &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'laboratoria/lab5-tworzenie-modeli';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="L6: Uczenie maszynowe II" href="lab6-uczenie-maszynowe-2.html" />
     <link rel="prev" title="L4: Analiza eksploracyjna zbioru danych" href="lab4-analiza-zbioru-danych.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
   
-  <img src="../_static/logo.png" class="logo" alt="logo">
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../README.html">
   
   
-  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
   
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Przetwarzanie danych i odkrywanie wiedzy - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Przetwarzanie danych i odkrywanie wiedzy - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Przetwarzanie Danych i Odkrywanie Wiedzy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">L1: Zasady laboratorium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">L1: Przygotowanie środowiska</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2-podstawowe-biblioteki.html">L2: Podstawowe biblioteki do odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">L3: Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">L4: Analiza eksploracyjna zbioru danych</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">L5: Tworzenie modeli uczenia maszynowego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">L6: Uczenie maszynowe II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">L7: Produktyzacja procesów odkrywania wiedzy</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/laboratoria/lab5-tworzenie-modeli.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
- <span class="caption-text">
-  Laboratoria
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="lab1-zasady.html">
-   L1: Zasady laboratorium
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab1-przygotowanie-srodowiska.html">
-   L1: Przygotowanie środowiska
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab2-podstawowe-biblioteki.html">
-   L2: Podstawowe biblioteki do odkrywania wiedzy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">
-   L3: Narzędzia zarządzania eksperymentami
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab4-analiza-zbioru-danych.html">
-   L4: Analiza eksploracyjna zbioru danych
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   L5: Tworzenie modeli uczenia maszynowego
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab6-uczenie-maszynowe-2.html">
-   L6: Uczenie maszynowe II
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab7-produktyzacja.html">
-   L7: Produktyzacja procesów odkrywania wiedzy
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
-
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/laboratoria/lab5-tworzenie-modeli.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
+  
 </div>
-
-        <!-- Source interaction buttons -->
-
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/laboratoria/lab5-tworzenie-modeli.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
 </div>
+              
+              
 
-    </div>
-
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>L5: Tworzenie modeli uczenia maszynowego</h1>
     <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wprowadzenie-do-uczenia-maszynowego">
-   Wprowadzenie do uczenia maszynowego
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uczenie-maszynowe-przy-pomocy-sklearn">
-   Uczenie maszynowe przy pomocy sklearn
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wczytanie-zbioru-danych">
-   Wczytanie zbioru danych
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preprocessing-zbioru-danych">
-   Preprocessing zbioru danych
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#obsluga-danych-brakujacych">
-     Obsługa danych brakujących
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#usuniecie-rekordow-z-brakujacymi-danymi">
-       Usunięcie rekordów z brakującymi danymi
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#uzupelnianie-danych-brakujacych">
-       Uzupełnianie danych brakujących
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#transformacje-cech">
-     Transformacje cech
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#skalowanie-wartosci-cech">
-       Skalowanie wartości cech
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#standaryzacja-cech">
-         Standaryzacja cech
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kodowanie-cech-kategorycznych">
-     Kodowanie cech kategorycznych
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#label-encoding">
-       Label encoding
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#one-hot-encoding">
-       One-hot encoding
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wektoryzacja-tekstu">
-     Wektoryzacja tekstu
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inzynieria-cech-ang-feature-engineering">
-   Inżynieria cech (ang. feature engineering)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#selekcja-cech-redukcja-wymiarowosci">
-     Selekcja cech / redukcja wymiarowości
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uczenie-modelu">
-   Uczenie modelu
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#potoki">
-     Potoki
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analiza-jakosci-modelu">
-     Analiza jakości modelu
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#walidacja-krzyzowa">
-     Walidacja krzyżowa
-    </a>
-   </li>
-  </ul>
- </li>
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie-do-uczenia-maszynowego">Wprowadzenie do uczenia maszynowego</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-maszynowe-przy-pomocy-sklearn">Uczenie maszynowe przy pomocy sklearn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytanie-zbioru-danych">Wczytanie zbioru danych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-zbioru-danych">Preprocessing zbioru danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obsluga-danych-brakujacych">Obsługa danych brakujących</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#usuniecie-rekordow-z-brakujacymi-danymi">Usunięcie rekordów z brakującymi danymi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uzupelnianie-danych-brakujacych">Uzupełnianie danych brakujących</a></li>
 </ul>
-
-        </nav>
-        
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacje-cech">Transformacje cech</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skalowanie-wartosci-cech">Skalowanie wartości cech</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#standaryzacja-cech">Standaryzacja cech</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kodowanie-cech-kategorycznych">Kodowanie cech kategorycznych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label-encoding">Label encoding</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-hot encoding</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wektoryzacja-tekstu">Wektoryzacja tekstu</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inzynieria-cech-ang-feature-engineering">Inżynieria cech (ang. feature engineering)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selekcja-cech-redukcja-wymiarowosci">Selekcja cech / redukcja wymiarowości</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-modelu">Uczenie modelu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potoki">Potoki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-jakosci-modelu">Analiza jakości modelu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walidacja-krzyzowa">Walidacja krzyżowa</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <p><img alt="" src="../_images/banner.png" /><figcaption style="text-align: right; font-size:9px"><a href="https://pixabay.com/service/license/">Na licencji Pixabay</a></figcaption></p>
-<div class="section" id="l5-tworzenie-modeli-uczenia-maszynowego">
-<h1>L5: Tworzenie modeli uczenia maszynowego<a class="headerlink" href="#l5-tworzenie-modeli-uczenia-maszynowego" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="wprowadzenie-do-uczenia-maszynowego">
-<h2>Wprowadzenie do uczenia maszynowego<a class="headerlink" href="#wprowadzenie-do-uczenia-maszynowego" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="l5-tworzenie-modeli-uczenia-maszynowego">
+<h1>L5: Tworzenie modeli uczenia maszynowego<a class="headerlink" href="#l5-tworzenie-modeli-uczenia-maszynowego" title="Link to this heading">#</a></h1>
+<section id="wprowadzenie-do-uczenia-maszynowego">
+<h2>Wprowadzenie do uczenia maszynowego<a class="headerlink" href="#wprowadzenie-do-uczenia-maszynowego" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Uczenie maszynowe (ang. <em>machine learning</em>) jest obecnie najpopularniejszą dziedziną sztucznej inteligencji.</p></li>
 <li><p>Polega ono na automatycznej budowie <em>modelu</em> poprzez ekspozycję <em>algorytmu</em> na <em>dane treningowe</em> w procesie zwanym <em>uczeniem</em>.</p></li>
 <li><p>Model uczenia maszynowego posiada zdolność rozpoznawania wzorców wykrytych w danych, dzięki czemu jest w stanie dokonywać <em>predykcji</em>.</p></li>
@@ -363,12 +400,12 @@
 <p>Klasyfikacja i regresja są przykładami <em>uczenia nadzorowanego</em>, gdzie do treningu oprócz danych wejściowych opisujących problem, musimy też posiadać <em>etykietę</em>, tj. klasę lub wartość która ma być wyjściem modelu.</p>
 <p>Klasteryzacja to przykład <em>uczenia nienadzorowanego</em>, gdzie model realizuje swoje zadanie bez dodatkowych informacji z naszej strony.</p>
 <p><img alt="" src="../_images/rodzaje_uczenia.png" /></p>
-</div>
-<div class="section" id="uczenie-maszynowe-przy-pomocy-sklearn">
-<h2>Uczenie maszynowe przy pomocy sklearn<a class="headerlink" href="#uczenie-maszynowe-przy-pomocy-sklearn" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="uczenie-maszynowe-przy-pomocy-sklearn">
+<h2>Uczenie maszynowe przy pomocy sklearn<a class="headerlink" href="#uczenie-maszynowe-przy-pomocy-sklearn" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Scikit-learn (aka sklearn) jest aktualnie najpopularniejszą biblioteką w Pythonie pozwalającą kompleksowo przeprowadzać proces machine learningowy, który zazwyczaj składa się z następujących elementów:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>wczytanie zbioru danych</p></li>
 <li><p>preprocessing zbioru:</p>
 <ul class="simple">
@@ -386,9 +423,9 @@
 <p>Instalacja przebiega standardowo:</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scikit-learn</span></code></p>
 <p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-</div>
-<div class="section" id="wczytanie-zbioru-danych">
-<h2>Wczytanie zbioru danych<a class="headerlink" href="#wczytanie-zbioru-danych" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="wczytanie-zbioru-danych">
+<h2>Wczytanie zbioru danych<a class="headerlink" href="#wczytanie-zbioru-danych" title="Link to this heading">#</a></h2>
 <p>Scikit-learn posiada wbudowany zestaw standardowych, benchmarkowych zbiorów danych - jak np. używany w przykładzie zbiór <em>wine</em>. Pozwala także w prosty sposób generować syntetyczne dane.</p>
 <p>Więcej informacji o dostępnych w bibliotece zbiorach danych <a class="reference external" href="https://scikit-learn.org/stable/datasets.html">tutaj</a></p>
 <div class="cell docutils container">
@@ -396,7 +433,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="s2">&quot;../docs/lab3/wine_with_nulls.csv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;../docs/lab4/wine_with_nulls.csv&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">])</span>
@@ -407,9 +444,9 @@
 </div>
 <p>Trzymając się przyjętej konwencji matematycznej, zbiór danych wejściowych nazywamy <code class="docutils literal notranslate"><span class="pre">x</span></code>, natomiast wyjściowych - <code class="docutils literal notranslate"><span class="pre">y</span></code></p>
 <p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-</div>
-<div class="section" id="preprocessing-zbioru-danych">
-<h2>Preprocessing zbioru danych<a class="headerlink" href="#preprocessing-zbioru-danych" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="preprocessing-zbioru-danych">
+<h2>Preprocessing zbioru danych<a class="headerlink" href="#preprocessing-zbioru-danych" title="Link to this heading">#</a></h2>
 <p>Odpowiednie przygotowanie danych uczących jest kluczem do sukcesu każdego przedsięwzięcia machine learningu - w myśl zasady <code class="docutils literal notranslate"><span class="pre">Garbage</span> <span class="pre">in,</span> <span class="pre">garbage</span> <span class="pre">out</span></code>. Przed przystąpieniem do uczenia, zazwyczaj konieczne jest wykonanie co najmniej kilku kroków wstępnego przetwarzania danych.</p>
 <p>Krok ten silnie uzależniony jest od samych danych - inaczej przygotowywać będziemy dane tekstowe, numeryczne, dźwiękowe czy obrazy. Dużą rolę gra tutaj także planowany do użycia algorytm - część z nich wymaga np. ustandaryzowanych danych.</p>
 <p>Duże znaczenie dla jakości procesu ma balans klas - w przypadku danych niezbalansowanych, część algorytmów wykazuje tendencje do preferowania klasy nadreprezentowanej, przez co popełniają błędy.</p>
@@ -427,16 +464,16 @@
 <li><p>nie ma duplikatów</p></li>
 <li><p>nie ma danych kategorycznych, poza etykietą, więc nie ma potrzeby ich kodowania</p></li>
 </ul>
-<div class="section" id="obsluga-danych-brakujacych">
-<h3>Obsługa danych brakujących<a class="headerlink" href="#obsluga-danych-brakujacych" title="Permalink to this headline">¶</a></h3>
+<section id="obsluga-danych-brakujacych">
+<h3>Obsługa danych brakujących<a class="headerlink" href="#obsluga-danych-brakujacych" title="Link to this heading">#</a></h3>
 <p>W przetwarzanym zbiorze danych występują brakujące wartości. Dane w takiej postaci nie nadają się do celów uczenia maszynowego.</p>
 <p>Istnieją dwa podejścia na rozwiązanie tej kwestii:</p>
 <ul class="simple">
 <li><p>usunięcie rekordów zawierających brakujące wartości</p></li>
 <li><p>uzupełnienie tych wartości</p></li>
 </ul>
-<div class="section" id="usuniecie-rekordow-z-brakujacymi-danymi">
-<h4>Usunięcie rekordów z brakującymi danymi<a class="headerlink" href="#usuniecie-rekordow-z-brakujacymi-danymi" title="Permalink to this headline">¶</a></h4>
+<section id="usuniecie-rekordow-z-brakujacymi-danymi">
+<h4>Usunięcie rekordów z brakującymi danymi<a class="headerlink" href="#usuniecie-rekordow-z-brakujacymi-danymi" title="Link to this heading">#</a></h4>
 <p>Jest to rozwiązanie najprostsze i potencjalnie najlepsze dla jakości klasyfikacji - usuwając “niepewne” rekordy, uczymy klasyfikator jedynie na pełnowartościowych danych.</p>
 <p>Minusem tego rozwiązania jest jednakże zmniejszenie się zbioru danych - polecane jest jego stosowanie jedynie w przypadku, gdy mamy wystarczającą ilość danych</p>
 <div class="cell docutils container">
@@ -491,9 +528,9 @@ dtype: bool
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="uzupelnianie-danych-brakujacych">
-<h4>Uzupełnianie danych brakujących<a class="headerlink" href="#uzupelnianie-danych-brakujacych" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="uzupelnianie-danych-brakujacych">
+<h4>Uzupełnianie danych brakujących<a class="headerlink" href="#uzupelnianie-danych-brakujacych" title="Link to this heading">#</a></h4>
 <p>W przypadku gdy mamy niedostateczną ilość danych i nie możemy ich usunąć bez konsekwencji, alternatywą jest uzupełnienie danych.</p>
 <p>W tym celu należy wybrać odpowiednią wartość. Najpopularniejsze strategie to:</p>
 <ul class="simple">
@@ -731,12 +768,12 @@ dtype: bool
 <p>178 rows × 13 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="transformacje-cech">
-<h3>Transformacje cech<a class="headerlink" href="#transformacje-cech" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="skalowanie-wartosci-cech">
-<h4>Skalowanie wartości cech<a class="headerlink" href="#skalowanie-wartosci-cech" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="transformacje-cech">
+<h3>Transformacje cech<a class="headerlink" href="#transformacje-cech" title="Link to this heading">#</a></h3>
+<section id="skalowanie-wartosci-cech">
+<h4>Skalowanie wartości cech<a class="headerlink" href="#skalowanie-wartosci-cech" title="Link to this heading">#</a></h4>
 <p>Część algorytmów jest wrażliwa na zróżnicowanie wartości poszczególnych cech. Są to w szczególności:</p>
 <ul class="simple">
 <li><p>algorytmy bazujące na gradientach - np. regresja logistyczna, sieci neuronowe</p></li>
@@ -749,8 +786,8 @@ dtype: bool
 <li><p>normalizacja - przekształcenie wartości o nieznanym rozkładzie do takiego, który ma maksymalną wartości równą 1. Jest wrażliwa na outliery!</p></li>
 </ul>
 <p><img alt="" src="../_images/feature_scaling.png" /></p>
-<div class="section" id="standaryzacja-cech">
-<h5>Standaryzacja cech<a class="headerlink" href="#standaryzacja-cech" title="Permalink to this headline">¶</a></h5>
+<section id="standaryzacja-cech">
+<h5>Standaryzacja cech<a class="headerlink" href="#standaryzacja-cech" title="Link to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
@@ -818,9 +855,9 @@ dtype: float64
 
 Po standaryzacji
 Średnia cech:
- [-3.43295929e-15 -1.59672525e-16 -1.18694068e-15 -4.39099443e-16
-  1.75639777e-15  1.99590656e-16  0.00000000e+00 -2.79426919e-16
- -3.99181312e-17  2.99385984e-16 -4.79017575e-16  3.19345050e-16
+ [-2.91402358e-15 -1.59672525e-16 -1.26615322e-15 -3.99181312e-16
+  1.75639777e-15  1.99590656e-16  3.99181312e-17 -2.79426919e-16
+ -5.98771968e-17  2.89406451e-16 -4.79017575e-16  4.79017575e-16
  -1.99590656e-16]
 
 Odchylenie standardowe cech:
@@ -833,14 +870,14 @@ Odchylenie standardowe cech:
 <p class="admonition-title">See also</p>
 <p>Do normalizacji służy analogiczny moduł sklearn - <code class="docutils literal notranslate"><span class="pre">MinMaxScaler</span></code></p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="kodowanie-cech-kategorycznych">
-<h3>Kodowanie cech kategorycznych<a class="headerlink" href="#kodowanie-cech-kategorycznych" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+</section>
+<section id="kodowanie-cech-kategorycznych">
+<h3>Kodowanie cech kategorycznych<a class="headerlink" href="#kodowanie-cech-kategorycznych" title="Link to this heading">#</a></h3>
 <p>Kodowanie cech kategorycznych ma na celu przekształcenie ich do formy numerycznej, by umożliwić ich obsługę przez algorytmy ML. Nie wszystkie algorytmy wymagają kodowania (np. drzewa)</p>
-<div class="section" id="label-encoding">
-<h4>Label encoding<a class="headerlink" href="#label-encoding" title="Permalink to this headline">¶</a></h4>
+<section id="label-encoding">
+<h4>Label encoding<a class="headerlink" href="#label-encoding" title="Link to this heading">#</a></h4>
 <p>Polega na przypisywaniu wartościom kategorycznym kolejnych wartości liczbowych, np:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -861,9 +898,9 @@ Odchylenie standardowe cech:
 <p class="admonition-title">Important</p>
 <p>Wartości są przypisywane w kolejności alfabetycznej, stąd algorytm może zostać wprowadzony w błąd, jesli dane nie wykazują takiej zależności!</p>
 </div>
-</div>
-<div class="section" id="one-hot-encoding">
-<h4>One-hot encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="one-hot-encoding">
+<h4>One-hot encoding<a class="headerlink" href="#one-hot-encoding" title="Link to this heading">#</a></h4>
 <p>Alternatywą jest zakodować wartości jako wektor, gdzie każda pozycja odpowiada jednej z wartości:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -881,10 +918,10 @@ Odchylenie standardowe cech:
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="wektoryzacja-tekstu">
-<h3>Wektoryzacja tekstu<a class="headerlink" href="#wektoryzacja-tekstu" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="wektoryzacja-tekstu">
+<h3>Wektoryzacja tekstu<a class="headerlink" href="#wektoryzacja-tekstu" title="Link to this heading">#</a></h3>
 <p>Podstawową metodą zamiany tekstu na wektor liczbowy jest metoda Bag-of-Words. To rozbudowa metody one-hot encoding dla danych tekstowych (w technicznej implementacji używane są rzadkie macierze).</p>
 <p>Plusem jest jej prostota, minusem całkowity brak uwzględnienia zależności w tekście</p>
 <div class="cell docutils container">
@@ -942,14 +979,14 @@ Odchylenie standardowe cech:
 </div>
 </div>
 <p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-</div>
-</div>
-<div class="section" id="inzynieria-cech-ang-feature-engineering">
-<h2>Inżynieria cech (ang. feature engineering)<a class="headerlink" href="#inzynieria-cech-ang-feature-engineering" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="inzynieria-cech-ang-feature-engineering">
+<h2>Inżynieria cech (ang. feature engineering)<a class="headerlink" href="#inzynieria-cech-ang-feature-engineering" title="Link to this heading">#</a></h2>
 <p>Inżynieria cech jest procesem wykorzystywania wiedzy domenowej na temat danych do tworzenia funkcji umożliwiających działanie algorytmów uczenia maszynowego. Poprawne przygotowanie cech bardzo zwiększa moc predykcyjną algorytmów.</p>
 <p>Przykładowo, mając dane nt. pewnej populacji, cecha wzrostu danego człowieka może nie mieć mocy predykcyjnej lub jest ona ciężka do użycia przez prostsze algorytmy. Niemniej przekształcenie jej do informacji o tym czy dany człowiek jest wyższy/niższy od średniego wzrostu w danej populacji może pomóc.</p>
-<div class="section" id="selekcja-cech-redukcja-wymiarowosci">
-<h3>Selekcja cech / redukcja wymiarowości<a class="headerlink" href="#selekcja-cech-redukcja-wymiarowosci" title="Permalink to this headline">¶</a></h3>
+<section id="selekcja-cech-redukcja-wymiarowosci">
+<h3>Selekcja cech / redukcja wymiarowości<a class="headerlink" href="#selekcja-cech-redukcja-wymiarowosci" title="Link to this heading">#</a></h3>
 <p>W wielu zbiorach danych występują cechy, które nie są informacyjne. Usunięcie takich cech często pozwala na poprawę jakości predykcji. Ograniczenie ilości cech ułatwia także technicznie proces uczenia - algorytm musi przetworzyc mniej danych, wiec dzieje się to szybciej. Istnieje wiele metod selekcji cech, np. bazujacych na testach statystycznych. Ich ogólna idea polega na ocenieniu cech wg. zadanej miary jakości, a następnie wyboru najbardziej wartościowych.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -998,10 +1035,10 @@ Odchylenie standardowe cech:
 </div>
 <p>Alternatywnie stosuje się metody redukcji wymiarowości. W przeciwieństwie do selekcji cech, która jedynie wybiera spośród istniejących już danych pewien ich podzbiór, algorytmy redukcji wymiarowości przekształcają dane, tworząc nowe, bardziej informacyjne cechy. Najpopularniejszą metodą redukcji wymiarowości jest <code class="docutils literal notranslate"><span class="pre">PCA</span></code></p>
 <p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
-</div>
-</div>
-<div class="section" id="uczenie-modelu">
-<h2>Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="uczenie-modelu">
+<h2>Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Link to this heading">#</a></h2>
 <p>Mając odpowiednio przygotowane dane, możemy przystąpić do procesu uczenia. Pierwszym krokiem będzie podział zbioru na część treningową (na której nauczymy model) oraz testową (na której przetestujemy jego jakość). Taki podział pozwala zmierzyć zdolność modelu do generalizacji - sprawdzamy jakość na danych, które nie były użyte do nauki, których “model wcześniej nie widział”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1043,10 +1080,411 @@ y_test:  (36,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC()
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVC()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;SVC<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.svm.SVC.html">?<span>Documentation for SVC</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>SVC()</pre></div> </div></div></div></div></div></div>
 </div>
 <p>Możemy go teraz użyć w celu predykcji nowych wartości:</p>
 <div class="cell docutils container">
@@ -1067,8 +1505,8 @@ y_test:  (36,)
 <p>Do najpopularniejszych modeli nadzorowanych należą - drzewa decyzyjne (i lasy losowe), kNN, SVM, Naive Bayes, sieci neuronowe.</p>
 <p>Niestety, dokładne wprowadzenie w fascynującą dziedzinę modelu uczenia maszynowego leży poza zakresem tego laboratorium.</p>
 </div>
-<div class="section" id="potoki">
-<h3>Potoki<a class="headerlink" href="#potoki" title="Permalink to this headline">¶</a></h3>
+<section id="potoki">
+<h3>Potoki<a class="headerlink" href="#potoki" title="Link to this heading">#</a></h3>
 <p>W przypadku bardziej rozbudowanego preprocessingu, niezwykle przydatna staje się możliwość łączenia wszystkich użytych mechanizmów w jeden potok:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1089,13 +1527,417 @@ y_test:  (36,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[(&#39;standardscaler&#39;, StandardScaler()),
-                (&#39;variancethreshold&#39;,
+<div class="output text_html"><style>#sk-container-id-2 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-2 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-2 pre {
+  padding: 0;
+}
+
+#sk-container-id-2 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-2 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-2 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-2 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-2 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-2 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-2 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-2 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-2 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-2 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label label.sk-toggleable__label,
+#sk-container-id-2 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-2 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-2 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-2 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-2 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-2 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-2 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;standardscaler&#x27;, StandardScaler()),
+                (&#x27;variancethreshold&#x27;,
                  VarianceThreshold(threshold=0.15999999999999998)),
-                (&#39;svc&#39;, SVC())])
-</pre></div>
-</div>
-</div>
+                (&#x27;svc&#x27;, SVC())])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;standardscaler&#x27;, StandardScaler()),
+                (&#x27;variancethreshold&#x27;,
+                 VarianceThreshold(threshold=0.15999999999999998)),
+                (&#x27;svc&#x27;, SVC())])</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;StandardScaler<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;VarianceThreshold<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.feature_selection.VarianceThreshold.html">?<span>Documentation for VarianceThreshold</span></a></label><div class="sk-toggleable__content fitted"><pre>VarianceThreshold(threshold=0.15999999999999998)</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SVC<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.svm.SVC.html">?<span>Documentation for SVC</span></a></label><div class="sk-toggleable__content fitted"><pre>SVC()</pre></div> </div></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1109,9 +1951,9 @@ y_test:  (36,)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="analiza-jakosci-modelu">
-<h3>Analiza jakości modelu<a class="headerlink" href="#analiza-jakosci-modelu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="analiza-jakosci-modelu">
+<h3>Analiza jakości modelu<a class="headerlink" href="#analiza-jakosci-modelu" title="Link to this heading">#</a></h3>
 <p>Na tym etapie posiadamy zbiór danych podzielony na część treningową i testową, oraz klasyfikator nauczony na częsci treningowej. Jak sprawdzić, jak dobrze jest on nauczony?</p>
 <p>Do określenia jakości modelu służy szereg metryk, różnych w zależności od problemu.</p>
 <p>W zadaniu klasyfikacji, standardowo używa się następujących miar wywodzących się z klasyfikacji binarnej:</p>
@@ -1162,9 +2004,9 @@ weighted avg       0.97      0.97      0.97        36
 </div>
 </div>
 <p>W przypadku zadania regresji, standardowo używaną miarą jest błąd średniokwadratowy (<code class="docutils literal notranslate"><span class="pre">ang.</span> <span class="pre">mean</span> <span class="pre">square</span> <span class="pre">error</span></code>). Więcej informacji o różnych rodzajach metryk jakości modelu - <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">tutaj</a></p>
-</div>
-<div class="section" id="walidacja-krzyzowa">
-<h3>Walidacja krzyżowa<a class="headerlink" href="#walidacja-krzyzowa" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="walidacja-krzyzowa">
+<h3>Walidacja krzyżowa<a class="headerlink" href="#walidacja-krzyzowa" title="Link to this heading">#</a></h3>
 <p>Powyżej nauczyliśmy model klasyfikować - i to z bardzo dobrą jakością!</p>
 <p>Jednakże, nauczyliśmy nasz model na pewnym podzbiorze danych i przetestowaliśmy na innym. Nie mamy pewności, czy model sam w sobie wykazuje się dobrą jakością, czy to akurat ten specyficzny wybór podzbiorów danych daje tak dobre wyniki.</p>
 <p>Z pomocą przychodzi tutaj <code class="docutils literal notranslate"><span class="pre">walidacja</span> <span class="pre">krzyżowa</span> <span class="pre">|</span> <span class="pre">sprawdzanie</span> <span class="pre">krzyżowe</span></code> <code class="docutils literal notranslate"><span class="pre">(ang.</span> <span class="pre">cross-validation)</span></code>. Jest to procedura polegająca na kilkukrotnym uruchomieniu procedury uczenia modelu, za każdym razem na innym podzbiorze danych. Uśredniony wynik takich kilku modeli pozwala z większą dokładnością wyrokować o jakości samego modelu.</p>
@@ -1190,9 +2032,9 @@ weighted avg       0.97      0.97      0.97        36
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1206,7 +2048,7 @@ weighted avg       0.97      0.97      0.97        36
             mode: "przetwarzanie-danych-i-odkrywanie-wiedzy"
         },
         kernelOptions: {
-            kernelName: "przetwarzanie-danych-i-odkrywanie-wiedzy",
+            name: "przetwarzanie-danych-i-odkrywanie-wiedzy",
             path: "./laboratoria"
         },
         predefinedOutput: true
@@ -1214,38 +2056,136 @@ weighted avg       0.97      0.97      0.97        36
     </script>
     <script>kernelName = 'przetwarzanie-danych-i-odkrywanie-wiedzy'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="lab4-analiza-zbioru-danych.html" title="previous page">L4: Analiza eksploracyjna zbioru danych</a>
-    <a class='right-next' id="next-link" href="lab6-uczenie-maszynowe-2.html" title="next page">L6: Uczenie maszynowe II</a>
 
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak<br/>
-        
-            &copy; Copyright 2023.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab4-analiza-zbioru-danych.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">L4: Analiza eksploracyjna zbioru danych</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="lab6-uczenie-maszynowe-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">L6: Uczenie maszynowe II</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie-do-uczenia-maszynowego">Wprowadzenie do uczenia maszynowego</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-maszynowe-przy-pomocy-sklearn">Uczenie maszynowe przy pomocy sklearn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytanie-zbioru-danych">Wczytanie zbioru danych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-zbioru-danych">Preprocessing zbioru danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obsluga-danych-brakujacych">Obsługa danych brakujących</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#usuniecie-rekordow-z-brakujacymi-danymi">Usunięcie rekordów z brakującymi danymi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uzupelnianie-danych-brakujacych">Uzupełnianie danych brakujących</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacje-cech">Transformacje cech</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skalowanie-wartosci-cech">Skalowanie wartości cech</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#standaryzacja-cech">Standaryzacja cech</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kodowanie-cech-kategorycznych">Kodowanie cech kategorycznych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label-encoding">Label encoding</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-hot encoding</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wektoryzacja-tekstu">Wektoryzacja tekstu</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inzynieria-cech-ang-feature-engineering">Inżynieria cech (ang. feature engineering)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selekcja-cech-redukcja-wymiarowosci">Selekcja cech / redukcja wymiarowości</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-modelu">Uczenie modelu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potoki">Potoki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-jakosci-modelu">Analiza jakości modelu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walidacja-krzyzowa">Walidacja krzyżowa</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

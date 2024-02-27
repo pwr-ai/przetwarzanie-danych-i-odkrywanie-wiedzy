@@ -1,353 +1,394 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>L1: Przygotowanie środowiska &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'laboratoria/lab1-przygotowanie-srodowiska';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="L2: Podstawowe biblioteki do odkrywania wiedzy" href="lab2-podstawowe-biblioteki.html" />
     <link rel="prev" title="L1: Zasady laboratorium" href="lab1-zasady.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
   
-  <img src="../_static/logo.png" class="logo" alt="logo">
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../README.html">
   
   
-  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
   
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Przetwarzanie danych i odkrywanie wiedzy - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Przetwarzanie danych i odkrywanie wiedzy - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Przetwarzanie Danych i Odkrywanie Wiedzy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">L1: Zasady laboratorium</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">L1: Przygotowanie środowiska</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2-podstawowe-biblioteki.html">L2: Podstawowe biblioteki do odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">L3: Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">L4: Analiza eksploracyjna zbioru danych</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab5-tworzenie-modeli.html">L5: Tworzenie modeli uczenia maszynowego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">L6: Uczenie maszynowe II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">L7: Produktyzacja procesów odkrywania wiedzy</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/laboratoria/lab1-przygotowanie-srodowiska.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
- <span class="caption-text">
-  Laboratoria
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="lab1-zasady.html">
-   L1: Zasady laboratorium
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   L1: Przygotowanie środowiska
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab2-podstawowe-biblioteki.html">
-   L2: Podstawowe biblioteki do odkrywania wiedzy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">
-   L3: Narzędzia zarządzania eksperymentami
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab4-analiza-zbioru-danych.html">
-   L4: Analiza eksploracyjna zbioru danych
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab5-tworzenie-modeli.html">
-   L5: Tworzenie modeli uczenia maszynowego
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab6-uczenie-maszynowe-2.html">
-   L6: Uczenie maszynowe II
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab7-produktyzacja.html">
-   L7: Produktyzacja procesów odkrywania wiedzy
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/laboratoria/lab1-przygotowanie-srodowiska.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-        <!-- Source interaction buttons -->
-
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/laboratoria/lab1-przygotowanie-srodowiska.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">
-   Efekty kształcenia laboratorium
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wymagania-wstepne">
-   Wymagania wstępne
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python">
-     Python
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#git">
-     Git
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#github">
-     GitHub
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#srodowiska-wirtualne">
-     Środowiska wirtualne
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#venv">
-       Venv
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pipenv">
-       Pipenv
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#conda">
-       Conda
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docker">
-     Docker
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#kontenery-a-maszyny-wirtualne">
-       Kontenery a maszyny wirtualne
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#instalacja">
-     Instalacja
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tworzenie-przykladowego-srodowiska">
-     Tworzenie przykładowego środowiska
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook">
-     Jupyter Notebook
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyterlab">
-     JupyterLab
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pycharm">
-     PyCharm
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jakosc-kodu">
-     Jakość kodu
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#black">
-       black
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#inne-narzedzia">
-       Inne narzędzia
-      </a>
-     </li>
-    </ul>
-   </li>
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
-        </nav>
-        
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>L1: Przygotowanie środowiska</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">Efekty kształcenia laboratorium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wymagania-wstepne">Wymagania wstępne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github">GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#srodowiska-wirtualne">Środowiska wirtualne</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">Venv</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pipenv">Pipenv</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kontenery-a-maszyny-wirtualne">Kontenery a maszyny wirtualne</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-przykladowego-srodowiska">Tworzenie przykładowego środowiska</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">JupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">PyCharm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jakosc-kodu">Jakość kodu</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#black">black</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inne-narzedzia">Inne narzędzia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <p><img alt="" src="../_images/banner.png" /><figcaption style="text-align: right; font-size:9px"><a href="https://pixabay.com/service/license/">Na licencji Pixabay</a></figcaption></p>
-<div class="section" id="l1-przygotowanie-srodowiska">
-<h1>L1: Przygotowanie środowiska<a class="headerlink" href="#l1-przygotowanie-srodowiska" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="efekty-ksztalcenia-laboratorium">
-<h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="l1-przygotowanie-srodowiska">
+<h1>L1: Przygotowanie środowiska<a class="headerlink" href="#l1-przygotowanie-srodowiska" title="Link to this heading">#</a></h1>
+<section id="efekty-ksztalcenia-laboratorium">
+<h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p>poznasz możliwości tworzenia środowiska wirtualnego Python</p></li>
 <li><p>poznasz środowisko Jupyter</p></li>
 <li><p>poznasz podstawowe mechanizmy systemu kontroli wersji Git i ekosystemu GitHub</p></li>
 </ul>
-</div>
-<div class="section" id="wymagania-wstepne">
-<h2>Wymagania wstępne<a class="headerlink" href="#wymagania-wstepne" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="wymagania-wstepne">
+<h2>Wymagania wstępne<a class="headerlink" href="#wymagania-wstepne" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
-<div class="section" id="python">
-<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
 <p>Podczas zajęć pracować będziemy używając języka Python. Na zajęciach nie będziemy wprowadzać podstaw tego języka.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -357,9 +398,9 @@
 <p class="admonition-title">See also</p>
 <p>W celu odświeżenia podstaw języka (składnia, zmienne, pętle itd) odsyłamy np. do <a class="reference external" href="https://www.tomasbeuzen.com/python-programming-for-data-science">tego kursu</a>.</p>
 </div>
-</div>
-<div class="section" id="git">
-<h3>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="git">
+<h3>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h3>
 <p>Laboratoria prowadzić będziemy przy pomocy GitHub Classroom, bazującym na repozytoriach Git. Potrzebne będą jedynie podstawowe funkcjonalności - klonowanie repozytorium, commitowanie i pushowanie do niego.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -369,9 +410,9 @@
 <p class="admonition-title">See also</p>
 <p>W celu pozyskania lub doskonalenia umiejętności obsługi Gita, odsyłamy np. do <a class="reference external" href="https://areknawo.com/git-basics-the-only-introduction-you-will-ever-need/">tego</a> lub <a class="reference external" href="https://guides.github.com/activities/hello-world/">tego</a> kursu.</p>
 </div>
-</div>
-<div class="section" id="github">
-<h3>GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="github">
+<h3>GitHub<a class="headerlink" href="#github" title="Link to this heading">#</a></h3>
 <p>Zajęcia przeprowadzone zostaną częściowo przy pomocy narzędzia GitHub Classroom, które pozwala na łatwe zarządzanie zadaniami grupy studentów, a częściowo z wykorzystaniem standardowych repozytoriów zakładanych przez prowadzącego.</p>
 <p>Część laboratoriów zostanie opublikowane w formie Assignmentu, do którego każdorazowo zostaniecie zaproszeni poprzez rozesłanie linka przez prowadzącego. Po zaakceptowaniu Assignmentu, sklonowane zostanie repozytorium zawierajace pliki przygotowane przez prowadzącego. Zadaniem studenta jest rozwiązanie zamieszczonych zadań i commit zmienionych plików z powrotem do repozytorium.</p>
 <p>Pozostałe laboratoria będą odbywały się w jednym standardowym repozytorium do którego zostaniecie zaproszeni. Po wykonaniu każdego z etapów wymagane będzie utworzenie Pull Reqest’a do brancha <code class="docutils literal notranslate"><span class="pre">main</span></code>. Studenci nie będą mogli samodzielnie modyfikować brancha <code class="docutils literal notranslate"><span class="pre">main</span></code>, ma to umożliwić prowadzącemu czytelny przegląd wprowadzonych zmian przy danej liście zadań.</p>
@@ -380,13 +421,13 @@
 <p class="admonition-title">See also</p>
 <p>Więcej informacji wraz z dokładnymi instrukcjami korzystania z Classroom - <a class="reference external" href="https://github.com/jfiksel/github-classroom-for-students">tutaj</a> (należy jednakże pominąć część dotyczącą instalacji i użytkowania RStudio).</p>
 </div>
-</div>
-<div class="section" id="srodowiska-wirtualne">
-<h3>Środowiska wirtualne<a class="headerlink" href="#srodowiska-wirtualne" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="srodowiska-wirtualne">
+<h3>Środowiska wirtualne<a class="headerlink" href="#srodowiska-wirtualne" title="Link to this heading">#</a></h3>
 <p>W celu izolacji środowiska Pythona na potrzeby konkretnego projektu stosuje się <em>środowiska wirtualne</em>. Umożliwiają one instalację bibliotek w izolacji od głównego systemu - dzięki czemu można stosować np. różne wersje jednej biblioteki w różnych projektach.</p>
 <p>Najpopularniejsze z nich to <code class="docutils literal notranslate"><span class="pre">venv</span></code>, <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> i <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Używanie środowisk wirtualnych jest dobrą praktyką programistyczną umożliwiająca izolację środowisk. Nie narzucamy wyboru konkretnego rozwiązania - choć różnią się między sobą, wszystkie spełniają założenia wirtualizacji.</p>
-<div class="section" id="venv">
-<h4>Venv<a class="headerlink" href="#venv" title="Permalink to this headline">¶</a></h4>
+<section id="venv">
+<h4>Venv<a class="headerlink" href="#venv" title="Link to this heading">#</a></h4>
 <p>Najprostsze z rozwiązań. Tworzy wirtualne środowisko - i to jedyne co robi.</p>
 <p>W celu stworzenia nowego środowiska należy wykonać w terminalu następujące komendy:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">DIRECTORY</span>
@@ -405,9 +446,9 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deactivate</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="pipenv">
-<h4>Pipenv<a class="headerlink" href="#pipenv" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="pipenv">
+<h4>Pipenv<a class="headerlink" href="#pipenv" title="Link to this heading">#</a></h4>
 <p>Działa analogicznie do venva, jednak jest bardziej zaawansowane w kwestii zarządzania zależnościami instalowanych paczek. Automatycznie zapisuje instalowane biblioteki do pliku <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code>, który może służyc łatwej reprodukcji całego środowiska</p>
 <p>Po zainstalowaniu przy pomocy</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pipenv</span>
@@ -426,9 +467,9 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deactivate</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="conda">
-<h4>Conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="conda">
+<h4>Conda<a class="headerlink" href="#conda" title="Link to this heading">#</a></h4>
 <p>Jest to środowisko wirtualne korzystające z Anacondy, zawierającej dystrybucję Pythona sprofilowaną pod zastosowania naukowe. Anaconda zawiera preinstalowaną i zoptymalizowaną gamę paczek, osobny menager paczek i GUI.</p>
 <p>Anaconda bywa częstym wyborem w przypadku używania Windowsa - standardowa instalacja części paczek często jest problematyczna, podczas gdy te wbudowane w Anacondę zazwyczaj nie sprawiają problemów.</p>
 <p>W celu instalacji odsyłamy do <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">dokumentacji</a>.</p>
@@ -456,33 +497,33 @@
 <p class="admonition-title">Hint</p>
 <p>Conda nie jest mechanizmem stricte Pythonowym - tak samo można używać środowisk wirtualnych dla innych jezyków</p>
 </div>
-</div>
-</div>
-<div class="section" id="docker">
-<h3>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h3>
 <p>Do wirtualizacji środowiska można użyć <strong>kontenerów</strong>. Jednym z najpopularniejszych narzędzi do tworzenia i zarządzania kontenerami jest Docker. Więcej o nim dowiecie się na ostatnich zajęciach. Teraz powiemy sobie jak wykorzystać go do wirtualizacji środowiska.</p>
 <p>Definicja aplikacji i zależności nazywana jest <strong>obrazem</strong> (ang. image). Na podstawie obrazu, Docker tworzy <strong>kontener</strong> (ang. container) który zawiera i w którym jest uruchomiona aplikacja.</p>
-<div class="section" id="kontenery-a-maszyny-wirtualne">
-<h4>Kontenery a maszyny wirtualne<a class="headerlink" href="#kontenery-a-maszyny-wirtualne" title="Permalink to this headline">¶</a></h4>
+<section id="kontenery-a-maszyny-wirtualne">
+<h4>Kontenery a maszyny wirtualne<a class="headerlink" href="#kontenery-a-maszyny-wirtualne" title="Link to this heading">#</a></h4>
 <p>Środowiska uruchomieniowe dla aplikacji można tworzyć na wiele sposobów. Wiemy, że można używać do tego celu kontenerów, ale równie popularnym podejściem, było do niedawna, użycie maszyn wirtualnych. Który ze sposobów powinniśmy wybrać? Jakie są zalety i wady tych podejść?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>Maszyny wirtualne</strong></p></li>
 </ol>
-<p>W systemie operacyjnym hosta uruchomiony jest hipernadzorca, który jest odpowiedzialny za wirtualizację, czyli <a class="reference external" href="http://m.in">m.in</a>. tłumaczenie instrukcji maszynowych maszyn wirtualnych na polecenia dla systemu hosta, a zatem i dla procesora, przetłumaczanie wywołań systemowych (ang. <em>system calls</em>) oraz alokację zasobów. Następnym poziomem są systemy operacyjne gościa, które są uruchomione w ramach hipernadzorcy. Systemy gościa dostarczają potrzebnych bibliotek i plików uruchomieniowych (<em>Bin/Lib</em>) dla uruchomionych aplikacji.</p>
-<ol class="simple">
+<p>W systemie operacyjnym hosta uruchomiony jest hipernadzorca, który jest odpowiedzialny za wirtualizację, czyli m.in. tłumaczenie instrukcji maszynowych maszyn wirtualnych na polecenia dla systemu hosta, a zatem i dla procesora, przetłumaczanie wywołań systemowych (ang. <em>system calls</em>) oraz alokację zasobów. Następnym poziomem są systemy operacyjne gościa, które są uruchomione w ramach hipernadzorcy. Systemy gościa dostarczają potrzebnych bibliotek i plików uruchomieniowych (<em>Bin/Lib</em>) dla uruchomionych aplikacji.</p>
+<ol class="arabic simple" start="2">
 <li><p><strong>Kontenery</strong></p></li>
 </ol>
 <p>Zamiast hipernadzorcy występuje tutaj silnik kontenerezacji, który wykorzystuje odpowiednie mechanizmy systemu operacyjnego hosta (więcej o tym poniżej), aby bezpośrednio uruchamiać aplikacje i dostarczać im potrzebnych bibliotek i plików uruchomieniowych.</p>
 <p>Wizualne porównanie tych podejść znajduje się na poniższym obrazku:</p>
 <p><img alt="" src="../_images/virtual_machine_vs_container.png" /></p>
 <p>Jak widać maszyny wirtualne dostarczają większej izolacji od systemu operacyjnego hosta. Wiąże się to jednak z większym kosztem i zazwyczaj wolniejszym środowiskiem – głównie ze względu na potrzebę tłumaczenia instrukcji maszynowych i wywołań systemowych. Kontenery są narzędziem o mniejszym stopniu skomplikowania, pozwalającymi szybciej uruchamiać aplikacje i wymagają mniej zasobów (np. poprzez brak potrzeby uruchamiania systemu operacyjnego gościa).</p>
-</div>
-</div>
-<div class="section" id="instalacja">
-<h3>Instalacja<a class="headerlink" href="#instalacja" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="instalacja">
+<h3>Instalacja<a class="headerlink" href="#instalacja" title="Link to this heading">#</a></h3>
 <p>Należy <a class="reference external" href="https://docs.docker.com/engine/install/">zainstalować</a> paczkę odpowiednią dla swojego systemu operacyjnego.</p>
 <p>Po udanej instalacji warto zweryfikować, czy wszystko przebiegło pomyślnie, odpalając w terminalu:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker run hello-world
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
 
 <span class="go">Hello from Docker!</span>
 <span class="go">This message shows that your installation appears to be working correctly.</span>
@@ -497,9 +538,9 @@
 <span class="go">    to your terminal.</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tworzenie-przykladowego-srodowiska">
-<h3>Tworzenie przykładowego środowiska<a class="headerlink" href="#tworzenie-przykladowego-srodowiska" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tworzenie-przykladowego-srodowiska">
+<h3>Tworzenie przykładowego środowiska<a class="headerlink" href="#tworzenie-przykladowego-srodowiska" title="Link to this heading">#</a></h3>
 <p>W pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wyspecyfikuj paczki, a w głównym folderze projektu utwórz plik <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> o następującej treści:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FROM python:3.10
 
@@ -538,9 +579,9 @@ USER myuser
 <p class="admonition-title">Hint</p>
 <p>Conda nie jest mechanizmem stricte Pythonowym - tak samo można używać środowisk wirtualnych dla innych jezyków</p>
 </div>
-</div>
-<div class="section" id="jupyter-notebook">
-<h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="jupyter-notebook">
+<h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h3>
 <p>Część laboratoriów przygotowane zostało w formie notebooków Jupytera. Jest to proste przeglądarkowe IDE Pythona, które w prosty sposób umożliwia eksperymentowanie i ewaluację kodu.</p>
 <p>W celu instalacji wykonujemy (uprzednio oczywiście aktywowawszy środowisko wirtualne):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyter</span>
@@ -554,28 +595,28 @@ USER myuser
 <p class="admonition-title">See also</p>
 <p>W celu pogłębienia wiedzy o interfejsie i możliwościach Jupyter Notebooka - zachęcamy do lektury np. <a class="reference external" href="https://www.dataquest.io/blog/jupyter-notebook-tutorial/">tego artykułu</a></p>
 </div>
-</div>
-<div class="section" id="jupyterlab">
-<h3>JupyterLab<a class="headerlink" href="#jupyterlab" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="jupyterlab">
+<h3>JupyterLab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h3>
 <p>JupyterLab to kolejna generacja znanego IDE posiadająca bardziej rozbudowany interfejs.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Możliwe jest zainstalowanie używanie jednego Jupyter Notebook/JupyterLab z wieloma środowiskami - <a class="reference external" href="https://ipython.readthedocs.io/en/stable/install/kernel_install.html">dokumentacja</a>.</p>
 </div>
-</div>
-<div class="section" id="pycharm">
-<h3>PyCharm<a class="headerlink" href="#pycharm" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pycharm">
+<h3>PyCharm<a class="headerlink" href="#pycharm" title="Link to this heading">#</a></h3>
 <p>PyCharm to popularne IDE dla języka Python, które umożliwia łatwe i szybkie tworzenie aplikacji. Oferuje wsparcie dla języka Python i popularnych bibliotek, udostępnia narzędzia do debugowania i testowania oraz współpracuje z systemami wersji kontrolnych. Integracja z narzędziami takimi jak Docker, Conda, DVC, Jupyter umożliwiają szybszą i bardziej efektywną pracę programisty.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Do celów edukacyjnych studenci mogą korzystać z PyCharm Professional Edition, która <a class="reference external" href="http://m.in">m.in</a>. pozwala na integrację z Docker’em. <a class="reference external" href="https://www.jetbrains.com/community/education/#students">Dowiedz się więcej.</a></p>
+<p>Do celów edukacyjnych studenci mogą korzystać z PyCharm Professional Edition, która m.in. pozwala na integrację z Docker’em. <a class="reference external" href="https://www.jetbrains.com/community/education/#students">Dowiedz się więcej.</a></p>
 </div>
-</div>
-<div class="section" id="jakosc-kodu">
-<h3>Jakość kodu<a class="headerlink" href="#jakosc-kodu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="jakosc-kodu">
+<h3>Jakość kodu<a class="headerlink" href="#jakosc-kodu" title="Link to this heading">#</a></h3>
 <p>Formatowanie kodu za pomocą narzędzi zewnętrznych jest ważne, ponieważ poprawia jego czytelność, zmniejsza ryzyko błędów i umożliwia łatwiejszą współpracę w zespole.</p>
-<div class="section" id="black">
-<h4>black<a class="headerlink" href="#black" title="Permalink to this headline">¶</a></h4>
+<section id="black">
+<h4>black<a class="headerlink" href="#black" title="Link to this heading">#</a></h4>
 <p>Paczka formatująca kod Pythonowy, instalujemy za pomocą:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span>
 </pre></div>
@@ -584,14 +625,14 @@ USER myuser
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="o">.</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="inne-narzedzia">
-<h4>Inne narzędzia<a class="headerlink" href="#inne-narzedzia" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="inne-narzedzia">
+<h4>Inne narzędzia<a class="headerlink" href="#inne-narzedzia" title="Link to this heading">#</a></h4>
 <p>Analiza wszystkich narzędzi dbających o jakość kodu nie jest celem tego kursu, jednakże rekomendujemy przyjrzenie się takim projektom jak <code class="docutils literal notranslate"><span class="pre">isort</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> i wiele innych oraz rozważenie wprowadzenia ich do codziennej pracy.</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -605,7 +646,7 @@ USER myuser
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./laboratoria"
         },
         predefinedOutput: true
@@ -613,38 +654,129 @@ USER myuser
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="lab1-zasady.html" title="previous page">L1: Zasady laboratorium</a>
-    <a class='right-next' id="next-link" href="lab2-podstawowe-biblioteki.html" title="next page">L2: Podstawowe biblioteki do odkrywania wiedzy</a>
 
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak<br/>
-        
-            &copy; Copyright 2023.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab1-zasady.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">L1: Zasady laboratorium</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="lab2-podstawowe-biblioteki.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">L2: Podstawowe biblioteki do odkrywania wiedzy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">Efekty kształcenia laboratorium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wymagania-wstepne">Wymagania wstępne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github">GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#srodowiska-wirtualne">Środowiska wirtualne</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">Venv</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pipenv">Pipenv</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kontenery-a-maszyny-wirtualne">Kontenery a maszyny wirtualne</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-przykladowego-srodowiska">Tworzenie przykładowego środowiska</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">JupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">PyCharm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jakosc-kodu">Jakość kodu</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#black">black</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inne-narzedzia">Inne narzędzia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,432 +1,405 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>L2: Podstawowe biblioteki do odkrywania wiedzy &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
-
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'laboratoria/lab2-podstawowe-biblioteki';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="L3: Narzędzia zarządzania eksperymentami" href="lab3-zarzadzanie-eksperymentami.html" />
     <link rel="prev" title="L1: Przygotowanie środowiska" href="lab1-przygotowanie-srodowiska.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
   
-  <img src="../_static/logo.png" class="logo" alt="logo">
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../README.html">
   
   
-  <h1 class="site-logo" id="site-title">Przetwarzanie danych i odkrywanie wiedzy</h1>
   
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Przetwarzanie danych i odkrywanie wiedzy - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Przetwarzanie danych i odkrywanie wiedzy - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Przetwarzanie Danych i Odkrywanie Wiedzy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">L1: Zasady laboratorium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">L1: Przygotowanie środowiska</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">L2: Podstawowe biblioteki do odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">L3: Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">L4: Analiza eksploracyjna zbioru danych</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab5-tworzenie-modeli.html">L5: Tworzenie modeli uczenia maszynowego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">L6: Uczenie maszynowe II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">L7: Produktyzacja procesów odkrywania wiedzy</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/laboratoria/lab2-podstawowe-biblioteki.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
- <span class="caption-text">
-  Laboratoria
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="lab1-zasady.html">
-   L1: Zasady laboratorium
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab1-przygotowanie-srodowiska.html">
-   L1: Przygotowanie środowiska
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   L2: Podstawowe biblioteki do odkrywania wiedzy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">
-   L3: Narzędzia zarządzania eksperymentami
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab4-analiza-zbioru-danych.html">
-   L4: Analiza eksploracyjna zbioru danych
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab5-tworzenie-modeli.html">
-   L5: Tworzenie modeli uczenia maszynowego
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab6-uczenie-maszynowe-2.html">
-   L6: Uczenie maszynowe II
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab7-produktyzacja.html">
-   L7: Produktyzacja procesów odkrywania wiedzy
-  </a>
- </li>
-</ul>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-</nav> <!-- To handle the deprecated key -->
-
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/laboratoria/lab2-podstawowe-biblioteki.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
+  
 </div>
-
-        <!-- Source interaction buttons -->
-
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/master?urlpath=tree/laboratoria/lab2-podstawowe-biblioteki.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
 </div>
+              
+              
 
-    </div>
-
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>L2: Podstawowe biblioteki do odkrywania wiedzy</h1>
     <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">
-   Efekty kształcenia laboratorium
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#podstawowe-biblioteki-w-warsztacie-data-science">
-   Podstawowe biblioteki w warsztacie Data Science
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy">
-   Numpy
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#instalacja">
-     Instalacja
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ndarray">
-     ndarray
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tablice-jednowymiarowe">
-     Tablice jednowymiarowe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tablice-wielowymiarowe">
-     Tablice wielowymiarowe
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#podstawowe-operacje-na-tablicach">
-     Podstawowe operacje na tablicach
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#dostep-do-elementow">
-       Dostęp do elementów
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#filtrowanie-elementow">
-       Filtrowanie elementów
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#wymiary-i-zmiany-ksztaltu">
-       Wymiary i zmiany kształtu
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#laczenie-tablic">
-       Łączenie tablic
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sortowanie">
-       Sortowanie
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#podstawowe-operacje-matematyczne">
-     Podstawowe operacje matematyczne
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#arytmetyka">
-       Arytmetyka
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#agregacje">
-       Agregacje
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#algebra-liniowa">
-       Algebra liniowa
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#broadcasting">
-     Broadcasting
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#przyklady">
-       Przykłady
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#przyklady-niepoprawne">
-       Przykłady niepoprawne
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pandas">
-   Pandas
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Instalacja
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#struktury-danych">
-     Struktury danych
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#series">
-       Series
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#dataframe">
-       DataFrame
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wczytywanie-csv">
-     Wczytywanie CSV
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Dostęp do elementów
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Sortowanie
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apply">
-     Apply
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grupowanie">
-     Grupowanie
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matplotlib">
-   Matplotlib
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ogolna-idea-rozwiazania">
-     Ogólna idea rozwiązania
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tworzenie-wykresu">
-     Tworzenie wykresu
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#podstawowa-konfiguracja-wygladu-wykresu">
-     Podstawowa konfiguracja wyglądu wykresu
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#typy-wykresow">
-     Typy wykresów
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wiele-wykresow-w-jednej-przestrzeni">
-     Wiele wykresów w jednej przestrzeni
-    </a>
-   </li>
-  </ul>
- </li>
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">Efekty kształcenia laboratorium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-biblioteki-w-warsztacie-data-science">Podstawowe biblioteki w warsztacie Data Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">ndarray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-jednowymiarowe">Tablice jednowymiarowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-wielowymiarowe">Tablice wielowymiarowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-na-tablicach">Podstawowe operacje na tablicach</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dostep-do-elementow">Dostęp do elementów</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrowanie-elementow">Filtrowanie elementów</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wymiary-i-zmiany-ksztaltu">Wymiary i zmiany kształtu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-tablic">Łączenie tablic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie">Sortowanie</a></li>
 </ul>
-
-        </nav>
-        
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-matematyczne">Podstawowe operacje matematyczne</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arytmetyka">Arytmetyka</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#agregacje">Agregacje</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-liniowa">Algebra liniowa</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady">Przykłady</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-niepoprawne">Przykłady niepoprawne</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktury-danych">Struktury danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#series">Series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytywanie-csv">Wczytywanie CSV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dostęp do elementów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sortowanie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">Apply</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupowanie">Grupowanie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-idea-rozwiazania">Ogólna idea rozwiązania</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-wykresu">Tworzenie wykresu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowa-konfiguracja-wygladu-wykresu">Podstawowa konfiguracja wyglądu wykresu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-wykresow">Typy wykresów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiele-wykresow-w-jednej-przestrzeni">Wiele wykresów w jednej przestrzeni</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <p><img alt="" src="../_images/banner.png" /><figcaption style="text-align: right; font-size:9px"><a href="https://pixabay.com/service/license/">Na licencji Pixabay</a></figcaption></p>
-<div class="section" id="l2-podstawowe-biblioteki-do-odkrywania-wiedzy">
-<h1>L2: Podstawowe biblioteki do odkrywania wiedzy<a class="headerlink" href="#l2-podstawowe-biblioteki-do-odkrywania-wiedzy" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="efekty-ksztalcenia-laboratorium">
-<h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="l2-podstawowe-biblioteki-do-odkrywania-wiedzy">
+<h1>L2: Podstawowe biblioteki do odkrywania wiedzy<a class="headerlink" href="#l2-podstawowe-biblioteki-do-odkrywania-wiedzy" title="Link to this heading">#</a></h1>
+<section id="efekty-ksztalcenia-laboratorium">
+<h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p>dowiesz się, jakie są podstawowe i najczęściej używane biblioteki do pracy z danymi</p></li>
@@ -434,66 +407,66 @@
 <li><p>poznasz podstawy biblioteki Pandas</p></li>
 <li><p>poznasz podstawy biblioteki Matplotlib</p></li>
 </ul>
-</div>
-<div class="section" id="podstawowe-biblioteki-w-warsztacie-data-science">
-<h2>Podstawowe biblioteki w warsztacie Data Science<a class="headerlink" href="#podstawowe-biblioteki-w-warsztacie-data-science" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
+</section>
+<section id="podstawowe-biblioteki-w-warsztacie-data-science">
+<h2>Podstawowe biblioteki w warsztacie Data Science<a class="headerlink" href="#podstawowe-biblioteki-w-warsztacie-data-science" title="Link to this heading">#</a></h2>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Biblioteka</p></th>
-<th class="text-align:left head"><p>Zastosowanie</p></th>
-<th class="text-align:left head"><p>Sensowne alternatywy</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Biblioteka</p></th>
+<th class="head text-left"><p>Zastosowanie</p></th>
+<th class="head text-left"><p>Sensowne alternatywy</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>Numpy</p></td>
-<td class="text-align:left"><p>szybkie operacje macierzowe</p></td>
-<td class="text-align:left"><p>-</p></td>
+<tr class="row-even"><td class="text-left"><p>Numpy</p></td>
+<td class="text-left"><p>szybkie operacje macierzowe</p></td>
+<td class="text-left"><p>-</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>SciPy</p></td>
-<td class="text-align:left"><p>zaawansowana metematyka i statystyka</p></td>
-<td class="text-align:left"><p>-</p></td>
+<tr class="row-odd"><td class="text-left"><p>SciPy</p></td>
+<td class="text-left"><p>zaawansowana metematyka i statystyka</p></td>
+<td class="text-left"><p>-</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Pandas</p></td>
-<td class="text-align:left"><p>eksploracja i analiza zbiorów danych</p></td>
-<td class="text-align:left"><p>-</p></td>
+<tr class="row-even"><td class="text-left"><p>Pandas</p></td>
+<td class="text-left"><p>eksploracja i analiza zbiorów danych</p></td>
+<td class="text-left"><p>-</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Matplotlib</p></td>
-<td class="text-align:left"><p>wizualizacja danych</p></td>
-<td class="text-align:left"><p>Seaborn, Plotly, Bokeh</p></td>
+<tr class="row-odd"><td class="text-left"><p>Matplotlib</p></td>
+<td class="text-left"><p>wizualizacja danych</p></td>
+<td class="text-left"><p>Seaborn, Plotly, Bokeh</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Scikit-learn</p></td>
-<td class="text-align:left"><p>preprocessing danych i uczenie maszynowe</p></td>
-<td class="text-align:left"><p>-</p></td>
+<tr class="row-even"><td class="text-left"><p>Scikit-learn</p></td>
+<td class="text-left"><p>preprocessing danych i uczenie maszynowe</p></td>
+<td class="text-left"><p>-</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Keras</p></td>
-<td class="text-align:left"><p>sieci neuronowe i uczenie głębokie</p></td>
-<td class="text-align:left"><p>TensorFlow, PyTorch</p></td>
+<tr class="row-odd"><td class="text-left"><p>Keras</p></td>
+<td class="text-left"><p>sieci neuronowe i uczenie głębokie</p></td>
+<td class="text-left"><p>TensorFlow, PyTorch</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Scrapy</p></td>
-<td class="text-align:left"><p>scrapowanie stron www</p></td>
-<td class="text-align:left"><p>BeautifulSoup</p></td>
+<tr class="row-even"><td class="text-left"><p>Scrapy</p></td>
+<td class="text-left"><p>scrapowanie stron www</p></td>
+<td class="text-left"><p>BeautifulSoup</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>HuggingFace</p></td>
-<td class="text-align:left"><p>modele i datasety NLP</p></td>
-<td class="text-align:left"><p>-</p></td>
+<tr class="row-odd"><td class="text-left"><p>HuggingFace</p></td>
+<td class="text-left"><p>modele i datasety NLP</p></td>
+<td class="text-left"><p>-</p></td>
 </tr>
 </tbody>
 </table>
 <p><br><br><br><br><br><br><br><br></p>
-</div>
-<div class="section" id="numpy">
-<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
 <p>Numpy jest podstawową biblioteką do operacji na macierzach - ich przechowywania, transformacji, zastosowań w algebrze, statystyce itd. Stała się podstawą przetwarzania danych w środowisku Pythona - na niej bazują pozostałe biblioteki, jak Pandas, SciPy czy Scikit-learn.</p>
 <p>Dzięki implementacji w C oraz intensywnie używanej wektoryzacji, operacje są niezwykle szybkie.</p>
-<div class="section" id="instalacja">
-<h3>Instalacja<a class="headerlink" href="#instalacja" title="Permalink to this headline">¶</a></h3>
+<section id="instalacja">
+<h3>Instalacja<a class="headerlink" href="#instalacja" title="Link to this heading">#</a></h3>
 <p>Numpy instalujemy przy pomocy pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ndarray">
-<h3>ndarray<a class="headerlink" href="#ndarray" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ndarray">
+<h3>ndarray<a class="headerlink" href="#ndarray" title="Link to this heading">#</a></h3>
 <p>Podstawowym typem danych w Numpy jest <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> - ang. <code class="docutils literal notranslate"><span class="pre">N-dimentional</span> <span class="pre">array</span></code> (<em>tablica N-wymiarowa</em>).</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -503,9 +476,9 @@
 <p class="admonition-title">Important</p>
 <p>Tablice Numpy mają stały rozmiar. Zmiana rozmiaru tablicy usuwa stary i tworzy nowy obiekt.</p>
 </div>
-</div>
-<div class="section" id="tablice-jednowymiarowe">
-<h3>Tablice jednowymiarowe<a class="headerlink" href="#tablice-jednowymiarowe" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tablice-jednowymiarowe">
+<h3>Tablice jednowymiarowe<a class="headerlink" href="#tablice-jednowymiarowe" title="Link to this heading">#</a></h3>
 <p>Tablice jednowymiarowe rozpatrywane być mogą jako pojedynczy rząd lub kolumna danych:
 <img alt="" src="../_images/numpy_row_column.png" /></p>
 <p>Stworzyć jednowymiarową tablicę możemy na wiele sposobów:</p>
@@ -594,7 +567,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([64, 54, 44])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([39, 75, 84])
 </pre></div>
 </div>
 </div>
@@ -608,15 +581,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.64394074e-310, 0.00000000e+000, 0.00000000e+000, 0.00000000e+000,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.65391375e-316, 0.00000000e+000, 0.00000000e+000, 0.00000000e+000,
        0.00000000e+000, 0.00000000e+000])
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="tablice-wielowymiarowe">
-<h3>Tablice wielowymiarowe<a class="headerlink" href="#tablice-wielowymiarowe" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tablice-wielowymiarowe">
+<h3>Tablice wielowymiarowe<a class="headerlink" href="#tablice-wielowymiarowe" title="Link to this heading">#</a></h3>
 <p>Tablice wielowymiarowe możemy rozpatrywać jako tablic jednowymiarowych względem kilku osi:
 <img alt="" src="../_images/numpy_multidimentional.png" /></p>
 <p>Tablicę wielowymiarową tworzymy analogicznie do tablic jednowymiarowych:</p>
@@ -628,9 +601,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[93, 54],
-       [81, 16],
-       [60, 30]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[92, 83],
+       [18, 53],
+       [34, 62]])
 </pre></div>
 </div>
 </div>
@@ -649,11 +622,11 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="podstawowe-operacje-na-tablicach">
-<h3>Podstawowe operacje na tablicach<a class="headerlink" href="#podstawowe-operacje-na-tablicach" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="dostep-do-elementow">
-<h4>Dostęp do elementów<a class="headerlink" href="#dostep-do-elementow" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="podstawowe-operacje-na-tablicach">
+<h3>Podstawowe operacje na tablicach<a class="headerlink" href="#podstawowe-operacje-na-tablicach" title="Link to this heading">#</a></h3>
+<section id="dostep-do-elementow">
+<h4>Dostęp do elementów<a class="headerlink" href="#dostep-do-elementow" title="Link to this heading">#</a></h4>
 <p>Dla tablic jednowymiarowych możemy stosować wszystkie metody dostępu do elementów znane ze standardowych pythonowych list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -784,9 +757,9 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="filtrowanie-elementow">
-<h4>Filtrowanie elementów<a class="headerlink" href="#filtrowanie-elementow" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="filtrowanie-elementow">
+<h4>Filtrowanie elementów<a class="headerlink" href="#filtrowanie-elementow" title="Link to this heading">#</a></h4>
 <p>Bardzo przydatną funkcjonalnością NumPy jest możliwość używania warunków w dostępie do elementów:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -796,8 +769,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([43, 85, 32, 46,  0, 27, 79,  3, 77, 28,  0, 58,  3, 64, 97, 72, 95,
-       12, 20,  1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([93, 66, 55, 75, 78, 75, 80, 81, 99, 60, 33, 88, 73, 30, 63, 52, 23,
+       23, 49,  4])
 </pre></div>
 </div>
 </div>
@@ -811,8 +784,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False, False, False, False,  True, False,  True,
-       False, False,  True, False,  True,  True,  True,  True, False,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True, False,  True,  True, False,  True,  True, False, False,
        False, False])
 </pre></div>
 </div>
@@ -826,14 +799,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([85, 79, 77, 58, 64, 97, 72, 95])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([93, 66, 55, 75, 78, 75, 80, 81, 99, 60, 88, 73, 63, 52])
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="wymiary-i-zmiany-ksztaltu">
-<h4>Wymiary i zmiany kształtu<a class="headerlink" href="#wymiary-i-zmiany-ksztaltu" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="wymiary-i-zmiany-ksztaltu">
+<h4>Wymiary i zmiany kształtu<a class="headerlink" href="#wymiary-i-zmiany-ksztaltu" title="Link to this heading">#</a></h4>
 <p>Tablica składa się z elementów podzielonych wobec osi o pewnych wymiarach. Można łatwo sprawdzić te wartości przy pomocy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -909,9 +882,9 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="laczenie-tablic">
-<h4>Łączenie tablic<a class="headerlink" href="#laczenie-tablic" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="laczenie-tablic">
+<h4>Łączenie tablic<a class="headerlink" href="#laczenie-tablic" title="Link to this heading">#</a></h4>
 <p>Można łatwo łączyć ze sobą tablice wielowymiarowe, w zależności od pożądanej osi:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -960,9 +933,9 @@ połączone poziomo
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="sortowanie">
-<h4>Sortowanie<a class="headerlink" href="#sortowanie" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="sortowanie">
+<h4>Sortowanie<a class="headerlink" href="#sortowanie" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># weźmy losową macierz 3x3</span>
@@ -972,9 +945,9 @@ połączone poziomo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[86, 50, 33],
-       [84, 38, 64],
-       [80, 77, 88]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[81, 83, 61],
+       [42,  5, 50],
+       [11, 51,  2]])
 </pre></div>
 </div>
 </div>
@@ -988,9 +961,9 @@ połączone poziomo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[33, 50, 86],
-       [38, 64, 84],
-       [77, 80, 88]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[61, 81, 83],
+       [ 5, 42, 50],
+       [ 2, 11, 51]])
 </pre></div>
 </div>
 </div>
@@ -1012,29 +985,29 @@ połączone poziomo
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>oryginalna 
- [[86 50 33]
- [84 38 64]
- [80 77 88]] 
+ [[81 83 61]
+ [42  5 50]
+ [11 51  2]] 
 
 posortowana kolumnami
- [[80 38 33]
- [84 50 64]
- [86 77 88]] 
+ [[11  5  2]
+ [42 51 50]
+ [81 83 61]] 
 
 posortowana wierszami 
- [[33 50 86]
- [38 64 84]
- [77 80 88]] 
+ [[61 81 83]
+ [ 5 42 50]
+ [ 2 11 51]] 
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="podstawowe-operacje-matematyczne">
-<h3>Podstawowe operacje matematyczne<a class="headerlink" href="#podstawowe-operacje-matematyczne" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="arytmetyka">
-<h4>Arytmetyka<a class="headerlink" href="#arytmetyka" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="podstawowe-operacje-matematyczne">
+<h3>Podstawowe operacje matematyczne<a class="headerlink" href="#podstawowe-operacje-matematyczne" title="Link to this heading">#</a></h3>
+<section id="arytmetyka">
+<h4>Arytmetyka<a class="headerlink" href="#arytmetyka" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
@@ -1096,9 +1069,9 @@ posortowana wierszami
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="agregacje">
-<h4>Agregacje<a class="headerlink" href="#agregacje" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="agregacje">
+<h4>Agregacje<a class="headerlink" href="#agregacje" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1160,8 +1133,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 5],
-       [6, 7]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 9],
+       [4, 5]])
 </pre></div>
 </div>
 </div>
@@ -1173,7 +1146,7 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([14, 12])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9, 14])
 </pre></div>
 </div>
 </div>
@@ -1185,14 +1158,14 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6.5, 6.5])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7. , 4.5])
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="algebra-liniowa">
-<h4>Algebra liniowa<a class="headerlink" href="#algebra-liniowa" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="algebra-liniowa">
+<h4>Algebra liniowa<a class="headerlink" href="#algebra-liniowa" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mnożenie macierzowe</span>
@@ -1201,8 +1174,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 8, 15],
-       [ 6, 21]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 5, 27],
+       [ 4, 15]])
 </pre></div>
 </div>
 </div>
@@ -1215,8 +1188,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8, 6],
-       [5, 7]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5, 4],
+       [9, 5]])
 </pre></div>
 </div>
 </div>
@@ -1229,8 +1202,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.26923077, -0.19230769],
-       [-0.23076923,  0.30769231]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.45454545,  0.81818182],
+       [ 0.36363636, -0.45454545]])
 </pre></div>
 </div>
 </div>
@@ -1243,20 +1216,19 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([13.,  2.]),
- array([[ 0.70710678, -0.6401844 ],
-        [ 0.70710678,  0.76822128]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EigResult(eigenvalues=array([11., -1.]), eigenvectors=array([[ 0.83205029, -0.83205029],
+       [ 0.5547002 ,  0.5547002 ]]))
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="broadcasting">
-<h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="broadcasting">
+<h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h3>
 <p>Numpy również potrafi pod pewnymi warunkami wykonywać operacje na tablicach o różnych wymiarach. Mniejsza z tablic jest “powielana” wzdłuż większej tablicy, aby sprowidzić ją do tych samych wymiarów. Operacja nie powoduje kopiowania, a jest oparte o odpowiednie indeksowane.</p>
-<div class="section" id="przyklady">
-<h4>Przykłady<a class="headerlink" href="#przyklady" title="Permalink to this headline">¶</a></h4>
+<section id="przyklady">
+<h4>Przykłady<a class="headerlink" href="#przyklady" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span>
@@ -1265,8 +1237,8 @@ posortowana wierszami
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 8,  0],
-        [ 0, 15]]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 5,  0],
+        [ 0, 27]]),
  (2, 2))
 </pre></div>
 </div>
@@ -1288,9 +1260,9 @@ posortowana wierszami
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="przyklady-niepoprawne">
-<h4>Przykłady niepoprawne<a class="headerlink" href="#przyklady-niepoprawne" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="przyklady-niepoprawne">
+<h4>Przykłady niepoprawne<a class="headerlink" href="#przyklady-niepoprawne" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a = np.arange(2)</span>
@@ -1313,30 +1285,30 @@ posortowana wierszami
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>Więcej szczegółów dotyczących broadcastingu znajdziecie w dokumentacji pod adresem <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html">https://numpy.org/doc/stable/user/basics.broadcasting.html</a></p>
+<p>Więcej szczegółów dotyczących broadcastingu znajdziecie w dokumentacji pod adresem https://numpy.org/doc/stable/user/basics.broadcasting.html</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Wyżej wymienione mechanizmy to jedynie podstawowe możliwości NumPy. W celu zdobycia szerszej wiedzy z tego zakresu odsyłamy do <a class="reference external" href="https://numpy.org/doc/stable/numpy-user.pdf">tego poradnika</a>.</p>
 </div>
 <p><br><br><br><br><br><br><br><br></p>
-</div>
-</div>
-</div>
-<div class="section" id="pandas">
-<h2>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="pandas">
+<h2>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
 <p>Pandas oferuje wygodny interfejs, struktury danych i metody do obsługi poetykietowanych zbiorów danych. Jest to podstawowa biblioteka do manipulacji danymi w większości projektów Data Science.</p>
-<div class="section" id="id1">
-<h3>Instalacja<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<section id="id1">
+<h3>Instalacja<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Pandas standardowo instalujemy przy pomocy pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="struktury-danych">
-<h3>Struktury danych<a class="headerlink" href="#struktury-danych" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="series">
-<h4>Series<a class="headerlink" href="#series" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="struktury-danych">
+<h3>Struktury danych<a class="headerlink" href="#struktury-danych" title="Link to this heading">#</a></h3>
+<section id="series">
+<h4>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h4>
 <p>Podstawową strukturą danych Pandasa jest <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Można ją traktować jako jednowymiarową kolumnę danych, z indeksami.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1373,19 +1345,19 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    8
 b    7
-c    5
-d    7
-e    3
+c    2
+d    6
+e    9
 dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="dataframe">
-<h4>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="dataframe">
+<h4>DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h4>
 <p>DataFrame jest dwuwymiarową strukturą, rozumianą jako złożenie serii (kolumn) danych.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1449,12 +1421,12 @@ dtype: int64
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>DataFrame może być stworzony na wiele różnych sposóbów - przy pomocy list, dictów, tupli itd. Po więcej informacji i przykładów tworzenia DataFrame odsyłamy (do dokumentacji)[<a class="reference external" href="https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe">https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe</a>]</p>
+<p>DataFrame może być stworzony na wiele różnych sposóbów - przy pomocy list, dictów, tupli itd. Po więcej informacji i przykładów tworzenia DataFrame odsyłamy (do dokumentacji)[https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe]</p>
 </div>
-</div>
-</div>
-<div class="section" id="wczytywanie-csv">
-<h3>Wczytywanie CSV<a class="headerlink" href="#wczytywanie-csv" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="wczytywanie-csv">
+<h3>Wczytywanie CSV<a class="headerlink" href="#wczytywanie-csv" title="Link to this heading">#</a></h3>
 <p>Pandas udostępnia prosty interfejs do wczytania zbioru danych z pliku. Wczytajmy zbiór danych Iris Flowers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1542,9 +1514,9 @@ dtype: int64
 <p class="admonition-title">Hint</p>
 <p>Analogicznie można wczytać i zapisać inne formaty danych - JSON, Excel, SQL, HDF i inne</p>
 </div>
-</div>
-<div class="section" id="id2">
-<h3>Dostęp do elementów<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id2">
+<h3>Dostęp do elementów<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># przy pomocy nazwy kolumny, pobieramy całą serię</span>
@@ -1581,7 +1553,7 @@ Name: petal width, Length: 150, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal length            4.3
-sepal width               3
+sepal width             3.0
 petal length            1.1
 petal width             0.1
 class           Iris-setosa
@@ -2090,9 +2062,9 @@ Name: 13, dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h3>Sortowanie<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id3">
+<h3>Sortowanie<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DataFrame możemy posortować wg indeksów</span>
@@ -2474,9 +2446,9 @@ Name: 13, dtype: object
 <p>150 rows × 5 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="apply">
-<h3>Apply<a class="headerlink" href="#apply" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="apply">
+<h3>Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h3>
 <p>Niezwykle przydatną funkcjonalnością jest możliwość aplikowania funkcji do danych. Przydaje się to np. do tworzenia nowych kolumn:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2619,9 +2591,9 @@ Name: 13, dtype: object
 <p>150 rows × 6 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="grupowanie">
-<h3>Grupowanie<a class="headerlink" href="#grupowanie" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="grupowanie">
+<h3>Grupowanie<a class="headerlink" href="#grupowanie" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grupowanie ma na celu agregacje danych wobec pewnej funkcji</span>
@@ -2781,26 +2753,26 @@ Name: 13, dtype: object
 <p>Wyżej wymienione mechanizmy to jedynie podstawowe możliwości Pandas. W celu zdobycia szerszej wiedzy z tego zakresu odsyłamy do <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">tego poradnika</a>.</p>
 </div>
 <p><br><br><br><br><br><br><br><br></p>
-</div>
-</div>
-<div class="section" id="matplotlib">
-<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
 <p>Jest to podstawowa biblioteka do rysowania wykresów i wizualizacji danych. Matplotlib jest stale rozwijaną biblioteką, która ideowo dziedziczy z Matlaba, stąd część zastosowanych rozwiązań może nie być do końca intuicyjna dla programisty Pythona</p>
 <p>Instalujemy standardowo z pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
 </pre></div>
 </div>
-<div class="section" id="ogolna-idea-rozwiazania">
-<h3>Ogólna idea rozwiązania<a class="headerlink" href="#ogolna-idea-rozwiazania" title="Permalink to this headline">¶</a></h3>
+<section id="ogolna-idea-rozwiazania">
+<h3>Ogólna idea rozwiązania<a class="headerlink" href="#ogolna-idea-rozwiazania" title="Link to this heading">#</a></h3>
 <p>Wyróżniamy następujące elementy:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Figure</span></code> - można o nim myśleć jak o przestrzeni na której rysowane będą konkretne wykresy</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Axes</span></code> - konkretny wykres zawierający osie, legendę, tytuł itd.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Axis</span></code> - konkretna oś wykresu</p></li>
 </ul>
-</div>
-<div class="section" id="tworzenie-wykresu">
-<h3>Tworzenie wykresu<a class="headerlink" href="#tworzenie-wykresu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tworzenie-wykresu">
+<h3>Tworzenie wykresu<a class="headerlink" href="#tworzenie-wykresu" title="Link to this heading">#</a></h3>
 <p>Tworzenie wykresu obsługuje moduł <code class="docutils literal notranslate"><span class="pre">PyPlot</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2812,7 +2784,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_108_0.png" src="../_images/lab2-podstawowe-biblioteki_108_0.png" />
+<img alt="../_images/ae615bfb2adab36fe6c4afca46d26b5407934c65635a098448812d3143a750f9.png" src="../_images/ae615bfb2adab36fe6c4afca46d26b5407934c65635a098448812d3143a750f9.png" />
 </div>
 </div>
 <p>Wykres możemy prosto opisać i dostosować do własnych potrzeb:</p>
@@ -2828,7 +2800,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_110_0.png" src="../_images/lab2-podstawowe-biblioteki_110_0.png" />
+<img alt="../_images/ec8b598d8bd297e1f19eeb893d940e08202971946881fcb327f18e991686c9cd.png" src="../_images/ec8b598d8bd297e1f19eeb893d940e08202971946881fcb327f18e991686c9cd.png" />
 </div>
 </div>
 <p>Podstawowa konfiguracja wykresu pozwala też umieszczac na nim kilka serii danych. Przydaje się wtedy umieścić legendę</p>
@@ -2846,12 +2818,12 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_112_0.png" src="../_images/lab2-podstawowe-biblioteki_112_0.png" />
+<img alt="../_images/628558e92d90c3caa381c52d1eec56eba7369fb4073d9bd7d9525af170e379d0.png" src="../_images/628558e92d90c3caa381c52d1eec56eba7369fb4073d9bd7d9525af170e379d0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="podstawowa-konfiguracja-wygladu-wykresu">
-<h3>Podstawowa konfiguracja wyglądu wykresu<a class="headerlink" href="#podstawowa-konfiguracja-wygladu-wykresu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="podstawowa-konfiguracja-wygladu-wykresu">
+<h3>Podstawowa konfiguracja wyglądu wykresu<a class="headerlink" href="#podstawowa-konfiguracja-wygladu-wykresu" title="Link to this heading">#</a></h3>
 <p>Wygląd serii danych określamy podając trzyliterowy string w formacie <code class="docutils literal notranslate"><span class="pre">[marker][kolor][linia]</span></code> po serii, w którym określamy kształt punktów danych, rodzaj linii i kolor. Przykładowo:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">og-</span></code> - zielone kółka połączone linią ciągłą</p></li>
@@ -2871,16 +2843,16 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_114_0.png" src="../_images/lab2-podstawowe-biblioteki_114_0.png" />
+<img alt="../_images/fe2ad3f59a022cd72b2fbe058bab20b90aeea901c1ea89e7c8933d75f6fa2487.png" src="../_images/fe2ad3f59a022cd72b2fbe058bab20b90aeea901c1ea89e7c8933d75f6fa2487.png" />
 </div>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Więcej stylów i kombinacji w sekcji <code class="docutils literal notranslate"><span class="pre">Notes</span></code> <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">dokumentacji</a></p>
 </div>
-</div>
-<div class="section" id="typy-wykresow">
-<h3>Typy wykresów<a class="headerlink" href="#typy-wykresow" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="typy-wykresow">
+<h3>Typy wykresów<a class="headerlink" href="#typy-wykresow" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wykres słupkowy</span>
@@ -2891,7 +2863,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_117_0.png" src="../_images/lab2-podstawowe-biblioteki_117_0.png" />
+<img alt="../_images/a8050ee671eeabb4bec458ada0794bd5bcbc967861e33c8878f1027507a5f5bf.png" src="../_images/a8050ee671eeabb4bec458ada0794bd5bcbc967861e33c8878f1027507a5f5bf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2904,7 +2876,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_118_0.png" src="../_images/lab2-podstawowe-biblioteki_118_0.png" />
+<img alt="../_images/ec27696c438fd706a2990a2361b7a616b5b2276d5e2573263862c6e65e6feb50.png" src="../_images/ec27696c438fd706a2990a2361b7a616b5b2276d5e2573263862c6e65e6feb50.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2917,7 +2889,7 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_119_0.png" src="../_images/lab2-podstawowe-biblioteki_119_0.png" />
+<img alt="../_images/1dd41bf7168e0e2b11c4308fb12695a0beb0fdd9bc725da7235c79519ee2797d.png" src="../_images/1dd41bf7168e0e2b11c4308fb12695a0beb0fdd9bc725da7235c79519ee2797d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2930,12 +2902,12 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_120_0.png" src="../_images/lab2-podstawowe-biblioteki_120_0.png" />
+<img alt="../_images/2057daadf44abf0c48dbde1eba0c660cc694cbad4236dc32b52b29cc7893a1dd.png" src="../_images/2057daadf44abf0c48dbde1eba0c660cc694cbad4236dc32b52b29cc7893a1dd.png" />
 </div>
 </div>
-</div>
-<div class="section" id="wiele-wykresow-w-jednej-przestrzeni">
-<h3>Wiele wykresów w jednej przestrzeni<a class="headerlink" href="#wiele-wykresow-w-jednej-przestrzeni" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="wiele-wykresow-w-jednej-przestrzeni">
+<h3>Wiele wykresów w jednej przestrzeni<a class="headerlink" href="#wiele-wykresow-w-jednej-przestrzeni" title="Link to this heading">#</a></h3>
 <p>Częstym przypadkiem jest chęć umiejscowienia kilku różych wykresów na jednym <code class="docutils literal notranslate"><span class="pre">Figure</span></code>. Można to uczynić przy pomocy mechanizmu <code class="docutils literal notranslate"><span class="pre">subplot</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3013,12 +2985,12 @@ Name: 13, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/lab2-podstawowe-biblioteki_123_0.png" src="../_images/lab2-podstawowe-biblioteki_123_0.png" />
+<img alt="../_images/b108088c931e0d35da22c3d3ad5b1e55053087d14cc73a3e58741e1d57f9ccf3.png" src="../_images/b108088c931e0d35da22c3d3ad5b1e55053087d14cc73a3e58741e1d57f9ccf3.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3032,7 +3004,7 @@ Name: 13, dtype: object
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./laboratoria"
         },
         predefinedOutput: true
@@ -3040,38 +3012,152 @@ Name: 13, dtype: object
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="lab1-przygotowanie-srodowiska.html" title="previous page">L1: Przygotowanie środowiska</a>
-    <a class='right-next' id="next-link" href="lab3-zarzadzanie-eksperymentami.html" title="next page">L3: Narzędzia zarządzania eksperymentami</a>
 
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak<br/>
-        
-            &copy; Copyright 2023.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab1-przygotowanie-srodowiska.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">L1: Przygotowanie środowiska</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="lab3-zarzadzanie-eksperymentami.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">L3: Narzędzia zarządzania eksperymentami</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">Efekty kształcenia laboratorium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-biblioteki-w-warsztacie-data-science">Podstawowe biblioteki w warsztacie Data Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">ndarray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-jednowymiarowe">Tablice jednowymiarowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-wielowymiarowe">Tablice wielowymiarowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-na-tablicach">Podstawowe operacje na tablicach</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dostep-do-elementow">Dostęp do elementów</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrowanie-elementow">Filtrowanie elementów</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wymiary-i-zmiany-ksztaltu">Wymiary i zmiany kształtu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-tablic">Łączenie tablic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie">Sortowanie</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-matematyczne">Podstawowe operacje matematyczne</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arytmetyka">Arytmetyka</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#agregacje">Agregacje</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-liniowa">Algebra liniowa</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady">Przykłady</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-niepoprawne">Przykłady niepoprawne</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktury-danych">Struktury danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#series">Series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytywanie-csv">Wczytywanie CSV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dostęp do elementów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sortowanie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">Apply</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupowanie">Grupowanie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-idea-rozwiazania">Ogólna idea rozwiązania</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-wykresu">Tworzenie wykresu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowa-konfiguracja-wygladu-wykresu">Podstawowa konfiguracja wyglądu wykresu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-wykresow">Typy wykresów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiele-wykresow-w-jednej-przestrzeni">Wiele wykresów w jednej przestrzeni</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,0 +1,125 @@
+Traceback (most recent call last):
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/asyncio/base_events.py", line 650, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 654, in async_setup_kernel
+    yield
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from pandas_profiling import ProfileReport
+
+df = pd.read_csv(
+    "../docs/lab4/wine_with_nulls.csv",
+)
+
+profile = ProfileReport(df)
+profile.to_notebook_iframe()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[7], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_profiling[39;00m [38;5;28;01mimport[39;00m ProfileReport
+[1;32m      3[0m df [38;5;241m=[39m pd[38;5;241m.[39mread_csv(
+[1;32m      4[0m     [38;5;124m"[39m[38;5;124m../docs/lab4/wine_with_nulls.csv[39m[38;5;124m"[39m,
+[1;32m      5[0m )
+[1;32m      7[0m profile [38;5;241m=[39m ProfileReport(df)
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/pandas_profiling/__init__.py:6[0m
+[1;32m      1[0m [38;5;124;03m"""Main module of pandas-profiling.[39;00m
+[1;32m      2[0m 
+[1;32m      3[0m [38;5;124;03m.. include:: ../../README.md[39;00m
+[1;32m      4[0m [38;5;124;03m"""[39;00m
+[0;32m----> 6[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_profiling[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcontroller[39;00m [38;5;28;01mimport[39;00m pandas_decorator
+[1;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_profiling[39;00m[38;5;21;01m.[39;00m[38;5;21;01mprofile_report[39;00m [38;5;28;01mimport[39;00m ProfileReport
+[1;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_profiling[39;00m[38;5;21;01m.[39;00m[38;5;21;01mversion[39;00m [38;5;28;01mimport[39;00m __version__
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/pandas_profiling/controller/pandas_decorator.py:4[0m
+[1;32m      1[0m [38;5;124;03m"""This file add the decorator on the DataFrame object."""[39;00m
+[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mimport[39;00m DataFrame
+[0;32m----> 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_profiling[39;00m[38;5;21;01m.[39;00m[38;5;21;01mprofile_report[39;00m [38;5;28;01mimport[39;00m ProfileReport
+[1;32m      7[0m [38;5;28;01mdef[39;00m [38;5;21mprofile_report[39m(df: DataFrame, [38;5;241m*[39m[38;5;241m*[39mkwargs) [38;5;241m-[39m[38;5;241m>[39m ProfileReport:
+[1;32m      8[0m [38;5;250m    [39m[38;5;124;03m"""Profile a DataFrame.[39;00m
+[1;32m      9[0m 
+[1;32m     10[0m [38;5;124;03m    Args:[39;00m
+[0;32m   (...)[0m
+[1;32m     15[0m [38;5;124;03m        A ProfileReport of the DataFrame.[39;00m
+[1;32m     16[0m [38;5;124;03m    """[39;00m
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/pandas_profiling/profile_report.py:11[0m
+[1;32m      9[0m [38;5;28;01mimport[39;00m [38;5;21;01myaml[39;00m
+[1;32m     10[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtqdm[39;00m[38;5;21;01m.[39;00m[38;5;21;01mauto[39;00m [38;5;28;01mimport[39;00m tqdm
+[0;32m---> 11[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m [38;5;28;01mimport[39;00m VisionsTypeset
+[1;32m     13[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_profiling[39;00m[38;5;21;01m.[39;00m[38;5;21;01mconfig[39;00m [38;5;28;01mimport[39;00m Config, Settings
+[1;32m     14[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpandas_profiling[39;00m[38;5;21;01m.[39;00m[38;5;21;01mexpectations_report[39;00m [38;5;28;01mimport[39;00m ExpectationsReport
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/visions/__init__.py:4[0m
+[1;32m      1[0m [38;5;124;03m"""Core functionality"""[39;00m
+[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m [38;5;28;01mimport[39;00m types, typesets, utils
+[0;32m----> 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdeclarative[39;00m [38;5;28;01mimport[39;00m create_type
+[1;32m      6[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfunctional[39;00m [38;5;28;01mimport[39;00m (
+[1;32m      7[0m     cast_to_detected,
+[1;32m      8[0m     cast_to_inferred,
+[1;32m      9[0m     detect_type,
+[1;32m     10[0m     infer_type,
+[1;32m     11[0m )
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/visions/backends/__init__.py:9[0m
+[1;32m      6[0m [38;5;28;01mtry[39;00m:
+[1;32m      7[0m     [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[0;32m----> 9[0m     [38;5;28;01mimport[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m
+[1;32m     10[0m     [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtest_utils[39;00m [38;5;28;01mimport[39;00m pandas_version
+[1;32m     12[0m     [38;5;28;01mif[39;00m pandas_version[[38;5;241m0[39m] [38;5;241m<[39m [38;5;241m1[39m:
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/visions/backends/pandas/__init__.py:2[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtraversal[39;00m
+[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/visions/backends/pandas/types/__init__.py:3[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m[38;5;21;01m.[39;00m[38;5;21;01mboolean[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcategorical[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcomplex[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcount[39;00m
+[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdate[39;00m
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/visions/backends/pandas/types/complex.py:7[0m
+[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mseries_utils[39;00m [38;5;28;01mimport[39;00m series_not_empty, series_not_sparse
+[1;32m      6[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpandas[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfloat[39;00m [38;5;28;01mimport[39;00m string_is_float
+[0;32m----> 7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mshared[39;00m[38;5;21;01m.[39;00m[38;5;21;01mparallelization_engines[39;00m [38;5;28;01mimport[39;00m pandas_apply
+[1;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcomplex[39;00m [38;5;28;01mimport[39;00m Complex
+[1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mvisions[39;00m[38;5;21;01m.[39;00m[38;5;21;01mtypes[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstring[39;00m [38;5;28;01mimport[39;00m String
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/visions/backends/shared/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m [38;5;28;01mimport[39;00m nan_handling, parallelization_engines, utilities
+
+File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/visions/backends/shared/nan_handling.py:34[0m
+[1;32m     30[0m [38;5;66;03m# TODO: There are optimizations here, just have to define precisely the desired missing ruleset in the[39;00m
+[1;32m     31[0m [38;5;66;03m# generated jit[39;00m
+[1;32m     32[0m [38;5;28;01mif[39;00m has_numba:
+[0;32m---> 34[0m     [38;5;129m@nb[39m[38;5;241;43m.[39;49m[43mgenerated_jit[49m(nopython[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m     35[0m     [38;5;28;01mdef[39;00m [38;5;21mis_missing[39m(x):
+[1;32m     36[0m [38;5;250m        [39m[38;5;124;03m"""[39;00m
+[1;32m     37[0m [38;5;124;03m        Return True if the value is missing, False otherwise.[39;00m
+[1;32m     38[0m [38;5;124;03m        """[39;00m
+[1;32m     39[0m         [38;5;28;01mif[39;00m [38;5;28misinstance[39m(x, nb[38;5;241m.[39mtypes[38;5;241m.[39mFloat):
+
+[0;31mAttributeError[0m: module 'numba' has no attribute 'generated_jit'
+
