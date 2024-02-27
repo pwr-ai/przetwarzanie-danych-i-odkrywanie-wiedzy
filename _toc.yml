@@ -1,13 +1,13 @@
-- file: README
-  numbered: false
-
-- part: Laboratoria
-  chapters:
-  - file: laboratoria/lab1-zasady.ipynb
-  - file: laboratoria/lab1-przygotowanie-srodowiska.ipynb
-  - file: laboratoria/lab2-podstawowe-biblioteki.ipynb
-  - file: laboratoria/lab3-zarzadzanie-eksperymentami.ipynb
-  - file: laboratoria/lab4-analiza-zbioru-danych.ipynb
-  - file: laboratoria/lab5-tworzenie-modeli.ipynb
-  - file: laboratoria/lab6-uczenie-maszynowe-2.ipynb
-  - file: laboratoria/lab7-produktyzacja.ipynb
+format: jb-book
+root: README
+options:
+  caption: Laboratoria
+chapters:
+- file: laboratoria/lab1-zasady.ipynb
+- file: laboratoria/lab1-przygotowanie-srodowiska.ipynb
+- file: laboratoria/lab2-podstawowe-biblioteki.ipynb
+- file: laboratoria/lab3-zarzadzanie-eksperymentami.ipynb
+- file: laboratoria/lab4-analiza-zbioru-danych.ipynb
+- file: laboratoria/lab5-tworzenie-modeli.ipynb
+- file: laboratoria/lab6-uczenie-maszynowe-2.ipynb
+- file: laboratoria/lab7-produktyzacja.ipynb
