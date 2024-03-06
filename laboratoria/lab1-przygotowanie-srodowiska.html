@@ -542,21 +542,20 @@ document.write(`
 <section id="tworzenie-przykladowego-srodowiska">
 <h3>Tworzenie przykładowego środowiska<a class="headerlink" href="#tworzenie-przykladowego-srodowiska" title="Link to this heading">#</a></h3>
 <p>W pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wyspecyfikuj paczki, a w głównym folderze projektu utwórz plik <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> o następującej treści:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FROM python:3.10
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FROM python:3.11
 
 ARG UID
 ARG GID
 
 WORKDIR /app
 
-RUN groupadd --gid $GID myuser &amp;&amp; useradd --no-create-home -u $UID --gid $GID myuser &amp;&amp; chown -R myuser /app
+RUN groupadd --gid $GID myuser &amp;&amp; useradd -u $UID --gid $GID myuser &amp;&amp; chown -R myuser /app
 
 COPY requirements.txt .
 
 RUN pip --no-cache-dir install -r requirements.txt
 
 USER myuser
-
 </pre></div>
 </div>
 <p>następnie zbuduj obraz dockerowy komendą (warto dodać nieobowiązkowy tag dla późniejszej prostszej identyfikacji):</p>
@@ -572,13 +571,9 @@ USER myuser
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker run --user &quot;$(id -u):$(id -g)&quot; --rm -v $(pwd):/app pdiow-python python SCIEZKA_DO_SKRYPTU
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--user</span> <span class="pre">&quot;$(id</span> <span class="pre">-u):$(id</span> <span class="pre">-g)&quot;</span></code> uruchamia kontener z id usera hosta. W przypadku gdyby skrypt zapisywał dane właścicielami będzie user a nie root. Przydatne na serwerach, gdzie nie mamy dostępu do root’a. (niewymagane, <em>uwaga</em>: działanie na systemach innych niż Linux może się różnić!)</p>
+<p><code class="docutils literal notranslate"><span class="pre">--user</span> <span class="pre">&quot;$(id</span> <span class="pre">-u):$(id</span> <span class="pre">-g)&quot;</span></code> uruchamia kontener z id usera hosta. W przypadku gdy skrypt zapisze dane, właścicielami będzie user a nie root. Przydatne na serwerach, gdzie nie mamy dostępu do root’a. (niewymagane, <em>uwaga</em>: działanie na systemach innych niż Linux może się różnić!)</p>
 <p><code class="docutils literal notranslate"><span class="pre">--rm</span></code> automatyczne usuwa kontener po jego zamknięciu (niewymagane).</p>
 <p><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">$(pwd):/app</span></code> pozwala podmontować bieżący folder jako wolumen w kontenerze, umożliwia to ograniczenie kopiowania plików do obrazu oraz umożliwia modyfikacje zewnętrznych plików przez kontener np. skrypt może zapisać plik, który zobaczymy w plikach naszego projektu. Dodatkowo nie będzie konieczne, aby budować obraz przy każdej modyfikacji plików projektu. Ponowne budowanie będzie konieczne jedynie po modyfikacji pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Conda nie jest mechanizmem stricte Pythonowym - tak samo można używać środowisk wirtualnych dla innych jezyków</p>
-</div>
 </section>
 <section id="jupyter-notebook">
 <h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h3>
@@ -609,7 +604,7 @@ USER myuser
 <p>PyCharm to popularne IDE dla języka Python, które umożliwia łatwe i szybkie tworzenie aplikacji. Oferuje wsparcie dla języka Python i popularnych bibliotek, udostępnia narzędzia do debugowania i testowania oraz współpracuje z systemami wersji kontrolnych. Integracja z narzędziami takimi jak Docker, Conda, DVC, Jupyter umożliwiają szybszą i bardziej efektywną pracę programisty.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Do celów edukacyjnych studenci mogą korzystać z PyCharm Professional Edition, która m.in. pozwala na integrację z Docker’em. <a class="reference external" href="https://www.jetbrains.com/community/education/#students">Dowiedz się więcej.</a></p>
+<p>Do celów edukacyjnych studenci mogą korzystać z PyCharm Professional Edition. <a class="reference external" href="https://www.jetbrains.com/community/education/#students">Dowiedz się więcej.</a></p>
 </div>
 </section>
 <section id="jakosc-kodu">
@@ -628,7 +623,7 @@ USER myuser
 </section>
 <section id="inne-narzedzia">
 <h4>Inne narzędzia<a class="headerlink" href="#inne-narzedzia" title="Link to this heading">#</a></h4>
-<p>Analiza wszystkich narzędzi dbających o jakość kodu nie jest celem tego kursu, jednakże rekomendujemy przyjrzenie się takim projektom jak <code class="docutils literal notranslate"><span class="pre">isort</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> i wiele innych oraz rozważenie wprowadzenia ich do codziennej pracy.</p>
+<p>Analiza wszystkich narzędzi dbających o jakość kodu nie jest celem tego kursu, jednakże rekomendujemy przyjrzenie się takim projektom jak <code class="docutils literal notranslate"><span class="pre">ruff</span></code>, <code class="docutils literal notranslate"><span class="pre">isort</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> i wiele innych oraz rozważenie wprowadzenia ich do codziennej pracy.</p>
 </section>
 </section>
 </section>

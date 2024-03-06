@@ -348,9 +348,10 @@ b) (3 pkt) W pliku <code class="docutils literal notranslate"><span class="pre">
 <br><br>
 <strong>Wymagania</strong></p>
 <ul class="simple">
+<li><p>Oba skrypty mają wyświetlać nazwę skryptu na początku jego działania.</p></li>
 <li><p>Skrypty należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie przyznane będzie 0pkt. (To wymaganie zostanie z nami do końca kursu.)</p></li>
-<li><p>Pisząc skrypty należy skorzystać z instrukcji <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, ze struktur <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">dataclass</span></code> oraz z <em>list comprehension</em>. Każda instrukcja musi wystąpić <strong>co najmniej raz</strong> w zad. a <strong>lub</strong> b.</p></li>
-<li><p>Program nie musi być użyteczny, ale ma mieć jednoznaczny sens.</p></li>
+<li><p>Pisząc skrypty należy skorzystać z instrukcji prezentując ich działanie: <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, ze struktur <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span></code>, <code class="docutils literal notranslate"><span class="pre">dataclass</span></code>, z <em>list comprehension</em> oraz <em>funkcji lambda</em>. Każda instrukcja musi wystąpić <strong>co najmniej raz</strong> w zad. a <strong>lub</strong> b.</p></li>
+<li><p>Nie należy importować funkcji/klas z innych skryptów - to zła praktyka.</p></li>
 </ul>
 </li>
 </ol>
@@ -358,15 +359,54 @@ b) (3 pkt) W pliku <code class="docutils literal notranslate"><span class="pre">
 <ol class="arabic simple" start="2">
 <li><p>Korzystając ze środowiska Docker:
 <br><br>
-a) (2pkt) zainstaluj paczkę <code class="docutils literal notranslate"><span class="pre">black</span></code> specyfikując na sztywno jej wersję w pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. Sformatuj wszystkie pliki <code class="docutils literal notranslate"><span class="pre">.py</span></code> w projekcie. Zamieść 3 zrzuty ekranu pod ścieżką <code class="docutils literal notranslate"><span class="pre">screenshots</span></code>: dowolony plik przed formatowaniem, dowolony plik po formatowaniu oraz wyjście w terminalu po komendzie formatującej.
+a) (2pkt) zainstaluj paczkę <code class="docutils literal notranslate"><span class="pre">black</span></code> specyfikując na sztywno jej wersję w pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. Sformatuj wszystkie pliki <code class="docutils literal notranslate"><span class="pre">.py</span></code> w projekcie. Zamieść 3 zrzuty ekranu pod ścieżką <code class="docutils literal notranslate"><span class="pre">screenshots</span></code>: dowolony plik przed formatowaniem, dowolony plik po formatowaniu oraz wyjście w terminalu wraz z komendą formatującą.
 <br><br>
-b) (3pkt) uruchom Jupyter Notebook lub JupyterLab w kontenerze dockerowym. Następnie utwórz notebook pod ścieżką <code class="docutils literal notranslate"><span class="pre">&lt;KATALOG_GŁÓWNY_PROJEKTU&gt;/notebooks/notebook_1.ipynb</span></code>, w którym w komórce typu <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> wyświetlisz swój numer indeksu, a w komórce typu <code class="docutils literal notranslate"><span class="pre">Code</span></code> zaimportujesz i użyjesz funkcji/klasy z <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>.</p></li>
+b) (2pkt) uruchom Jupyter Notebook lub JupyterLab w kontenerze dockerowym. Następnie utwórz notebook pod ścieżką <code class="docutils literal notranslate"><span class="pre">&lt;KATALOG_GŁÓWNY_PROJEKTU&gt;/notebooks/notebook_1.ipynb</span></code>, w którym w komórce typu <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> wyświetlisz swój numer indeksu oraz nickname z GitHuba, a w komórce typu <code class="docutils literal notranslate"><span class="pre">Code</span></code> zaimportujesz i użyjesz funkcji/klasy z <code class="docutils literal notranslate"><span class="pre">src/utils.py</span></code>.</p></li>
+</ol>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p>(1pkt) Napisz plik Makefile w głównym katalogu projektu. Zdefiniuj polecenia (wszystkie wykorzystujące Docker):</p>
+<ul class="simple">
+<li><p>build - budujące obraz dockerowy</p></li>
+<li><p>run_main_1 - uruchamiające skrypt <code class="docutils literal notranslate"><span class="pre">main_1.py</span></code></p></li>
+<li><p>run_main_2 - uruchamiające skrypt <code class="docutils literal notranslate"><span class="pre">main_2.py</span></code></p></li>
+<li><p>black - formatujące pliki <code class="docutils literal notranslate"><span class="pre">.py</span></code></p></li>
+<li><p>run_jupyter - uruchamiające Jupyter Notebook/Lab</p></li>
+</ul>
+</li>
 </ol>
 <hr class="docutils" />
 <p><strong>Uwagi</strong></p>
 <ul class="simple">
 <li><p>Przy wykonywaniu listy przyda się znajomość <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> oraz umiejętność przekierowania portów ;)</p></li>
 </ul>
+<hr class="docutils" />
+<p>Wypełnij formularz wykonania zadań:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Zadanie</p></th>
+<th class="head"><p>Wykonano? (T)ak/(N)ie/(C)zęściowo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1a</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>1b</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>2a</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2b</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>(Próby oszustwa prowadzą do konsekwencji opisanych w zasadach.)</p>
 </section>
 
     <script type="text/x-thebe-config">
