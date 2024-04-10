@@ -14,12 +14,12 @@ d) (0.5 pkt) Podsumuj uzyskane wyniki. Według własnego uznania wskaż najlepsz
 
 ## 2. (4 pkt) Wektoryzacja tekstu
 
-a) (1 pkt) Używając biblioteki Spacy, dokonaj preprocessingu danych tekstowych. Usuń z tekstu wszystkie elementy, które nie są nośnikami emocji. 
+a) (1 pkt) Używając biblioteki Spacy, dokonaj preprocessingu danych tekstowych. Usuń z tekstu elementy, które nie są nośnikami emocji. 
 
 b) (3 pkt) Dokonaj wektoryzacji tak przetworzonego tekstu przy pomocy następujących metod:
 - bag-of-words
 - tf-idf
-- word2vec
+- word2vec (należy użyć pretrenowanego modelu)
 
 Wyucz klasyfikator używając każdej z nich. Porównaj wyniki i spróbuj uzasadnić różnice w jakości. 
 
