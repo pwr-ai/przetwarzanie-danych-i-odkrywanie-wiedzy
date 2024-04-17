@@ -1,4 +1,4 @@
-# Zadania Lista 6
+# Zadania Lista 6.1
 
 ## 1. (3 pkt) Tuning hiperparametrów
 
