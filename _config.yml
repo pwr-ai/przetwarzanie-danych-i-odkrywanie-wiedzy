@@ -3,7 +3,7 @@ title: Przetwarzanie danych i odkrywanie wiedzy
 author: Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bielak
 logo: docs/logo.png
 exclude_patterns: ["cache"]
-copyright                   : "2023"  # Copyright year to be placed in the footer
+copyright                   : "2024"  # Copyright year to be placed in the footer
 
 repository:
   url: https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy
@@ -27,5 +27,11 @@ html:
   extra_navbar              : ''  # Will be displayed underneath the left navbar.
   extra_footer              : ""  # Will be displayed underneath the footer.
   google_analytics_id       : ""  # A GA id that can be used to track book views.
-  home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
   baseurl                   : ''  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default! See here: https://jupyterbook.org/en/stable/customize/config.html
+    - html_image
