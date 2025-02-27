@@ -8,10 +8,10 @@ Celem listy jest budowa modelu klasyfikacji wydźwięku emocjonalnego (sentiment
 - Końcową komendę `dvc repro` należy uruchomić korzystając ze środowiska w kontenerze Docker. 
 
 
-**Uwagi ogólne**
-1. Zanim cokolwiek dodasz do projeku zastanów się w którym stage'u powinno to być umieszczone. W wielu sytuacjach nie będzie jednego dobrego rozwiązania, należy wtedy postąpić według własnych preferencji zdając sobie sprawę z wad i zalet decyzji.
+**Wskazówki**
 1. Dokonując analizy modelu zawsze wykonuj cross-walidację.
-1. Stosuj potoki przetwarzania sklearn, jeśli to możliwe.
+1. Aby uniknąć przecieku danych (data leakage) warto korzystać z klasy Pipeline [(docs)](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) z biblioteki `sklearn`.
+1. Zanim cokolwiek dodasz do projeku zastanów się w którym stage'u powinno to być umieszczone. W wielu sytuacjach nie będzie jednego dobrego rozwiązania, należy wtedy postąpić według własnych preferencji zdając sobie sprawę z wad i zalet decyzji.
 
 
 ## 1. (3 pkt) Czyszczenie danych i przetwarzanie wstępne 
@@ -49,5 +49,8 @@ Wykonaj kilka iteracji i eksperymentów, sprawdź, jakie kombinacje metod/cech p
 
 ## 4. Skuteczność na zbiorze testowym
 
-**(1 pkt)** Przygotuj raport w tabeli Markdown, w której porównasz zastosowane modele (Dummy, SVM, Random Forest) w najlepszej dla nich konfiguracji na zbiorze testowym. Wyuczone mają być na całym zbiorze treningowym.  
+**(1 pkt)** Przygotuj raport w tabeli Markdown, w której porównasz zastosowane modele (Dummy, SVM, Random Forest) w najlepszej dla nich konfiguracji na zbiorze testowym. Wyuczone mają być na całym zbiorze treningowym, czyli bez walidacji krzyżowej.  
+Skorzystaj z "tabeli końcowej" z listy 6.2.
+
 Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu? 
+

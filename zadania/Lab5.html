@@ -350,7 +350,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="zadania-lista-5">
+  <section class="tex2jax_ignore mathjax_ignore" id="zadania-lista-5">
 <h1>Zadania Lista 5<a class="headerlink" href="#zadania-lista-5" title="Link to this heading">#</a></h1>
 <p>Celem listy jest budowa modelu klasyfikacji wydźwięku emocjonalnego (sentiment).</p>
 <p><strong>Wymagania</strong></p>
@@ -358,11 +358,11 @@ document.write(`
 <li><p>Wszystkie procedury należy zintegrować z potokiem dvc.</p></li>
 <li><p>Końcową komendę <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> należy uruchomić korzystając ze środowiska w kontenerze Docker.</p></li>
 </ul>
-<p><strong>Uwagi ogólne</strong></p>
+<p><strong>Wskazówki</strong></p>
 <ol class="arabic simple">
-<li><p>Zanim cokolwiek dodasz do projeku zastanów się w którym stage’u powinno to być umieszczone. W wielu sytuacjach nie będzie jednego dobrego rozwiązania, należy wtedy postąpić według własnych preferencji zdając sobie sprawę z wad i zalet decyzji.</p></li>
 <li><p>Dokonując analizy modelu zawsze wykonuj cross-walidację.</p></li>
-<li><p>Stosuj potoki przetwarzania sklearn, jeśli to możliwe.</p></li>
+<li><p>Aby uniknąć przecieku danych (data leakage) warto korzystać z klasy Pipeline <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">(docs)</a> z biblioteki <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p></li>
+<li><p>Zanim cokolwiek dodasz do projeku zastanów się w którym stage’u powinno to być umieszczone. W wielu sytuacjach nie będzie jednego dobrego rozwiązania, należy wtedy postąpić według własnych preferencji zdając sobie sprawę z wad i zalet decyzji.</p></li>
 </ol>
 <section id="pkt-czyszczenie-danych-i-przetwarzanie-wstepne">
 <h2>1. (3 pkt) Czyszczenie danych i przetwarzanie wstępne<a class="headerlink" href="#pkt-czyszczenie-danych-i-przetwarzanie-wstepne" title="Link to this heading">#</a></h2>
@@ -395,8 +395,9 @@ document.write(`
 </section>
 <section id="skutecznosc-na-zbiorze-testowym">
 <h2>4. Skuteczność na zbiorze testowym<a class="headerlink" href="#skutecznosc-na-zbiorze-testowym" title="Link to this heading">#</a></h2>
-<p><strong>(1 pkt)</strong> Przygotuj raport w tabeli Markdown, w której porównasz zastosowane modele (Dummy, SVM, Random Forest) w najlepszej dla nich konfiguracji na zbiorze testowym. Wyuczone mają być na całym zbiorze treningowym.<br />
-Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu?</p>
+<p><strong>(1 pkt)</strong> Przygotuj raport w tabeli Markdown, w której porównasz zastosowane modele (Dummy, SVM, Random Forest) w najlepszej dla nich konfiguracji na zbiorze testowym. Wyuczone mają być na całym zbiorze treningowym, czyli bez walidacji krzyżowej.<br />
+Skorzystaj z “tabeli końcowej” z listy 6.2.</p>
+<p>Przeanalizuj uzyskane wyniki pod kątem dokonanej podczas ostatnich zajęć EDA. Czy zdobyta wiedza była przydatna? Czy wysnute wtedy wnioski znalazły potwierdzenie w wynikach modelu?</p>
 </section>
 </section>
 
@@ -474,7 +475,7 @@ By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bi
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

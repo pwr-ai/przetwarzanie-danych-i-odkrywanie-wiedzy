@@ -4,18 +4,28 @@
 
 - Końcową komendę `dvc repro` należy uruchomić korzystając ze środowiska w kontenerze Docker. 
 
+**Uwaga**
+
+Jeśli przetwarzanie danych jest zbyt długie lub wymaga zbyt dużo pamięci, można:
+ - ograniczyć zbiór danych "na stałe" czyli we wstępnym etapie DVC.
+ - ograniczyć zbiór danych tymczasowo na potrzeby danej analizy.
+W obu przypadkach proszę pamiętać - próbka musi być reprezentatywna. 
+
 ### Zadanie 1 (1 pkt)
 
-Skonstruuj co najmniej 3 dodatkowe cechy na podstawie danych oraz wiedzy dziedzinowej i umieść je jako osobne kolumny. Cechy nie powinny pochodzić wyłącznie z tekstu. Przykładem takiej cechy może być długość tekstu.
+Skonstruuj co najmniej 3 dodatkowe cechy na podstawie danych oraz wiedzy dziedzinowej i umieść je jako osobne kolumny. Przykładem takiej cechy może być długość tekstu.
+Konstrukcje umieść w odpowiednim etapie DVC.
 
 ### Zadanie 2 (6 pkt)
 
 Celem zadania jest dokonanie analizy eksploracyjnej (EDA) zadanego zbioru danych, pod kątem zastosowania do treningu modelu sentymentu, przy pomocy poznanych narzędzi. 
 
+W ramach zadania analizujemy wszystkie cechy zawarte w zbiorze *oraz te otworzone w zadaniu 1*.
+
 Na podstawie danych numerycznych/kategorycznych postaraj się odpowiedzieć na następujące pytania (jednak nie ograniczaj się jedynie do odpowiedzi na nie):
 - ile znajduje się w zbiorze cech kategorycznych, a ile numerycznych? 
 - czy zmienna wyjściowa jest kategoryczna, czy numeryczna? 
-- czy i ile w zbiorze jest brakujących wartości? Dla jakich zmiennych? Co z tego wynika?
+- czy i ile w zbiorze jest brakujących wartości? Dla jakich zmiennych? Co z tego wynika? Jakie są możliwe sposoby radzenia sobie z brakującymi wartościami? 
 - czy któreś z cech są skorelowane? Co z tego może wynikać?
 - czy któraś z cech koreluje ze zmienną wyjściową? Jeśli tak - która? Czy któraś nie koreluje?
 - czy zbiór danych wydaje się być wystarczająco informacyjny by rozwiązać zadanie analizy sentymentu?

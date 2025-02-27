@@ -349,24 +349,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="zadania-lista-4-analiza-eksploracyjna-danych">
+  <section class="tex2jax_ignore mathjax_ignore" id="zadania-lista-4-analiza-eksploracyjna-danych">
 <h1>Zadania Lista 4: Analiza eksploracyjna danych<a class="headerlink" href="#zadania-lista-4-analiza-eksploracyjna-danych" title="Link to this heading">#</a></h1>
 <p><strong>Wymagania</strong></p>
 <ul class="simple">
 <li><p>Końcową komendę <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> należy uruchomić korzystając ze środowiska w kontenerze Docker.</p></li>
 </ul>
+<p><strong>Uwaga</strong></p>
+<p>Jeśli przetwarzanie danych jest zbyt długie lub wymaga zbyt dużo pamięci, można:</p>
+<ul class="simple">
+<li><p>ograniczyć zbiór danych “na stałe” czyli we wstępnym etapie DVC.</p></li>
+<li><p>ograniczyć zbiór danych tymczasowo na potrzeby danej analizy.
+W obu przypadkach proszę pamiętać - próbka musi być reprezentatywna.</p></li>
+</ul>
 <section id="zadanie-1-1-pkt">
 <h2>Zadanie 1 (1 pkt)<a class="headerlink" href="#zadanie-1-1-pkt" title="Link to this heading">#</a></h2>
-<p>Skonstruuj co najmniej 3 dodatkowe cechy na podstawie danych oraz wiedzy dziedzinowej i umieść je jako osobne kolumny. Cechy nie powinny pochodzić wyłącznie z tekstu. Przykładem takiej cechy może być długość tekstu.</p>
+<p>Skonstruuj co najmniej 3 dodatkowe cechy na podstawie danych oraz wiedzy dziedzinowej i umieść je jako osobne kolumny. Przykładem takiej cechy może być długość tekstu.
+Konstrukcje umieść w odpowiednim etapie DVC.</p>
 </section>
 <section id="zadanie-2-6-pkt">
 <h2>Zadanie 2 (6 pkt)<a class="headerlink" href="#zadanie-2-6-pkt" title="Link to this heading">#</a></h2>
 <p>Celem zadania jest dokonanie analizy eksploracyjnej (EDA) zadanego zbioru danych, pod kątem zastosowania do treningu modelu sentymentu, przy pomocy poznanych narzędzi.</p>
+<p>W ramach zadania analizujemy wszystkie cechy zawarte w zbiorze <em>oraz te otworzone w zadaniu 1</em>.</p>
 <p>Na podstawie danych numerycznych/kategorycznych postaraj się odpowiedzieć na następujące pytania (jednak nie ograniczaj się jedynie do odpowiedzi na nie):</p>
 <ul class="simple">
 <li><p>ile znajduje się w zbiorze cech kategorycznych, a ile numerycznych?</p></li>
 <li><p>czy zmienna wyjściowa jest kategoryczna, czy numeryczna?</p></li>
-<li><p>czy i ile w zbiorze jest brakujących wartości? Dla jakich zmiennych? Co z tego wynika?</p></li>
+<li><p>czy i ile w zbiorze jest brakujących wartości? Dla jakich zmiennych? Co z tego wynika? Jakie są możliwe sposoby radzenia sobie z brakującymi wartościami?</p></li>
 <li><p>czy któreś z cech są skorelowane? Co z tego może wynikać?</p></li>
 <li><p>czy któraś z cech koreluje ze zmienną wyjściową? Jeśli tak - która? Czy któraś nie koreluje?</p></li>
 <li><p>czy zbiór danych wydaje się być wystarczająco informacyjny by rozwiązać zadanie analizy sentymentu?</p></li>
@@ -461,7 +470,7 @@ By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bi
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>

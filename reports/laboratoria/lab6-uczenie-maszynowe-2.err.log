@@ -1,24 +1,20 @@
 Traceback (most recent call last):
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/home/albert/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+  File "/home/albert/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/home/albert/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/asyncio/base_events.py", line 650, in run_until_complete
+  File "/home/albert/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/contextlib.py", line 222, in __aexit__
-    await self.gen.athrow(typ, value, traceback)
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 654, in async_setup_kernel
-    yield
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/home/albert/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/home/albert/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/home/albert/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/home/albert/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -34,7 +30,7 @@ Cell [0;32mIn[5], line 3[0m
 [1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mspacy[39;00m
 [0;32m----> 3[0m nlp [38;5;241m=[39m [43mspacy[49m[38;5;241;43m.[39;49m[43mload[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43men_core_web_md[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mexclude[49m[38;5;241;43m=[39;49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mner[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43msenter[39;49m[38;5;124;43m"[39;49m[43m][49m[43m)[49m
 
-File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/spacy/__init__.py:51[0m, in [0;36mload[0;34m(name, vocab, disable, enable, exclude, config)[0m
+File [0;32m~/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/spacy/__init__.py:51[0m, in [0;36mload[0;34m(name, vocab, disable, enable, exclude, config)[0m
 [1;32m     27[0m [38;5;28;01mdef[39;00m [38;5;21mload[39m(
 [1;32m     28[0m     name: Union[[38;5;28mstr[39m, Path],
 [1;32m     29[0m     [38;5;241m*[39m,
@@ -56,7 +52,7 @@ File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.1
 [1;32m     57[0m [43m        [49m[43mconfig[49m[38;5;241;43m=[39;49m[43mconfig[49m[43m,[49m
 [1;32m     58[0m [43m    [49m[43m)[49m
 
-File [0;32m~/.conda/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/spacy/util.py:472[0m, in [0;36mload_model[0;34m(name, vocab, disable, enable, exclude, config)[0m
+File [0;32m~/anaconda3/envs/przetwarzanie-danych-i-odkrywanie-wiedzy/lib/python3.11/site-packages/spacy/util.py:472[0m, in [0;36mload_model[0;34m(name, vocab, disable, enable, exclude, config)[0m
 [1;32m    470[0m [38;5;28;01mif[39;00m name [38;5;129;01min[39;00m OLD_MODEL_SHORTCUTS:
 [1;32m    471[0m     [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors[38;5;241m.[39mE941[38;5;241m.[39mformat(name[38;5;241m=[39mname, full[38;5;241m=[39mOLD_MODEL_SHORTCUTS[name]))  [38;5;66;03m# type: ignore[index][39;00m
 [0;32m--> 472[0m [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors[38;5;241m.[39mE050[38;5;241m.[39mformat(name[38;5;241m=[39mname))

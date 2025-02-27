@@ -348,15 +348,16 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kontenery-a-maszyny-wirtualne">Kontenery a maszyny wirtualne</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-przykladowego-srodowiska">Tworzenie przykładowego środowiska</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dodatek-jak-poprawic-bezpieczenstwo-kontenera">Dodatek: Jak poprawić bezpieczeństwo kontenera?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-przykladowego-srodowiska">Tworzenie przykładowego środowiska</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">JupyterLab</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">PyCharm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jakosc-kodu">Jakość kodu</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#black">black</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ruff">ruff</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inne-narzedzia">Inne narzędzia</a></li>
 </ul>
 </li>
@@ -373,11 +374,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="l1-przygotowanie-srodowiska">
+  <section class="tex2jax_ignore mathjax_ignore" id="l1-przygotowanie-srodowiska">
 <h1>L1: Przygotowanie środowiska<a class="headerlink" href="#l1-przygotowanie-srodowiska" title="Link to this heading">#</a></h1>
 <section id="efekty-ksztalcenia-laboratorium">
 <h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Link to this heading">#</a></h2>
-<hr class="docutils" />
 <ul class="simple">
 <li><p>poznasz możliwości tworzenia środowiska wirtualnego Python</p></li>
 <li><p>poznasz środowisko Jupyter</p></li>
@@ -386,7 +386,6 @@ document.write(`
 </section>
 <section id="wymagania-wstepne">
 <h2>Wymagania wstępne<a class="headerlink" href="#wymagania-wstepne" title="Link to this heading">#</a></h2>
-<hr class="docutils" />
 <section id="python">
 <h3>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
 <p>Podczas zajęć pracować będziemy używając języka Python. Na zajęciach nie będziemy wprowadzać podstaw tego języka.</p>
@@ -501,7 +500,8 @@ document.write(`
 </section>
 <section id="docker">
 <h3>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h3>
-<p>Do wirtualizacji środowiska można użyć <strong>kontenerów</strong>. Jednym z najpopularniejszych narzędzi do tworzenia i zarządzania kontenerami jest Docker. Więcej o nim dowiecie się na ostatnich zajęciach. Teraz powiemy sobie jak wykorzystać go do wirtualizacji środowiska.</p>
+<p>Do wirtualizacji środowiska można użyć <strong>kontenerów</strong>. Jednym z najpopularniejszych narzędzi do tworzenia i zarządzania kontenerami jest Docker. Więcej o nim dowiecie się na ostatnich zajęciach (<a class="reference internal" href="lab7-produktyzacja.html"><span class="std std-doc">link</span></a>. Dodatkowe materiały znajdziecie na oficjalnej stronie <a class="reference external" href="https://docs.docker.com/get-started/">link</a>.</p>
+<p>Teraz powiemy sobie jak wykorzystać Docker do wirtualizacji środowiska.</p>
 <p>Definicja aplikacji i zależności nazywana jest <strong>obrazem</strong> (ang. image). Na podstawie obrazu, Docker tworzy <strong>kontener</strong> (ang. container) który zawiera i w którym jest uruchomiona aplikacja.</p>
 <section id="kontenery-a-maszyny-wirtualne">
 <h4>Kontenery a maszyny wirtualne<a class="headerlink" href="#kontenery-a-maszyny-wirtualne" title="Link to this heading">#</a></h4>
@@ -518,9 +518,8 @@ document.write(`
 <p><img alt="" src="../_images/virtual_machine_vs_container.png" /></p>
 <p>Jak widać maszyny wirtualne dostarczają większej izolacji od systemu operacyjnego hosta. Wiąże się to jednak z większym kosztem i zazwyczaj wolniejszym środowiskiem – głównie ze względu na potrzebę tłumaczenia instrukcji maszynowych i wywołań systemowych. Kontenery są narzędziem o mniejszym stopniu skomplikowania, pozwalającymi szybciej uruchamiać aplikacje i wymagają mniej zasobów (np. poprzez brak potrzeby uruchamiania systemu operacyjnego gościa).</p>
 </section>
-</section>
 <section id="instalacja">
-<h3>Instalacja<a class="headerlink" href="#instalacja" title="Link to this heading">#</a></h3>
+<h4>Instalacja<a class="headerlink" href="#instalacja" title="Link to this heading">#</a></h4>
 <p>Należy <a class="reference external" href="https://docs.docker.com/engine/install/">zainstalować</a> paczkę odpowiednią dla swojego systemu operacyjnego.</p>
 <p>Po udanej instalacji warto zweryfikować, czy wszystko przebiegło pomyślnie, odpalając w terminalu:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
@@ -540,8 +539,36 @@ document.write(`
 </div>
 </section>
 <section id="tworzenie-przykladowego-srodowiska">
-<h3>Tworzenie przykładowego środowiska<a class="headerlink" href="#tworzenie-przykladowego-srodowiska" title="Link to this heading">#</a></h3>
+<h4>Tworzenie przykładowego środowiska<a class="headerlink" href="#tworzenie-przykladowego-srodowiska" title="Link to this heading">#</a></h4>
 <p>W pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wyspecyfikuj paczki, a w głównym folderze projektu utwórz plik <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> o następującej treści:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">python</span><span class="p">:</span><span class="mf">3.12</span>
+
+<span class="n">WORKDIR</span> <span class="o">/</span><span class="n">app</span>
+
+<span class="n">COPY</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="o">.</span>
+
+<span class="n">RUN</span> <span class="n">pip</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">cache</span><span class="o">-</span><span class="nb">dir</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+
+</pre></div>
+</div>
+<p>następnie zbuduj obraz dockerowy komendą (warto dodać nieobowiązkowy tag dla późniejszej identyfikacji):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker build --tag pdiow-python .</span>
+</pre></div>
+</div>
+<p>w celu uruchomienia skryptu wpisujemy:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker run --rm -v $(pwd):/app pdiow-python python SCIEZKA_DO_SKRYPTU</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--rm</span></code> automatyczne usuwa kontener po jego zamknięciu (nieobowiązkowe, ale zalecane w celu zwolnienia dysku)</p>
+<p><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">$(pwd):/app</span></code> pozwala podmontować bieżący folder jako wolumen w kontenerze. Umożliwia to redukcję kopiowania plików do obrazu oraz modyfikacje zewnętrznych plików przez kontener, np. skrypt może zapisać plik, który zobaczymy w w naszym folderze poza kontenerem. Dodatkowo nie będziemy musieli ponownie budować obrazu po każdej modyfikacji plików projektu. Ponowne budowanie będzie konieczne jedynie po modyfikacji pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+</section>
+<section id="dodatek-jak-poprawic-bezpieczenstwo-kontenera">
+<h4>Dodatek: Jak poprawić bezpieczeństwo kontenera?<a class="headerlink" href="#dodatek-jak-poprawic-bezpieczenstwo-kontenera" title="Link to this heading">#</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ta sekcja wykracza poza zakres kursu i nie jest wymagana w ramach laboratorium, ale warto być świadomym potencjalnych zagrożeń.</p>
+</div>
+<p>W powyższym przykładzie uruchomiamy komendy jako root czyli z uprawnieniami administratora. Jest to potencjalne zagrożenie bezpieczeństwa. Poprawmy ten aspekt modyfikując Dockerfile, tworząc nowego użytkownika w obrazie:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FROM python:3.11
 
 ARG UID
@@ -558,22 +585,19 @@ RUN pip --no-cache-dir install -r requirements.txt
 USER myuser
 </pre></div>
 </div>
-<p>następnie zbuduj obraz dockerowy komendą (warto dodać nieobowiązkowy tag dla późniejszej prostszej identyfikacji):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) --tag pdiow-python . 
+<p>Dodaliśmy instrukcję tworzącą nowego użytkownika o nazwie <code class="docutils literal notranslate"><span class="pre">myuser</span></code> z id <code class="docutils literal notranslate"><span class="pre">UID</span></code> i id grupy <code class="docutils literal notranslate"><span class="pre">GID</span></code>. Następnie zmieniliśmy właściciela katalogu <code class="docutils literal notranslate"><span class="pre">/app</span></code> na nowego użytkownika. Ostatnia instrukcja ustawia domyślnego użytkownika dla nowego kontenera.</p>
+<p>Budujemy obraz dockerowy komendą:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) --tag pdiow-python . </span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--build-arg</span> <span class="pre">UID=$(id</span> <span class="pre">-u)</span> <span class="pre">--build-arg</span> <span class="pre">GID=$(id</span> <span class="pre">-g)</span></code> przekazujemy argumenty, które zapewnią, że utworzony w obrazie użytkownik będzie miał to samo ID użytkownika i ID grupy co użytkownik host’a.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Tworzenie nowego użytkownika w obrazie nie jest wymagane (ani technicznie, ani w ramach kursu). Gdy nie dodamy użytkownika, będziemy uruchamiać skrypt jako root, co jest naruszeniem zasad bezpieczeństwa. W związku z tym dobrą praktyką jest korzystanie z użytkownika niebędącego root’em. Więcej o dobrych praktykach przy korzystaniu z Dockera <a class="reference external" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">tutaj</a>.</p>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">--build-arg</span> <span class="pre">UID=$(id</span> <span class="pre">-u)</span> <span class="pre">--build-arg</span> <span class="pre">GID=$(id</span> <span class="pre">-g)</span></code> przekazujemy argumenty, które zapewnią, że utworzony w obrazie użytkownik będzie miał to samo ID użytkownika i ID grupy co użytkownik host’a. Jest to wygodne w przypadku gdy kontener tworzy pliki w zamontowanym wolumenie - użytkownik będzie miał odpowiednie uprawnienia do plików. (<em>uwaga</em>: działanie na systemach innych niż Linux może się różnić!)</p>
 <p>w celu uruchomienia skryptu wpisujemy:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker run --user &quot;$(id -u):$(id -g)&quot; --rm -v $(pwd):/app pdiow-python python SCIEZKA_DO_SKRYPTU
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker run --user &quot;$(id -u):$(id -g)&quot; --rm -v $(pwd):/app pdiow-python python SCIEZKA_DO_SKRYPTU</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">--user</span> <span class="pre">&quot;$(id</span> <span class="pre">-u):$(id</span> <span class="pre">-g)&quot;</span></code> uruchamia kontener z id usera hosta. W przypadku gdy skrypt zapisze dane, właścicielami będzie user a nie root. Przydatne na serwerach, gdzie nie mamy dostępu do root’a. (niewymagane, <em>uwaga</em>: działanie na systemach innych niż Linux może się różnić!)</p>
-<p><code class="docutils literal notranslate"><span class="pre">--rm</span></code> automatyczne usuwa kontener po jego zamknięciu (niewymagane).</p>
-<p><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">$(pwd):/app</span></code> pozwala podmontować bieżący folder jako wolumen w kontenerze, umożliwia to ograniczenie kopiowania plików do obrazu oraz umożliwia modyfikacje zewnętrznych plików przez kontener np. skrypt może zapisać plik, który zobaczymy w plikach naszego projektu. Dodatkowo nie będzie konieczne, aby budować obraz przy każdej modyfikacji plików projektu. Ponowne budowanie będzie konieczne jedynie po modyfikacji pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--user</span> <span class="pre">&quot;$(id</span> <span class="pre">-u):$(id</span> <span class="pre">-g)&quot;</span></code> uruchamia kontener z id użytkownika i id grupy użytkownika hosta.</p>
+<p>Więcej o dobrych praktykach przy korzystaniu z Dockera <a class="reference external" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">tutaj</a>.</p>
+</section>
 </section>
 <section id="jupyter-notebook">
 <h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h3>
@@ -610,20 +634,20 @@ USER myuser
 <section id="jakosc-kodu">
 <h3>Jakość kodu<a class="headerlink" href="#jakosc-kodu" title="Link to this heading">#</a></h3>
 <p>Formatowanie kodu za pomocą narzędzi zewnętrznych jest ważne, ponieważ poprawia jego czytelność, zmniejsza ryzyko błędów i umożliwia łatwiejszą współpracę w zespole.</p>
-<section id="black">
-<h4>black<a class="headerlink" href="#black" title="Link to this heading">#</a></h4>
+<section id="ruff">
+<h4>ruff<a class="headerlink" href="#ruff" title="Link to this heading">#</a></h4>
 <p>Paczka formatująca kod Pythonowy, instalujemy za pomocą:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ruff</span>
 </pre></div>
 </div>
 <p>następnie formatujemy wszystkie pliki w projekcie:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ruff</span> <span class="nb">format</span>
 </pre></div>
 </div>
 </section>
 <section id="inne-narzedzia">
 <h4>Inne narzędzia<a class="headerlink" href="#inne-narzedzia" title="Link to this heading">#</a></h4>
-<p>Analiza wszystkich narzędzi dbających o jakość kodu nie jest celem tego kursu, jednakże rekomendujemy przyjrzenie się takim projektom jak <code class="docutils literal notranslate"><span class="pre">ruff</span></code>, <code class="docutils literal notranslate"><span class="pre">isort</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> i wiele innych oraz rozważenie wprowadzenia ich do codziennej pracy.</p>
+<p>Analiza wszystkich narzędzi dbających o jakość kodu nie jest celem tego kursu, jednakże rekomendujemy przyjrzenie się takim projektom jak <code class="docutils literal notranslate"><span class="pre">black</span></code>, <code class="docutils literal notranslate"><span class="pre">isort</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> i wiele innych oraz rozważenie wprowadzenia ich do codziennej pracy.</p>
 </section>
 </section>
 </section>
@@ -706,15 +730,16 @@ USER myuser
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kontenery-a-maszyny-wirtualne">Kontenery a maszyny wirtualne</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-przykladowego-srodowiska">Tworzenie przykładowego środowiska</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dodatek-jak-poprawic-bezpieczenstwo-kontenera">Dodatek: Jak poprawić bezpieczeństwo kontenera?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-przykladowego-srodowiska">Tworzenie przykładowego środowiska</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">JupyterLab</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">PyCharm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jakosc-kodu">Jakość kodu</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#black">black</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ruff">ruff</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inne-narzedzia">Inne narzędzia</a></li>
 </ul>
 </li>
@@ -744,7 +769,7 @@ By Tomasz Kajdanowicz, Kamil Tagowski, Krzysztof Rajda, Albert Sawczyn, Piotr Bi
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
