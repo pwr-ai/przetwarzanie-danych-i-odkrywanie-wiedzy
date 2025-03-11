@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>L2: Podstawowe biblioteki do odkrywania wiedzy &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>2. Podstawowe biblioteki do odkrywania wiedzy &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
   
   
   
@@ -61,8 +61,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="L3: Narzędzia zarządzania eksperymentami" href="lab3-zarzadzanie-eksperymentami.html" />
-    <link rel="prev" title="L1: Przygotowanie środowiska" href="lab1-przygotowanie-srodowiska.html" />
+    <link rel="next" title="3. Narzędzia zarządzania eksperymentami" href="lab3-zarzadzanie-eksperymentami.html" />
+    <link rel="prev" title="1. Przygotowanie środowiska" href="lab1-przygotowanie-srodowiska.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,16 +177,19 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">Zasady laboratorium</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">L1: Zasady laboratorium</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">L1: Przygotowanie środowiska</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">L2: Podstawowe biblioteki do odkrywania wiedzy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">L3: Narzędzia zarządzania eksperymentami</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">L4: Analiza eksploracyjna zbioru danych</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab5-tworzenie-modeli.html">L5: Tworzenie modeli uczenia maszynowego</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">L6: Uczenie maszynowe II</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">L7: Produktyzacja procesów odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">1. Przygotowanie środowiska</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Podstawowe biblioteki do odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">3. Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">4. Analiza eksploracyjna zbioru danych</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab5-tworzenie-modeli.html">5. Tworzenie modeli uczenia maszynowego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">6. Uczenie maszynowe II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">7. Produktyzacja procesów odkrywania wiedzy</a></li>
 </ul>
 
     </div>
@@ -325,7 +328,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>L2: Podstawowe biblioteki do odkrywania wiedzy</h1>
+    <h1>Podstawowe biblioteki do odkrywania wiedzy</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -335,54 +338,55 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">Efekty kształcenia laboratorium</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-biblioteki-w-warsztacie-data-science">Podstawowe biblioteki w warsztacie Data Science</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">ndarray</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-jednowymiarowe">Tablice jednowymiarowe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-wielowymiarowe">Tablice wielowymiarowe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-na-tablicach">Podstawowe operacje na tablicach</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dostep-do-elementow">Dostęp do elementów</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrowanie-elementow">Filtrowanie elementów</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wymiary-i-zmiany-ksztaltu">Wymiary i zmiany kształtu</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-tablic">Łączenie tablic</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie">Sortowanie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">2.1. Efekty kształcenia laboratorium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-biblioteki-w-warsztacie-data-science">2.2. Podstawowe biblioteki w warsztacie Data Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">2.3. Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">2.3.1. Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">2.3.2. ndarray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-jednowymiarowe">2.3.3. Tablice jednowymiarowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-wielowymiarowe">2.3.4. Tablice wielowymiarowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-na-tablicach">2.3.5. Podstawowe operacje na tablicach</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dostep-do-elementow">2.3.5.1. Dostęp do elementów</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrowanie-elementow">2.3.5.2. Filtrowanie elementów</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wymiary-i-zmiany-ksztaltu">2.3.5.3. Wymiary i zmiany kształtu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-tablic">2.3.5.4. Łączenie tablic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie">2.3.5.5. Sortowanie</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-matematyczne">Podstawowe operacje matematyczne</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arytmetyka">Arytmetyka</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#agregacje">Agregacje</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-liniowa">Algebra liniowa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-matematyczne">2.3.6. Podstawowe operacje matematyczne</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arytmetyka">2.3.6.1. Arytmetyka</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#agregacje">2.3.6.2. Agregacje</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-liniowa">2.3.6.3. Algebra liniowa</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady">Przykłady</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-niepoprawne">Przykłady niepoprawne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">2.3.7. Broadcasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady">2.3.7.1. Przykłady</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-niepoprawne">2.3.7.2. Przykłady niepoprawne</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Instalacja</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktury-danych">Struktury danych</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#series">Series</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">2.4. Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.4.1. Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktury-danych">2.4.2. Struktury danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#series">2.4.2.1. Series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">2.4.2.2. DataFrame</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytywanie-csv">Wczytywanie CSV</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dostęp do elementów</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sortowanie</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">Apply</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupowanie">Grupowanie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytywanie-csv">2.4.3. Wczytywanie CSV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.4.4. Dostęp do elementów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.4.5. Sortowanie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">2.4.6. Apply</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupowanie">2.4.7. Grupowanie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatywy">2.4.8. Alternatywy</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-idea-rozwiazania">Ogólna idea rozwiązania</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-wykresu">Tworzenie wykresu</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowa-konfiguracja-wygladu-wykresu">Podstawowa konfiguracja wyglądu wykresu</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-wykresow">Typy wykresów</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiele-wykresow-w-jednej-przestrzeni">Wiele wykresów w jednej przestrzeni</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">2.5. Matplotlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-idea-rozwiazania">2.5.1. Ogólna idea rozwiązania</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-wykresu">2.5.2. Tworzenie wykresu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowa-konfiguracja-wygladu-wykresu">2.5.3. Podstawowa konfiguracja wyglądu wykresu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-wykresow">2.5.4. Typy wykresów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiele-wykresow-w-jednej-przestrzeni">2.5.5. Wiele wykresów w jednej przestrzeni</a></li>
 </ul>
 </li>
 </ul>
@@ -396,10 +400,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="l2-podstawowe-biblioteki-do-odkrywania-wiedzy">
-<h1>L2: Podstawowe biblioteki do odkrywania wiedzy<a class="headerlink" href="#l2-podstawowe-biblioteki-do-odkrywania-wiedzy" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="podstawowe-biblioteki-do-odkrywania-wiedzy">
+<h1><span class="section-number">2. </span>Podstawowe biblioteki do odkrywania wiedzy<a class="headerlink" href="#podstawowe-biblioteki-do-odkrywania-wiedzy" title="Link to this heading">#</a></h1>
 <section id="efekty-ksztalcenia-laboratorium">
-<h2>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Efekty kształcenia laboratorium<a class="headerlink" href="#efekty-ksztalcenia-laboratorium" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p>dowiesz się, jakie są podstawowe i najczęściej używane biblioteki do pracy z danymi</p></li>
@@ -409,7 +413,7 @@ document.write(`
 </ul>
 </section>
 <section id="podstawowe-biblioteki-w-warsztacie-data-science">
-<h2>Podstawowe biblioteki w warsztacie Data Science<a class="headerlink" href="#podstawowe-biblioteki-w-warsztacie-data-science" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Podstawowe biblioteki w warsztacie Data Science<a class="headerlink" href="#podstawowe-biblioteki-w-warsztacie-data-science" title="Link to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Biblioteka</p></th>
@@ -428,7 +432,7 @@ document.write(`
 </tr>
 <tr class="row-even"><td class="text-left"><p>Pandas</p></td>
 <td class="text-left"><p>eksploracja i analiza zbiorów danych</p></td>
-<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>Polars</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>Matplotlib</p></td>
 <td class="text-left"><p>wizualizacja danych</p></td>
@@ -454,18 +458,18 @@ document.write(`
 </table>
 </section>
 <section id="numpy">
-<h2>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Numpy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
 <p>Numpy jest podstawową biblioteką do operacji na macierzach - ich przechowywania, transformacji, zastosowań w algebrze, statystyce itd. Stała się podstawą przetwarzania danych w środowisku Pythona - na niej bazują pozostałe biblioteki, jak Pandas, SciPy czy Scikit-learn.</p>
 <p>Dzięki implementacji w C oraz intensywnie używanej wektoryzacji, operacje są niezwykle szybkie.</p>
 <section id="instalacja">
-<h3>Instalacja<a class="headerlink" href="#instalacja" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.1. </span>Instalacja<a class="headerlink" href="#instalacja" title="Link to this heading">#</a></h3>
 <p>Numpy instalujemy przy pomocy pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
 </pre></div>
 </div>
 </section>
 <section id="ndarray">
-<h3>ndarray<a class="headerlink" href="#ndarray" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2. </span>ndarray<a class="headerlink" href="#ndarray" title="Link to this heading">#</a></h3>
 <p>Podstawowym typem danych w Numpy jest <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> - ang. <code class="docutils literal notranslate"><span class="pre">N-dimentional</span> <span class="pre">array</span></code> (<em>tablica N-wymiarowa</em>).</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -477,7 +481,7 @@ document.write(`
 </div>
 </section>
 <section id="tablice-jednowymiarowe">
-<h3>Tablice jednowymiarowe<a class="headerlink" href="#tablice-jednowymiarowe" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.3. </span>Tablice jednowymiarowe<a class="headerlink" href="#tablice-jednowymiarowe" title="Link to this heading">#</a></h3>
 <p>Tablice jednowymiarowe rozpatrywane być mogą jako pojedynczy rząd lub kolumna danych:
 <img alt="" src="../_images/numpy_row_column.png" /></p>
 <p>Stworzyć jednowymiarową tablicę możemy na wiele sposobów:</p>
@@ -587,7 +591,7 @@ document.write(`
 </div>
 </section>
 <section id="tablice-wielowymiarowe">
-<h3>Tablice wielowymiarowe<a class="headerlink" href="#tablice-wielowymiarowe" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4. </span>Tablice wielowymiarowe<a class="headerlink" href="#tablice-wielowymiarowe" title="Link to this heading">#</a></h3>
 <p>Tablice wielowymiarowe możemy rozpatrywać jako tablic jednowymiarowych względem kilku osi:
 <img alt="" src="../_images/numpy_multidimentional.png" /></p>
 <p>Tablicę wielowymiarową tworzymy analogicznie do tablic jednowymiarowych:</p>
@@ -622,9 +626,9 @@ document.write(`
 </div>
 </section>
 <section id="podstawowe-operacje-na-tablicach">
-<h3>Podstawowe operacje na tablicach<a class="headerlink" href="#podstawowe-operacje-na-tablicach" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.5. </span>Podstawowe operacje na tablicach<a class="headerlink" href="#podstawowe-operacje-na-tablicach" title="Link to this heading">#</a></h3>
 <section id="dostep-do-elementow">
-<h4>Dostęp do elementów<a class="headerlink" href="#dostep-do-elementow" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.5.1. </span>Dostęp do elementów<a class="headerlink" href="#dostep-do-elementow" title="Link to this heading">#</a></h4>
 <p>Dla tablic jednowymiarowych możemy stosować wszystkie metody dostępu do elementów znane ze standardowych pythonowych list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,7 +761,7 @@ document.write(`
 </div>
 </section>
 <section id="filtrowanie-elementow">
-<h4>Filtrowanie elementów<a class="headerlink" href="#filtrowanie-elementow" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.5.2. </span>Filtrowanie elementów<a class="headerlink" href="#filtrowanie-elementow" title="Link to this heading">#</a></h4>
 <p>Bardzo przydatną funkcjonalnością NumPy jest możliwość używania warunków w dostępie do elementów:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -804,7 +808,7 @@ document.write(`
 </div>
 </section>
 <section id="wymiary-i-zmiany-ksztaltu">
-<h4>Wymiary i zmiany kształtu<a class="headerlink" href="#wymiary-i-zmiany-ksztaltu" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.5.3. </span>Wymiary i zmiany kształtu<a class="headerlink" href="#wymiary-i-zmiany-ksztaltu" title="Link to this heading">#</a></h4>
 <p>Tablica składa się z elementów podzielonych wobec osi o pewnych wymiarach. Można łatwo sprawdzić te wartości przy pomocy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -882,7 +886,7 @@ document.write(`
 </div>
 </section>
 <section id="laczenie-tablic">
-<h4>Łączenie tablic<a class="headerlink" href="#laczenie-tablic" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.5.4. </span>Łączenie tablic<a class="headerlink" href="#laczenie-tablic" title="Link to this heading">#</a></h4>
 <p>Można łatwo łączyć ze sobą tablice wielowymiarowe, w zależności od pożądanej osi:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -933,7 +937,7 @@ połączone poziomo
 </div>
 </section>
 <section id="sortowanie">
-<h4>Sortowanie<a class="headerlink" href="#sortowanie" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.5.5. </span>Sortowanie<a class="headerlink" href="#sortowanie" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># weźmy losową macierz 3x3</span>
@@ -1003,9 +1007,9 @@ posortowana wierszami
 </section>
 </section>
 <section id="podstawowe-operacje-matematyczne">
-<h3>Podstawowe operacje matematyczne<a class="headerlink" href="#podstawowe-operacje-matematyczne" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.6. </span>Podstawowe operacje matematyczne<a class="headerlink" href="#podstawowe-operacje-matematyczne" title="Link to this heading">#</a></h3>
 <section id="arytmetyka">
-<h4>Arytmetyka<a class="headerlink" href="#arytmetyka" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.6.1. </span>Arytmetyka<a class="headerlink" href="#arytmetyka" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
@@ -1069,7 +1073,7 @@ posortowana wierszami
 </div>
 </section>
 <section id="agregacje">
-<h4>Agregacje<a class="headerlink" href="#agregacje" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.6.2. </span>Agregacje<a class="headerlink" href="#agregacje" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1163,7 +1167,7 @@ posortowana wierszami
 </div>
 </section>
 <section id="algebra-liniowa">
-<h4>Algebra liniowa<a class="headerlink" href="#algebra-liniowa" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.6.3. </span>Algebra liniowa<a class="headerlink" href="#algebra-liniowa" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mnożenie macierzowe</span>
@@ -1223,10 +1227,10 @@ posortowana wierszami
 </section>
 </section>
 <section id="broadcasting">
-<h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.7. </span>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h3>
 <p>Numpy również potrafi pod pewnymi warunkami wykonywać operacje na tablicach o różnych wymiarach. Mniejsza z tablic jest “powielana” wzdłuż większej tablicy, aby sprowidzić ją do tych samych wymiarów. Operacja nie powoduje kopiowania, a jest oparte o odpowiednie indeksowane.</p>
 <section id="przyklady">
-<h4>Przykłady<a class="headerlink" href="#przyklady" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.7.1. </span>Przykłady<a class="headerlink" href="#przyklady" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span>
@@ -1260,7 +1264,7 @@ posortowana wierszami
 </div>
 </section>
 <section id="przyklady-niepoprawne">
-<h4>Przykłady niepoprawne<a class="headerlink" href="#przyklady-niepoprawne" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.3.7.2. </span>Przykłady niepoprawne<a class="headerlink" href="#przyklady-niepoprawne" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a = np.arange(2)</span>
@@ -1289,24 +1293,23 @@ posortowana wierszami
 <p class="admonition-title">See also</p>
 <p>Wyżej wymienione mechanizmy to jedynie podstawowe możliwości NumPy. W celu zdobycia szerszej wiedzy z tego zakresu odsyłamy do <a class="reference external" href="https://numpy.org/doc/stable/numpy-user.pdf">tego poradnika</a>.</p>
 </div>
-<p><br><br><br><br><br><br><br><br></p>
 </section>
 </section>
 </section>
 <section id="pandas">
-<h2>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
 <p>Pandas oferuje wygodny interfejs, struktury danych i metody do obsługi poetykietowanych zbiorów danych. Jest to podstawowa biblioteka do manipulacji danymi w większości projektów Data Science.</p>
 <section id="id1">
-<h3>Instalacja<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.1. </span>Instalacja<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Pandas standardowo instalujemy przy pomocy pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
 </pre></div>
 </div>
 </section>
 <section id="struktury-danych">
-<h3>Struktury danych<a class="headerlink" href="#struktury-danych" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.2. </span>Struktury danych<a class="headerlink" href="#struktury-danych" title="Link to this heading">#</a></h3>
 <section id="series">
-<h4>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.4.2.1. </span>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h4>
 <p>Podstawową strukturą danych Pandasa jest <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Można ją traktować jako jednowymiarową kolumnę danych, z indeksami.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1355,7 +1358,7 @@ dtype: int64
 </div>
 </section>
 <section id="dataframe">
-<h4>DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.4.2.2. </span>DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h4>
 <p>DataFrame jest dwuwymiarową strukturą, rozumianą jako złożenie serii (kolumn) danych.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1424,7 +1427,7 @@ dtype: int64
 </section>
 </section>
 <section id="wczytywanie-csv">
-<h3>Wczytywanie CSV<a class="headerlink" href="#wczytywanie-csv" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.3. </span>Wczytywanie CSV<a class="headerlink" href="#wczytywanie-csv" title="Link to this heading">#</a></h3>
 <p>Pandas udostępnia prosty interfejs do wczytania zbioru danych z pliku. Wczytajmy zbiór danych Iris Flowers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1514,7 +1517,7 @@ dtype: int64
 </div>
 </section>
 <section id="id2">
-<h3>Dostęp do elementów<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.4. </span>Dostęp do elementów<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># przy pomocy nazwy kolumny, pobieramy całą serię</span>
@@ -2062,7 +2065,7 @@ Name: 13, dtype: object
 </div>
 </section>
 <section id="id3">
-<h3>Sortowanie<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.5. </span>Sortowanie<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DataFrame możemy posortować wg indeksów</span>
@@ -2446,7 +2449,7 @@ Name: 13, dtype: object
 </div>
 </section>
 <section id="apply">
-<h3>Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.6. </span>Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h3>
 <p>Niezwykle przydatną funkcjonalnością jest możliwość aplikowania funkcji do danych. Przydaje się to np. do tworzenia nowych kolumn:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2591,7 +2594,7 @@ Name: 13, dtype: object
 </div>
 </section>
 <section id="grupowanie">
-<h3>Grupowanie<a class="headerlink" href="#grupowanie" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.4.7. </span>Grupowanie<a class="headerlink" href="#grupowanie" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grupowanie ma na celu agregacje danych wobec pewnej funkcji</span>
@@ -2750,18 +2753,21 @@ Name: 13, dtype: object
 <p class="admonition-title">See also</p>
 <p>Wyżej wymienione mechanizmy to jedynie podstawowe możliwości Pandas. W celu zdobycia szerszej wiedzy z tego zakresu odsyłamy do <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">tego poradnika</a>.</p>
 </div>
-<p><br><br><br><br><br><br><br><br></p>
+</section>
+<section id="alternatywy">
+<h3><span class="section-number">2.4.8. </span>Alternatywy<a class="headerlink" href="#alternatywy" title="Link to this heading">#</a></h3>
+<p>Warto zapoznać się z biblioteką <a class="reference external" href="https://docs.pola.rs/">Polars</a>, która oferuje wykonywanie operacji na DataFrame znacznie szybciej niż Pandas dzięki implementacji w języku Rust. Dodatkowo umożliwia ona pracę ze zbiorami danych, które nie mieszczą się w pamięci RAM.</p>
 </section>
 </section>
 <section id="matplotlib">
-<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
 <p>Jest to podstawowa biblioteka do rysowania wykresów i wizualizacji danych. Matplotlib jest stale rozwijaną biblioteką, która ideowo dziedziczy z Matlaba, stąd część zastosowanych rozwiązań może nie być do końca intuicyjna dla programisty Pythona</p>
 <p>Instalujemy standardowo z pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
 </pre></div>
 </div>
 <section id="ogolna-idea-rozwiazania">
-<h3>Ogólna idea rozwiązania<a class="headerlink" href="#ogolna-idea-rozwiazania" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.5.1. </span>Ogólna idea rozwiązania<a class="headerlink" href="#ogolna-idea-rozwiazania" title="Link to this heading">#</a></h3>
 <p>Wyróżniamy następujące elementy:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Figure</span></code> - można o nim myśleć jak o przestrzeni na której rysowane będą konkretne wykresy</p></li>
@@ -2770,7 +2776,7 @@ Name: 13, dtype: object
 </ul>
 </section>
 <section id="tworzenie-wykresu">
-<h3>Tworzenie wykresu<a class="headerlink" href="#tworzenie-wykresu" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.5.2. </span>Tworzenie wykresu<a class="headerlink" href="#tworzenie-wykresu" title="Link to this heading">#</a></h3>
 <p>Tworzenie wykresu obsługuje moduł <code class="docutils literal notranslate"><span class="pre">PyPlot</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2821,7 +2827,7 @@ Name: 13, dtype: object
 </div>
 </section>
 <section id="podstawowa-konfiguracja-wygladu-wykresu">
-<h3>Podstawowa konfiguracja wyglądu wykresu<a class="headerlink" href="#podstawowa-konfiguracja-wygladu-wykresu" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.5.3. </span>Podstawowa konfiguracja wyglądu wykresu<a class="headerlink" href="#podstawowa-konfiguracja-wygladu-wykresu" title="Link to this heading">#</a></h3>
 <p>Wygląd serii danych określamy podając trzyliterowy string w formacie <code class="docutils literal notranslate"><span class="pre">[marker][kolor][linia]</span></code> po serii, w którym określamy kształt punktów danych, rodzaj linii i kolor. Przykładowo:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">og-</span></code> - zielone kółka połączone linią ciągłą</p></li>
@@ -2850,7 +2856,7 @@ Name: 13, dtype: object
 </div>
 </section>
 <section id="typy-wykresow">
-<h3>Typy wykresów<a class="headerlink" href="#typy-wykresow" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.5.4. </span>Typy wykresów<a class="headerlink" href="#typy-wykresow" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wykres słupkowy</span>
@@ -2905,7 +2911,7 @@ Name: 13, dtype: object
 </div>
 </section>
 <section id="wiele-wykresow-w-jednej-przestrzeni">
-<h3>Wiele wykresów w jednej przestrzeni<a class="headerlink" href="#wiele-wykresow-w-jednej-przestrzeni" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.5.5. </span>Wiele wykresów w jednej przestrzeni<a class="headerlink" href="#wiele-wykresow-w-jednej-przestrzeni" title="Link to this heading">#</a></h3>
 <p>Częstym przypadkiem jest chęć umiejscowienia kilku różych wykresów na jednym <code class="docutils literal notranslate"><span class="pre">Figure</span></code>. Można to uczynić przy pomocy mechanizmu <code class="docutils literal notranslate"><span class="pre">subplot</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3029,7 +3035,7 @@ Name: 13, dtype: object
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">L1: Przygotowanie środowiska</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Przygotowanie środowiska</p>
       </div>
     </a>
     <a class="right-next"
@@ -3037,7 +3043,7 @@ Name: 13, dtype: object
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">L3: Narzędzia zarządzania eksperymentami</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Narzędzia zarządzania eksperymentami</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -3057,54 +3063,55 @@ Name: 13, dtype: object
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">Efekty kształcenia laboratorium</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-biblioteki-w-warsztacie-data-science">Podstawowe biblioteki w warsztacie Data Science</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">Instalacja</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">ndarray</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-jednowymiarowe">Tablice jednowymiarowe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-wielowymiarowe">Tablice wielowymiarowe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-na-tablicach">Podstawowe operacje na tablicach</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dostep-do-elementow">Dostęp do elementów</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrowanie-elementow">Filtrowanie elementów</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wymiary-i-zmiany-ksztaltu">Wymiary i zmiany kształtu</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-tablic">Łączenie tablic</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie">Sortowanie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efekty-ksztalcenia-laboratorium">2.1. Efekty kształcenia laboratorium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-biblioteki-w-warsztacie-data-science">2.2. Podstawowe biblioteki w warsztacie Data Science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">2.3. Numpy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacja">2.3.1. Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ndarray">2.3.2. ndarray</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-jednowymiarowe">2.3.3. Tablice jednowymiarowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablice-wielowymiarowe">2.3.4. Tablice wielowymiarowe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-na-tablicach">2.3.5. Podstawowe operacje na tablicach</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dostep-do-elementow">2.3.5.1. Dostęp do elementów</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrowanie-elementow">2.3.5.2. Filtrowanie elementów</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wymiary-i-zmiany-ksztaltu">2.3.5.3. Wymiary i zmiany kształtu</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-tablic">2.3.5.4. Łączenie tablic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sortowanie">2.3.5.5. Sortowanie</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-matematyczne">Podstawowe operacje matematyczne</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arytmetyka">Arytmetyka</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#agregacje">Agregacje</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-liniowa">Algebra liniowa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-operacje-matematyczne">2.3.6. Podstawowe operacje matematyczne</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arytmetyka">2.3.6.1. Arytmetyka</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#agregacje">2.3.6.2. Agregacje</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-liniowa">2.3.6.3. Algebra liniowa</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady">Przykłady</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-niepoprawne">Przykłady niepoprawne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">2.3.7. Broadcasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady">2.3.7.1. Przykłady</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-niepoprawne">2.3.7.2. Przykłady niepoprawne</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Instalacja</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktury-danych">Struktury danych</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#series">Series</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">2.4. Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.4.1. Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struktury-danych">2.4.2. Struktury danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#series">2.4.2.1. Series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">2.4.2.2. DataFrame</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytywanie-csv">Wczytywanie CSV</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dostęp do elementów</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Sortowanie</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">Apply</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupowanie">Grupowanie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytywanie-csv">2.4.3. Wczytywanie CSV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.4.4. Dostęp do elementów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.4.5. Sortowanie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">2.4.6. Apply</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grupowanie">2.4.7. Grupowanie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatywy">2.4.8. Alternatywy</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-idea-rozwiazania">Ogólna idea rozwiązania</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-wykresu">Tworzenie wykresu</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowa-konfiguracja-wygladu-wykresu">Podstawowa konfiguracja wyglądu wykresu</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-wykresow">Typy wykresów</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiele-wykresow-w-jednej-przestrzeni">Wiele wykresów w jednej przestrzeni</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">2.5. Matplotlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ogolna-idea-rozwiazania">2.5.1. Ogólna idea rozwiązania</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tworzenie-wykresu">2.5.2. Tworzenie wykresu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowa-konfiguracja-wygladu-wykresu">2.5.3. Podstawowa konfiguracja wyglądu wykresu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-wykresow">2.5.4. Typy wykresów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiele-wykresow-w-jednej-przestrzeni">2.5.5. Wiele wykresów w jednej przestrzeni</a></li>
 </ul>
 </li>
 </ul>

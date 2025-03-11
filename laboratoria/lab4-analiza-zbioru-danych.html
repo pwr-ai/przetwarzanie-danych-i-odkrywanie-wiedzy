@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>L4: Analiza eksploracyjna zbioru danych &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>4. Analiza eksploracyjna zbioru danych &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -61,8 +61,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="L5: Tworzenie modeli uczenia maszynowego" href="lab5-tworzenie-modeli.html" />
-    <link rel="prev" title="L3: Narzędzia zarządzania eksperymentami" href="lab3-zarzadzanie-eksperymentami.html" />
+    <link rel="next" title="5. Tworzenie modeli uczenia maszynowego" href="lab5-tworzenie-modeli.html" />
+    <link rel="prev" title="3. Narzędzia zarządzania eksperymentami" href="lab3-zarzadzanie-eksperymentami.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,16 +177,19 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">Zasady laboratorium</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">L1: Zasady laboratorium</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">L1: Przygotowanie środowiska</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab2-podstawowe-biblioteki.html">L2: Podstawowe biblioteki do odkrywania wiedzy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">L3: Narzędzia zarządzania eksperymentami</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">L4: Analiza eksploracyjna zbioru danych</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab5-tworzenie-modeli.html">L5: Tworzenie modeli uczenia maszynowego</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">L6: Uczenie maszynowe II</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">L7: Produktyzacja procesów odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">1. Przygotowanie środowiska</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2-podstawowe-biblioteki.html">2. Podstawowe biblioteki do odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">3. Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Analiza eksploracyjna zbioru danych</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab5-tworzenie-modeli.html">5. Tworzenie modeli uczenia maszynowego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">6. Uczenie maszynowe II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">7. Produktyzacja procesów odkrywania wiedzy</a></li>
 </ul>
 
     </div>
@@ -325,7 +328,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>L4: Analiza eksploracyjna zbioru danych</h1>
+    <h1>Analiza eksploracyjna zbioru danych</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -335,18 +338,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis-eda">Exploratory data analysis (EDA)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przykladowy-zbior-danych">Przykładowy zbiór danych</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wykresy-z-uzyciem-metod-pandas">Wykresy z użyciem metod Pandas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ydata-profiling">Ydata-profiling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis-eda">4.1. Exploratory data analysis (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przykladowy-zbior-danych">4.1.1. Przykładowy zbiór danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wykresy-z-uzyciem-metod-pandas">4.1.2. Wykresy z użyciem metod Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ydata-profiling">4.1.3. Ydata-profiling</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redukcja-wymiarowosci-jako-element-eda">Redukcja wymiarowości jako element EDA</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-glownych-skladowych-ang-principal-components-analysis-pca">Analiza głównych składowych (ang. Principal Components Analysis - PCA)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-uzycia-pca">Przykład użycia PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redukcja-wymiarowosci-jako-element-eda">4.2. Redukcja wymiarowości jako element EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-glownych-skladowych-ang-principal-components-analysis-pca">4.2.1. Analiza głównych składowych (ang. Principal Components Analysis - PCA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-uzycia-pca">4.2.2. Przykład użycia PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-danych-tekstowych">EDA danych tekstowych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-danych-tekstowych">4.3. EDA danych tekstowych</a></li>
 </ul>
             </nav>
         </div>
@@ -358,10 +361,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="l4-analiza-eksploracyjna-zbioru-danych">
-<h1>L4: Analiza eksploracyjna zbioru danych<a class="headerlink" href="#l4-analiza-eksploracyjna-zbioru-danych" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="analiza-eksploracyjna-zbioru-danych">
+<h1><span class="section-number">4. </span>Analiza eksploracyjna zbioru danych<a class="headerlink" href="#analiza-eksploracyjna-zbioru-danych" title="Link to this heading">#</a></h1>
 <section id="exploratory-data-analysis-eda">
-<h2>Exploratory data analysis (EDA)<a class="headerlink" href="#exploratory-data-analysis-eda" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Exploratory data analysis (EDA)<a class="headerlink" href="#exploratory-data-analysis-eda" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Przed rozpoczęciem rozwiązywania problemu przy użyciu metod uczenia maszynowego, w szczególności przed rozpoczęciem budowania modelu, konieczne jest sprawdzenie, z jakimi danymi przyszło się nam mierzyć.</p>
 <p>Wśród podstawowych kwestii, które powinniśmy sprawdzić, są:</p>
@@ -375,7 +378,7 @@ document.write(`
 </ul>
 <p>Dla małych i prostych zbiorów do nauki (tzw. <em>toy tasks</em>), zazwyczaj wystarczające jest ręczne przejrzenie pliku z danymi, by potrafić odpowiedzieć na w/w pytania. Niemniej przy bardziej ambitnych zadaniach, z pomocą przychodzą narzędzia automatyzujące pracę.</p>
 <section id="przykladowy-zbior-danych">
-<h3>Przykładowy zbiór danych<a class="headerlink" href="#przykladowy-zbior-danych" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.1.1. </span>Przykładowy zbiór danych<a class="headerlink" href="#przykladowy-zbior-danych" title="Link to this heading">#</a></h3>
 <p>Przeanalizujmy klasyczny zbiór danych dotyczący wina (opublikowany przez <code class="docutils literal notranslate"><span class="pre">Forina,</span> <span class="pre">M.</span> <span class="pre">et</span> <span class="pre">al,</span> <span class="pre">PARVUS</span> <span class="pre">-</span> <span class="pre">An</span> <span class="pre">Extendible</span> <span class="pre">Package</span> <span class="pre">for</span> <span class="pre">Data</span> <span class="pre">Exploration,</span> <span class="pre">Classification</span> <span class="pre">and</span> <span class="pre">Correlation.</span> <span class="pre">Institute</span> <span class="pre">of</span> <span class="pre">Pharmaceutical</span> <span class="pre">and</span> <span class="pre">Food</span> <span class="pre">Analysis</span> <span class="pre">and</span> <span class="pre">Technologies,</span> <span class="pre">Via</span> <span class="pre">Brigata</span> <span class="pre">Salerno,</span> <span class="pre">16147</span> <span class="pre">Genoa,</span> <span class="pre">Italy</span></code>, więcej informacji <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/wine">tutaj</a>)</p>
 <p>Zbiór zawiera właściwości fizykochemiczne różnych próbek wina pobranych z jednego z regionów słonecznej Italii, jednakże pochodzących od trzech różnych plantatorów. Założeniem problemu jest określenie, który z nich jest wytwórcą danej próbki.</p>
 <p>W celu uczynienia przykładu ambitniejszym, zbiór został celowo zaszumiony - tj. usunięto losowo część wartości.</p>
@@ -702,7 +705,7 @@ document.write(`
 </div>
 </section>
 <section id="wykresy-z-uzyciem-metod-pandas">
-<h3>Wykresy z użyciem metod Pandas<a class="headerlink" href="#wykresy-z-uzyciem-metod-pandas" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.1.2. </span>Wykresy z użyciem metod Pandas<a class="headerlink" href="#wykresy-z-uzyciem-metod-pandas" title="Link to this heading">#</a></h3>
 <p>Pandas udostępnia prosty interfejs rysowania wykresów Matplotlib bezpośrednio z DataFrame. Dzięki temu możemy prościej zwizualizowac wartości numeryczne i zaobserwować charakterystykę zbioru danych.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -777,7 +780,7 @@ document.write(`
 </div>
 </section>
 <section id="ydata-profiling">
-<h3>Ydata-profiling<a class="headerlink" href="#ydata-profiling" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.1.3. </span>Ydata-profiling<a class="headerlink" href="#ydata-profiling" title="Link to this heading">#</a></h3>
 <p>Ydata-profiling (w przeszłości <em>pandas-profiling</em>) - biblioteka automatycznie analizująca zbiór danych i generujaca interaktywny raport. Alternatywnie, raport można zapisać w formacie <code class="docutils literal notranslate"><span class="pre">.html</span></code></p>
 <p>Instalacja przebiega standardowo:</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ydata-profiling</span></code></p>
@@ -92307,12 +92310,12 @@ $(&quot;select#variables-dropdown&quot;).on(&quot;change&quot;, function (e) {
 </section>
 </section>
 <section id="redukcja-wymiarowosci-jako-element-eda">
-<h2>Redukcja wymiarowości jako element EDA<a class="headerlink" href="#redukcja-wymiarowosci-jako-element-eda" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Redukcja wymiarowości jako element EDA<a class="headerlink" href="#redukcja-wymiarowosci-jako-element-eda" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>W przypadku dużej ilości wymiarów danych, przydatne stają się metody redukcji wymiarowości. Pozwalają one mn. zmniejszyć ilość danych koniecznych do przeanalizowania, poprzez przekształcenia wartości pokazując zależności danych.</p>
 <p>Dzięki metodom redukcji wymiarowości mamy możliwość wizualizacji całego zbioru danych w 2D lub 3D - w przeciwnym wypadku, analizując wykresy pojedynczych kolumn lub zalezności pomiędzy dwoma kolumnami (np. scatter matrix z Pandasa), nie mamy pełnego oglądu na całość datasetu.</p>
 <section id="analiza-glownych-skladowych-ang-principal-components-analysis-pca">
-<h3>Analiza głównych składowych (ang. Principal Components Analysis - PCA)<a class="headerlink" href="#analiza-glownych-skladowych-ang-principal-components-analysis-pca" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.1. </span>Analiza głównych składowych (ang. Principal Components Analysis - PCA)<a class="headerlink" href="#analiza-glownych-skladowych-ang-principal-components-analysis-pca" title="Link to this heading">#</a></h3>
 <p>Najpopularniejsza metoda redukcji wymiarów. Dzięki modyfikacjom układu współrzędnych, stara się maksymalizować wariancję danych pierwszych wymiarów.</p>
 <p>Przykładowe działanie:
 <img alt="" src="../_images/pca.png" /></p>
@@ -92322,7 +92325,7 @@ $(&quot;select#variables-dropdown&quot;).on(&quot;change&quot;, function (e) {
 </div>
 </section>
 <section id="przyklad-uzycia-pca">
-<h3>Przykład użycia PCA<a class="headerlink" href="#przyklad-uzycia-pca" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>Przykład użycia PCA<a class="headerlink" href="#przyklad-uzycia-pca" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PCA nie przyjmuje brakujących wartości - wczytamy więc pełnowymiarową wersję datasetu wine, dla uproszczenia</span>
@@ -92426,7 +92429,7 @@ $(&quot;select#variables-dropdown&quot;).on(&quot;change&quot;, function (e) {
 </section>
 </section>
 <section id="eda-danych-tekstowych">
-<h2>EDA danych tekstowych<a class="headerlink" href="#eda-danych-tekstowych" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>EDA danych tekstowych<a class="headerlink" href="#eda-danych-tekstowych" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Wyżej przedstawione metody działają w przypadku zbiorów zawierających dane numeryczne, w szczególności ciągłe. W przypadku danych tekstowych, do uzyskania wstępnego zrozumienia danych które mamy obrabiać może służyć np. wizualizacja częstotliwości pojawiających się słów.</p>
 <div class="cell docutils container">
@@ -92582,7 +92585,7 @@ $(&quot;select#variables-dropdown&quot;).on(&quot;change&quot;, function (e) {
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">L3: Narzędzia zarządzania eksperymentami</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Narzędzia zarządzania eksperymentami</p>
       </div>
     </a>
     <a class="right-next"
@@ -92590,7 +92593,7 @@ $(&quot;select#variables-dropdown&quot;).on(&quot;change&quot;, function (e) {
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">L5: Tworzenie modeli uczenia maszynowego</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Tworzenie modeli uczenia maszynowego</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -92610,18 +92613,18 @@ $(&quot;select#variables-dropdown&quot;).on(&quot;change&quot;, function (e) {
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis-eda">Exploratory data analysis (EDA)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przykladowy-zbior-danych">Przykładowy zbiór danych</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wykresy-z-uzyciem-metod-pandas">Wykresy z użyciem metod Pandas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ydata-profiling">Ydata-profiling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis-eda">4.1. Exploratory data analysis (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przykladowy-zbior-danych">4.1.1. Przykładowy zbiór danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wykresy-z-uzyciem-metod-pandas">4.1.2. Wykresy z użyciem metod Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ydata-profiling">4.1.3. Ydata-profiling</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redukcja-wymiarowosci-jako-element-eda">Redukcja wymiarowości jako element EDA</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-glownych-skladowych-ang-principal-components-analysis-pca">Analiza głównych składowych (ang. Principal Components Analysis - PCA)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-uzycia-pca">Przykład użycia PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redukcja-wymiarowosci-jako-element-eda">4.2. Redukcja wymiarowości jako element EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-glownych-skladowych-ang-principal-components-analysis-pca">4.2.1. Analiza głównych składowych (ang. Principal Components Analysis - PCA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-uzycia-pca">4.2.2. Przykład użycia PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-danych-tekstowych">EDA danych tekstowych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-danych-tekstowych">4.3. EDA danych tekstowych</a></li>
 </ul>
   </nav></div>
 

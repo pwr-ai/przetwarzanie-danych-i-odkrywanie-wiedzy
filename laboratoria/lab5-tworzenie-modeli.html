@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>L5: Tworzenie modeli uczenia maszynowego &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>5. Tworzenie modeli uczenia maszynowego &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -61,8 +61,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="L6: Uczenie maszynowe II" href="lab6-uczenie-maszynowe-2.html" />
-    <link rel="prev" title="L4: Analiza eksploracyjna zbioru danych" href="lab4-analiza-zbioru-danych.html" />
+    <link rel="next" title="6. Uczenie maszynowe II" href="lab6-uczenie-maszynowe-2.html" />
+    <link rel="prev" title="4. Analiza eksploracyjna zbioru danych" href="lab4-analiza-zbioru-danych.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,16 +177,19 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wprowadzenie</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">Zasady laboratorium</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Laboratoria</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="lab1-zasady.html">L1: Zasady laboratorium</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">L1: Przygotowanie środowiska</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab2-podstawowe-biblioteki.html">L2: Podstawowe biblioteki do odkrywania wiedzy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">L3: Narzędzia zarządzania eksperymentami</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">L4: Analiza eksploracyjna zbioru danych</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">L5: Tworzenie modeli uczenia maszynowego</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">L6: Uczenie maszynowe II</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">L7: Produktyzacja procesów odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">1. Przygotowanie środowiska</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2-podstawowe-biblioteki.html">2. Podstawowe biblioteki do odkrywania wiedzy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">3. Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">4. Analiza eksploracyjna zbioru danych</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Tworzenie modeli uczenia maszynowego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">6. Uczenie maszynowe II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab7-produktyzacja.html">7. Produktyzacja procesów odkrywania wiedzy</a></li>
 </ul>
 
     </div>
@@ -325,7 +328,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>L5: Tworzenie modeli uczenia maszynowego</h1>
+    <h1>Tworzenie modeli uczenia maszynowego</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -335,38 +338,38 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie-do-uczenia-maszynowego">Wprowadzenie do uczenia maszynowego</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-maszynowe-przy-pomocy-sklearn">Uczenie maszynowe przy pomocy sklearn</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytanie-zbioru-danych">Wczytanie zbioru danych</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-zbioru-danych">Preprocessing zbioru danych</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obsluga-danych-brakujacych">Obsługa danych brakujących</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#usuniecie-rekordow-z-brakujacymi-danymi">Usunięcie rekordów z brakującymi danymi</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uzupelnianie-danych-brakujacych">Uzupełnianie danych brakujących</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie-do-uczenia-maszynowego">5.1. Wprowadzenie do uczenia maszynowego</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-maszynowe-przy-pomocy-sklearn">5.2. Uczenie maszynowe przy pomocy sklearn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytanie-zbioru-danych">5.3. Wczytanie zbioru danych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-zbioru-danych">5.4. Preprocessing zbioru danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obsluga-danych-brakujacych">5.4.1. Obsługa danych brakujących</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#usuniecie-rekordow-z-brakujacymi-danymi">5.4.1.1. Usunięcie rekordów z brakującymi danymi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uzupelnianie-danych-brakujacych">5.4.1.2. Uzupełnianie danych brakujących</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacje-cech">Transformacje cech</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skalowanie-wartosci-cech">Skalowanie wartości cech</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#standaryzacja-cech">Standaryzacja cech</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacje-cech">5.4.2. Transformacje cech</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skalowanie-wartosci-cech">5.4.2.1. Skalowanie wartości cech</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#standaryzacja-cech">5.4.2.1.1. Standaryzacja cech</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kodowanie-cech-kategorycznych">Kodowanie cech kategorycznych</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label-encoding">Label encoding</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-hot encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kodowanie-cech-kategorycznych">5.4.3. Kodowanie cech kategorycznych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label-encoding">5.4.3.1. Label encoding</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">5.4.3.2. One-hot encoding</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wektoryzacja-tekstu">Wektoryzacja tekstu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wektoryzacja-tekstu">5.4.4. Wektoryzacja tekstu</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inzynieria-cech-ang-feature-engineering">Inżynieria cech (ang. feature engineering)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selekcja-cech-redukcja-wymiarowosci">Selekcja cech / redukcja wymiarowości</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inzynieria-cech-ang-feature-engineering">5.5. Inżynieria cech (ang. feature engineering)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selekcja-cech-redukcja-wymiarowosci">5.5.1. Selekcja cech / redukcja wymiarowości</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-modelu">Uczenie modelu</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potoki">Potoki</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-jakosci-modelu">Analiza jakości modelu</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walidacja-krzyzowa">Walidacja krzyżowa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-modelu">5.6. Uczenie modelu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potoki">5.6.1. Potoki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-jakosci-modelu">5.6.2. Analiza jakości modelu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walidacja-krzyzowa">5.6.3. Walidacja krzyżowa</a></li>
 </ul>
 </li>
 </ul>
@@ -380,10 +383,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="l5-tworzenie-modeli-uczenia-maszynowego">
-<h1>L5: Tworzenie modeli uczenia maszynowego<a class="headerlink" href="#l5-tworzenie-modeli-uczenia-maszynowego" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tworzenie-modeli-uczenia-maszynowego">
+<h1><span class="section-number">5. </span>Tworzenie modeli uczenia maszynowego<a class="headerlink" href="#tworzenie-modeli-uczenia-maszynowego" title="Link to this heading">#</a></h1>
 <section id="wprowadzenie-do-uczenia-maszynowego">
-<h2>Wprowadzenie do uczenia maszynowego<a class="headerlink" href="#wprowadzenie-do-uczenia-maszynowego" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Wprowadzenie do uczenia maszynowego<a class="headerlink" href="#wprowadzenie-do-uczenia-maszynowego" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <ol class="arabic simple">
 <li><p>Uczenie maszynowe (ang. <em>machine learning</em>) jest obecnie najpopularniejszą dziedziną sztucznej inteligencji.</p></li>
@@ -402,7 +405,7 @@ document.write(`
 <p><img alt="" src="../_images/rodzaje_uczenia.png" /></p>
 </section>
 <section id="uczenie-maszynowe-przy-pomocy-sklearn">
-<h2>Uczenie maszynowe przy pomocy sklearn<a class="headerlink" href="#uczenie-maszynowe-przy-pomocy-sklearn" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Uczenie maszynowe przy pomocy sklearn<a class="headerlink" href="#uczenie-maszynowe-przy-pomocy-sklearn" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Scikit-learn (aka sklearn) jest aktualnie najpopularniejszą biblioteką w Pythonie pozwalającą kompleksowo przeprowadzać proces machine learningowy, który zazwyczaj składa się z następujących elementów:</p>
 <ol class="arabic simple">
@@ -425,7 +428,7 @@ document.write(`
 <p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 </section>
 <section id="wczytanie-zbioru-danych">
-<h2>Wczytanie zbioru danych<a class="headerlink" href="#wczytanie-zbioru-danych" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>Wczytanie zbioru danych<a class="headerlink" href="#wczytanie-zbioru-danych" title="Link to this heading">#</a></h2>
 <p>Scikit-learn posiada wbudowany zestaw standardowych, benchmarkowych zbiorów danych - jak np. używany w przykładzie zbiór <em>wine</em>. Pozwala także w prosty sposób generować syntetyczne dane.</p>
 <p>Więcej informacji o dostępnych w bibliotece zbiorach danych <a class="reference external" href="https://scikit-learn.org/stable/datasets.html">tutaj</a></p>
 <div class="cell docutils container">
@@ -446,7 +449,7 @@ document.write(`
 <p><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 </section>
 <section id="preprocessing-zbioru-danych">
-<h2>Preprocessing zbioru danych<a class="headerlink" href="#preprocessing-zbioru-danych" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Preprocessing zbioru danych<a class="headerlink" href="#preprocessing-zbioru-danych" title="Link to this heading">#</a></h2>
 <p>Odpowiednie przygotowanie danych uczących jest kluczem do sukcesu każdego przedsięwzięcia machine learningu - w myśl zasady <code class="docutils literal notranslate"><span class="pre">Garbage</span> <span class="pre">in,</span> <span class="pre">garbage</span> <span class="pre">out</span></code>. Przed przystąpieniem do uczenia, zazwyczaj konieczne jest wykonanie co najmniej kilku kroków wstępnego przetwarzania danych.</p>
 <p>Krok ten silnie uzależniony jest od samych danych - inaczej przygotowywać będziemy dane tekstowe, numeryczne, dźwiękowe czy obrazy. Dużą rolę gra tutaj także planowany do użycia algorytm - część z nich wymaga np. ustandaryzowanych danych.</p>
 <p>Duże znaczenie dla jakości procesu ma balans klas - w przypadku danych niezbalansowanych, część algorytmów wykazuje tendencje do preferowania klasy nadreprezentowanej, przez co popełniają błędy.</p>
@@ -465,7 +468,7 @@ document.write(`
 <li><p>nie ma danych kategorycznych, poza etykietą, więc nie ma potrzeby ich kodowania</p></li>
 </ul>
 <section id="obsluga-danych-brakujacych">
-<h3>Obsługa danych brakujących<a class="headerlink" href="#obsluga-danych-brakujacych" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.1. </span>Obsługa danych brakujących<a class="headerlink" href="#obsluga-danych-brakujacych" title="Link to this heading">#</a></h3>
 <p>W przetwarzanym zbiorze danych występują brakujące wartości. Dane w takiej postaci nie nadają się do celów uczenia maszynowego.</p>
 <p>Istnieją dwa podejścia na rozwiązanie tej kwestii:</p>
 <ul class="simple">
@@ -473,7 +476,7 @@ document.write(`
 <li><p>uzupełnienie tych wartości</p></li>
 </ul>
 <section id="usuniecie-rekordow-z-brakujacymi-danymi">
-<h4>Usunięcie rekordów z brakującymi danymi<a class="headerlink" href="#usuniecie-rekordow-z-brakujacymi-danymi" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.1.1. </span>Usunięcie rekordów z brakującymi danymi<a class="headerlink" href="#usuniecie-rekordow-z-brakujacymi-danymi" title="Link to this heading">#</a></h4>
 <p>Jest to rozwiązanie najprostsze i potencjalnie najlepsze dla jakości klasyfikacji - usuwając “niepewne” rekordy, uczymy klasyfikator jedynie na pełnowartościowych danych.</p>
 <p>Minusem tego rozwiązania jest jednakże zmniejszenie się zbioru danych - polecane jest jego stosowanie jedynie w przypadku, gdy mamy wystarczającą ilość danych</p>
 <div class="cell docutils container">
@@ -530,7 +533,7 @@ dtype: bool
 </div>
 </section>
 <section id="uzupelnianie-danych-brakujacych">
-<h4>Uzupełnianie danych brakujących<a class="headerlink" href="#uzupelnianie-danych-brakujacych" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.1.2. </span>Uzupełnianie danych brakujących<a class="headerlink" href="#uzupelnianie-danych-brakujacych" title="Link to this heading">#</a></h4>
 <p>W przypadku gdy mamy niedostateczną ilość danych i nie możemy ich usunąć bez konsekwencji, alternatywą jest uzupełnienie danych.</p>
 <p>W tym celu należy wybrać odpowiednią wartość. Najpopularniejsze strategie to:</p>
 <ul class="simple">
@@ -771,9 +774,9 @@ dtype: bool
 </section>
 </section>
 <section id="transformacje-cech">
-<h3>Transformacje cech<a class="headerlink" href="#transformacje-cech" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.2. </span>Transformacje cech<a class="headerlink" href="#transformacje-cech" title="Link to this heading">#</a></h3>
 <section id="skalowanie-wartosci-cech">
-<h4>Skalowanie wartości cech<a class="headerlink" href="#skalowanie-wartosci-cech" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.2.1. </span>Skalowanie wartości cech<a class="headerlink" href="#skalowanie-wartosci-cech" title="Link to this heading">#</a></h4>
 <p>Część algorytmów jest wrażliwa na zróżnicowanie wartości poszczególnych cech. Są to w szczególności:</p>
 <ul class="simple">
 <li><p>algorytmy bazujące na gradientach - np. regresja logistyczna, sieci neuronowe</p></li>
@@ -787,7 +790,7 @@ dtype: bool
 </ul>
 <p><img alt="" src="../_images/feature_scaling.png" /></p>
 <section id="standaryzacja-cech">
-<h5>Standaryzacja cech<a class="headerlink" href="#standaryzacja-cech" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.4.2.1.1. </span>Standaryzacja cech<a class="headerlink" href="#standaryzacja-cech" title="Link to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
@@ -874,10 +877,10 @@ Odchylenie standardowe cech:
 </section>
 </section>
 <section id="kodowanie-cech-kategorycznych">
-<h3>Kodowanie cech kategorycznych<a class="headerlink" href="#kodowanie-cech-kategorycznych" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.3. </span>Kodowanie cech kategorycznych<a class="headerlink" href="#kodowanie-cech-kategorycznych" title="Link to this heading">#</a></h3>
 <p>Kodowanie cech kategorycznych ma na celu przekształcenie ich do formy numerycznej, by umożliwić ich obsługę przez algorytmy ML. Nie wszystkie algorytmy wymagają kodowania (np. drzewa)</p>
 <section id="label-encoding">
-<h4>Label encoding<a class="headerlink" href="#label-encoding" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.3.1. </span>Label encoding<a class="headerlink" href="#label-encoding" title="Link to this heading">#</a></h4>
 <p>Polega na przypisywaniu wartościom kategorycznym kolejnych wartości liczbowych, np:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -900,7 +903,7 @@ Odchylenie standardowe cech:
 </div>
 </section>
 <section id="one-hot-encoding">
-<h4>One-hot encoding<a class="headerlink" href="#one-hot-encoding" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.3.2. </span>One-hot encoding<a class="headerlink" href="#one-hot-encoding" title="Link to this heading">#</a></h4>
 <p>Alternatywą jest zakodować wartości jako wektor, gdzie każda pozycja odpowiada jednej z wartości:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -921,7 +924,7 @@ Odchylenie standardowe cech:
 </section>
 </section>
 <section id="wektoryzacja-tekstu">
-<h3>Wektoryzacja tekstu<a class="headerlink" href="#wektoryzacja-tekstu" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.4. </span>Wektoryzacja tekstu<a class="headerlink" href="#wektoryzacja-tekstu" title="Link to this heading">#</a></h3>
 <p>Podstawową metodą zamiany tekstu na wektor liczbowy jest metoda Bag-of-Words. To rozbudowa metody one-hot encoding dla danych tekstowych (w technicznej implementacji używane są rzadkie macierze).</p>
 <p>Plusem jest jej prostota, minusem całkowity brak uwzględnienia zależności w tekście</p>
 <div class="cell docutils container">
@@ -982,11 +985,11 @@ Odchylenie standardowe cech:
 </section>
 </section>
 <section id="inzynieria-cech-ang-feature-engineering">
-<h2>Inżynieria cech (ang. feature engineering)<a class="headerlink" href="#inzynieria-cech-ang-feature-engineering" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span>Inżynieria cech (ang. feature engineering)<a class="headerlink" href="#inzynieria-cech-ang-feature-engineering" title="Link to this heading">#</a></h2>
 <p>Inżynieria cech jest procesem wykorzystywania wiedzy domenowej na temat danych do tworzenia funkcji umożliwiających działanie algorytmów uczenia maszynowego. Poprawne przygotowanie cech bardzo zwiększa moc predykcyjną algorytmów.</p>
 <p>Przykładowo, mając dane nt. pewnej populacji, cecha wzrostu danego człowieka może nie mieć mocy predykcyjnej lub jest ona ciężka do użycia przez prostsze algorytmy. Niemniej przekształcenie jej do informacji o tym czy dany człowiek jest wyższy/niższy od średniego wzrostu w danej populacji może pomóc.</p>
 <section id="selekcja-cech-redukcja-wymiarowosci">
-<h3>Selekcja cech / redukcja wymiarowości<a class="headerlink" href="#selekcja-cech-redukcja-wymiarowosci" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.1. </span>Selekcja cech / redukcja wymiarowości<a class="headerlink" href="#selekcja-cech-redukcja-wymiarowosci" title="Link to this heading">#</a></h3>
 <p>W wielu zbiorach danych występują cechy, które nie są informacyjne. Usunięcie takich cech często pozwala na poprawę jakości predykcji. Ograniczenie ilości cech ułatwia także technicznie proces uczenia - algorytm musi przetworzyc mniej danych, wiec dzieje się to szybciej. Istnieje wiele metod selekcji cech, np. bazujacych na testach statystycznych. Ich ogólna idea polega na ocenieniu cech wg. zadanej miary jakości, a następnie wyboru najbardziej wartościowych.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1038,7 +1041,7 @@ Odchylenie standardowe cech:
 </section>
 </section>
 <section id="uczenie-modelu">
-<h2>Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.6. </span>Uczenie modelu<a class="headerlink" href="#uczenie-modelu" title="Link to this heading">#</a></h2>
 <p>Mając odpowiednio przygotowane dane, możemy przystąpić do procesu uczenia. Pierwszym krokiem będzie podział zbioru na część treningową (na której nauczymy model) oraz testową (na której przetestujemy jego jakość). Taki podział pozwala zmierzyć zdolność modelu do generalizacji - sprawdzamy jakość na danych, które nie były użyte do nauki, których “model wcześniej nie widział”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1102,7 +1105,7 @@ y_test:  (36,)
 <p>Niestety, dokładne wprowadzenie w fascynującą dziedzinę modelu uczenia maszynowego leży poza zakresem tego laboratorium.</p>
 </div>
 <section id="potoki">
-<h3>Potoki<a class="headerlink" href="#potoki" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.1. </span>Potoki<a class="headerlink" href="#potoki" title="Link to this heading">#</a></h3>
 <p>W przypadku bardziej rozbudowanego preprocessingu, niezwykle przydatna staje się możliwość łączenia wszystkich użytych mechanizmów w jeden potok:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1145,7 +1148,7 @@ y_test:  (36,)
 </div>
 </section>
 <section id="analiza-jakosci-modelu">
-<h3>Analiza jakości modelu<a class="headerlink" href="#analiza-jakosci-modelu" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.2. </span>Analiza jakości modelu<a class="headerlink" href="#analiza-jakosci-modelu" title="Link to this heading">#</a></h3>
 <p>Na tym etapie posiadamy zbiór danych podzielony na część treningową i testową, oraz klasyfikator nauczony na częsci treningowej. Jak sprawdzić, jak dobrze jest on nauczony?</p>
 <p>Do określenia jakości modelu służy szereg metryk, różnych w zależności od problemu.</p>
 <p>W zadaniu klasyfikacji, standardowo używa się następujących miar wywodzących się z klasyfikacji binarnej:</p>
@@ -1198,7 +1201,7 @@ weighted avg       0.97      0.97      0.97        36
 <p>W przypadku zadania regresji, standardowo używaną miarą jest błąd średniokwadratowy (<code class="docutils literal notranslate"><span class="pre">ang.</span> <span class="pre">mean</span> <span class="pre">square</span> <span class="pre">error</span></code>). Więcej informacji o różnych rodzajach metryk jakości modelu - <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">tutaj</a></p>
 </section>
 <section id="walidacja-krzyzowa">
-<h3>Walidacja krzyżowa<a class="headerlink" href="#walidacja-krzyzowa" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.3. </span>Walidacja krzyżowa<a class="headerlink" href="#walidacja-krzyzowa" title="Link to this heading">#</a></h3>
 <p>Powyżej nauczyliśmy model klasyfikować - i to z bardzo dobrą jakością!</p>
 <p>Jednakże, nauczyliśmy nasz model na pewnym podzbiorze danych i przetestowaliśmy na innym. Nie mamy pewności, czy model sam w sobie wykazuje się dobrą jakością, czy to akurat ten specyficzny wybór podzbiorów danych daje tak dobre wyniki.</p>
 <p>Z pomocą przychodzi tutaj <code class="docutils literal notranslate"><span class="pre">walidacja</span> <span class="pre">krzyżowa</span> <span class="pre">|</span> <span class="pre">sprawdzanie</span> <span class="pre">krzyżowe</span></code> <code class="docutils literal notranslate"><span class="pre">(ang.</span> <span class="pre">cross-validation)</span></code>. Jest to procedura polegająca na kilkukrotnym uruchomieniu procedury uczenia modelu, za każdym razem na innym podzbiorze danych. Uśredniony wynik takich kilku modeli pozwala z większą dokładnością wyrokować o jakości samego modelu.</p>
@@ -1264,7 +1267,7 @@ weighted avg       0.97      0.97      0.97        36
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">L4: Analiza eksploracyjna zbioru danych</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Analiza eksploracyjna zbioru danych</p>
       </div>
     </a>
     <a class="right-next"
@@ -1272,7 +1275,7 @@ weighted avg       0.97      0.97      0.97        36
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">L6: Uczenie maszynowe II</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Uczenie maszynowe II</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1292,38 +1295,38 @@ weighted avg       0.97      0.97      0.97        36
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie-do-uczenia-maszynowego">Wprowadzenie do uczenia maszynowego</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-maszynowe-przy-pomocy-sklearn">Uczenie maszynowe przy pomocy sklearn</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytanie-zbioru-danych">Wczytanie zbioru danych</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-zbioru-danych">Preprocessing zbioru danych</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obsluga-danych-brakujacych">Obsługa danych brakujących</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#usuniecie-rekordow-z-brakujacymi-danymi">Usunięcie rekordów z brakującymi danymi</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uzupelnianie-danych-brakujacych">Uzupełnianie danych brakujących</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie-do-uczenia-maszynowego">5.1. Wprowadzenie do uczenia maszynowego</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-maszynowe-przy-pomocy-sklearn">5.2. Uczenie maszynowe przy pomocy sklearn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wczytanie-zbioru-danych">5.3. Wczytanie zbioru danych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-zbioru-danych">5.4. Preprocessing zbioru danych</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obsluga-danych-brakujacych">5.4.1. Obsługa danych brakujących</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#usuniecie-rekordow-z-brakujacymi-danymi">5.4.1.1. Usunięcie rekordów z brakującymi danymi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uzupelnianie-danych-brakujacych">5.4.1.2. Uzupełnianie danych brakujących</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacje-cech">Transformacje cech</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skalowanie-wartosci-cech">Skalowanie wartości cech</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#standaryzacja-cech">Standaryzacja cech</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacje-cech">5.4.2. Transformacje cech</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skalowanie-wartosci-cech">5.4.2.1. Skalowanie wartości cech</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#standaryzacja-cech">5.4.2.1.1. Standaryzacja cech</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kodowanie-cech-kategorycznych">Kodowanie cech kategorycznych</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label-encoding">Label encoding</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-hot encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kodowanie-cech-kategorycznych">5.4.3. Kodowanie cech kategorycznych</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label-encoding">5.4.3.1. Label encoding</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">5.4.3.2. One-hot encoding</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wektoryzacja-tekstu">Wektoryzacja tekstu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wektoryzacja-tekstu">5.4.4. Wektoryzacja tekstu</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inzynieria-cech-ang-feature-engineering">Inżynieria cech (ang. feature engineering)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selekcja-cech-redukcja-wymiarowosci">Selekcja cech / redukcja wymiarowości</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inzynieria-cech-ang-feature-engineering">5.5. Inżynieria cech (ang. feature engineering)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selekcja-cech-redukcja-wymiarowosci">5.5.1. Selekcja cech / redukcja wymiarowości</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-modelu">Uczenie modelu</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potoki">Potoki</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-jakosci-modelu">Analiza jakości modelu</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walidacja-krzyzowa">Walidacja krzyżowa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-modelu">5.6. Uczenie modelu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potoki">5.6.1. Potoki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analiza-jakosci-modelu">5.6.2. Analiza jakości modelu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#walidacja-krzyzowa">5.6.3. Walidacja krzyżowa</a></li>
 </ul>
 </li>
 </ul>
