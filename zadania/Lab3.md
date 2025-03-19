@@ -3,8 +3,7 @@
 ## Wymagania
 
 - Komendy `dvc` należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie
-  przyznane będzie 0pkt za zadania z DVC.
-- MLflow należy uruchomić w Dockerze, w przeciwnym razie przyznane będzie 0pkt za zadania z MLflow.
+  przyznane będzie 80% pkt za zadania z DVC.
 
 ---
 
