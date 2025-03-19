@@ -53,21 +53,20 @@ def main():
             y_true=dataset["test"]["y"],
             output_dict=True,
         )
-        metrics = {
-            "accuracy": report["accuracy"],
-            "f1-score": report["macro avg"]["f1-score"],
+        test_metrics = {
+            "test_accuracy": report["accuracy"],
+            "test_f1-score": report["macro avg"]["f1-score"],
+            "test_precision": report["macro avg"]["precision"],
+            "test_recall": report["macro avg"]["recall"],
         }
 
         fig = plot_metrics_per_class(report, labels=dataset["labels"])
         mlflow.log_params(cfg["download_data"])
-        mlflow.log_metrics(metrics=metrics)
-        mlflow.sklearn.eval_and_log_metrics(
-            clf, X=dataset["test"]["X"], y_true=dataset["test"]["y"], prefix="test_"
-        )
+        mlflow.log_metrics(metrics=test_metrics)
         mlflow.log_figure(fig, artifact_file="metrics.png")
 
     with open("data/results.json", "w") as f:
-        json.dump(obj=metrics, fp=f)
+        json.dump(obj=test_metrics, fp=f)
 
 
 main()
