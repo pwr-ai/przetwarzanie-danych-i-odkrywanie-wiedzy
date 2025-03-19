@@ -3,8 +3,7 @@
 ## Wymagania
 
 - Komendy `dvc` należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie
-  przyznane będzie 0pkt za zadania z DVC.
-- MLflow należy uruchomić w Dockerze, w przeciwnym razie przyznane będzie 0pkt za zadania z MLflow.
+  przyznane będzie 80% pkt za zadania z DVC.
 
 ---
 
@@ -78,10 +77,10 @@ opis działania poszczególnych skryptów.
 * decyzje nie zawsze będą proste i czasem będzie istniało więcej niż jedno rozwiązanie, należy
   jednak zdawać sobie sprawę z wad i zalet danej implementacji
 
-## 2. (3 pkt)  Obsługa DVC
+## 2. (4 pkt)  Obsługa DVC
 
 * Dodaj dane do DVC.
-* Dodaj przygotowane skrypty jako elementy potoku `DVC`, zdefiniuj odpowiednie parametry, zależności
+* Dodaj przygotowane skrypty jako elementy potoku `DVC`, zdefiniuj odpowiednie parametry, zależności (skrypty, dane wejściowe, ...)
   oraz wyjścia.
 * Dodaj metryki do trackowania.
 * Metryk nie należy umieszczać w cache dvc, mają być trackowane przez
@@ -98,30 +97,7 @@ opis działania poszczególnych skryptów.
 * Wykorzystaj api `dvc experiments` do porównania modeli.
 * Załącz wyjście polecenia `dvc experiments show` (zrzut ekranu).
 
-## 4. (3 pkt) Obsługa MLflow
-
-* Do skryptu przeznaczonego do ewaluacji modelu dodaj obsługę `MLflow`.
-* Przekaż odpowiednie parametry i metryki.
-* Dodaj wykres macierzy pomyłek dla zbioru uczącego i testowego.
-* Załącz zrzuty ekranu z MLFlow pokazujące przebieg eksperymentów.
-
-Wskazówka: Poczytaj o networking'u w dockerze. Narzędzie Docker Compose ułatwia networking.
-
 ## 5. [OPCJONALNIE] (1 pkt) DVC remote
 
 * Dodaj zewnętrzną lokację do przechowywania danych z DVC np. studencki Google Drive.
 * Prześlij dane.
-
----
-
-Wklej do README.md i wypełnij poniższy formularz wykonania zadań:
-
-| Zadanie | Wykonano? (T)ak/(N)ie/(C)zęściowo |
-|---------|-----------------------------------|
-| 1       |                                   |
-| 2       |                                   |
-| 3       |                                   |
-| 4       |                                   |
-| 5       |                                   |
-
-(Próby oszustwa prowadzą do konsekwencji opisanych w zasadach.)
