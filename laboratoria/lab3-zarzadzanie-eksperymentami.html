@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. L3: Narzędzia zarządzania eksperymentami &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
+    <title>3. Narzędzia zarządzania eksperymentami &#8212; Przetwarzanie danych i odkrywanie wiedzy</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -185,7 +185,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">1. Przygotowanie środowiska</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2-podstawowe-biblioteki.html">2. Podstawowe biblioteki do odkrywania wiedzy</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. L3: Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Narzędzia zarządzania eksperymentami</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">4. Analiza eksploracyjna zbioru danych</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab5-tworzenie-modeli.html">5. Tworzenie modeli uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">6. Uczenie maszynowe II</a></li>
@@ -328,7 +328,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>L3: Narzędzia zarządzania eksperymentami</h1>
+    <h1>Narzędzia zarządzania eksperymentami</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -369,10 +369,20 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dodanie-mlflow-do-skryptu">3.2.5. Dodanie MLFlow do skryptu</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kod-do-czesci-ii">3.2.6. Kod do części II</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksperymenty-w-dvc-3-0">3.3. Eksperymenty w DVC 3.0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights-biases">3.3. Weights &amp; Biases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.3.1. Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sledzenie-eksperymentow">3.3.2. Śledzenie eksperymentów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.3.3. Monitorowanie przebiegów uczenia</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.3.3.1. Automatyczne logowanie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.3.3.2. Ręczne logowanie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kod-do-czesci-ii">3.4. Kod do części II</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksperymenty-w-dvc-3-0">3.5. Eksperymenty w DVC 3.0</a></li>
 </ul>
             </nav>
         </div>
@@ -384,8 +394,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="l3-narzedzia-zarzadzania-eksperymentami">
-<h1><span class="section-number">3. </span>L3: Narzędzia zarządzania eksperymentami<a class="headerlink" href="#l3-narzedzia-zarzadzania-eksperymentami" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="narzedzia-zarzadzania-eksperymentami">
+<h1><span class="section-number">3. </span>Narzędzia zarządzania eksperymentami<a class="headerlink" href="#narzedzia-zarzadzania-eksperymentami" title="Link to this heading">#</a></h1>
 <p>W ramach materiałów zajmiemy się zagadnieniem analizy nacechowania wypowiedzi, dla którego zbudujemy potok przetwarzania dla tego zadania oraz wykorzystamy narzędzia do zarządzania eksperymentami: <a class="reference external" href="https://dvc.org/">DVC</a> oraz <a class="reference external" href="https://mlflow.org/">MLFlow</a>. Na potrzeby laboratorium tym razem wykorzystamy zbiór <a class="reference external" href="https://clarin-pl.eu/dspace/handle/11321/710"><code class="docutils literal notranslate"><span class="pre">clarin-pl/polemo2</span></code></a>, który jest również udostępniony na repozytorium <a class="reference external" href="https://huggingface.co/datasets/clarin-pl/polemo2-official"><code class="docutils literal notranslate"><span class="pre">huggingface</span></code></a>. Zbiór <code class="docutils literal notranslate"><span class="pre">polemo2</span></code> jest przeznaczony do analizy nacechowania wypowiedzi zawiera 8216 recenzji napisanych w języku polskim pochodzących z różnych domen: <code class="docutils literal notranslate"><span class="pre">hotels</span></code> (tripadvisor.com), <code class="docutils literal notranslate"><span class="pre">medicine</span></code> (znanylekarz.com), <code class="docutils literal notranslate"><span class="pre">school</span></code> (polwro.pl), <code class="docutils literal notranslate"><span class="pre">products</span></code> (ceneo.pl). Do rencenzji przypisano cztery klasy nacechowania wypowiedzi:</p>
 <ul class="simple">
 <li><p>zero - neutralna</p></li>
@@ -910,7 +920,7 @@ Przykład</p></li>
 </section>
 <section id="mlflow">
 <h2><span class="section-number">3.2. </span>MLFlow<a class="headerlink" href="#mlflow" title="Link to this heading">#</a></h2>
-<p>MLFlow jest również dedykowanym narzędziem do zarządzania eksperymentami. Jego funkcjonalnośc obejmuje następujące moduły:</p>
+<p>MLFlow jest dedykowanym narzędziem do zarządzania eksperymentami. Jego funkcjonalnośc obejmuje następujące moduły:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.mlflow.org/docs/latest/tracking.html"><code class="docutils literal notranslate"><span class="pre">MLFlow</span> <span class="pre">Tracking</span></code></a> - zarządzanie eksperymentami, logowanie parametrych, metryk, wykresów i innych artefaktów</p></li>
 <li><p><a class="reference external" href="https://www.mlflow.org/docs/latest/projects.html"><code class="docutils literal notranslate"><span class="pre">MLFlow</span> <span class="pre">Projects</span></code></a> - przygotowanie środowiska eksperymentalnego dla projektu, wykonywanie eksperymentów</p></li>
@@ -1149,13 +1159,184 @@ main()
 </pre></div>
 </div>
 </section>
-<section id="kod-do-czesci-ii">
-<h3><span class="section-number">3.2.6. </span>Kod do części II<a class="headerlink" href="#kod-do-czesci-ii" title="Link to this heading">#</a></h3>
-<p>Pełny kod pokrywający część II znajduje się pod adresem: <a class="reference external" href="https://github.com/bperz/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/63fd323c04e8f448988b5b54f569456dc1b7f15a/examples/lab3">[LINK]</a></p>
 </section>
+<section id="weights-biases">
+<h2><span class="section-number">3.3. </span>Weights &amp; Biases<a class="headerlink" href="#weights-biases" title="Link to this heading">#</a></h2>
+<p>Innym popularnym narzędziem do zarządzania eksperymentami jest Weights &amp; Biases (Wandb). Do wykorzystania narzędzia niezbędne jest założenie konta na stronie <a class="reference external" href="https://wandb.ai/">wandb.ai</a> i wygenerowanie klucza API w <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">settings</span> <span class="pre">-&gt;</span> <span class="pre">API</span> <span class="pre">keys</span></code> (na stronie).</p>
+<p><strong>Dokumentacja do biblioteki wandb</strong>: <a class="reference external" href="https://docs.wandb.ai/ref/python/">[LINK]</a></p>
+<section id="id2">
+<h3><span class="section-number">3.3.1. </span>Instalacja<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Bibliotekę wandb możemy zainstalować za pomocą menadżera paczek</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>wandb
+</pre></div>
+</div>
+</section>
+<section id="sledzenie-eksperymentow">
+<h3><span class="section-number">3.3.2. </span>Śledzenie eksperymentów<a class="headerlink" href="#sledzenie-eksperymentow" title="Link to this heading">#</a></h3>
+<p>W ramach laboratorium skupimy się na wykorzystaniu weights and biases do śledzenia przebiegu eksperymentów.
+Narzędzie umożliwia monitorowanie przebiegów uczenia (ang. runs), które są grupowane w projekty.</p>
+<p>W ramach pojedynczego przebiegu są (lub mogą być) zbierane takie informacje jak:</p>
+<ul class="simple">
+<li><p>Informacje o środowisku w którym wykonano eksperyment (system, hardware, wersja pythona)</p></li>
+<li><p>Wersja kodu</p></li>
+<li><p>Czas rozpoczęcia i trwania przebiegu</p></li>
+<li><p>Źródło uruchomienia np. nazwa skryptu do uczenia</p></li>
+<li><p>Parametry</p></li>
+<li><p>Metryki</p></li>
+<li><p>Artefakty - pliki wyjściowe w dowolnym formacie, można logować obrazy, wykresy, modele itp.</p></li>
+</ul>
+<p>Logowanie danych odbywa się w chmurze na stronie <a class="reference external" href="https://wandb.ai/">wandb.ai</a></p>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.3.3. </span>Monitorowanie przebiegów uczenia<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Pierwszym krokiem jest uwierzytelnienie komputera na którym przeprowadzamy eksperymenty.
+Możemy tym celu ustawić zmienną środowiskową</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">WANDB_API_KEY</span><span class="o">=</span>&lt;wygenerowany<span class="w"> </span>klucz&gt;
+</pre></div>
+</div>
+<p>lub wykonać w kodzie polecenie</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wandb</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Następnym krokiem jest inicjalizacja przebiegu w kodzie.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">wandb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
+        <span class="n">project</span><span class="o">=&lt;</span><span class="n">nazwa</span> <span class="n">projektu</span><span class="o">&gt;</span><span class="p">,</span> 
+        <span class="n">job_type</span><span class="o">=&lt;</span><span class="n">wykonywane</span> <span class="n">zadanie</span> <span class="p">(</span><span class="n">nieobowiązkowe</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span> 
+        <span class="n">config</span><span class="o">=</span><span class="p">{</span>
+            <span class="p">(</span><span class="n">konfiguracja</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span> <span class="n">parametry</span> <span class="n">modelu</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">run</span><span class="p">:</span>
+</pre></div>
+</div>
+<section id="id4">
+<h4><span class="section-number">3.3.3.1. </span>Automatyczne logowanie<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>Wandb dostarcza moduły, które pozwolają zaautomatyzować logowanie popularnych metryk i analiz. W przykładzie posłużymy się funkcją <code class="docutils literal notranslate"><span class="pre">wandb.sklearn.plot_classifier</span></code>, jednak inne przydatne funkcje obejmują logowanie macierzy pomyłek <code class="docutils literal notranslate"><span class="pre">wandb.sklearn.plot_confusion_matrix</span></code>, istotności cech <code class="docutils literal notranslate"><span class="pre">wandb.sklearn.plot_feature_importances</span></code>, czy krzywej kalibracyjnej <code class="docutils literal notranslate"><span class="pre">wandb.sklearn.plot_calibration_curve</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wandb</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">plot_classifier</span><span class="p">(</span>
+    <span class="n">clf</span><span class="p">,</span>
+    <span class="n">X_train</span><span class="p">,</span>
+    <span class="n">X_test</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">y_test</span><span class="p">,</span>
+    <span class="n">y_pred</span><span class="p">,</span>
+    <span class="n">y_probas</span><span class="p">,</span>
+    <span class="n">labels</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="o">=&lt;</span><span class="n">nazwa</span> <span class="n">modelu</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="n">feature_names</span><span class="o">=&lt;</span><span class="n">nazwy</span> <span class="n">cech</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Szczegóły dotyczące integracji wandb z sklearn znajduję się pod linkiem: <a class="reference external" href="https://docs.wandb.ai/guides/integrations/scikit/">[LINK]</a></p>
+</section>
+<section id="id5">
+<h4><span class="section-number">3.3.3.2. </span>Ręczne logowanie<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Ręczne logowanie odbywa się przy pomocy metody <code class="docutils literal notranslate"><span class="pre">wandb.log</span></code>, np.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wandb</span><span class="o">.</span><span class="n">log</span><span class="p">({</span><span class="o">**</span><span class="n">test_metrics</span><span class="p">,</span> <span class="s2">&quot;fig&quot;</span><span class="p">:</span> <span class="n">wandb</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">fig</span><span class="p">)})</span>
+</pre></div>
+</div>
+<p>lub w przypadku zdefiniowania kontekstu jak wyżej, możemy użyć</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="o">.</span><span class="n">log</span><span class="p">({</span><span class="o">**</span><span class="n">test_metrics</span><span class="p">,</span> <span class="s2">&quot;fig&quot;</span><span class="p">:</span> <span class="n">wandb</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">fig</span><span class="p">)})</span>
+</pre></div>
+</div>
+<p>Skrypt z przykładu z MLFlow wykorzystujący Wandb wyglądałby następująco. Wartości przypisywane parametrom <code class="docutils literal notranslate"><span class="pre">project</span></code> i <code class="docutils literal notranslate"><span class="pre">job_type</span></code> powinny być zdefiniowane w miejscu mniej narażonym na przeoczenie, jendak dla prostoty przykładu znajdują się w wywołaniu <code class="docutils literal notranslate"><span class="pre">wandb.init</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">wandb</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+
+
+<span class="k">def</span> <span class="nf">plot_metrics_per_class</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="n">labels</span><span class="p">[</span><span class="n">class_id</span><span class="p">],</span>
+                <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="n">metric</span><span class="p">,</span>
+                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">class_id</span><span class="p">)][</span><span class="n">metric</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;precision&quot;</span><span class="p">,</span> <span class="s2">&quot;recall&quot;</span><span class="p">,</span> <span class="s2">&quot;f1-score&quot;</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">report</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;metric&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Metrics per class&quot;</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">wandb</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/featurized.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;params.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">wandb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
+        <span class="n">project</span><span class="o">=</span><span class="s2">&quot;pdiow-l3-wandb&quot;</span><span class="p">,</span> 
+        <span class="n">job_type</span><span class="o">=</span><span class="s2">&quot;eval-model&quot;</span><span class="p">,</span> 
+        <span class="n">config</span><span class="o">=</span><span class="p">{</span>
+            <span class="o">**</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;download_data&quot;</span><span class="p">],</span> 
+            <span class="o">**</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;evaluate_model&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">run</span><span class="p">:</span>
+
+        <span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="o">**</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;evaluate_model&quot;</span><span class="p">])</span>
+        <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">])</span>
+        <span class="n">y_prob</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">])</span>
+
+        <span class="n">wandb</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">plot_classifier</span><span class="p">(</span>
+            <span class="n">clf</span><span class="p">,</span>
+            <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">],</span>
+            <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">],</span>
+            <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
+            <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
+            <span class="n">y_pred</span><span class="p">,</span>
+            <span class="n">y_prob</span><span class="p">,</span>
+            <span class="n">labels</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="n">report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span>
+            <span class="n">y_pred</span><span class="o">=</span><span class="n">y_pred</span><span class="p">,</span>
+            <span class="n">y_true</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
+            <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">test_metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;test_accuracy&quot;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;test_f1-score&quot;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&quot;macro avg&quot;</span><span class="p">][</span><span class="s2">&quot;f1-score&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;test_precision&quot;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&quot;macro avg&quot;</span><span class="p">][</span><span class="s2">&quot;precision&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;test_recall&quot;</span><span class="p">:</span> <span class="n">report</span><span class="p">[</span><span class="s2">&quot;macro avg&quot;</span><span class="p">][</span><span class="s2">&quot;recall&quot;</span><span class="p">],</span>
+        <span class="p">}</span>
+
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plot_metrics_per_class</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">])</span>
+        <span class="n">run</span><span class="o">.</span><span class="n">log</span><span class="p">({</span><span class="o">**</span><span class="n">test_metrics</span><span class="p">,</span> <span class="s2">&quot;fig&quot;</span><span class="p">:</span> <span class="n">wandb</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">fig</span><span class="p">)})</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/results2.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">test_metrics</span><span class="p">,</span> <span class="n">fp</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+
+<span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="kod-do-czesci-ii">
+<h2><span class="section-number">3.4. </span>Kod do części II<a class="headerlink" href="#kod-do-czesci-ii" title="Link to this heading">#</a></h2>
+<p>Pełny kod pokrywający część II znajduje się pod adresem: <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/feat/summer-25/examples/lab3">[LINK]</a></p>
 </section>
 <section id="eksperymenty-w-dvc-3-0">
-<h2><span class="section-number">3.3. </span>Eksperymenty w DVC 3.0<a class="headerlink" href="#eksperymenty-w-dvc-3-0" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Eksperymenty w DVC 3.0<a class="headerlink" href="#eksperymenty-w-dvc-3-0" title="Link to this heading">#</a></h2>
 <p>Ostatnim omawianym elementem jest definiowanie eksperymentów w ramach DVC w wersji 3.0
 Eksperymenty oparte są o moduł <a class="reference external" href="https://dvc.org/doc/command-reference/exp"><code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span></code></a> pozwalają na łatwą zmianę konfiguracji potoku przetwarzania oraz umożliwiają definicję kilku konfiguracji. Aktualny opis interfejsu <code class="docutils literal notranslate"><span class="pre">experiments</span></code> znajduje się pod adresem <a class="reference external" href="https://dvc.org/doc/start/experiments">[LINK]</a></p>
 <p>Eksperymenty są uruchamiane za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">exp</span> <span class="pre">run</span></code> <a class="reference external" href="https://dvc.org/doc/command-reference/exp/run">[LINK]</a> zmienione parametry podajemy za pomocą flagi <code class="docutils literal notranslate"><span class="pre">-S</span></code>.</p>
@@ -1326,10 +1507,20 @@ Eksperymenty oparte są o moduł <a class="reference external" href="https://dv
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dodanie-mlflow-do-skryptu">3.2.5. Dodanie MLFlow do skryptu</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kod-do-czesci-ii">3.2.6. Kod do części II</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksperymenty-w-dvc-3-0">3.3. Eksperymenty w DVC 3.0</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights-biases">3.3. Weights &amp; Biases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.3.1. Instalacja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sledzenie-eksperymentow">3.3.2. Śledzenie eksperymentów</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.3.3. Monitorowanie przebiegów uczenia</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.3.3.1. Automatyczne logowanie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.3.3.2. Ręczne logowanie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kod-do-czesci-ii">3.4. Kod do części II</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksperymenty-w-dvc-3-0">3.5. Eksperymenty w DVC 3.0</a></li>
 </ul>
   </nav></div>
 

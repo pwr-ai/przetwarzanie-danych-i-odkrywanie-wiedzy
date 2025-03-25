@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -185,7 +185,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab1-przygotowanie-srodowiska.html">1. Przygotowanie środowiska</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab2-podstawowe-biblioteki.html">2. Podstawowe biblioteki do odkrywania wiedzy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab3-zarzadzanie-eksperymentami.html">3. L3: Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab3-zarzadzanie-eksperymentami.html">3. Narzędzia zarządzania eksperymentami</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab4-analiza-zbioru-danych.html">4. Analiza eksploracyjna zbioru danych</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab5-tworzenie-modeli.html">5. Tworzenie modeli uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab6-uczenie-maszynowe-2.html">6. Uczenie maszynowe II</a></li>
@@ -341,6 +341,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-1-1-pkt">Zadanie 1 (1 pkt)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-2-6-pkt">Zadanie 2 (6 pkt)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-3-1-pkt">Zadanie 3 (1 pkt)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-4-2-pkt-opcjonalnie-3-pkt">Zadanie 4 (2 pkt/opcjonalnie 3 pkt)</a></li>
 </ul>
             </nav>
         </div>
@@ -373,8 +374,8 @@ Konstrukcje umieść w odpowiednim etapie DVC.</p>
 <section id="zadanie-2-6-pkt">
 <h2>Zadanie 2 (6 pkt)<a class="headerlink" href="#zadanie-2-6-pkt" title="Link to this heading">#</a></h2>
 <p>Celem zadania jest dokonanie analizy eksploracyjnej (EDA) zadanego zbioru danych, pod kątem zastosowania do treningu modelu sentymentu, przy pomocy poznanych narzędzi.</p>
-<p>W ramach zadania analizujemy wszystkie cechy zawarte w zbiorze <em>oraz te otworzone w zadaniu 1</em>.</p>
-<p>Na podstawie danych numerycznych/kategorycznych postaraj się odpowiedzieć na następujące pytania (jednak nie ograniczaj się jedynie do odpowiedzi na nie):</p>
+<p>W ramach zadania analizujemy wszystkie cechy zawarte w zbiorze <em>oraz te utworzone w zadaniu 1</em>.</p>
+<p>Na podstawie danych numerycznych/kategorycznych postaraj się odpowiedzieć na następujące pytania:</p>
 <ul class="simple">
 <li><p>ile znajduje się w zbiorze cech kategorycznych, a ile numerycznych?</p></li>
 <li><p>czy zmienna wyjściowa jest kategoryczna, czy numeryczna?</p></li>
@@ -389,6 +390,10 @@ Konstrukcje umieść w odpowiednim etapie DVC.</p>
 <li><p>czy najpopularniejsze słowa różnią się znacząco pomiędzy klasami? Czy potrafisz wyróżnić słowa mogące wpływać w znaczym stopniu na sentyment?</p></li>
 <li><p>jaka jest charakterystyka tekstu (np. długość, czystość)?</p></li>
 </ul>
+<p>Nie ograniczaj się jedynie do odpowiedzi na powyższe pytania.</p>
+<ul class="simple">
+<li><p>Zdefiniuj i odpowiedz na dodatkowe 2 pytania które uznasz za istotne w kontekście zadania.</p></li>
+</ul>
 <p>Opisz swoje ciekawe spostrzeżenia co do danych. Spróbuj na podstawie uzyskanych informacji zarekomendować dalsze działania w zakresie posiadanej wiedzy.</p>
 <p>Rezultatem pracy niech będzie prosty, krótki raport podsumowujący wiedzę, którą udało się uzyskać z EDA. Powinien zawierać sedno analiz i najważniejsze wnioski które udało się uzyskać. Raport powinien być w formacie Jupyter Notebook’a.</p>
 <p>Co do formuły raportu - załóż, że pracujesz w dziale R&amp;D renomowanej firmy i musisz przygotować krótkie streszczenie wiedzy dla swojego przełożonego, by mógł on podjąć decyzje o dalszych etapach prac. <strong>Krótko, treściwie, same konkrety, wnioski i rekomendacje</strong> :)</p>
@@ -397,6 +402,19 @@ Konstrukcje umieść w odpowiednim etapie DVC.</p>
 <h2>Zadanie 3 (1 pkt)<a class="headerlink" href="#zadanie-3-1-pkt" title="Link to this heading">#</a></h2>
 <p>Porównywanie notebooków za pomocą <code class="docutils literal notranslate"><span class="pre">git</span></code> jest problematyczne, dlatego najlepiej przechowywać je z wyczyszczonym outputem a wykonane przechowywać za pomocą dvc w osobnej lokalizacji. Dodatkową zaletą jest redukcja rozmiaru repozytorium gdy notebook’i zawierają dużo obrazki.</p>
 <p>Dodaj do DVC stage, który będzie wykonywał napisany wyczyszczony notebook zapisując w folderze <code class="docutils literal notranslate"><span class="pre">data</span></code> lub jego podfolderze, dodaj odpowiednie zależności. Na potrzeby laboratorium dodaj <code class="docutils literal notranslate"><span class="pre">cache:</span> <span class="pre">false</span></code> do wyjściowego notebooka, aby był trakowany przez git. Wykorzystaj komendę <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">nbconvert</span></code> lub narzędzie <a class="reference external" href="https://papermill.readthedocs.io/en/latest/">papermill</a>.</p>
+</section>
+<section id="zadanie-4-2-pkt-opcjonalnie-3-pkt">
+<h2>Zadanie 4 (2 pkt/opcjonalnie 3 pkt)<a class="headerlink" href="#zadanie-4-2-pkt-opcjonalnie-3-pkt" title="Link to this heading">#</a></h2>
+<p>W poprzedniej liście zadań zaimplementowano potok przetwarzania danych. W ramach tego zadania należy dodać do niego logowanie wyników.</p>
+<p>Wybierz jedno z narzędzi: Weights &amp; Biases (2 pkt) lub MLflow (3 pkt).
+Uzyskanie 2pkt wystarczy do uzyskania 100% z listy tj. 10 pkt, 3pkt daje dodatkowy 1 pkt.</p>
+<ul class="simple">
+<li><p>Do skryptu przeznaczonego do ewaluacji modelu dodaj obsługę logowania wyników do wybranego narzędzia.</p></li>
+<li><p>Przekaż odpowiednie parametry i metryki.</p></li>
+<li><p>Dodaj wykres macierzy pomyłek dla zbioru uczącego i testowego.</p></li>
+<li><p>Załącz zrzuty ekranu z narzędzia pokazujące przebieg eksperymentów.</p></li>
+</ul>
+<p>Wskazówka do MLflow: Poczytaj o networking’u w dockerze. Narzędzie Docker Compose ułatwia to zadanie.</p>
 </section>
 </section>
 
@@ -449,6 +467,7 @@ Konstrukcje umieść w odpowiednim etapie DVC.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-1-1-pkt">Zadanie 1 (1 pkt)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-2-6-pkt">Zadanie 2 (6 pkt)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-3-1-pkt">Zadanie 3 (1 pkt)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zadanie-4-2-pkt-opcjonalnie-3-pkt">Zadanie 4 (2 pkt/opcjonalnie 3 pkt)</a></li>
 </ul>
   </nav></div>
 
