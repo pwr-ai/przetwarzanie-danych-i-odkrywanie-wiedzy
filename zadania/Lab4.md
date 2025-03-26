@@ -52,6 +52,8 @@ Dodaj do DVC stage, który będzie wykonywał napisany wyczyszczony notebook zap
 
 ### Zadanie 4 (2 pkt/opcjonalnie 3 pkt)
 
+Materiały do tego zadania znajdują się w Laboratorium 3: Narzędzia zarządzania eksperymentami.
+
 W poprzedniej liście zadań zaimplementowano potok przetwarzania danych. W ramach tego zadania należy dodać do niego logowanie wyników.
 
 Wybierz jedno z narzędzi: Weights & Biases (2 pkt) lub MLflow (3 pkt).
