@@ -8,7 +8,8 @@ Celem listy jest budowa modelu klasyfikacji wydźwięku emocjonalnego (sentiment
 - Końcową komendę `dvc repro` należy uruchomić korzystając ze środowiska w kontenerze Docker. W przeciwnym razie przyznane będzie 80% punktów (zgodnie z zasadami oceniania).
 
 **Wskazówki**
-1. Dokonując analizy modelu (zadania 2 i 3) wykonuj cross-walidację.
+1. Dokonując analizy modelu (zadania 2 i 3) wykonuj walidację krzyżową (cross-validation).
+1. Uważaj na przeciek danych (data leakage) nie tylko podczas mierzenia skuteczności na zbiorze testowym, ale również w trakcie walidacji krzyżowej.
 1. Aby uniknąć przecieku danych (data leakage) warto korzystać z klasy Pipeline [(docs)](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) z biblioteki `sklearn`.
 1. Zanim cokolwiek dodasz do projeku zastanów się w którym stage'u powinno to być umieszczone. W wielu sytuacjach nie będzie jednego dobrego rozwiązania, należy wtedy postąpić według własnych preferencji zdając sobie sprawę z wad i zalet decyzji.
 
