@@ -20,10 +20,7 @@ subreddit = reddit.subreddit(subreddit_name)
 
 for i in range(memes_count):
    stats.incr('random_reddit_memes.requests')
-   meme = subreddit.random()
+   [meme] = subreddit.hot(limit=1)
    
    if meme is not None:
       st.image(meme.url)
-
-
-

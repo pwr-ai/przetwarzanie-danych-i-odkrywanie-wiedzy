@@ -1,5 +1,5 @@
 # definiujemy obraz na którym będziemy bazowali
-FROM python
+FROM python:3.12
 
 # ustawiamy katalog domyślny dla naszej aplikacji
 WORKDIR /usr/src/app
