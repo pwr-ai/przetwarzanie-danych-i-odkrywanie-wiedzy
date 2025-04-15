@@ -1,0 +1,8 @@
+# copy this file into "client_config.toml" and paste your data into the fields below
+
+[reddit]
+client_id = 
+client_secret = 
+password = 
+user_agent = 
+username = 
