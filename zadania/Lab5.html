@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -185,7 +185,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab1-przygotowanie-srodowiska.html">1. Przygotowanie środowiska</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab2-podstawowe-biblioteki.html">2. Podstawowe biblioteki do odkrywania wiedzy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab3-zarzadzanie-eksperymentami.html">3. L3: Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab3-zarzadzanie-eksperymentami.html">3. Narzędzia zarządzania eksperymentami</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab4-analiza-zbioru-danych.html">4. Analiza eksploracyjna zbioru danych</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab5-tworzenie-modeli.html">5. Tworzenie modeli uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../laboratoria/lab6-uczenie-maszynowe-2.html">6. Uczenie maszynowe II</a></li>
@@ -359,11 +359,12 @@ document.write(`
 <p><strong>Wymagania</strong></p>
 <ul class="simple">
 <li><p>Wszystkie procedury należy zintegrować z potokiem dvc.</p></li>
-<li><p>Końcową komendę <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> należy uruchomić korzystając ze środowiska w kontenerze Docker.</p></li>
+<li><p>Końcową komendę <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> należy uruchomić korzystając ze środowiska w kontenerze Docker. W przeciwnym razie przyznane będzie 80% punktów (zgodnie z zasadami oceniania).</p></li>
 </ul>
 <p><strong>Wskazówki</strong></p>
 <ol class="arabic simple">
-<li><p>Dokonując analizy modelu zawsze wykonuj cross-walidację.</p></li>
+<li><p>Dokonując analizy modelu (zadania 2 i 3) wykonuj walidację krzyżową (cross-validation).</p></li>
+<li><p>Uważaj na przeciek danych (data leakage) nie tylko podczas mierzenia skuteczności na zbiorze testowym, ale również w trakcie walidacji krzyżowej.</p></li>
 <li><p>Aby uniknąć przecieku danych (data leakage) warto korzystać z klasy Pipeline <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">(docs)</a> z biblioteki <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p></li>
 <li><p>Zanim cokolwiek dodasz do projeku zastanów się w którym stage’u powinno to być umieszczone. W wielu sytuacjach nie będzie jednego dobrego rozwiązania, należy wtedy postąpić według własnych preferencji zdając sobie sprawę z wad i zalet decyzji.</p></li>
 </ol>

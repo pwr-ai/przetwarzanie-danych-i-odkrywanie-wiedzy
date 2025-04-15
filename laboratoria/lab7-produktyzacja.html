@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -184,7 +184,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="lab1-przygotowanie-srodowiska.html">1. Przygotowanie środowiska</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab2-podstawowe-biblioteki.html">2. Podstawowe biblioteki do odkrywania wiedzy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">3. L3: Narzędzia zarządzania eksperymentami</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3-zarzadzanie-eksperymentami.html">3. Narzędzia zarządzania eksperymentami</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab4-analiza-zbioru-danych.html">4. Analiza eksploracyjna zbioru danych</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab5-tworzenie-modeli.html">5. Tworzenie modeli uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab6-uczenie-maszynowe-2.html">6. Uczenie maszynowe II</a></li>
@@ -388,6 +388,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="produktyzacja-procesow-odkrywania-wiedzy">
 <h1><span class="section-number">7. </span>Produktyzacja procesów odkrywania wiedzy<a class="headerlink" href="#produktyzacja-procesow-odkrywania-wiedzy" title="Link to this heading">#</a></h1>
+<p>Kod do przykładu można znaleźć <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/feat/summer-25/examples/lab6">tutaj</a></p>
 <section id="docker">
 <h2><span class="section-number">7.1. </span>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h2>
 <p>Docker jest narzędziem służącym do konteneryzacji aplikacji, co umożliwia łatwe ich udostępnianie i wdrażanie do środowisk produkcyjnych. Izoluje środowisko aplikacji, wraz z jej zależnościami, w sposób niezależny od środowiska systemu operacyjnego.</p>
@@ -508,20 +509,23 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">praw</span>
+<span class="kn">import</span> <span class="nn">tomllib</span>
 
-<span class="kn">import</span> <span class="nn">statsd</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;client_config.toml&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="n">config</span> <span class="o">=</span> <span class="n">tomllib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">,</span>
-                     <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">,</span> 
-                     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
-                     <span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">,</span>
-                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;client_id&quot;</span><span class="p">],</span>
+                     <span class="n">client_secret</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;client_secret&quot;</span><span class="p">],</span> 
+                     <span class="n">password</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;password&quot;</span><span class="p">],</span>
+                     <span class="n">user_agent</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;user_agent&quot;</span><span class="p">],</span>
+                     <span class="n">username</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;username&quot;</span><span class="p">])</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
-    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="s2">&quot;meme&quot;</span><span class="p">)</span>
-    <span class="n">meme</span> <span class="o">=</span> <span class="n">subreddit</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="s2">&quot;aww&quot;</span><span class="p">)</span>
+    <span class="n">meme</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">subreddit</span><span class="o">.</span><span class="n">rising</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">meme</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -529,8 +533,9 @@ document.write(`
 </pre></div>
 </div>
 <p>Zapisujemy potrzebne biblioteki do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.0.0</span>
-<span class="n">praw</span><span class="o">==</span><span class="mf">7.2.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.2.3</span>
+<span class="n">Werkzeug</span><span class="o">==</span><span class="mf">2.2.2</span>
+<span class="n">praw</span><span class="o">==</span><span class="mf">7.7.0</span>
 </pre></div>
 </div>
 </section>
@@ -751,43 +756,46 @@ document.write(`
 <section id="rozpoczecie-zbierania-danych-do-graphite-z-kodu">
 <h3><span class="section-number">7.4.1. </span>Rozpoczęcie zbierania danych do Graphite z kodu<a class="headerlink" href="#rozpoczecie-zbierania-danych-do-graphite-z-kodu" title="Link to this heading">#</a></h3>
 <p>W celu łatwej interakcji z Graphitem, posłużymy sie biblioteką <code class="docutils literal notranslate"><span class="pre">StatsD</span></code>, dołączając do pliku <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> wymagane zależności:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.0.0</span>
-<span class="n">praw</span><span class="o">==</span><span class="mf">7.2.0</span>
-<span class="n">statsd</span><span class="o">==</span><span class="mf">3.3.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Flask</span><span class="o">==</span><span class="mf">2.2.3</span>
+<span class="n">Werkzeug</span><span class="o">==</span><span class="mf">2.2.2</span>
+<span class="n">praw</span><span class="o">==</span><span class="mf">7.7.0</span>
+<span class="n">statsd</span><span class="o">==</span><span class="mf">4.0.1</span>
 </pre></div>
 </div>
 <p>oraz odpowiednio modyfikując kod aplikacji:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">praw</span>
-
+<span class="kn">import</span> <span class="nn">tomllib</span>
 <span class="kn">import</span> <span class="nn">statsd</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;client_config.toml&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="n">config</span> <span class="o">=</span> <span class="n">tomllib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
 <span class="c1"># dzięki użyciu Docker Compose, możemy w kodzie odwoływać się do nazw kontenerów zamiast adresów IP - Docker rozwiąże adresy sam za nas</span>
 
 <span class="n">stats</span> <span class="o">=</span> <span class="n">statsd</span><span class="o">.</span><span class="n">StatsClient</span><span class="p">(</span><span class="s1">&#39;graphite&#39;</span><span class="p">,</span> <span class="mi">8125</span><span class="p">)</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;WdgsSyHEDgL8_g&#39;</span><span class="p">,</span>
-                     <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;Mqs5rCsVze9iNM3QrmqjXDNulCBYxg&#39;</span><span class="p">,</span> 
-                     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;aaa111bbb222&quot;</span><span class="p">,</span>
-                     <span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;meme_displayer&#39;</span><span class="p">,</span>
-                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;SecretCauliflower665&#39;</span><span class="p">)</span>
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;client_id&quot;</span><span class="p">],</span>
+                     <span class="n">client_secret</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;client_secret&quot;</span><span class="p">],</span> 
+                     <span class="n">password</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;password&quot;</span><span class="p">],</span>
+                     <span class="n">user_agent</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;user_agent&quot;</span><span class="p">],</span>
+                     <span class="n">username</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;username&quot;</span><span class="p">])</span>
 
-<span class="c1"># mierzymy czas wykonania tej funkcji</span>
-<span class="nd">@stats</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;random_reddit_memes.request_times&#39;</span><span class="p">)</span>
+<span class="nd">@stats</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="s1">&#39;rising_reddit_memes.request_times&#39;</span><span class="p">)</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
-    <span class="c1"># mierzymy liczbę wywołań tej funkcji</span>
-    <span class="n">stats</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;random_reddit_memes.requests&#39;</span><span class="p">)</span>
-    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="s2">&quot;meme&quot;</span><span class="p">)</span>
-    <span class="n">meme</span> <span class="o">=</span> <span class="n">subreddit</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+    <span class="c1"># mierzymy ilość wywołań tej funkcji</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;rising_reddit_memes.requests&#39;</span><span class="p">)</span>
+    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="s2">&quot;aww&quot;</span><span class="p">)</span>
+    <span class="n">meme</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">subreddit</span><span class="o">.</span><span class="n">rising</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">meme</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">stats</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;random_reddit_memes.spawned&#39;</span><span class="p">)</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;rising_reddit_memes.spawned&#39;</span><span class="p">)</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;PORT&quot;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)))</span>
     
 </pre></div>
@@ -861,35 +869,61 @@ document.write(`
 <p>Jednym z nich jest <a class="reference external" href="https://streamlit.io/">Streamlit</a>. Jest to biblioteka renderująca skrypt Pythona do formy strony WWW.</p>
 <p>Przerobimy naszą przykładową aplikację, przy okazji rozszerzając jej funkcjonalności, umieszczając w pliku <code class="docutils literal notranslate"><span class="pre">app2.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">praw</span>
-
-<span class="c1"># importujemy bibliotekę</span>
 <span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">import</span> <span class="nn">statsd</span>
+<span class="kn">import</span> <span class="nn">tomllib</span>
 
-<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s1">&#39;WdgsSyHEDgL8_g&#39;</span><span class="p">,</span>
-                     <span class="n">client_secret</span><span class="o">=</span><span class="s1">&#39;Mqs5rCsVze9iNM3QrmqjXDNulCBYxg&#39;</span><span class="p">,</span> 
-                     <span class="n">password</span><span class="o">=</span><span class="s2">&quot;aaa111bbb222&quot;</span><span class="p">,</span>
-                     <span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;meme_displayer&#39;</span><span class="p">,</span>
-                     <span class="n">username</span><span class="o">=</span><span class="s1">&#39;SecretCauliflower665&#39;</span><span class="p">)</span>
 
-<span class="c1"># dodajemy możliwość wybrania jednej z predefiniowanych opcji</span>
-<span class="n">subreddit_name</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">radio</span><span class="p">(</span><span class="s1">&#39;What kind of memes do you like?&#39;</span><span class="p">,</span> 
-                          <span class="p">[</span><span class="s1">&#39;meme&#39;</span><span class="p">,</span> <span class="s1">&#39;aww&#39;</span><span class="p">,</span> <span class="s1">&#39;funny&#39;</span><span class="p">,</span> <span class="s1">&#39;polandball&#39;</span><span class="p">,</span> <span class="s1">&#39;MemesIRL&#39;</span><span class="p">])</span>
+<span class="c1"># load configuration from file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;client_config.toml&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="n">config</span> <span class="o">=</span> <span class="n">tomllib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-<span class="c1"># dodajemy slider z możliwością wyboru liczby</span>
+<span class="c1"># add graphite statsd client</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="n">statsd</span><span class="o">.</span><span class="n">StatsClient</span><span class="p">(</span><span class="s1">&#39;graphite&#39;</span><span class="p">,</span> <span class="mi">8125</span><span class="p">)</span>
+
+<span class="c1"># count spawns</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;rising_reddit_memes.spawned&#39;</span><span class="p">)</span>
+
+<span class="c1"># make reddit client</span>
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;client_id&quot;</span><span class="p">],</span>
+                     <span class="n">client_secret</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;client_secret&quot;</span><span class="p">],</span> 
+                     <span class="n">password</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;password&quot;</span><span class="p">],</span>
+                     <span class="n">user_agent</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;user_agent&quot;</span><span class="p">],</span>
+                     <span class="n">username</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;reddit&quot;</span><span class="p">][</span><span class="s2">&quot;username&quot;</span><span class="p">])</span>
+
+<span class="c1"># make streamlit radio button with subreddit names</span>
+<span class="n">subreddit_name</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">radio</span><span class="p">(</span><span class="s1">&#39;What kind of memes do you like?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;meme&#39;</span><span class="p">,</span> <span class="s1">&#39;aww&#39;</span><span class="p">,</span> <span class="s1">&#39;funny&#39;</span><span class="p">,</span> <span class="s1">&#39;polandball&#39;</span><span class="p">,</span> <span class="s1">&#39;MemesIRL&#39;</span><span class="p">])</span>
+<span class="c1"># make streamlit slider with number of memes</span>
 <span class="n">memes_count</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">slider</span><span class="p">(</span><span class="s2">&quot;How many memes you want to see?&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
+<span class="c1"># make subreddit object</span>
 <span class="n">subreddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="n">subreddit_name</span><span class="p">)</span>
+<span class="c1"># retrieve number of memes + 1 rising posts</span>
+<span class="n">retrieved_memes</span> <span class="o">=</span> <span class="n">subreddit</span><span class="o">.</span><span class="n">rising</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">memes_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">memes_count</span><span class="p">):</span>
-    <span class="n">meme</span> <span class="o">=</span> <span class="n">subreddit</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-   
-    <span class="k">if</span> <span class="n">meme</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">meme</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+<span class="c1"># plot until numer of plots == memes_count</span>
+<span class="c1"># or until no more memes</span>
+<span class="n">plotted_meme_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">meme</span> <span class="ow">in</span> <span class="n">retrieved_memes</span><span class="p">:</span>
+   <span class="c1"># count requests</span>
+   <span class="n">stats</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;rising_reddit_memes.requests&#39;</span><span class="p">)</span>
+   <span class="c1"># check if meme is image</span>
+   <span class="k">if</span> <span class="p">(</span>
+      <span class="n">meme</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span>
+      <span class="n">meme</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;png&#39;</span><span class="p">))</span>
+      <span class="p">):</span>
+         <span class="c1"># plot meme and increment counter</span>
+         <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">meme</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+         <span class="n">plotted_meme_count</span> <span class="o">+=</span> <span class="mi">1</span>
+   <span class="c1"># check if we reached memes_count</span>
+   <span class="k">if</span> <span class="n">plotted_meme_count</span> <span class="o">&gt;=</span> <span class="n">memes_count</span><span class="p">:</span>
+      <span class="k">break</span>
 </pre></div>
 </div>
 <p>Dorzucamy też zależność do wymaganych:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">streamlit</span><span class="o">==</span><span class="mf">0.82.0</span>
-<span class="n">praw</span><span class="o">==</span><span class="mf">7.2.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">streamlit</span><span class="o">==</span><span class="mf">1.44.1</span>
+<span class="n">praw</span><span class="o">==</span><span class="mf">7.8.1</span>
+<span class="n">statsd</span><span class="o">==</span><span class="mf">4.0.1</span>
 </pre></div>
 </div>
 <p>Zmodyfikujemy też plik <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> naszej aplikacji, by używała nowej biblioteki:</p>
@@ -898,8 +932,10 @@ document.write(`
 <span class="gp"># </span>ustawiamy<span class="w"> </span>katalog<span class="w"> </span>domyślny<span class="w"> </span>dla<span class="w"> </span>naszej<span class="w"> </span>aplikacji
 <span class="go">WORKDIR /usr/src/app</span>
 
-<span class="gp"># </span>kopiujemy<span class="w"> </span>wszystkie<span class="w"> </span>pliki<span class="w"> </span>z<span class="w"> </span>obecnego<span class="w"> </span>katalogu<span class="w"> </span><span class="k">do</span><span class="w"> </span>WORKDIR
-<span class="go">COPY . .</span>
+<span class="gp"># </span>kopiujemy<span class="w"> </span>istotne<span class="w"> </span>pliki<span class="w"> </span>z<span class="w"> </span>obecnego<span class="w"> </span>katalogu<span class="w"> </span><span class="k">do</span><span class="w"> </span>WORKDIR
+<span class="go">COPY requirements2.txt .</span>
+<span class="go">COPY app2.py .</span>
+<span class="go">COPY client_config.toml .</span>
 
 <span class="gp"># </span>instalujemy<span class="w"> </span>zalezności
 <span class="gp">#</span>RUN<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>
