@@ -13,7 +13,7 @@ W zadaniu należy wykorzystać model do analizy emocji z platformy HuggingFace [
 
 Wykorzystując bibliotekę [praw](https://github.com/praw-dev/praw) oraz Streamlit napisz skrypt, który pobiera dane z wybranego subreddita 
 i dokonuje na nich analizy sentymentu. Aplikacja ma posiadać następujące funkcjonalności:
-* możliwość podania nazwy subreddita profilu do zescrapowania 
+* możliwość podania nazwy subreddita do zescrapowania 
 * użycie metody cache'ującej wyniki scrapowania, by zaoszczędzić transfer i czas
 * wykres liczby postów w czasie
 * wykres nacechowania emocjonalnego postów ogółem 
@@ -41,8 +41,6 @@ Używając Docker Compose, stwórz środowisko umożliwiajace zbieranie statysty
 
 Stworzone wykresy udokumentuj zrzutami ekranu.
 
-## (dodatkowe) 4. (0.5 pkt) Załóż alert na któryś z wykresów Grafany
+## (dodatkowe) 4. (0.5 pkt) Załóż alert na któryś z wykresów Grafany. Udokumentuj zrzutem ekranu.
 
-## (dodatkowe) 5. (0.5 pkt) Opublikuj obraz utworzony w zad 2 na Docker Hub.
-   
-
+## (dodatkowe) 5. (0.5 pkt) Opublikuj obraz utworzony w zad 2 na Docker Hub. Udokumentuj zrzutem ekranu.
