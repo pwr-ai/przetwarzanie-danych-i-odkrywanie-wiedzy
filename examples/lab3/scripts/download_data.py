@@ -1,5 +1,4 @@
 import pickle
-
 import datasets
 import yaml
 
@@ -9,7 +8,7 @@ def main():
         cfg = yaml.safe_load(f)
 
     dataset = datasets.load_dataset(
-        "clarin-pl/polemo2-official", **cfg["download_data"]
+        "clarin-pl/polemo2-official", **cfg["download_data"], trust_remote_code=True, verification_mode="no_checks"
     )
 
     dataset = {

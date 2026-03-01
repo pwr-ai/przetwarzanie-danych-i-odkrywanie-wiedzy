@@ -23,9 +23,6 @@ i uniwersalny względem stosowanych zbiorów danych.
 **Będzie to zweryfikowane poprzez dodanie
 poniższego zbioru danych.**
 
-### Termin oddania
-
-* 2024-04-17/2024-04-18
 
 ### Nowy zbiór
 
