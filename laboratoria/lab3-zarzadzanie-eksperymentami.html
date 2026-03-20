@@ -424,7 +424,13 @@ document.write(`
 <p>W ramach materiałów nie będziemy wykorzystywać zewnętrznego serwera, dlatego wystarczy nam podstawowa wersja.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Poniższa instrukcja dotyczy wykorzystania DVC w wersji 3.0 i została przetestowana z wykorzystaniem wersji 3.59.1</p>
+<p>DVC jest dynamicznie rozwijającym się narzędziem i czasem można napotkać niespodziewane błędy.
+W momencie testowania poniższego notatnika, polecenie <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">dvc[s3]</span></code> nie działało poprawnie.
+W takim wypadku należy osobno zainstalować paczki <code class="docutils literal notranslate"><span class="pre">dvc</span></code> i <code class="docutils literal notranslate"><span class="pre">dvc-s3</span></code>.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Poniższa instrukcja dotyczy wykorzystania DVC w wersji 3.0 i została przetestowana z wykorzystaniem wersji 3.67.0</p>
 </div>
 </section>
 <section id="inicjalizacja-repozytorium-dvc">
@@ -699,6 +705,10 @@ Więcej szczegółów na temat konfiguracji serwera:  <a class="reference extern
 </div>
 <p>Pliki śledzone przez dvc takie jak np. pliki wyjściowe możemy przesyłać na zewnętrzny serwer za pomocą polecenia
 <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">push</span></code>, a pobierać lokalnie za pomocą komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">pull</span></code>. Podobnie jak w przypadku <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">repro</span></code> zakres operacji <code class="docutils literal notranslate"><span class="pre">push</span></code> i <code class="docutils literal notranslate"><span class="pre">pull</span></code> obejmuje domyślnie cały potok lub jego wybraną część poprzez przekazanie nazw(y) etapów jako argumentu polecenia.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>DVC automatycznie śledzi pliki generowane przez skrypty, jeżeli zdefiniujemy te pliki jako <code class="docutils literal notranslate"><span class="pre">outs</span></code> w powiązanym etapie (stage). Nie oznacza to jednak, że automatycznie śledzi pliki wejściowe. Jeżeli chcemy, by DVC śledziło plik ręcznie dodany do repozytorium (np. surowe dane), należy to wymuscić przy pomocy polecenia <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">add</span></code>.</p>
+</div>
 </section>
 <section id="kolejne-etapy-przetwarzania">
 <h3><span class="section-number">3.1.5. </span>Kolejne etapy przetwarzania<a class="headerlink" href="#kolejne-etapy-przetwarzania" title="Link to this heading">#</a></h3>
@@ -915,7 +925,11 @@ Przykład</p></li>
 </section>
 <section id="kod-do-czesci-i">
 <h3><span class="section-number">3.1.9. </span>Kod do części I<a class="headerlink" href="#kod-do-czesci-i" title="Link to this heading">#</a></h3>
-<p>Rozwiązanie części I znajduje się pod adresem: <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/main/examples/lab3">[LINK]</a></p>
+<p>Rozwiązanie części I znajduje się pod adresem: <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/feat/summer-26/examples/lab3">[LINK]</a></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>DVC jest dalej w trakcie rozwoju, dlatego poniższa instrukcja ogranicza się do zastosowania DVC w wersji 3.0. Nowsze wersje biblioteki mogą wprowadzić duże zmiany do poszczególnych funkcjonalności. Najnowsza wersja dokumentacji jest dostępna pod adresem https://dvc.org/doc</p>
+</div>
 </section>
 </section>
 <section id="mlflow">
@@ -1333,7 +1347,7 @@ Możemy tym celu ustawić zmienną środowiskową</p>
 </section>
 <section id="kod-do-czesci-ii">
 <h2><span class="section-number">3.4. </span>Kod do części II<a class="headerlink" href="#kod-do-czesci-ii" title="Link to this heading">#</a></h2>
-<p>Pełny kod pokrywający część II znajduje się pod adresem: <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/feat/summer-25/examples/lab3">[LINK]</a></p>
+<p>Pełny kod pokrywający część II znajduje się pod adresem: <a class="reference external" href="https://github.com/pwr-ai/przetwarzanie-danych-i-odkrywanie-wiedzy/tree/feat/summer-26/examples/lab3">[LINK]</a></p>
 </section>
 <section id="eksperymenty-w-dvc-3-0">
 <h2><span class="section-number">3.5. </span>Eksperymenty w DVC 3.0<a class="headerlink" href="#eksperymenty-w-dvc-3-0" title="Link to this heading">#</a></h2>
