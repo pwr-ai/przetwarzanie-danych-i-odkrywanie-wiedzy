@@ -1,9 +1,7 @@
 # Zadania Lista 3
 
 ## Wymagania
-
-- Komendy `dvc` należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie
-  przyznane będzie 80% pkt za zadania z DVC.
+- Komendy (w tym dvc) należy uruchomić korzystając ze środowiska w kontenerze Docker.
 
 ---
 
@@ -54,7 +52,7 @@ laboratorium 1.)
 *Nie dodajemy danych do repozytorium git, tylko do dvc (zadanie 2). Za dodanie danych będą
 odejmowane punkty.*
 W ramach tej listy zajmiemy się budową klasyfikatora, który będzie punktem odniesienia (baseline) w
-kolejnych listach. Będzie on predykował ignorując wszystkie cechy wejściowe. Ponieżej zamieszczono
+kolejnych listach. Będzie on predykował ignorując wszystkie cechy wejściowe. Poniżej zamieszczono
 opis działania poszczególnych skryptów.
 
 - Wstępne przetwarzanie danych - połącz recenzje z odpowiadającymi im produktami w jeden dataframe; 
@@ -79,16 +77,16 @@ opis działania poszczególnych skryptów.
 
 ## 2. (4 pkt)  Obsługa DVC
 
-* Dodaj dane do DVC.
+* Dodaj dane do DVC. Udokumentuj (zrzut ekranu).
 * Dodaj przygotowane skrypty jako elementy potoku `DVC`, zdefiniuj odpowiednie parametry, zależności (skrypty, dane wejściowe, ...)
   oraz wyjścia.
 * Dodaj metryki do trackowania.
 * Metryk nie należy umieszczać w cache dvc, mają być trackowane przez
   git. [więcej tutaj](https://dvc.org/doc/user-guide/project-structure/dvcyaml-files#metrics-and-plots-outputs)
 * Zapisz wynik komendy `dvc status` (zrzut ekranu).
-* Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium.
+* Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. Udokumentuj (zrzut ekranu).
 * Zmień podział danych na stratyfikowany. Zapisz wynik komendy `dvc status` (zrzut ekranu).
-  Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium.
+  Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. Udokumentuj (zrzut ekranu).
 
 ## 3. (3 pkt) Wykonanie eksperymentów
 
@@ -99,5 +97,5 @@ opis działania poszczególnych skryptów.
 
 ## 5. [OPCJONALNIE] (1 pkt) DVC remote
 
-* Dodaj zewnętrzną lokację do przechowywania danych z DVC np. studencki Google Drive.
+* Dodaj zewnętrzną lokację do przechowywania danych z DVC. Jeżeli nie masz możliwości dodania lokalizacji w chmurze, możesz ją zasymulować poprzez uruchomienie serwera lokalnie. 
 * Prześlij dane.

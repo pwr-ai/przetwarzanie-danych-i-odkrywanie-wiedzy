@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -364,8 +364,7 @@ document.write(`
 <section id="wymagania">
 <h2>Wymagania<a class="headerlink" href="#wymagania" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Komendy <code class="docutils literal notranslate"><span class="pre">dvc</span></code> należy uruchomić korzystając ze środowiska w kontenerze Docker, w przeciwnym razie
-przyznane będzie 80% pkt za zadania z DVC.</p></li>
+<li><p>Komendy (w tym dvc) należy uruchomić korzystając ze środowiska w kontenerze Docker.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -412,7 +411,7 @@ laboratorium 1.)
 <em>Nie dodajemy danych do repozytorium git, tylko do dvc (zadanie 2). Za dodanie danych będą
 odejmowane punkty.</em>
 W ramach tej listy zajmiemy się budową klasyfikatora, który będzie punktem odniesienia (baseline) w
-kolejnych listach. Będzie on predykował ignorując wszystkie cechy wejściowe. Ponieżej zamieszczono
+kolejnych listach. Będzie on predykował ignorując wszystkie cechy wejściowe. Poniżej zamieszczono
 opis działania poszczególnych skryptów.</p>
 <ul class="simple">
 <li><p>Wstępne przetwarzanie danych - połącz recenzje z odpowiadającymi im produktami w jeden dataframe;
@@ -439,16 +438,16 @@ jednak zdawać sobie sprawę z wad i zalet danej implementacji</p></li>
 <section id="pkt-obsluga-dvc">
 <h2>2. (4 pkt)  Obsługa DVC<a class="headerlink" href="#pkt-obsluga-dvc" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Dodaj dane do DVC.</p></li>
+<li><p>Dodaj dane do DVC. Udokumentuj (zrzut ekranu).</p></li>
 <li><p>Dodaj przygotowane skrypty jako elementy potoku <code class="docutils literal notranslate"><span class="pre">DVC</span></code>, zdefiniuj odpowiednie parametry, zależności (skrypty, dane wejściowe, …)
 oraz wyjścia.</p></li>
 <li><p>Dodaj metryki do trackowania.</p></li>
 <li><p>Metryk nie należy umieszczać w cache dvc, mają być trackowane przez
 git. <a class="reference external" href="https://dvc.org/doc/user-guide/project-structure/dvcyaml-files#metrics-and-plots-outputs">więcej tutaj</a></p></li>
 <li><p>Zapisz wynik komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">status</span></code> (zrzut ekranu).</p></li>
-<li><p>Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium.</p></li>
+<li><p>Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. Udokumentuj (zrzut ekranu).</p></li>
 <li><p>Zmień podział danych na stratyfikowany. Zapisz wynik komendy <code class="docutils literal notranslate"><span class="pre">dvc</span> <span class="pre">status</span></code> (zrzut ekranu).
-Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium.</p></li>
+Zreprodukuj potok. Zatwierdź zmiany i umieść je w repozytorium. Udokumentuj (zrzut ekranu).</p></li>
 </ul>
 </section>
 <section id="pkt-wykonanie-eksperymentow">
@@ -463,7 +462,7 @@ wybrania modelu w konfiguracji (params.yaml).</p></li>
 <section id="opcjonalnie-1-pkt-dvc-remote">
 <h2>5. [OPCJONALNIE] (1 pkt) DVC remote<a class="headerlink" href="#opcjonalnie-1-pkt-dvc-remote" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Dodaj zewnętrzną lokację do przechowywania danych z DVC np. studencki Google Drive.</p></li>
+<li><p>Dodaj zewnętrzną lokację do przechowywania danych z DVC. Jeżeli nie masz możliwości dodania lokalizacji w chmurze, możesz ją zasymulować poprzez uruchomienie serwera lokalnie.</p></li>
 <li><p>Prześlij dane.</p></li>
 </ul>
 </section>
